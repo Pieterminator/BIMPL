@@ -1,0 +1,16 @@
+,Unnamed: 0,Condition,Formula,Translation,Correct?,Clear?,Fluent?,Post-Edit
+10,10,RG,"¬ ∃ x ∃ x RightOf ( x , x )",it is not the case that there is an element x such that there is an element x such that x is to the right of itself,No,1,1,There is no element for which it is the case that it is next to some element
+11,11,RG,"∃ x ( ¬ SameShape ( a , a ) → LeftOf ( x , b ) )","there is an element x such that if a is not of the same shape as a , then x is to the left of b",Yes,4,2,"For some element it is that case that if a has not the same shape as itself, then the element is to the left of b"
+12,12,RG,¬ ( ( Dodec ( a ) → Medium ( a ) ) ∧ Medium ( b ) ),"it is not the case that all these hold : \n\t• if a is a dodecahedron , then a is medium \n\t• b is medium",Yes,5,5,
+13,13,RG,"∃ x ( ( Small ( x ) ∨ LeftOf ( a , x ) ) ∨ Person ( a ) )","there is an element x such that x is small , a is to the left of x or a is a person",Yes,3,3,"something is small, or to the left of a, or a is a person"
+14,14,RG,"∀ x ( Pet ( a ) → Medium ( x ) ) → ¬ LeftOf ( a , a )","if for all x , if a is a pet , then x is medium , then a is not to the left of a",Yes,4,2,"if it is the case that, if a is a pet then all x are medium, then a is not to the left of a"
+15,15,RG,¬ ( ( Person ( a ) ∧ Even ( b ) ) → ¬ Medium ( b ) ),"it is not the case that if a is a person and b is even , then b is not medium",Yes,5,4,
+16,16,RG,"( ¬ Large ( a ) ∧ ¬ Cube ( a ) ) ∧ ¬ ( BackOf ( b , c ) ∧ Medium ( b ) )","a is not large , a is not a cube and it is not the case that b is in back of c and medium",Yes,5,4,
+17,17,RG,"∀ x ( Large ( a ) → ¬ SameShape ( b , x ) )","for all x , if a is large , then b is not of the same shape as x",Yes,5,4,"If a is large, then b is not of the same shape as any element x"
+18,18,RG,"∀ x SameSize ( x , a )","for all x , x is of the same size as a",Yes,5,3,
+19,19,RG,"( Dodec ( a ) ∧ ( Person ( a ) ∨ Dodec ( a ) ) ) ∨ ∀ x ( Prime ( a ) → LeftOf ( x , b ) )","all these hold : \n\t• a is a dodecahedron \n\t• a is a person or a is a dodecahedron or for all x , if a is a prime , then x is to the left of b",Yes,5,4,
+20,20,Filler,"¬ ∃ x ( SameShape ( a , b ) → SameRow ( c , c ) )",it is not the case that there is an element x such that a is in the same shape as b and c is in the same row as itself,Yes,3,2,
+21,21,Filler,∀ x ( Tet ( x ) ∨ Prime ( a ) ) ∨ ∃ x ( Person ( x ) → Student ( a ) ),"for all x , x is a tetrahedron or a is a prime or there is an element x such that a is a student",Yes,1,1,
+22,22,Filler,"∃ x ∀ y Larger ( x , a ) ∧ ∀ y ¬ Pet ( b )","there is an element x such that for all y , x is larger than a and there is an element x such that for all y , b is not a pet",Yes,2,1,something is larger than a and b is not a pet
+23,23,Filler,"∃ x ( ( ( SameShape ( x , a ) ∧ Tet ( x ) ) → Adjoins ( x , a ) )","for all x , if x is of the same shape as a, then x is adjacent to a",No,4,3,"For something it is the case that if it is of the same shape as a and a Tet, then it is adjacent to a"
+24,24,Filler,"∃ x Cube ( x ) ( Person ( a ) → Adjoins ( x , a ) )",there is a cube such that a is a person or x is adjacent to a,No,1,2,There is a cube that is adjacent to a if a is a person
