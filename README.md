@@ -1,5 +1,3 @@
-20-06-2022
-
 ## Grammatical Framework application grammar for translating between language and predicate logic
 
 LoLa is an adaptation of Ranta's (2011) Grammatical Framework application:
@@ -41,18 +39,8 @@ For translating all sentences in a source language from an input text file to a 
 
   -- concrete syntax
   PropI.gf                  -- concrete syntax, functor with RGL
-  PropDut.gf	            -- concrete syntax, Dutch with RGL functor
   PropEng.gf                -- concrete syntax, English with RGL functor
-  PropFin.gf                -- concrete syntax, Finnish with RGL functor
-  PropFre.gf                -- concrete syntax, French  with RGL functor
-  PropGer.gf                -- concrete syntax, German  with RGL functor
-  PropPor.gf                -- concrete syntax, Portuguese with RGL functor
-  PropSwe.gf                -- concrete syntax, Swedish with RGL functor
-  PropLatex.gf              -- concrete syntax, symbolic logic in LaTeX
 
-  -- not in use
-  PropENF.gf                -- concrete syntax, English with RGL ordinary module
-  PropStr.gf                -- concrete syntax, pidgin English
 ```
 
 ### Generated files
