@@ -1,6 +1,6 @@
-## Grammatical Framework application grammar for translating between language and predicate logic
+## Grammatical Framework application grammar for translating between predicate logic and language
 
-LoLa is an adaptation of Ranta's (2011) Grammatical Framework application:
+LoLa is an extension of Ranta's (2011) Grammatical Framework application:
 _Translating between language and logic: what is easy and what is difficult._
 A Ranta - International Conference on Automated Deduction, 2011, LNCS/LNAI. See http://www.cse.chalmers.se/~aarne/articles/cade2011.pdf.
 
@@ -40,6 +40,7 @@ For translating all sentences in a source language from an input text file to a 
   -- concrete syntax
   PropI.gf                  -- concrete syntax, functor with RGL
   PropEng.gf                -- concrete syntax, English with RGL functor
+  PropGGC.gf                -- concrete syntax, grammar for Grade Grinder Corpus notation
 
 ```
 
