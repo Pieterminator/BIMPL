@@ -3,6 +3,12 @@
 LoLa is an extension of [Ranta's (2011)](http://www.cse.chalmers.se/~aarne/articles/cade2011.pdf) GF application.
 The original version of Ranta's code is taken from [cade-2011](https://github.com/GrammaticalFramework/gf-contrib/tree/master/cade-2011). The file `Changes.md` lists all bug fixes and changes to the original code.
 
+
+### Prerequisites
+
+Install GF with HASKELL BINDING. Follow https://inariksit.github.io/gf/2019/12/12/embedding-grammars.html and http://www.grammaticalframework.org/download/index-3.11.html
+
+
 ### Compile with stack
 
 To build
@@ -18,7 +24,7 @@ For translating all sentences in a source language from an input text file to a 
 
     stack run trans <mode> <source-language> <input-file> <target-language> <output-file>
     
-where <mode> can be `MNone` to get Baseline-like translations (i.e., (quasi-)literal without any optimization), `MOptimize` to get the original Ranta version (i.e., with some AST optimizations), or `MSimplify` to get LoLa's output (as described in the paper).
+where `<mode>` can be `MNone` to get Baseline-like translations (i.e., (quasi-)literal without any optimization), `MOptimize` to get the original Ranta version (i.e., with some AST optimizations), or `MSimplify` to get LoLa's output (as described in our paper).
     
 
 ### Source files
