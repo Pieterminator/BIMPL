@@ -1,13 +1,6 @@
 #files and file types
 *.gfo
-*.xlsx
-translationcorpus-1.0.1.csv
 Prop.pgf
-*.JPG
-*.png
-*.jpg
 
 #folders
 .stack-work/*
-.spyproject/*
-exp2/materials/__pycache__/*
