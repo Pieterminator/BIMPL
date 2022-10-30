@@ -26,6 +26,7 @@ For translating all sentences in a source language (e.g., `PropGGC`) from an inp
     
 where `<mode>` can be `MNone` to get Baseline-like translations (i.e., (quasi-)literal without any optimization), `MOptimize` to get the original Ranta version (i.e., with some AST optimizations), or `MSimplify` to get LoLa's output (as described in our paper).
     
+You can find the list of the predicates supported at the moment in `PropGGC` or in `tqa/legend.jpg`.
 
 ### Source files
 
