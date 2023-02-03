@@ -1,7 +1,7 @@
 ## LoLa
 
 LoLa is a [Grammatical Framework](http://www.grammaticalframework.org/) (GF) application grammar for translating between first-order predicate logic (FOL) and natural language.  
-This is the code accompanying the [GEM @ EMNLP 2022](https://gem-benchmark.com/workshop) paper ["Enhancing and Evaluating the Grammatical Framework Approach to Logic-to-Text Generation"](https://aclanthology.org/2022.gem-1.13/)
+This is the code accompanying the [GEM @ EMNLP 2022](https://gem-benchmark.com/workshop) paper [Enhancing and Evaluating the Grammatical Framework Approach to Logic-to-Text Generation](https://aclanthology.org/2022.gem-1.13/).
 
 To run the app, follow the instructions in the `README.md` in the `src` folder.
 
