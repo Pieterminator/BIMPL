@@ -20,7 +20,7 @@ To test
 
     stack run trans "for all numbers x , x is even or x is odd"
 
-For translating all sentences in a source language (e.g., `PropGGC`) from an input text file to a target language (e.g., `PropENG`), writing them to an output text file:
+For translating all sentences in a source language (e.g., `PropGGC`) from an input text file to a target language (e.g., `PropEng`), writing them to an output text file:
 
     stack run trans <mode> <source-language> <input-file> <target-language> <output-file>
     
