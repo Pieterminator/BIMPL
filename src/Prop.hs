@@ -142,6 +142,7 @@ data Tree :: * -> * where
   GPExist :: GVar -> GProp -> Tree GProp_
   GPExists :: GListVar -> GKind -> GProp -> Tree GProp_
   GPImpl :: GProp -> GProp -> Tree GProp_
+  -- TODO: GPBimpl
   GPNeg :: GProp -> Tree GProp_
   GPNegAtom :: GAtom -> Tree GProp_
   GPNegExist :: GVar -> GProp -> Tree GProp_
@@ -223,6 +224,7 @@ instance Eq (Tree a) where
     (GPExist x1 x2,GPExist y1 y2) -> and [ x1 == y1 , x2 == y2 ]
     (GPExists x1 x2 x3,GPExists y1 y2 y3) -> and [ x1 == y1 , x2 == y2 , x3 == y3 ]
     (GPImpl x1 x2,GPImpl y1 y2) -> and [ x1 == y1 , x2 == y2 ]
+    -- TODO: (GPBimpl x1 x2,GPBimpl y1 y2)
     (GPNeg x1,GPNeg y1) -> and [ x1 == y1 ]
     (GPNegAtom x1,GPNegAtom y1) -> and [ x1 == y1 ]
     (GPNegExist x1 x2,GPNegExist y1 y2) -> and [ x1 == y1 , x2 == y2 ]
@@ -469,6 +471,7 @@ instance Gf GProp where
   gf (GPExist x1 x2) = mkApp (mkCId "PExist") [gf x1, gf x2]
   gf (GPExists x1 x2 x3) = mkApp (mkCId "PExists") [gf x1, gf x2, gf x3]
   gf (GPImpl x1 x2) = mkApp (mkCId "PImpl") [gf x1, gf x2]
+  -- gf (GBimpl x1 x2)
   gf (GPNeg x1) = mkApp (mkCId "PNeg") [gf x1]
   gf (GPNegAtom x1) = mkApp (mkCId "PNegAtom") [gf x1]
   gf (GPNegExist x1 x2) = mkApp (mkCId "PNegExist") [gf x1, gf x2]
@@ -485,6 +488,7 @@ instance Gf GProp where
       Just (i,[x1,x2]) | i == mkCId "PExist" -> GPExist (fg x1) (fg x2)
       Just (i,[x1,x2,x3]) | i == mkCId "PExists" -> GPExists (fg x1) (fg x2) (fg x3)
       Just (i,[x1,x2]) | i == mkCId "PImpl" -> GPImpl (fg x1) (fg x2)
+      Just (i,[x1,x2]) | i == mkCId "PBimpl" -> GPBimpl (fg x1) (fg x2)                 --Pieter
       Just (i,[x1]) | i == mkCId "PNeg" -> GPNeg (fg x1)
       Just (i,[x1]) | i == mkCId "PNegAtom" -> GPNegAtom (fg x1)
       Just (i,[x1,x2]) | i == mkCId "PNegExist" -> GPNegExist (fg x1) (fg x2)
@@ -531,6 +535,7 @@ instance Compos Tree where
     GPExist x1 x2 -> r GPExist `a` f x1 `a` f x2
     GPExists x1 x2 x3 -> r GPExists `a` f x1 `a` f x2 `a` f x3
     GPImpl x1 x2 -> r GPImpl `a` f x1 `a` f x2
+    GPBimpl x1 x2 -> r GPBimpl `a` f x1 `a` f x2                        --Pieter
     GPNeg x1 -> r GPNeg `a` f x1
     GPNegAtom x1 -> r GPNegAtom `a` f x1
     GPNegExist x1 x2 -> r GPNegExist `a` f x1 `a` f x2
