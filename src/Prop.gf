@@ -18,6 +18,7 @@ fun
   PNeg   : Prop  -> Prop ;                  -- negation
   PConj  : Conj  -> Prop -> Prop -> Prop ;  -- conjunction
   PImpl  : Prop  -> Prop -> Prop ;          -- implication
+  PBimpl : Prop  -> Prop -> Prop ;          -- Bi-implication
 
   PUniv  : Var -> Prop -> Prop ;            -- universal quantification
   PExist : Var -> Prop -> Prop ;            -- existential quantification
