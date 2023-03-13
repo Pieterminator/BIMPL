@@ -26,9 +26,7 @@ lin
     } ;
   PConj c p q = {s = mkS c.s p.s q.s ; c = True} ; -- can be ambiguous; cf. PConjs
   PImpl p q = {s = ExtAdvS (mkAdv if_Subj p.s) (mkS then_Adv q.s) ; c = True} ;
-
-  -- TO DO: Add PBimpl
-
+-- TODO: PBimpl
 
   PUniv v p = {
     s = ExtAdvS (mkAdv for_Prep (mkNP all_Predet (symb v.s))) p.s ;
