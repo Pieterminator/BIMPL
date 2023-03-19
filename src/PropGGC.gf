@@ -17,7 +17,6 @@ lin
   PNeg = prefix 3 "~" ;
   PConj = infixl 1 ;
   PImpl = infixr 0 "$" ;
-  PBimpl = infixr 0 "%" ;                                         --Pieter
   PUniv v = prefix 3 ("@" ++ v) ;
   PExist v = prefix 3 ("/" ++ v) ;
 
@@ -32,6 +31,7 @@ lin
 
   CAnd = "&" ;
   COr = "|" ;
+  CBimpl = "%" ;                                         --Pieter
 
 -- supplementary
 
