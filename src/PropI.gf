@@ -4,7 +4,6 @@ incomplete concrete PropI of Prop = open
   Syntax, 
   Symbolic, 
   Sentence, ---- ExtAdvS
-  Add,
   Prelude in {
 
 
@@ -28,7 +27,7 @@ lin
     } ;
   PConj c p q = {s = mkS c.s p.s q.s ; c = True} ; -- can be ambiguous; cf. PConjs
   PImpl p q = {s = ExtAdvS (mkAdv if_Subj p.s) (mkS then_Adv q.s) ; c = True} ;
-  PBimpl p q = {s = ExtAdvS (mkAdv iff_Subj p.s) (mkS q.s) ; c = True} ; --Pieter
+  PBimpl p q = {s = SSubjS p.s iff_Subj q.s ; c = True} ; --Pieter
 
   PUniv v p = {
     s = ExtAdvS (mkAdv for_Prep (mkNP all_Predet (symb v.s))) p.s ;

@@ -33,12 +33,11 @@ fun
 
   VString : String -> Var ;                 -- turns a string into a variable
 
-  CAnd, COr : Conj ;                -- `and' and `or' are both considered conjunctions
+  CAnd, COr : Conj ;                        -- `and' and `or' are both considered conjunctions
 
   PTaut     : Prop ;                        -- Elze: proposition that is always true (tautology)
   PContra   : Prop ;                        -- Elze: proposition that is always false (contradiction)
 
-  --iff_Conj  : Conj ;
 
 
 -- supplementary

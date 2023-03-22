@@ -80,9 +80,7 @@ data Tree :: * -> * where
   GAPredColl :: GPred2 -> GListInd -> Tree GAtom_
   GAPredRefl :: GPred2 -> GInd -> Tree GAtom_
   GCAnd :: Tree GConj_
-  GCBimpl :: Tree GConj_
   GCOr :: Tree GConj_
-  Giff_Conj :: Tree GConj_
   GCentre :: Tree GFun1_
   GSquare :: Tree GFun1_
   GIntersection :: Tree GFun2_
@@ -138,6 +136,7 @@ data Tree :: * -> * where
   GSameSize :: Tree GPred2_
   GSmaller :: Tree GPred2_
   GPAtom :: GAtom -> Tree GProp_
+  GPBimpl :: GProp -> GProp -> Tree GProp_
   GPConj :: GConj -> GProp -> GProp -> Tree GProp_
   GPConjs :: GConj -> GListProp -> Tree GProp_
   GPContra :: Tree GProp_
@@ -163,9 +162,7 @@ instance Eq (Tree a) where
     (GAPredColl x1 x2,GAPredColl y1 y2) -> and [ x1 == y1 , x2 == y2 ]
     (GAPredRefl x1 x2,GAPredRefl y1 y2) -> and [ x1 == y1 , x2 == y2 ]
     (GCAnd,GCAnd) -> and [ ]
-    (GCBimpl,GCBimpl) -> and [ ]
     (GCOr,GCOr) -> and [ ]
-    (Giff_Conj,Giff_Conj) -> and [ ]
     (GCentre,GCentre) -> and [ ]
     (GSquare,GSquare) -> and [ ]
     (GIntersection,GIntersection) -> and [ ]
@@ -221,6 +218,7 @@ instance Eq (Tree a) where
     (GSameSize,GSameSize) -> and [ ]
     (GSmaller,GSmaller) -> and [ ]
     (GPAtom x1,GPAtom y1) -> and [ x1 == y1 ]
+    (GPBimpl x1 x2,GPBimpl y1 y2) -> and [ x1 == y1 , x2 == y2 ]
     (GPConj x1 x2 x3,GPConj y1 y2 y3) -> and [ x1 == y1 , x2 == y2 , x3 == y3 ]
     (GPConjs x1 x2,GPConjs y1 y2) -> and [ x1 == y1 , x2 == y2 ]
     (GPContra,GPContra) -> and [ ]
@@ -259,16 +257,12 @@ instance Gf GAtom where
 
 instance Gf GConj where
   gf GCAnd = mkApp (mkCId "CAnd") []
-  gf GCBimpl = mkApp (mkCId "CBimpl") []
   gf GCOr = mkApp (mkCId "COr") []
-  gf Giff_Conj = mkApp (mkCId "iff_Conj") []
 
   fg t =
     case unApp t of
       Just (i,[]) | i == mkCId "CAnd" -> GCAnd 
-      Just (i,[]) | i == mkCId "CBimpl" -> GCBimpl 
       Just (i,[]) | i == mkCId "COr" -> GCOr 
-      Just (i,[]) | i == mkCId "iff_Conj" -> Giff_Conj 
 
 
       _ -> error ("no Conj " ++ show t)
@@ -471,6 +465,7 @@ instance Gf GPred2 where
 
 instance Gf GProp where
   gf (GPAtom x1) = mkApp (mkCId "PAtom") [gf x1]
+  gf (GPBimpl x1 x2) = mkApp (mkCId "PBimpl") [gf x1, gf x2]
   gf (GPConj x1 x2 x3) = mkApp (mkCId "PConj") [gf x1, gf x2, gf x3]
   gf (GPConjs x1 x2) = mkApp (mkCId "PConjs") [gf x1, gf x2]
   gf GPContra = mkApp (mkCId "PContra") []
@@ -487,6 +482,7 @@ instance Gf GProp where
   fg t =
     case unApp t of
       Just (i,[x1]) | i == mkCId "PAtom" -> GPAtom (fg x1)
+      Just (i,[x1,x2]) | i == mkCId "PBimpl" -> GPBimpl (fg x1) (fg x2)
       Just (i,[x1,x2,x3]) | i == mkCId "PConj" -> GPConj (fg x1) (fg x2) (fg x3)
       Just (i,[x1,x2]) | i == mkCId "PConjs" -> GPConjs (fg x1) (fg x2)
       Just (i,[]) | i == mkCId "PContra" -> GPContra 
@@ -534,6 +530,7 @@ instance Compos Tree where
     GConjPred1 x1 x2 -> r GConjPred1 `a` f x1 `a` f x2
     GPartPred x1 x2 -> r GPartPred `a` f x1 `a` f x2
     GPAtom x1 -> r GPAtom `a` f x1
+    GPBimpl x1 x2 -> r GPBimpl `a` f x1 `a` f x2
     GPConj x1 x2 x3 -> r GPConj `a` f x1 `a` f x2 `a` f x3
     GPConjs x1 x2 -> r GPConjs `a` f x1 `a` f x2
     GPExist x1 x2 -> r GPExist `a` f x1 `a` f x2
