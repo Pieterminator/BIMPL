@@ -4,7 +4,7 @@ concrete PropEng of Prop = PropI - [PNeg, PNegAtom] with
   (Syntax = SyntaxEng), 
   (Symbolic = SymbolicEng),
   (Sentence = SentenceEng)
-   ** open (P = ParadigmsEng), ExtraEng, Prelude in {
+   ** open (P = ParadigmsEng), ExtraEng, AddEng, Prelude in {
 
 -- exceptions
 
