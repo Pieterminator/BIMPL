@@ -6,6 +6,7 @@ incomplete concrete PropI of Prop = open
   Sentence, ---- ExtAdvS
   Prelude in {
 
+
 lincat
   Prop = {s : S ; c : Bool} ; -- c = True for connectives
   Atom = Cl ;
@@ -65,10 +66,9 @@ lin
     c = mkS (mkCl (mkNP (mkNP (mkDet (mkCard at_least_AdN (mkCard "1")))) (mkAdv part_Prep these_NP)) hold_V)
     } ;
   -- Pieter: Bi-implication (change later)
-  CBimpl = {
-    s = and_Conj ; 
-    c = mkS (mkCl (mkNP all_Predet these_NP) hold_V)
-    } ;
+  CBimpl = {s = if_then_Conj ; c = mkS (mkCl (mkNP all_Predet these_NP) hold_V)} ;
+  
+
 
 -- supplementary
 

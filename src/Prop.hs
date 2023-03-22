@@ -1,10 +1,10 @@
-{-# LANGUAGE GADTs, FlexibleInstances, KindSignatures, RankNTypes, TypeSynonymInstances #-}
+{-# OPTIONS_GHC -fglasgow-exts #-}
+{-# LANGUAGE GADTs #-}
 module Prop where
 
 import Control.Monad.Identity
 import Data.Monoid
 import PGF hiding (Tree)
-
 ----------------------------------------------------
 -- automatic translation from GF to Haskell
 ----------------------------------------------------
@@ -80,7 +80,9 @@ data Tree :: * -> * where
   GAPredColl :: GPred2 -> GListInd -> Tree GAtom_
   GAPredRefl :: GPred2 -> GInd -> Tree GAtom_
   GCAnd :: Tree GConj_
+  GCBimpl :: Tree GConj_
   GCOr :: Tree GConj_
+  Giff_Conj :: Tree GConj_
   GCentre :: Tree GFun1_
   GSquare :: Tree GFun1_
   GIntersection :: Tree GFun2_
@@ -161,7 +163,9 @@ instance Eq (Tree a) where
     (GAPredColl x1 x2,GAPredColl y1 y2) -> and [ x1 == y1 , x2 == y2 ]
     (GAPredRefl x1 x2,GAPredRefl y1 y2) -> and [ x1 == y1 , x2 == y2 ]
     (GCAnd,GCAnd) -> and [ ]
+    (GCBimpl,GCBimpl) -> and [ ]
     (GCOr,GCOr) -> and [ ]
+    (Giff_Conj,Giff_Conj) -> and [ ]
     (GCentre,GCentre) -> and [ ]
     (GSquare,GSquare) -> and [ ]
     (GIntersection,GIntersection) -> and [ ]
@@ -255,12 +259,16 @@ instance Gf GAtom where
 
 instance Gf GConj where
   gf GCAnd = mkApp (mkCId "CAnd") []
+  gf GCBimpl = mkApp (mkCId "CBimpl") []
   gf GCOr = mkApp (mkCId "COr") []
+  gf Giff_Conj = mkApp (mkCId "iff_Conj") []
 
   fg t =
     case unApp t of
       Just (i,[]) | i == mkCId "CAnd" -> GCAnd 
+      Just (i,[]) | i == mkCId "CBimpl" -> GCBimpl 
       Just (i,[]) | i == mkCId "COr" -> GCOr 
+      Just (i,[]) | i == mkCId "iff_Conj" -> Giff_Conj 
 
 
       _ -> error ("no Conj " ++ show t)

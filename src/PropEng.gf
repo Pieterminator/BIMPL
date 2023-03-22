@@ -25,6 +25,7 @@ oper
   case_N = P.mkN "case" ;
   such_A = P.mkA "such" ;
   then_Adv = P.mkAdv "then" ;
+  iff_Adv = P.mkAdv "if and only if" ;        --Pieter
   element_N = P.mkN "element" ;
   set_N2 = P.mkN2 (P.mkN "set") ;
   hold_V = P.mkV "hold" "held" "held" ;
