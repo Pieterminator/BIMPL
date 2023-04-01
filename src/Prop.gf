@@ -18,7 +18,7 @@ fun
   PNeg   : Prop  -> Prop ;                  -- negation
   PConj  : Conj  -> Prop -> Prop -> Prop ;  -- conjunction
   PImpl  : Prop  -> Prop -> Prop ;          -- implication
-  PBimpl : Prop  -> Prop -> Prop ;          -- Pieter: Bi-implication
+  -- PBimpl : Prop  -> Prop -> Prop ;          -- Pieter: Bi-implication
 
   PUniv  : Var -> Prop -> Prop ;            -- universal quantification
   PExist : Var -> Prop -> Prop ;            -- existential quantification
@@ -33,7 +33,7 @@ fun
 
   VString : String -> Var ;                 -- turns a string into a variable
 
-  CAnd, COr : Conj ;                        -- `and' and `or' are both considered conjunctions
+  CAnd, COr, CBimpl : Conj ;                -- Pieter: `and', `or' and `iff' are both considered conjunctions
 
   PTaut     : Prop ;                        -- Elze: proposition that is always true (tautology)
   PContra   : Prop ;                        -- Elze: proposition that is always false (contradiction)
