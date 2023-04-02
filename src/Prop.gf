@@ -12,13 +12,15 @@ cat
   Fun1 ;	-- unary function
   Fun2 ;	-- binary function
   Conj ;	-- conjunction
+  Bimpl ; -- Pieter: Bi-implication
+
 
 fun
   PAtom  : Atom  -> Prop ;                  -- turns an atom into a proposition
   PNeg   : Prop  -> Prop ;                  -- negation
   PConj  : Conj  -> Prop -> Prop -> Prop ;  -- conjunction
   PImpl  : Prop  -> Prop -> Prop ;          -- implication
-  -- PBimpl : Prop  -> Prop -> Prop ;          -- Pieter: Bi-implication
+  PBimpl : Bimpl -> Prop  -> Prop -> Prop ; -- Pieter: Bi-implication
 
   PUniv  : Var -> Prop -> Prop ;            -- universal quantification
   PExist : Var -> Prop -> Prop ;            -- existential quantification
@@ -33,7 +35,8 @@ fun
 
   VString : String -> Var ;                 -- turns a string into a variable
 
-  CAnd, COr, CBimpl : Conj ;                -- Pieter: `and', `or' and `iff' are both considered conjunctions
+  CAnd, COr : Conj ;                        -- `and' and `or' are both considered conjunctions
+  OBimpl : Bimpl ;                          -- Pieter: helper for the bi-implication
 
   PTaut     : Prop ;                        -- Elze: proposition that is always true (tautology)
   PContra   : Prop ;                        -- Elze: proposition that is always false (contradiction)
@@ -50,7 +53,8 @@ cat
   [Pred1] {2} ;     -- list of predicates
 
 fun
-  PConjs  : Conj  -> [Prop] -> Prop ;       -- for flattening
+  PConjs  : Conj   -> [Prop] -> Prop ;      -- for flattening
+  PBimpls : Bimpl  -> [Prop] -> Prop ;      -- Pieter: for flattening
   PUnivs  : [Var] -> Kind -> Prop -> Prop ; -- for moving the kind predicate out of the body
   PExists : [Var] -> Kind -> Prop -> Prop ; -- for moving the kind predicate out of the body
 
@@ -58,7 +62,8 @@ fun
 
   PNegExist : Var -> Prop -> Prop ;         -- Elze : for existNeg
 
-  ConjPred1 : Conj -> [Pred1] -> Pred1 ;    -- for subject-sharing aggregation
+  ConjPred1  : Conj  -> [Pred1] -> Pred1 ;  -- for subject-sharing aggregation
+  BimplPred1 : Bimpl -> [Pred1] -> Pred1 ;  -- Pieter: for subject-sharing aggregation
 
   APredColl : Pred2 -> [Ind] -> Atom ;      -- alternative for Apred2
 
@@ -75,7 +80,8 @@ fun
   Something_IExist : Ind ;                  -- Elze: for inSituWithoutKind
   Nothing_IExist : Ind ;                    -- Elze: for inSituWithoutKind
 
-  ConjInd : Conj -> [Ind] -> Ind ;          -- for predicate-sharing aggregation
+  ConjInd  : Conj  -> [Ind] -> Ind ;          -- for predicate-sharing aggregation
+  BimplInd : Bimpl -> [Ind] -> Ind ;          -- for predicate-sharing aggregation
 
   ModKind : Kind -> Pred1 -> Kind ;         -- for modification
 

@@ -14,6 +14,7 @@ lincat
   Pred2 = A2 ;
   Var = Symb ;
   Conj = {s : Syntax.Conj ; c : S} ;  -- s = and ; c = all these hold
+  Bimpl = {s : Subj ; c : S} ;  -- Pieter
   Ind  = {s : NP ; isSymbolic : Bool} ;
   Fun1 = {s : Symb ; v : N2} ;
   Fun2 = {s : Symb ; v : N2} ;
@@ -27,7 +28,12 @@ lin
     } ;
   PConj c p q = {s = mkS c.s p.s q.s ; c = True} ; -- can be ambiguous; cf. PConjs
   PImpl p q = {s = ExtAdvS (mkAdv if_Subj p.s) (mkS then_Adv q.s) ; c = True} ;
-  -- PBimpl p q = {s = SSubjS p.s iff_Subj q.s ; c = True} ; --Pieter
+  -- Pieter: Bi-implication
+  -- Implemented the bi-implication as a propositional function. Translating more compelx formulas using MOptimize will result in
+  -- ``Under the same circumstances, all these hold:''
+  PBimpl c p q = {s = mkS c.s p.s q.s ; c = True} ;
+  
+  
 
   PUniv v p = {
     s = ExtAdvS (mkAdv for_Prep (mkNP all_Predet (symb v.s))) p.s ;
@@ -67,14 +73,9 @@ lin
     c = mkS (mkCl (mkNP (mkNP (mkDet (mkCard at_least_AdN (mkCard "1")))) (mkAdv part_Prep these_NP)) hold_V)
     } ;
 
-  -- Pieter: Bi-implication
-  -- Implemented the bi-implication as a conjunction category. Translating more compelx formulas using MOptimize will result in
-  -- ``Under the same circumstances, all these hold:''
-  CBimpl = {
-    s = iff_Conj ; 
-    c = ExtAdvS (mkAdv under_Prep (mkNP the_Det (mkCN (mkAP same_A) (mkCN conditions_N)))) (mkS (mkCl (mkNP all_Predet these_NP) hold_V))
-    } ;
-  
+  OBimpl = {
+    s = iff_Bimpl; 
+    c = ExtAdvS (mkAdv under_Prep (mkNP the_Det (mkCN (mkAP same_A) (mkCN conditions_N)))) (mkS (mkCl (mkNP all_Predet these_NP) hold_V))} ;
 
 
 -- supplementary
@@ -90,6 +91,10 @@ lin
   AKind k x = mkCl x.s k ;
 
   PConjs c ps = case ps.c of {
+    True  => {s = mkS <colonConj : Conj> c.c (mkS <bulletConj : Conj> ps.s) ; c = False} ; ----
+    False => {s = mkS c.s ps.s ; c = True}
+    } ;
+  PBimpls c ps = case ps.c of {
     True  => {s = mkS <colonConj : Conj> c.c (mkS <bulletConj : Conj> ps.s) ; c = False} ; ----
     False => {s = mkS c.s ps.s ; c = True}
     } ;
