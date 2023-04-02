@@ -66,8 +66,14 @@ lin
     s = or_Conj ; 
     c = mkS (mkCl (mkNP (mkNP (mkDet (mkCard at_least_AdN (mkCard "1")))) (mkAdv part_Prep these_NP)) hold_V)
     } ;
-  -- Pieter: Bi-implication (change later)
-  CBimpl = {s = iff_Conj ; c = mkS (mkCl (mkNP all_Predet these_NP) hold_V)} ;
+
+  -- Pieter: Bi-implication
+  -- Implemented the bi-implication as a conjunction category. Translating more compelx formulas using MOptimize will result in
+  -- ``Under the same circumstances, all these hold:''
+  CBimpl = {
+    s = iff_Conj ; 
+    c = ExtAdvS (mkAdv under_Prep (mkNP the_Det (mkCN (mkAP same_A) (mkCN conditions_N)))) (mkS (mkCl (mkNP all_Predet these_NP) hold_V))
+    } ;
   
 
 
