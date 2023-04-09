@@ -242,14 +242,14 @@ biconditional1ltr :: GProp -> GProp
 biconditional1ltr = bicond1ltr
 bicond1ltr :: forall c. Tree c -> Tree c
 bicond1ltr p = case p of
-  GPConj GCBimpl p1 p2 -> GPConj GCAnd (GPImpl p1 p2) (GPImpl p2 p1)
+  GPBimpl p1 p2 -> GPConj GCAnd (GPImpl p1 p2) (GPImpl p2 p1)
   _ -> composOp bicond1ltr p
 
 biconditional1rtl :: GProp -> GProp
 biconditional1rtl = bicond1rtl
 bicond1rtl :: forall c. Tree c -> Tree c
 bicond1rtl p = case p of  
-  GPConj GCAnd (GPImpl p1 p2) (GPImpl p3 p4) | p1 == p4, p2 == p3 -> GPConj GCBimpl p1 p2
+  GPConj GCAnd (GPImpl p1 p2) (GPImpl p3 p4) | p1 == p4, p2 == p3 -> GPBimpl p1 p2
   _ -> composOp bicond1rtl p
 
 -- Biconditional 2: p \rightleftarrow q <-> (\sim p \& \sim q) \vee (p \& q)
@@ -257,17 +257,17 @@ biconditional2ltr :: GProp -> GProp
 biconditional2ltr = bicond2ltr
 bicond2ltr :: forall c. Tree c -> Tree c
 bicond2ltr p = case p of
-  GPConj GCBimpl p1 p2 -> GPConj GCOr (GPConj GCAnd (GPNeg p1) (GPNeg p2)) (GPConj GCAnd p1 p2)
+  GPBimpl p1 p2 -> GPConj GCOr (GPConj GCAnd (GPNeg p1) (GPNeg p2)) (GPConj GCAnd p1 p2)
   _ -> composOp bicond2ltr p
 
 biconditional2rtl :: GProp -> GProp
 biconditional2rtl = bicond2rtl
 bicond2rtl :: forall c. Tree c -> Tree c
 bicond2rtl p = case p of    
-  GPConj GCOr (GPConj GCAnd (GPNeg p1) (GPNeg p2)) (GPConj GCAnd p3 p4) | p1 == p3, p2 == p4 -> GPConj GCBimpl p1 p2
-  -- GPConj GCOr (GPConj GCAnd (GPNeg p1) (GPNegAtom a1)) (GPConj GCAnd p2 a2) | p1 == p2, a1 == a2 -> GPConj GCBimpl p1 a1
-  -- GPConj GCOr (GPConj GCAnd (GPNegAtom a1) (GPNeg p1)) (GPConj GCAnd a2 p2) | a1 == a2, p1 == p2 -> GPConj GCBimpl a1 p1
-  -- GPConj GCOr (GPConj GCAnd (GPNegAtom a1) (GPNegAtom a2)) (GPConj GCAnd a3 a4) | a1 == a3, a2 == a4 -> GPConj GCBimpl a1 a2
+  GPConj GCOr (GPConj GCAnd (GPNeg p1) (GPNeg p2)) (GPConj GCAnd p3 p4) | p1 == p3, p2 == p4 -> GPBimpl p1 p2
+  GPConj GCOr (GPConj GCAnd (GPNeg p1) (GPNegAtom a1)) (GPConj GCAnd p2 (GPAtom a2)) | p1 == p2, a1 == a2 -> GPBimpl p1 (GPAtom a1)
+  GPConj GCOr (GPConj GCAnd (GPNegAtom a1) (GPNeg p1)) (GPConj GCAnd (GPAtom a2) p2) | a1 == a2, p1 == p2 -> GPBimpl (GPAtom a1) p1
+  GPConj GCOr (GPConj GCAnd (GPNegAtom a1) (GPNegAtom a2)) (GPConj GCAnd (GPAtom a3) (GPAtom a4)) | a1 == a3, a2 == a4 -> GPBimpl (GPAtom a1) (GPAtom a2)
   _ -> composOp bicond2rtl p
 
 

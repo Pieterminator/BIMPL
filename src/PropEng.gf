@@ -26,7 +26,7 @@ oper
   such_A = P.mkA "such" ;
   then_Adv = P.mkAdv "then" ;
   element_N = P.mkN "element" ;
-  iff_Bimpl = "if and only if" : OBimpl ;       -- Pieter
+  iff_Conj = P.mkConj "if and only if" ;        -- Pieter
   conditions_N = P.mkN "conditions" ;           -- Pieter
   same_A = P.mkA "same" ;                       -- Pieter
   set_N2 = P.mkN2 (P.mkN "set") ;

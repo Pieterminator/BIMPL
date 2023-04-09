@@ -6,21 +6,21 @@ lincat
   Pred1 = Bool => Str ;
   Pred2 = Bool => Str ;
   Var,
-  Conj,
-  Bimpl
+  Conj
     = Str ;
   Ind = TermPrec ;
   Fun1 = TermPrec ;
   Fun2 = TermPrec ;
 
+-- Might change the precendence order later. 
 lin
   PAtom a = constant (a ! True) ;
-  PNeg = prefix 3 "~" ;
-  PConj = infixl 1 ;
-  PImpl = infixr 0 "$" ;
-  PBimpl = infixr 0 ;                                   --Pieter
-  PUniv v = prefix 3 ("@" ++ v) ;
-  PExist v = prefix 3 ("/" ++ v) ;
+  PNeg = prefix 3 "~" ;                                     -- 4
+  PConj = infixl 1 ;                                        -- 3 for conjunction, 2 for disjunction
+  PImpl = infixr 0 "$" ;                                    -- 1
+  PBimpl = infixr 0 "%" ;                                   -- Pieter: 0
+  PUniv v = prefix 3 ("@" ++ v) ;                           -- 4
+  PExist v = prefix 3 ("/" ++ v) ;                          -- 4
 
   APred1 p x = \\b => appGGC (p ! b) (top x) ;
   APred2 p x y = \\b => appGGC (p ! b) (top x) (top y) ;
@@ -33,7 +33,6 @@ lin
 
   CAnd = "&" ;
   COr = "|" ;
-  OBimpl = "%" ;
 
 -- supplementary
 

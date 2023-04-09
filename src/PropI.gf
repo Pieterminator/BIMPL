@@ -14,7 +14,7 @@ lincat
   Pred2 = A2 ;
   Var = Symb ;
   Conj = {s : Syntax.Conj ; c : S} ;  -- s = and ; c = all these hold
-  Bimpl = {s : Subj ; c : S} ;  -- Pieter
+  -- Bimpl = {s : Subj ; c : S} ;  -- Pieter
   Ind  = {s : NP ; isSymbolic : Bool} ;
   Fun1 = {s : Symb ; v : N2} ;
   Fun2 = {s : Symb ; v : N2} ;
@@ -31,7 +31,9 @@ lin
   -- Pieter: Bi-implication
   -- Implemented the bi-implication as a propositional function. Translating more compelx formulas using MOptimize will result in
   -- ``Under the same circumstances, all these hold:''
-  PBimpl c p q = {s = mkS c.s p.s q.s ; c = True} ;
+  PBimpl p q = {s = mkS iff_Conj p.s q.s ; c = True} ;
+
+  -- ExtAdvS (mkAdv under_Prep (mkNP the_Det (mkCN (mkAP same_A) (mkCN conditions_N)))) (mkS (mkCl (mkNP all_Predet these_NP) hold_V))
   
   
 
@@ -73,11 +75,6 @@ lin
     c = mkS (mkCl (mkNP (mkNP (mkDet (mkCard at_least_AdN (mkCard "1")))) (mkAdv part_Prep these_NP)) hold_V)
     } ;
 
-  OBimpl = {
-    s = iff_Bimpl; 
-    c = ExtAdvS (mkAdv under_Prep (mkNP the_Det (mkCN (mkAP same_A) (mkCN conditions_N)))) (mkS (mkCl (mkNP all_Predet these_NP) hold_V))} ;
-
-
 -- supplementary
 
 lincat
@@ -95,7 +92,7 @@ lin
     False => {s = mkS c.s ps.s ; c = True}
     } ;
   PBimpls c ps = case ps.c of {
-    True  => {s = mkS <colonConj : Conj> c.c (mkS <bulletConj : Conj> ps.s) ; c = False} ; ----
+    True  => {s = mkS <colonBimpl : Conj> c.c (mkS <bulletBimpl : Conj> ps.s) ; c = False} ; ----
     False => {s = mkS c.s ps.s ; c = True}
     } ;
   PUnivs vs k p = {
@@ -168,6 +165,9 @@ oper
 
   bulletConj = lin Conj {s1,s2 = "\\item" ; n = singular ; isDiscont = True} ;
   colonConj = lin Conj {s1 = [] ; s2 = ":" ; n = singular ; isDiscont = False} ;
+
+  bulletBimpl = lin Conj {s1,s2 = "\\item" ; n = singular ; isDiscont = True} ;
+  colonBimpl = lin Conj {s1 = [] ; s2 = ":" ; n = singular ; isDiscont = False} ;
 
 
 }
