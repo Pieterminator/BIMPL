@@ -1,0 +1,38 @@
+
+stack run trans MNone PropGGC data\test.txt PropEng data\output.txt
+stack run trans MOptimize PropGGC data\test.txt PropEng data\output.txt
+stack run trans MSimplify PropGGC data\test.txt PropEng data\output.txt
+
+-- Biconditional 1: p \rightleftarrow q <-> p \supset q \& q \supset p
+biconditional1ltr :: GProp -> GProp
+biconditional1ltr = bicond1ltr
+bicond1ltr :: forall c. Tree c -> Tree c
+bicond1ltr p = case p of
+  GPConj GCBimpl p1 p2 -> GPConj GCAnd (GPImpl p1 p2) (GPImpl p2 p1)
+  GPConj GCBimpl p1 p2 -> GPConj GCAnd (GPImpl p2 p1) (GPImpl p1 p2)
+  _ -> composOp bicond1ltr p
+
+biconditional1rtl :: GProp -> GProp
+biconditional1rtl = bicond1rtl
+bicond1rtl :: forall c. Tree c -> Tree c
+bicond1rtl p = case p of  
+  GPConj GCAnd (GPImpl p1 p2) (GPImpl p3 p4) | p1 == p4, p2 == p3 -> GPConj GCBimpl p1 p2 
+  GPConj GCAnd (GPImpl p1 p2) (GPImpl p3 p4) | p1 == p4, p2 == p3 -> GPConj GCBimpl p2 p1
+  _ -> composOp bicond1rtl p
+
+
+WB, PConj CAnd (PImpl (PAtom (AKind Cube (IVar (VString "a")))) (PAtom (AKind Cube (IVar (VString "b"))))) (PImpl (PAtom (AKind Cube (IVar (VString "b")))) (PAtom (AKind Cube (IVar (VString "a"))))), all these hold : \item if a is a cube , then b is a cube \item if b is a cube , then a is a cube
+
+base
+Cube ( a ) % Cube ( b )
+
+biconditional 1
+( Cube ( a ) $ Cube ( b ) ) & ( Cube ( b ) $ Cube ( a ) )
+
+biconditional 2
+( ~ Cube ( a ) & ~ Cube ( b ) ) | ( Cube ( a ) & Cube ( b ) )
+
+chaining edge case
+( Cube ( b ) & ( Cube ( a ) % Cube ( c ) ) ) | ( ~ ( Cube ( a ) % Cube ( c ) ) & ~ Cube ( b ) )
+¬ ∨ ∧ → ⇔
+
