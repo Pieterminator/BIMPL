@@ -1,0 +1,3 @@
+WB, PConj COr (PAtom (AKind Cube (IVar (VString "c")))) (PConj CAnd (PAtom (AKind Cube (IVar (VString "b")))) (PAtom (AKind Cube (IVar (VString "a"))))), at least one of these holds : \item c is a cube \item b is a cube and a is a cube
+
+
