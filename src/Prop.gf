@@ -12,7 +12,6 @@ cat
   Fun1 ;	-- unary function
   Fun2 ;	-- binary function
   Conj ;	-- conjunction
-  Bimpl ; -- Pieter: Bi-implication
 
 
 fun
@@ -20,8 +19,7 @@ fun
   PNeg   : Prop  -> Prop ;                  -- negation
   PConj  : Conj  -> Prop -> Prop -> Prop ;  -- conjunction
   PImpl  : Prop  -> Prop -> Prop ;          -- implication
-  PBimpl : Prop  -> Prop -> Prop ;          -- Pieter: Bi-implication
-  -- PBimpl : Bimpl -> Prop  -> Prop -> Prop ; -- Pieter: Bi-implication
+  PBimpl : Prop  -> Prop -> Prop ;          -- Pieter: bi-implication
 
   PUniv  : Var -> Prop -> Prop ;            -- universal quantification
   PExist : Var -> Prop -> Prop ;            -- existential quantification
@@ -54,6 +52,7 @@ cat
 
 fun
   PConjs  : Conj  -> [Prop] -> Prop ;       -- for flattening
+  -- PBimpls : [Prop] -> Prop ;                -- Pieter
   PUnivs  : [Var] -> Kind -> Prop -> Prop ; -- for moving the kind predicate out of the body
   PExists : [Var] -> Kind -> Prop -> Prop ; -- for moving the kind predicate out of the body
 

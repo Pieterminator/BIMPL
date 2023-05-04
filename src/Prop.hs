@@ -66,8 +66,6 @@ type GProp = Tree GProp_
 data GProp_
 type GVar = Tree GVar_
 data GVar_
-type GBimpl = Tree GBimpl_
-data GBimpl_
 type GString = Tree GString_
 data GString_
 type GInt = Tree GInt_
@@ -510,14 +508,6 @@ instance Gf GVar where
 
 
       _ -> error ("no Var " ++ show t)
-
-instance Show GBimpl
-
-instance Gf GBimpl where
-  gf _ = undefined
-  fg _ = undefined
-
-
 
 
 instance Compos Tree where

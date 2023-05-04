@@ -10,12 +10,15 @@ import Data.List (isInfixOf)
 import TransPropFunctions
 
 logicLaws = [idempotence1, idempotence2, associativity1ltr, associativity1rtl, 
-  associativity2ltr, associativity2rtl, commutativity1, commutativity2, 
-  distributivity1, distributivity2, identity1, identity2, identity3, identity4, 
+  associativity2ltr, associativity2rtl, associativity3ltr, associativity3rtl,
+  commutativity1, commutativity2, commutativity3,
+  distributivity1, distributivity2, distributivity3ltr, distributivity3rtl, 
+  identity1, identity2, identity3, identity4, 
   complement1, complement2, complement3, deMorgan1ltr, deMorgan1rtl, 
   deMorgan2ltr, deMorgan2rtl, conditional1ltr, conditional1rtl, 
   conditional2ltr, conditional2rtl, biconditional1ltr, biconditional1rtl,         -- Pieter: also add the new equivalences here
-  biconditional2ltr, biconditional2rtl, quantneg1ltr, quantneg1rtl, quantneg2ltr, 
+  biconditional2ltr, biconditional2rtl, exclusiveOrLtr, exclusiveOrRtl,
+  quantneg1ltr, quantneg1rtl, quantneg2ltr, 
   quantneg2rtl, quantneg3ltr, quantneg3rtl, quantneg4ltr, quantneg4rtl, 
   quantdist1ltr, quantdist1rtl, quantdist2ltr, quantdist2rtl, quantind1, 
   quantind2, quantmov1ltr, quantmov1rtl, quantmov2ltr, quantmov2rtl, 
@@ -74,6 +77,21 @@ ass2rtl :: forall c. Tree c -> Tree c
 ass2rtl p = case p of
   GPConj GCAnd p1 (GPConj GCAnd p2 p3) -> GPConj GCAnd (GPConj GCAnd p1 p2) p3
   _ -> composOp ass2rtl p
+
+-- Pieter: Associativity 3: (p \rightleftarrow q) \rightleftarrow r <-> p \rightleftarrow (q \rightleftarrow r)
+associativity3ltr :: GProp -> GProp
+associativity3ltr = ass3ltr
+ass3ltr :: forall c. Tree c -> Tree c
+ass3ltr p = case p of
+  GPBimpl (GPBimpl p1 p2) p3 -> GPBimpl p1 (GPBimpl p2 p3)
+  _ -> composOp ass3ltr p
+  
+associativity3rtl :: GProp -> GProp
+associativity3rtl = ass3rtl
+ass3rtl :: forall c. Tree c -> Tree c
+ass3rtl p = case p of
+  GPBimpl p1 (GPBimpl p2 p3) -> GPBimpl (GPBimpl p1 p2) p3
+  _ -> composOp ass2rtl p
   
 -- Commutativity 1 (ltr and rtl are the same): p \vee q <-> q \vee p
 commutativity1 :: GProp -> GProp
@@ -90,6 +108,14 @@ comm2 :: forall c. Tree c -> Tree c
 comm2 p = case p of
   GPConj GCAnd p1 p2 -> GPConj GCAnd p2 p1
   _ -> composOp comm2 p
+
+-- Pieter: Commutativity 3 (ltr and rtl are the same): p \rightleftarrow q <-> q \rightleftarrow p
+commutativity3 :: GProp -> GProp
+commutativity3 = comm3
+comm3 :: forall c. Tree c -> Tree c
+comm3 p = case p of
+  GPBimpl p1 p2 -> GPBimpl p2 p1
+  _ -> composOp comm3 p
   
 -- Distributivity 1: (p \vee q) \& (p \vee r) <-> p \vee (q \& r)
 distributivity1 :: GProp -> GProp
@@ -99,14 +125,29 @@ dist1 p = case p of
   GPConj GCAnd (GPConj GCOr p1 p2) (GPConj GCOr p3 p4) | p1 == p3 -> GPConj GCOr p1 (GPConj GCAnd p2 p4)
   _ -> composOp dist1 p
   
--- Distributivity 2: p \& (q \vee r) <-> (p \& q) \vee (p \& r)
+-- Distributivity 2: (p \& q) \vee (p \& r) <-> p \& (q \vee r)
 distributivity2 :: GProp -> GProp
 distributivity2 = dist2
 dist2 :: forall c. Tree c -> Tree c
 dist2 p = case p of
   GPConj GCOr (GPConj GCAnd p1 p2) (GPConj GCAnd p3 p4) | p1 == p3 -> GPConj GCAnd p1 (GPConj GCOr p2 p4)
   _ -> composOp dist2 p
-  
+
+-- Pieter: Distributivity 3: 
+distributivity3ltr :: GProp -> GProp
+distributivity3ltr = dist3ltr
+dist3ltr :: forall c. Tree c -> Tree c
+dist3ltr p = case p of
+  GPConj GCOr p1 (GPBimpl p2 p3) -> GPBimpl (GPConj GCOr p1 p2) (GPConj GCOr p1 p3)
+  _ -> composOp dist3ltr p
+
+distributivity3rtl :: GProp -> GProp
+distributivity3rtl = dist3rtl
+dist3rtl :: forall c. Tree c -> Tree c
+dist3rtl p = case p of
+  GPBimpl (GPConj GCOr p1 p2) (GPConj GCOr p3 p4) | p1 == p3 -> GPConj GCOr p1 (GPBimpl p2 p4)
+  _ -> composOp dist3rtl p
+
 -- Identity 1 (only ltr): p \vee F <-> p
 identity1 :: GProp -> GProp
 identity1 = id1
@@ -236,8 +277,7 @@ cond2rtl p = case p of
   GPImpl (GPNegAtom a1) (GPNegAtom a2) -> GPImpl (GPAtom a2) (GPAtom a1)
   _ -> composOp cond2rtl p
 
--- Pieter
--- Biconditional 1: p \rightleftarrow q <-> p \supset q \& q \supset p
+-- Pieter: Biconditional 1: p \rightleftarrow q <-> p \supset q \& q \supset p
 biconditional1ltr :: GProp -> GProp
 biconditional1ltr = bicond1ltr
 bicond1ltr :: forall c. Tree c -> Tree c
@@ -252,7 +292,7 @@ bicond1rtl p = case p of
   GPConj GCAnd (GPImpl p1 p2) (GPImpl p3 p4) | p1 == p4, p2 == p3 -> GPBimpl p1 p2
   _ -> composOp bicond1rtl p
 
--- Biconditional 2: p \rightleftarrow q <-> (\sim p \& \sim q) \vee (p \& q)
+-- Pieter: Biconditional 2: p \rightleftarrow q <-> (\sim p \& \sim q) \vee (p \& q)
 biconditional2ltr :: GProp -> GProp
 biconditional2ltr = bicond2ltr
 bicond2ltr :: forall c. Tree c -> Tree c
@@ -270,8 +310,20 @@ bicond2rtl p = case p of
   GPConj GCOr (GPConj GCAnd (GPNegAtom a1) (GPNegAtom a2)) (GPConj GCAnd (GPAtom a3) (GPAtom a4)) | a1 == a3, a2 == a4 -> GPBimpl (GPAtom a1) (GPAtom a2)
   _ -> composOp bicond2rtl p
 
+-- Pieter: Exclusive disjunction: (p \vee q) \& \sim (p \& q)  <-> \sim (p \rightleftarrow q)
+exclusiveOrLtr :: GProp -> GProp
+exclusiveOrLtr = xorLtr
+xorLtr :: forall c. Tree c -> Tree c
+xorLtr p = case p of
+  GPConj GCAnd (GPConj GCOr p1 p2) (GPNeg (GPConj GCAnd p3 p4)) | p1 == p3, p2 == p4 -> GPNeg (GPBimpl p1 p2)
+  _ -> composOp xorLtr p
 
-
+exclusiveOrRtl :: GProp -> GProp
+exclusiveOrRtl = xorRtl
+xorRtl :: forall c. Tree c -> Tree c
+xorRtl p = case p of
+  GPNeg (GPBimpl p1 p2) -> GPConj GCAnd (GPConj GCOr p1 p2) (GPNeg (GPConj GCAnd p1 p2))
+  _ -> composOp xorRtl p
 
 -- FIRST-ORDER LOGIC EQUIVALENCES
 -- Quantifier negation 1: \sim (\forall x) \phi(x) <-> (\exists x) \sim phi(x)
