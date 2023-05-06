@@ -1,1 +1,1 @@
-Cube ( a ) % Cube ( b ) % ( Cube ( c ) % Cube ( d ) )
+~ Cube ( a ) & Cube ( a )
