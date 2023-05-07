@@ -16,9 +16,10 @@ logicLaws = [idempotence1, idempotence2, associativity1ltr, associativity1rtl,
   identity1, identity2, identity3, identity4, 
   complement1, complement2, complement3, deMorgan1ltr, deMorgan1rtl, 
   deMorgan2ltr, deMorgan2rtl, conditional1ltr, conditional1rtl, 
-  conditional2ltr, conditional2rtl, biconditional1ltr, biconditional1rtl,         -- Pieter: also add the new equivalences here
+  conditional2ltr, conditional2rtl, --biconditional1ltr, 
+  biconditional1rtl,         -- Pieter: also add the new equivalences here
   biconditional2ltr, biconditional2rtl, exclusiveOrLtr, exclusiveOrRtl,
-  transivity,
+  transivity, redundancy, circleEq,
   quantneg1ltr, quantneg1rtl, quantneg2ltr, 
   quantneg2rtl, quantneg3ltr, quantneg3rtl, quantneg4ltr, quantneg4rtl, 
   quantdist1ltr, quantdist1rtl, quantdist2ltr, quantdist2rtl, quantind1, 
@@ -311,6 +312,33 @@ bicond2rtl p = case p of
   GPBimpl p1 p2 -> GPConj GCOr (GPConj GCAnd (GPNeg p1) (GPNeg p2)) (GPConj GCAnd p1 p2)
   _ -> composOp bicond2rtl p
 
+-- Pieter: Circular equivalence: ((p \supset q) \& (q \supset r)) \& (r \supset p) <-> (p \rightleftarrow q) \& (q \rightleftarrow r)
+circleEq :: GProp -> GProp
+circleEq = circle
+circle :: forall c. Tree c -> Tree c
+circle p = case p of
+  GPConj GCAnd p1 (GPImpl p2 p3) -> circ (p1, (p2, p3))
+  _ -> composOp circle p
+  where 
+    circ :: forall c. (Tree c, (GProp, GProp)) -> Tree c
+    circ q = case q of
+      (GPImpl p1 p2, (a, b)) | p1 == b, p2 == a -> GPBimpl p1 p2
+      (GPConj GCAnd p1 (GPImpl p2 p3), (a, b)) | p3 == a -> GPConj GCAnd (circ (p1, (p2, b))) (GPBimpl b p3)
+      _ -> let (q1,_) = q in q1                                             --Not sure this is the best implementation. My guess is that the system will now always apply this (empty) rule if it can't apply proper circularity. And this counts as applying a rule.
+
+-- circ :: forall a b c. (Tree c, (GProp a, GProp b)) -> Tree c
+-- circ p = case p of
+--   (GPImpl p1 p2, (a, b)) | p1 == b, p2 == a -> GPBimpl p1 p2
+--   (GPConj GCAnd p1 (GPImpl p2 p3), (a, b)) | p3 == a -> GPConj GCAnd (circ (p1, (p2, b))) (GPBimpl b p3)
+--   _ -> composOp circ p
+
+-- circleEq :: GProp -> GProp
+-- circleEq = circle
+-- circle :: forall c. Tree c -> Tree c
+-- circle p = case p of
+--   GPConj GCAnd (GPConj GCAnd (GPImpl p1 p2) (GPBimpl p3 p4)) (GPBimpl p5 p6) | p2 == p3, p4 == p5, p1 == p6 -> GPConj GCAnd (GPBimpl p1 p2) (GPBimpl p2 p4)
+--   _ -> composOp circle p
+
 -- Pieter: Transitivity: (p \rightleftarrow q) \& (q \rightleftarrow r) <-> (p \rightleftarrow q) \& (p \rightleftarrow r)
 transivity :: GProp -> GProp
 transivity = trans
@@ -333,6 +361,14 @@ xorRtl :: forall c. Tree c -> Tree c
 xorRtl p = case p of
   GPNeg (GPBimpl p1 p2) -> GPConj GCAnd (GPConj GCOr p1 p2) (GPNeg (GPConj GCAnd p1 p2))
   _ -> composOp xorRtl p
+
+-- Pieter: Redundancy (only Ltr): (p \& q) \vee p <-> p
+redundancy :: GProp -> GProp
+redundancy = redu
+redu :: forall c. Tree c -> Tree c
+redu p = case p of
+  GPConj GCOr (GPConj GCAnd p1 p2) p3 | p1 == p3 -> p1
+  _ -> composOp redu p
 
 -- FIRST-ORDER LOGIC EQUIVALENCES
 -- Quantifier negation 1: \sim (\forall x) \phi(x) <-> (\exists x) \sim phi(x)

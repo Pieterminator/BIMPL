@@ -1,1 +1,1 @@
-~ Cube ( a ) & Cube ( a )
+( ( Cube ( a ) $ Cube ( b ) ) & ( Cube ( b ) $ Cube ( c ) ) ) & ( Cube ( c ) $ Cube ( a ) )
