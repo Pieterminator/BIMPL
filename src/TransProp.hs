@@ -43,11 +43,7 @@ optimize t = case t of
   GPConj co p q -> aggregate co $ optimize $ mergeConj co p q
   GPConjs co ps -> aggregate co $ optimize ps
 
-  -- -- Pieter: TRY-OUT Bi-implication aggregation and flattening
-  -- GPBimpl p q -> optimize $ mergeBimpl p q
-  -- GPBimpls ps -> optimize ps
-
-  -- Reflexivization (e.g., "2 is equal to 2" -> "2 is equal to itself")
+   -- Reflexivization (e.g., "2 is equal to 2" -> "2 is equal to itself")
   GAPred2 f x y | x == y -> GAPredRefl f x  ---- and no insitu quant in x
   GAPredColl f (GListInd xs) | length xs == 2 && (xs !! 0) == (xs !! 1) -> GAPredRefl f (xs !! 0) --Elze: for reflNegPred
 
@@ -83,15 +79,6 @@ mergeConj co p q = GListProp (getConj p ++ getConj q)
     GPConj ko p1 p2 | ko == co -> getConj p1 ++ getConj p2
     _ -> [p]
 
--- -- Pieter: TRY-OUT Bi-implication flattening
--- mergeBimpl :: GProp -> GProp -> GListProp
--- mergeBimpl p q = GListProp (getBimpl p ++ getBimpl q)
---  where
---   getBimpl :: GProp -> [GProp]
---   getBimpl p = case p of
---     GPBimpl p1 p2 -> getBimpl p1 ++ getBimpl p2
---     _ -> [p]
-
 -- Aggregation
 aggregate :: GConj -> GListProp -> GProp
 aggregate co p@(GListProp ps) = case getPred1s ps of
@@ -106,13 +93,6 @@ aggregate co p@(GListProp ps) = case getPred1s ps of
     -- Object-sharing
     Just (fs@(f:_),xs@(x:(_))) | all (== f) fs && all (== (snd x)) (map snd xs) -> GPAtom (GAPred2 f (GConjInd co (GListInd (map fst xs))) (snd x))
     _ -> GPConjs co p
-
--- -- Pieter: TRY-OUT Bi-implication aggregation (UNFINISHED)
--- biAggregate :: GListProp -> GProp
--- biAggregate p@(GListProp ps) = case getPred1s ps of
---   -- Subject-sharing
---   Just (fs,xs@(x:_)) | all (== x) xs -> GPAtom (GAPred1 (GConjPred1 co (GListPred1 fs)) x)
-
 
 -- In-situ quantification
 inSitu :: (GListVar -> GKind -> GProp -> GProp) -> GInd -> GKind -> GVar -> GProp -> GProp
