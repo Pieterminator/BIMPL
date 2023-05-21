@@ -1,0 +1,34 @@
+
+stack run trans MNone PropGGC data\test.txt PropEng data\output.txt
+stack run trans MOptimize PropGGC data\test.txt PropEng data\output.txt
+stack run trans MSimplify PropGGC data\test.txt PropEng data\output.txt
+
+¬ ∨ ∧ → ⇔
+base
+Cube ( p ) % Cube ( q )
+
+biconditional 1
+( Cube ( p ) $ Cube ( q ) ) & ( Cube ( q ) $ Cube ( p ) )
+
+biconditional 2
+( ~ Cube ( p ) & ~ Cube ( q ) ) | ( Cube ( p ) & Cube ( q ) )
+
+exclusive disjunction
+( Cube ( p ) | Cube ( q ) ) & ~ ( Cube ( p ) & Cube ( q ) )
+
+redundancy
+( Cube ( p ) & Cube ( q ) ) | Cube ( p )
+( Cube ( p ) | Cube ( q ) ) & Cube ( p )
+( Cube ( p ) $ Cube ( q ) ) $ Cube ( p )
+
+
+
+circularity
+( ( Cube ( p ) $ Cube ( q ) ) & ( Cube ( q ) $ Cube ( r ) ) ) & ( Cube ( r ) $ Cube ( p ) )
+
+( Cube ( p ) % Cube ( q ) ) $ Cube ( p )
+
+( Cube ( p ) & ( Cube ( s ) $ Cube ( q ) ) ) & Cube ( r ) 
+
+Problematic formula (probably because of max search depth)
+( Cube ( r ) & ( ( Cube ( p ) $ Cube ( q ) ) | ( Cube ( q ) $ Cube ( p ) ) ) ) % Cube ( r )

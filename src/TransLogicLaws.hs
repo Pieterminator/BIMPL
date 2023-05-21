@@ -20,9 +20,13 @@ logicLaws = [
   conditional1ltr, conditional1rtl, 
   conditional2ltr, conditional2rtl, 
   
-  biconditional1ltr, biconditional1rtl, biconditional2ltr, biconditional2rtl, 
+  idempotence3, complement4, identity5, identity6,
+  biconditional1ltr, biconditional1rtl, 
+  biconditional2ltr, biconditional2rtl, 
   distributivity3ltr, distributivity3rtl, associativity3ltr, associativity3rtl, 
-  commutativity3, exclusiveOrLtr, exclusiveOrRtl, transivity, redundancy, 
+  commutativity3, 
+  exclusiveOrLtr, exclusiveOrRtl, 
+  transivity, redundancy, 
   circleEq,
 
   quantneg1ltr, quantneg1rtl, quantneg2ltr, 
@@ -55,6 +59,14 @@ ip2 :: forall c. Tree c -> Tree c
 ip2 p = case p of
   GPConj GCAnd p1 p2 | p1 == p2 -> p1
   _ -> composOp ip2 p
+
+-- Pieter: Idempotence 3 (only ltr): p \rightleftarrow p <-> p
+idempotence3 :: GProp -> GProp
+idempotence3 = ip3
+ip3 :: forall c. Tree c -> Tree c
+ip3 p = case p of
+  GPBimpl p1 p2 | p1 == p2 -> p1
+  _ -> composOp ip3 p
   
 -- Associativity 1: (p \vee q) \vee r <-> p \vee (q \vee r)
 associativity1ltr :: GProp -> GProp
@@ -141,7 +153,7 @@ dist2 p = case p of
   GPConj GCOr (GPConj GCAnd p1 p2) (GPConj GCAnd p3 p4) | p1 == p3 -> GPConj GCAnd p1 (GPConj GCOr p2 p4)
   _ -> composOp dist2 p
 
--- Pieter: Distributivity 3:  (p \vee q) \leftrightarrow (p \vee r) <-> p \vee (q \leftrightarrow r)
+-- Pieter: Distributivity 3:  (p \vee q) \rightleftarrow (p \vee r) <-> p \vee (q \rightleftarrow r)
 distributivity3ltr :: GProp -> GProp
 distributivity3ltr = dist3ltr
 dist3ltr :: forall c. Tree c -> Tree c
@@ -187,6 +199,22 @@ id4 :: forall c. Tree c -> Tree c
 id4 p = case p of
   GPConj GCAnd p1 GPTaut -> p1
   _ -> composOp id4 p
+
+-- Pieter: Identity 5 (only ltr): p \rightleftarrow T <-> p
+identity5 :: GProp -> GProp
+identity5 = id5
+id5 :: forall c. Tree c -> Tree c
+id4 p = case p of
+  GPBimpl p1 GPTaut -> p1
+  _ -> composOp id5 p
+
+-- Pieter: Identity 6 (only ltr): p \rightleftarrow F <-> \sim p
+identity6 :: GProp -> GProp
+identity6 = id6
+id5 :: forall c. Tree c -> Tree c
+id4 p = case p of
+  GPBimpl p1 GPTaut -> p1
+  _ -> composOp id5 p
   
 -- Complement 1 (only ltr): p \vee \sim p <-> T
 complement1 :: GProp -> GProp
@@ -214,6 +242,15 @@ comp3 p = case p of
   GPConj GCAnd p1 (GPNeg p2) | p1 == p2 -> GPContra
   GPConj GCAnd (GPAtom a1) (GPNegAtom a2) | a1 == a2 -> GPContra
   _ -> composOp comp3 p
+  
+-- Pieter: Complement 4 (only ltr): p \rightlefarrow \sim p <-> F
+complement4 :: GProp -> GProp
+complement4 = comp4
+comp4 :: forall c. Tree c -> Tree c
+comp4 p = case p of
+  GPBimpl p1 (GPNeg p2) | p1 == p2 -> GPContra
+  GPBimpl (GPAtom a1) (GPNegAtom a2) | a1 == a2 -> GPContra
+  _ -> composOp comp4 p
   
 -- De Morgan 1: \sim (p \vee q) <-> \sim p \& \sim q
 deMorgan1ltr :: GProp -> GProp
