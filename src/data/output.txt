@@ -1,3 +1,3 @@
-WB, PBimpl (PConj CAnd (PAtom (AKind Cube (IVar (VString "p")))) (PAtom (AKind Cube (IVar (VString "q"))))) (PAtom (AKind Cube (IVar (VString "q")))), p is a cube and q is a cube if and only if q is a cube
+WB, PImpl (PAtom (AKind Cube (IVar (VString "p")))) (PAtom (AKind Cube (IVar (VString "q")))), if p is a cube , then q is a cube
 
 
