@@ -24,6 +24,7 @@ redundancy 5
 Cube ( p ) % ( Cube ( p ) & Cube ( q ) )
 
 ( Cube ( p ) $ Cube ( q ) ) $ Cube ( p )
+Cube ( p ) $ ( Cube ( p ) $ Cube ( q ) )
 
 
 

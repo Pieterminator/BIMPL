@@ -5,7 +5,6 @@
 module TransLogicLaws where
 
 import qualified "gf" PGF (Tree, showExpr, showCId, exprFunctions)
--- import qualified Data.Set as Set
 import Prop   -- generated from GF
 import Data.List (isInfixOf)
 import TransPropFunctions
@@ -264,14 +263,18 @@ comp2ltr p = case p of
   GPNeg (GPNegAtom a1) -> GPAtom a1
   _ -> composOp comp2ltr p
 
--- complement2rtl :: GProp -> GProp           -- Needs fixing
--- complement2rtl = comp2rtl
--- comp2rtl :: forall c. Tree c -> Tree c
--- comp2rtl p = case p of
---   GPNeg p1 -> composOp comp2rtl p
---   GPNegAtom a1 -> composOp comp2rtl p
---   GPAtom a1 -> GPNeg (GPNegAtom a1)
---   _ -> GPNeg p
+complement2rtl :: GProp -> GProp           -- Needs fixing
+complement2rtl = comp2rtl
+comp2rtl :: forall c. Tree c -> Tree c
+comp2rtl p = case typeOf c of
+  Tree GProp_ -> GPNeg (GPNeg p)
+  Tree GAtom_ -> GPNeg (GPNegAtom p)
+  _ -> composOp comp2rtl p
+  
+  -- GPNeg p1 -> composOp comp2rtl p
+  -- GPNegAtom a1 -> composOp comp2rtl p
+  -- GPAtom a1 -> GPNeg (GPNegAtom a1)
+  -- _ -> GPNeg p
 
 -- Complement 3 (only ltr): p \& \sim p <-> F
 complement3 :: GProp -> GProp
@@ -407,21 +410,7 @@ circle p = case p of
       (GPImpl p1 p2, (a, b)) | p1 == b, p2 == a -> GPBimpl p1 p2
       (GPConj GCAnd p1 (GPImpl p2 p3), (a, b)) | p3 == a -> GPConj GCAnd (circ (p1, (p2, b))) (GPBimpl b p3)
       _ -> composOp circle p
-
--- circleRed :: GProp -> GProp
--- circleRed = cr
--- cr :: forall c. Tree c -> Tree c
--- cr p = case p of
---   GPConj GCAnd p1 (GPBimpl p2 p3) -> circ (p1, Set.fromList [p2, p3])
---   _ -> composOp cr p
---   where
---     circ :: (Tree c, Set.Set a) -> Tree c
---     circ q = case q of
---        (GPConj GCAnd p1 (GPBimpl p2 p3), set) | (Set.member p2 set || Set.member p3 set) -> circ (p1, Set.union set $ Set.fromList [p2, p3])
---        _ -> composOp circle p
-      
-  
-
+ 
 -- Pieter: Transitivity: (p \rightleftarrow q) \& (q \rightleftarrow r) <-> (p \rightleftarrow q) \& (p \rightleftarrow r)
 transitivity :: GProp -> GProp
 transitivity = trans
@@ -460,6 +449,14 @@ redu5 :: forall c. Tree c -> Tree c
 redu5 p = case p of
   GPBimpl p1 (GPConj GCAnd p2 p3) | p1 == p2 -> GPImpl p1 p3
   _ -> composOp redu5 p
+
+-- Pieter: Redundancy 6 (only Ltr): p \rightleftarrow (p \vee q) <-> q \supset p
+redundancy6 :: GProp -> GProp
+redundancy6 = redu6
+redu6 :: forall c. Tree c -> Tree c
+redu6 p = case p of
+  GPBimpl p1 (GPConj GCOr p2 p3) | p1 == p2 -> GPImpl p3 p1
+  _ -> composOp redu6 p
 
 -- FIRST-ORDER LOGIC EQUIVALENCES
 -- Quantifier negation 1: \sim (\forall x) \phi(x) <-> (\exists x) \sim phi(x)
