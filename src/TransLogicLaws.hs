@@ -16,7 +16,7 @@ logicLaws = [
   commutativity1, commutativity2,
   distributivity1ltr, distributivity2ltr,
   complement1, 
-  complement2ltr, 
+  complement2, 
   complement3,
   deMorgan1ltr, deMorgan1rtl,
   deMorgan2ltr, deMorgan2rtl,
@@ -33,16 +33,14 @@ logicLaws = [
   commutativity3, transitivity, 
 
   -- Definition equivalences
-  -- biconditional1ltr, biconditional1rtl,
-  circleEq,
+  circleEqLtr, circleEqRtl,
   biconditional2ltr, biconditional2rtl,
   exclusiveOrLtr, exclusiveOrRtl,
 
   -- Additional equivalences
-  redundancy1, redundancy5,
+  redundance1, redundance5, redundance6,
+  redundance7, redundance8,
   distributivity1rtl, distributivity2rtl,
-
-  -- complement2rtl,
 
   quantneg1ltr, quantneg1rtl, quantneg2ltr,
   quantneg2rtl, quantneg3ltr, quantneg3rtl, quantneg4ltr, quantneg4rtl,
@@ -126,7 +124,7 @@ associativity3rtl = ass3rtl
 ass3rtl :: forall c. Tree c -> Tree c
 ass3rtl p = case p of
   GPBimpl p1 (GPBimpl p2 p3) -> GPBimpl (GPBimpl p1 p2) p3
-  _ -> composOp ass2rtl p
+  _ -> composOp ass3rtl p
 
 -- Commutativity 1 (ltr and rtl are the same): p \vee q <-> q \vee p
 commutativity1 :: GProp -> GProp
@@ -255,26 +253,13 @@ comp1 p = case p of
   _ -> composOp comp1 p
 
 -- Complement 2 (double negation) (only ltr): \sim \sim p <-> p 
-complement2ltr :: GProp -> GProp
-complement2ltr = comp2ltr
-comp2ltr :: forall c. Tree c -> Tree c
-comp2ltr p = case p of
+complement2 :: GProp -> GProp
+complement2 = comp2
+comp2 :: forall c. Tree c -> Tree c
+comp2 p = case p of
   GPNeg (GPNeg p1) -> p1
   GPNeg (GPNegAtom a1) -> GPAtom a1
-  _ -> composOp comp2ltr p
-
-complement2rtl :: GProp -> GProp           -- Needs fixing
-complement2rtl = comp2rtl
-comp2rtl :: forall c. Tree c -> Tree c
-comp2rtl p = case typeOf c of
-  Tree GProp_ -> GPNeg (GPNeg p)
-  Tree GAtom_ -> GPNeg (GPNegAtom p)
-  _ -> composOp comp2rtl p
-  
-  -- GPNeg p1 -> composOp comp2rtl p
-  -- GPNegAtom a1 -> composOp comp2rtl p
-  -- GPAtom a1 -> GPNeg (GPNegAtom a1)
-  -- _ -> GPNeg p
+  _ -> composOp comp2 p
 
 -- Complement 3 (only ltr): p \& \sim p <-> F
 complement3 :: GProp -> GProp
@@ -364,21 +349,6 @@ cond2rtl p = case p of
   GPImpl (GPNegAtom a1) (GPNegAtom a2) -> GPImpl (GPAtom a2) (GPAtom a1)
   _ -> composOp cond2rtl p
 
--- Pieter: Biconditional 1: p \supset q \& q \supset p <-> p \rightleftarrow q
-biconditional1ltr :: GProp -> GProp       -- is redundant and can be removed once the circular equivalence law is implemented
-biconditional1ltr = bicond1ltr
-bicond1ltr :: forall c. Tree c -> Tree c
-bicond1ltr p = case p of
-  GPConj GCAnd (GPImpl p1 p2) (GPImpl p3 p4) | p1 == p4, p2 == p3 -> GPBimpl p1 p2
-  _ -> composOp bicond1ltr p
-
-biconditional1rtl :: GProp -> GProp       -- might be unnecessary, as it doesn't shorten the formula
-biconditional1rtl = bicond1rtl
-bicond1rtl :: forall c. Tree c -> Tree c
-bicond1rtl p = case p of
-  GPBimpl p1 p2 -> GPConj GCAnd (GPImpl p1 p2) (GPImpl p2 p1)
-  _ -> composOp bicond1rtl p
-
 -- Pieter: Biconditional 2: (\sim p \& \sim q) \vee (p \& q) <-> p \rightleftarrow q 
 biconditional2ltr :: GProp -> GProp
 biconditional2ltr = bicond2ltr
@@ -398,18 +368,32 @@ bicond2rtl p = case p of
   _ -> composOp bicond2rtl p
 
 -- Pieter: Circular equivalence: ((p \supset q) \& (q \supset r)) \& (r \supset p) <-> (p \rightleftarrow q) \& (q \rightleftarrow r)
-circleEq :: GProp -> GProp
-circleEq = circle
-circle :: forall c. Tree c -> Tree c
-circle p = case p of
+circleEqLtr :: GProp -> GProp
+circleEqLtr = ceLtr
+ceLtr :: forall c. Tree c -> Tree c
+ceLtr p = case p of
   GPConj GCAnd p1 (GPImpl p2 p3) -> circ (p1, (p2, p3))
-  _ -> composOp circle p
+  _ -> composOp ceLtr p
   where
     circ :: (Tree c, (GProp, GProp)) -> Tree c
     circ q = case q of
       (GPImpl p1 p2, (a, b)) | p1 == b, p2 == a -> GPBimpl p1 p2
       (GPConj GCAnd p1 (GPImpl p2 p3), (a, b)) | p3 == a -> GPConj GCAnd (circ (p1, (p2, b))) (GPBimpl b p3)
-      _ -> composOp circle p
+      _ -> composOp ceLtr p
+
+circleEqRtl :: GProp -> GProp
+circleEqRtl = ceRtl
+ceRtl :: forall c. Tree c -> Tree c
+ceRtl p = case p of
+  GPConj GCAnd p1 (GPBimpl p2 p3) -> GPConj GCAnd (circ (p1, (p2, p3))) (GPImpl p3 p2)
+  GPBimpl p1 p2 -> GPConj GCAnd (GPImpl p1 p2) (GPImpl p2 p1)
+  _ -> composOp ceRtl p
+  where 
+    circ :: (Tree c, (GProp, GProp)) -> Tree c
+    circ q = case q of
+      (GPConj GCAnd p1 (GPBimpl p2 p3), (a, b)) | p2 == a -> GPConj GCAnd (circ (p1, (p2, p3))) (GPImpl p3 b)
+      (GPBimpl p1 p2, (a, b)) | p1 == a -> GPConj GCAnd (GPImpl p1 p2) (GPImpl p2 b)
+      _ -> composOp ceRtl p
  
 -- Pieter: Transitivity: (p \rightleftarrow q) \& (q \rightleftarrow r) <-> (p \rightleftarrow q) \& (p \rightleftarrow r)
 transitivity :: GProp -> GProp
@@ -434,29 +418,45 @@ xorRtl p = case p of
   GPNeg (GPBimpl p1 p2) -> GPConj GCAnd (GPConj GCOr p1 p2) (GPNeg (GPConj GCAnd p1 p2))
   _ -> composOp xorRtl p
 
--- Pieter: Redundancy 1 (only Ltr): p \vee (p \& q) <-> p
-redundancy1 :: GProp -> GProp
-redundancy1 = redu1
+-- Pieter: redundance 1 (only Ltr): p \vee (p \& q) <-> p
+redundance1 :: GProp -> GProp
+redundance1 = redu1
 redu1 :: forall c. Tree c -> Tree c
 redu1 p = case p of
   GPConj GCOr p1 (GPConj GCAnd p2 p3) | p1 == p2 -> p1
   _ -> composOp redu1 p
 
--- Pieter: Redundancy 5 (only Ltr): p \rightleftarrow (p \& q) <-> p \supset q
-redundancy5 :: GProp -> GProp
-redundancy5 = redu5
+-- Pieter: redundance 5 (only Ltr): p \rightleftarrow (p \& q) <-> p \supset q
+redundance5 :: GProp -> GProp
+redundance5 = redu5
 redu5 :: forall c. Tree c -> Tree c
 redu5 p = case p of
   GPBimpl p1 (GPConj GCAnd p2 p3) | p1 == p2 -> GPImpl p1 p3
   _ -> composOp redu5 p
 
--- Pieter: Redundancy 6 (only Ltr): p \rightleftarrow (p \vee q) <-> q \supset p
-redundancy6 :: GProp -> GProp
-redundancy6 = redu6
+-- Pieter: redundance 6 (only Ltr): p \rightleftarrow (p \vee q) <-> q \supset p
+redundance6 :: GProp -> GProp
+redundance6 = redu6
 redu6 :: forall c. Tree c -> Tree c
 redu6 p = case p of
   GPBimpl p1 (GPConj GCOr p2 p3) | p1 == p2 -> GPImpl p3 p1
   _ -> composOp redu6 p
+
+-- Pieter: redundance 7 (only Ltr): p \& (p \rightleftarrow q) <-> p \& q
+redundance7 :: GProp -> GProp
+redundance7 = redu7
+redu7 :: forall c. Tree c -> Tree c
+redu7 p = case p of
+  GPConj GCAnd p1 (GPBimpl p2 p3) | p1 == p2 -> GPConj GCAnd p1 p3
+  _ -> composOp redu7 p
+
+-- Pieter: redundance 8 (only Ltr): p \vee (p \rightleftarrow q) <-> q \supset p
+redundance8 :: GProp -> GProp
+redundance8 = redu8
+redu8 :: forall c. Tree c -> Tree c
+redu8 p = case p of
+  GPConj GCOr p1 (GPBimpl p2 p3) | p1 == p2 -> GPImpl p3 p1
+  _ -> composOp redu8 p
 
 -- FIRST-ORDER LOGIC EQUIVALENCES
 -- Quantifier negation 1: \sim (\forall x) \phi(x) <-> (\exists x) \sim phi(x)

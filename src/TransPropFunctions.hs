@@ -6,7 +6,7 @@ module TransPropFunctions where
 
 import qualified "gf" PGF (Tree, showExpr)
 import Prop   -- generated from GF
-import Data.List (minimumBy, elemIndex, isInfixOf)
+import Data.List (minimumBy, maximumBy, elemIndex, isInfixOf)
 import Data.Ord (comparing)
 import Data.Maybe (fromJust)
 
@@ -64,6 +64,12 @@ shortestSentence :: [String] -> (String, Int)
 shortestSentence l = (shortest, fromJust (elemIndex shortest l))
  where
    shortest = (minimumBy (comparing wordCount) l)
+
+-- Pieter: can come in useful when testing non-greedy logic laws
+longestSentence :: [String] -> (String, Int)
+longestSentence l = (longest, fromJust (elemIndex longest l))
+ where
+   longest = (maximumBy (comparing wordCount) l)
 
 -- Returns the number of words in a string
 wordCount :: String -> Int

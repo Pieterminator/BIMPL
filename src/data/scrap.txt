@@ -16,11 +16,11 @@ biconditional 2
 exclusive disjunction
 ( Cube ( p ) | Cube ( q ) ) & ~ ( Cube ( p ) & Cube ( q ) )
 
-redundancy 1
+redundance 1
 Cube ( p ) | ( Cube ( p ) & Cube ( q ) )
-redundancy 2
+redundance 2
 Cube ( p ) & ( Cube ( p ) | Cube ( q ) )
-redundancy 5
+redundance 5
 Cube ( p ) % ( Cube ( p ) & Cube ( q ) )
 
 ( Cube ( p ) $ Cube ( q ) ) $ Cube ( p )
@@ -31,7 +31,7 @@ Cube ( p ) $ ( Cube ( p ) $ Cube ( q ) )
 circularity
 ( ( Cube ( p ) $ Cube ( q ) ) & ( Cube ( q ) $ Cube ( r ) ) ) & ( Cube ( r ) $ Cube ( p ) )
 
-circular redundancy
+circular redundance
 ( ( Cube ( p ) % Cube ( q ) ) & ( Cube ( q ) % Cube ( r ) ) ) & ( Cube ( r ) % Cube ( p ) )
 
 
