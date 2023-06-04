@@ -3,6 +3,9 @@ stack run trans MNone PropGGC data\test.txt PropEng data\output.txt
 stack run trans MOptimize PropGGC data\test.txt PropEng data\output.txt
 stack run trans MSimplify PropGGC data\test.txt PropEng data\output.txt
 
+stack run trans MNone PropGGC ..\utils\data\ggc-formulas.tmp PropEng data\output.txt
+stack run trans MSimplify PropGGC ..\utils\data\ggc-formulas.tmp PropEng data\output.txt
+
 ¬ ∨ ∧ → ⇔
 base
 Cube ( p ) % Cube ( q )
@@ -30,6 +33,7 @@ Cube ( p ) $ ( Cube ( p ) $ Cube ( q ) )
 
 circularity
 ( ( Cube ( p ) $ Cube ( q ) ) & ( Cube ( q ) $ Cube ( r ) ) ) & ( Cube ( r ) $ Cube ( p ) )
+( ( ( Cube ( p ) $ Cube ( q ) ) & ( Cube ( q ) $ Cube ( r ) ) ) & ( Cube ( r ) $ Cube ( s ) ) ) & ( Cube ( s ) $ Cube ( p ) )
 
 circular redundance
 ( ( Cube ( p ) % Cube ( q ) ) & ( Cube ( q ) % Cube ( r ) ) ) & ( Cube ( r ) % Cube ( p ) )

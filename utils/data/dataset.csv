@@ -1,0 +1,1100 @@
+reference,formula
+A and C are both tetrahedra only if at least one of them is large,~ ( Large ( c ) | Large ( a ) ) $ ~ ( Tet ( a ) & Tet ( c ) )
+A and C are both tetrahedra only if at least one of them is large,Large ( a ) | Large ( c ) | ~ ( Tet ( a ) & Tet ( c ) )
+A and C are both tetrahedra only if at least one of them is large,( Tet ( a ) & Tet ( c ) ) $ ( Large ( a ) | Large ( a ) | Large ( c ) )
+A and C are both tetrahedra only if at least one of them is large,( Tet ( a ) & Tet ( c ) & ( Large ( a ) | Large ( c ) ) ) | ~ ( Tet ( a ) & Tet ( c ) )
+A and C are both tetrahedra only if at least one of them is large,~ ( Tet ( a ) & Tet ( c ) ) | Large ( a ) | Large ( c )
+A and C are both tetrahedra only if at least one of them is large,( ~ Large ( a ) & ~ Large ( c ) ) $ ~ ( Tet ( a ) & Tet ( c ) )
+A and C are both tetrahedra only if at least one of them is large,( Tet ( a ) & Tet ( c ) ) $ ( ( Large ( a ) & Large ( c ) ) | Large ( a ) | Large ( c ) )
+A and C are both tetrahedra only if at least one of them is large,( Tet ( a ) & Tet ( c ) ) $ ~ ( ~ Large ( a ) & ~ Large ( c ) )
+A and C are both tetrahedra only if at least one of them is large,( Tet ( a ) & Tet ( c ) ) $ ( ( Tet ( a ) & Large ( a ) ) | ( Tet ( c ) & Large ( c ) ) )
+A and C are both tetrahedra only if at least one of them is large,( Tet ( c ) & Tet ( a ) ) $ ( Large ( a ) | Large ( c ) )
+A and C are both tetrahedra only if at least one of them is large,( Tet ( a ) & Tet ( c ) ) $ ( ( Large ( a ) & Tet ( a ) ) | ( Large ( c ) & Tet ( c ) ) )
+A and C are both tetrahedra only if at least one of them is large,( Tet ( a ) & Tet ( c ) ) $ ( Large ( a ) | Large ( c ) )
+A and C are both tetrahedra only if at least one of them is large,( Tet ( a ) & Tet ( c ) & ( Large ( a ) | Large ( c ) ) ) | ~ Tet ( a ) | ~ Tet ( c )
+A and C are both tetrahedra only if at least one of them is large,( Tet ( a ) & Tet ( c ) ) $ ( ~ Large ( a ) $ Large ( c ) )
+A and C are both tetrahedra only if at least one of them is large,( Tet ( a ) & Tet ( c ) ) $ ( Large ( a ) | Large ( c ) | ( Large ( a ) & Large ( c ) ) )
+A and C are both tetrahedra only if at least one of them is large,~ ( Large ( a ) | Large ( c ) ) $ ~ ( Tet ( a ) & Tet ( c ) )
+A and C are both tetrahedra only if at least one of them is large,( Tet ( a ) & Tet ( c ) ) $ ( Large ( a ) | Large ( c ) | Large ( a ) | Large ( c ) )
+A and C are both tetrahedra only if at least one of them is large,( Tet ( a ) & Tet ( c ) ) $ ( Large ( c ) | Large ( a ) )
+A and C are both tetrahedra only if at least one of them is large,( Tet ( c ) & Tet ( a ) ) $ ( Large ( c ) | Large ( a ) )
+A and C are both tetrahedra only if at least one of them is large,( ( Tet ( a ) & Tet ( c ) ) $ Large ( a ) ) | ( ( Tet ( a ) & Tet ( c ) ) $ Large ( c ) )
+"A and E are both larger than C, but neither is large","Larger ( a , c ) & ( Larger ( a , c ) $ Larger ( e , c ) ) & ~ ( Large ( a ) | Large ( e ) )"
+"A and E are both larger than C, but neither is large","~ Large ( a ) & ~ Large ( e ) & Larger ( e , c ) & Larger ( a , c )"
+"A and E are both larger than C, but neither is large","Larger ( e , c ) & Larger ( a , c ) & ~ Large ( a ) & ~ Large ( e )"
+"A and E are both larger than C, but neither is large","~ ( ( Larger ( a , c ) & Larger ( e , c ) ) $ ( Large ( a ) | Large ( e ) ) )"
+"A and E are both larger than C, but neither is large","Larger ( a , c ) & Larger ( e , c ) & ~ Large ( a ) & ~ Large ( e )"
+"A and E are both larger than C, but neither is large","Larger ( e , c ) & Larger ( a , c ) & ~ Large ( e ) & ~ Large ( a )"
+"A and E are both larger than C, but neither is large","Smaller ( c , a ) & Smaller ( c , e ) & ~ Large ( a ) & ~ Large ( e )"
+"A and E are both larger than C, but neither is large","~ ( ( Larger ( a , c ) & Larger ( e , c ) ) $ ~ ( ~ Large ( a ) & ~ Large ( e ) ) )"
+"A and E are both larger than C, but neither is large","~ Large ( a ) & ~ Large ( e ) & Larger ( a , c ) & Larger ( e , c )"
+"A and E are both larger than C, but neither is large","Larger ( a , c ) & Larger ( e , c ) & ~ ( Large ( a ) | Large ( e ) )"
+"A and E are both larger than C, but neither is large","Larger ( a , c ) & Larger ( e , c ) & ~ Large ( e ) & ~ Large ( a )"
+"A and E are both larger than C, but neither is large","Larger ( e , c ) & Larger ( a , c ) & ~ ( Large ( e ) | Large ( a ) )"
+"A and E are both larger than C, but neither is large","~ ( Large ( a ) | Large ( e ) ) & Larger ( a , c ) & Larger ( e , c )"
+"A and E are both larger than C, but neither is large","Larger ( a , c ) & ~ Large ( a ) & Larger ( e , c ) & ~ Large ( e )"
+"A and E are both larger than C, but neither is large","Larger ( a , c ) & ~ Large ( a ) & ~ Large ( e ) & Larger ( e , c )"
+"A and E are both larger than C, but neither is large","Larger ( e , c ) & Larger ( a , c ) & ~ ( Large ( a ) | Large ( e ) )"
+"A and E are both larger than C, but neither is large","~ ( ~ ( Large ( a ) | Large ( e ) ) $ ~ ( Larger ( a , c ) & Larger ( e , c ) ) )"
+"A and E are both larger than C, but neither is large","Smaller ( c , a ) & Smaller ( c , e ) & ~ ( Large ( a ) | Large ( e ) )"
+"A and E are both larger than C, but neither is large","~ ( ~ ( Larger ( a , c ) $ ~ Larger ( e , c ) ) $ ~ ~ ( ~ Large ( a ) $ Large ( e ) ) )"
+"A and E are both larger than C, but neither is large","~ ( ~ Larger ( a , c ) | ~ Larger ( e , c ) | ~ ~ ( Large ( a ) | Large ( e ) ) )"
+"A and E are both larger than C, but neither is large","Larger ( a , c ) & Larger ( e , c ) & ~ ( ~ Large ( e ) $ Large ( a ) )"
+"A and E are both larger than C, but neither is large","Larger ( a , c ) & Larger ( e , c ) & ~ ( Large ( a ) | Large ( e ) | Large ( e ) )"
+"A and E are both larger than C, but neither is large","~ ( Large ( a ) | Large ( e ) ) & Smaller ( c , a ) & Smaller ( c , e )"
+"A and E are both larger than C, but neither is large","~ Large ( a ) & Larger ( a , c ) & Larger ( e , c ) & ~ Large ( e )"
+"A and E are both larger than C, but neither is large","~ ( Larger ( a , c ) $ Large ( a ) ) & ~ ( Larger ( e , c ) $ Large ( e ) )"
+"A and E are both larger than C, but neither is large","~ Large ( a ) & ~ Large ( e ) & Smaller ( c , a ) & Smaller ( c , e )"
+"A and E are both larger than C, but neither is large","~ ( ( Larger ( e , c ) & Larger ( a , c ) ) $ ~ ( ~ Large ( a ) & ~ Large ( e ) ) )"
+"A and E are both larger than C, but neither is large","~ Large ( e ) & ~ Large ( a ) & Larger ( e , c ) & Larger ( a , c )"
+"A and E are both larger than C, but neither is large","~ ( ~ Larger ( a , c ) | ~ Larger ( e , c ) ) & ~ ( Large ( a ) | Large ( e ) )"
+"A and E are both larger than C, but neither is large","~ ( Large ( e ) | Large ( a ) ) & Larger ( a , c ) & Larger ( e , c )"
+"A and E are both larger than C, but neither is large","~ ( Large ( a ) | Large ( e ) | ~ Larger ( a , c ) | ~ Larger ( e , c ) )"
+"A and E are both larger than C, but neither is large","~ Large ( e ) & ~ Large ( a ) & Larger ( a , c ) & Larger ( e , c )"
+"A and E are both larger than C, but neither is large","~ Large ( a ) & Larger ( a , c ) & ~ Large ( e ) & Larger ( e , c )"
+"A and E are both larger than C, but neither is large","~ ( Large ( a ) | Large ( e ) ) & Larger ( e , c ) & Larger ( a , c )"
+"A and E are both larger than C, but neither is large","~ ( ( Larger ( a , c ) & Larger ( e , c ) ) $ ( ~ Large ( a ) $ Large ( e ) ) )"
+"A and E are both larger than C, but neither is large","~ ( Larger ( a , c ) $ ( Larger ( e , c ) $ ( ~ Large ( a ) $ Large ( e ) ) ) )"
+"A and E are both larger than C, but neither is large","~ ( ~ ( Larger ( a , c ) $ ~ Larger ( e , c ) ) $ ( ~ Large ( a ) $ Large ( e ) ) )"
+"A and E are both larger than C, but neither is large","Larger ( a , c ) & Larger ( e , c ) & ~ ( Large ( e ) | Large ( a ) )"
+A is a cube,Cube ( a )
+A is a tetrahedron but C isn't large,~ ( Tet ( a ) $ Large ( c ) )
+A is a tetrahedron but C isn't large,Tet ( a ) & ~ Large ( c )
+A is a tetrahedron but C isn't large,~ Large ( c ) & Tet ( a )
+A is a tetrahedron but C isn't large,~ ( ~ Tet ( a ) | Large ( c ) )
+A is a tetrahedron but C isn't large,~ ( Tet ( a ) $ ~ ~ Large ( c ) )
+A is a tetrahedron only if it is in front of B,"~ FrontOf ( a , b ) $ ~ Tet ( a )"
+A is a tetrahedron only if it is in front of B,"( Tet ( a ) & FrontOf ( a , b ) ) | ~ Tet ( a )"
+A is a tetrahedron only if it is in front of B,"~ Tet ( a ) | ( FrontOf ( a , b ) & Tet ( a ) )"
+A is a tetrahedron only if it is in front of B,"~ ( Tet ( a ) & ~ FrontOf ( a , b ) )"
+A is a tetrahedron only if it is in front of B,"FrontOf ( a , b ) | ~ Tet ( a )"
+A is a tetrahedron only if it is in front of B,"Tet ( a ) $ FrontOf ( a , b )"
+A is a tetrahedron only if it is in front of B,"~ Tet ( a ) | FrontOf ( a , b )"
+A is a tetrahedron only if it is in front of B,"Tet ( a ) $ ( Tet ( a ) & FrontOf ( a , b ) )"
+A is a tetrahedron only if it is in front of B,"~ ( ~ FrontOf ( a , b ) & Tet ( a ) )"
+A is a tetrahedron only if it is in front of B,"( FrontOf ( a , b ) $ Tet ( a ) ) $ ( ~ FrontOf ( a , b ) $ ~ Tet ( a ) )"
+A is a tetrahedron only if it is in front of B,"~ ( Tet ( a ) & FrontOf ( a , b ) ) $ ~ Tet ( a )"
+A is large if and only if it's a cube,( Cube ( a ) & Large ( a ) ) | ( ~ Cube ( a ) & ~ Large ( a ) )
+A is large if and only if it's a cube,( Cube ( a ) $ Large ( a ) ) & ( ~ Cube ( a ) $ ~ Large ( a ) )
+A is large if and only if it's a cube,( Large ( a ) & Cube ( a ) ) | ( ~ Cube ( a ) & ~ Large ( a ) )
+A is large if and only if it's a cube,( Large ( a ) | Cube ( a ) ) $ ( Large ( a ) & Cube ( a ) )
+A is large if and only if it's a cube,( Cube ( a ) $ Large ( a ) ) & ( Large ( a ) $ Cube ( a ) )
+A is large if and only if it's a cube,( Large ( a ) $ Cube ( a ) ) & ( ~ Large ( a ) $ ~ Cube ( a ) )
+A is large if and only if it's a cube,( Large ( a ) & Cube ( a ) ) | ( ~ Large ( a ) & ~ Cube ( a ) )
+A is large if and only if it's a cube,( ~ Large ( a ) | Cube ( a ) ) & ( ~ Cube ( a ) | Large ( a ) )
+A is large if and only if it's a cube,( ~ Cube ( a ) $ ~ Large ( a ) ) & ( Cube ( a ) $ Large ( a ) )
+A is large if and only if it's a cube,( Large ( a ) $ Cube ( a ) ) & ( Cube ( a ) $ Large ( a ) )
+A is large if and only if it's a cube,( ~ Large ( a ) | Cube ( a ) ) & ( Large ( a ) | ~ Cube ( a ) )
+A is large if and only if it's a cube,( Large ( a ) & Cube ( a ) ) | ~ ( Large ( a ) | Cube ( a ) )
+A is large just in case D is small,( ~ Large ( a ) | Small ( d ) ) & ( ~ Small ( d ) | Large ( a ) )
+A is large just in case D is small,( Large ( a ) | Small ( d ) ) $ ( Large ( a ) & Small ( d ) )
+A is large just in case D is small,( Small ( d ) $ Large ( a ) ) & ( Large ( a ) $ Small ( d ) )
+A is large just in case D is small,( Small ( d ) $ Large ( a ) ) & ( ~ Small ( d ) $ ~ Large ( a ) )
+A is large just in case D is small,( ~ Small ( d ) $ ~ Large ( a ) ) & ( Small ( d ) $ Large ( a ) )
+A is large just in case D is small,( ~ Small ( d ) | Large ( a ) ) & ( Small ( d ) | ~ Large ( a ) )
+A is large just in case D is small,( Small ( d ) & Large ( a ) ) | ( ~ Small ( d ) & ~ Large ( a ) )
+A is large just in case D is small,( Large ( a ) & Small ( d ) ) | ~ ( Large ( a ) | Small ( d ) )
+A is large just in case D is small,( Large ( a ) & Small ( d ) ) | ( ~ Large ( a ) & ~ Small ( d ) )
+A is large just in case D is small,( Large ( a ) & Small ( d ) ) | ( ~ Small ( d ) & ~ Large ( a ) )
+A is large just in case D is small,( Large ( a ) $ Small ( d ) ) & ( ~ Large ( a ) $ ~ Small ( d ) )
+A is large just in case D is small,( ~ Large ( a ) | Small ( d ) ) & ( Large ( a ) | ~ Small ( d ) )
+A is large just in case D is small,( Large ( a ) $ Small ( d ) ) & ( Small ( d ) $ Large ( a ) )
+A is large just in case E is,( ~ Large ( e ) | Large ( a ) ) & ( Large ( e ) | ~ Large ( a ) )
+A is large just in case E is,( Large ( a ) $ Large ( e ) ) & ( Large ( e ) $ Large ( a ) )
+A is large just in case E is,( ~ Large ( a ) | Large ( e ) ) & ( ~ Large ( e ) | Large ( a ) )
+A is large just in case E is,( Large ( e ) | Large ( a ) ) $ ( Large ( a ) & Large ( e ) )
+A is large just in case E is,( Large ( a ) & Large ( e ) ) | ( ~ Large ( e ) & ~ Large ( a ) )
+A is large just in case E is,( Large ( e ) $ Large ( a ) ) & ( Large ( a ) $ Large ( e ) )
+A is large just in case E is,( ~ Large ( e ) $ ~ Large ( a ) ) & ( Large ( e ) $ Large ( a ) )
+A is large just in case E is,( Large ( e ) $ Large ( a ) ) & ( ~ Large ( e ) $ ~ Large ( a ) )
+A is large just in case E is,( Large ( e ) & Large ( a ) ) | ( ~ Large ( e ) & ~ Large ( a ) )
+A is large just in case E is,( Large ( a ) $ Large ( e ) ) & ( ~ Large ( a ) $ ~ Large ( e ) )
+A is large just in case E is,( Large ( a ) & Large ( e ) ) | ( ~ Large ( a ) & ~ Large ( e ) )
+A is smaller than E,"Smaller ( a , e ) | Larger ( e , a )"
+A is smaller than E,"Larger ( e , a )"
+A is smaller than E,"Smaller ( a , e )"
+A is to the left of or right of D only if it's a cube,"~ Cube ( a ) $ ~ ( LeftOf ( a , d ) | RightOf ( a , d ) )"
+A is to the left of or right of D only if it's a cube,"~ SameCol ( d , a ) $ Cube ( a )"
+A is to the left of or right of D only if it's a cube,"~ ( LeftOf ( a , d ) | RightOf ( a , d ) ) | Cube ( a )"
+A is to the left of or right of D only if it's a cube,"( ~ LeftOf ( a , d ) $ RightOf ( a , d ) ) $ Cube ( a )"
+A is to the left of or right of D only if it's a cube,"( LeftOf ( a , d ) $ Cube ( a ) ) & ( RightOf ( a , d ) $ Cube ( a ) )"
+A is to the left of or right of D only if it's a cube,"( LeftOf ( d , a ) | LeftOf ( a , d ) ) $ Cube ( a )"
+A is to the left of or right of D only if it's a cube,"( LeftOf ( a , d ) | RightOf ( a , d ) ) $ Cube ( a )"
+A is to the left of or right of D only if it's a cube,"( RightOf ( a , d ) | LeftOf ( a , d ) ) $ Cube ( a )"
+A is to the left of or right of D only if it's a cube,"( RightOf ( a , d ) $ Cube ( a ) ) & ( LeftOf ( a , d ) $ Cube ( a ) )"
+A is to the left of or right of D only if it's a cube,"~ Cube ( a ) $ ~ ( LeftOf ( a , d ) | LeftOf ( d , a ) )"
+A is to the left of or right of D only if it's a cube,"SameCol ( a , d ) | Cube ( a )"
+A is to the left of or right of D only if it's a cube,"Cube ( a ) | ( ~ Cube ( a ) & SameCol ( a , d ) )"
+A is to the left of or right of D only if it's a cube,"( LeftOf ( d , a ) | RightOf ( d , a ) ) $ Cube ( a )"
+A is to the left of or right of D only if it's a cube,"~ Cube ( a ) $ SameCol ( a , d )"
+A is to the left of or right of D only if it's a cube,"~ Cube ( a ) $ ~ ( RightOf ( a , d ) | LeftOf ( a , d ) )"
+A is to the left of or right of D only if it's a cube,"( LeftOf ( a , d ) | LeftOf ( d , a ) ) $ Cube ( a )"
+A is to the left of or right of D only if it's a cube,"( RightOf ( d , a ) | LeftOf ( d , a ) ) $ Cube ( a )"
+A is to the left of or right of D only if it's a cube,"~ Cube ( a ) $ ~ ( LeftOf ( d , a ) | RightOf ( d , a ) )"
+A is to the left of or right of D only if it's a cube,"Cube ( a ) | ~ ( LeftOf ( a , d ) | RightOf ( a , d ) )"
+A is to the left of or right of D only if it's a cube,"~ SameCol ( a , d ) $ Cube ( a )"
+A is to the left of or right of D only if it's a cube,"~ Cube ( a ) $ ( ~ LeftOf ( a , d ) & ~ RightOf ( a , d ) )"
+"At least one of A, C, and E is a cube",Cube ( c ) | Cube ( e ) | Cube ( a )
+"At least one of A, C, and E is a cube",Cube ( a ) | Cube ( c ) | Cube ( a ) | Cube ( e )
+"At least one of A, C, and E is a cube",Cube ( a ) | ( Cube ( c ) & ~ Cube ( a ) ) | ( Cube ( e ) & ~ Cube ( c ) )
+"At least one of A, C, and E is a cube",( ~ Cube ( c ) & ~ Cube ( e ) ) $ Cube ( a )
+"At least one of A, C, and E is a cube",( ~ Cube ( a ) & ~ Cube ( c ) & ~ Cube ( e ) ) $ ( Cube ( a ) & Cube ( c ) & Cube ( e ) )
+"At least one of A, C, and E is a cube",~ ( Cube ( a ) | Cube ( c ) ) $ ( Cube ( c ) | Cube ( e ) )
+"At least one of A, C, and E is a cube",~ Cube ( a ) $ ( Cube ( c ) | ( ~ Cube ( c ) $ Cube ( e ) ) )
+"At least one of A, C, and E is a cube",Cube ( a ) | Cube ( c ) | Cube ( a ) | Cube ( e ) | Cube ( c ) | Cube ( e )
+"At least one of A, C, and E is a cube",~ ( Cube ( a ) | Cube ( c ) | Cube ( e ) ) $ ( Cube ( a ) | Cube ( c ) | Cube ( e ) )
+"At least one of A, C, and E is a cube",( ~ Cube ( a ) & ~ Cube ( c ) & ~ Cube ( e ) ) $ ( Cube ( a ) | Cube ( c ) | Cube ( e ) )
+"At least one of A, C, and E is a cube",( ~ Cube ( a ) | ~ Cube ( c ) | ~ Cube ( e ) ) $ ( Cube ( a ) | Cube ( c ) | Cube ( e ) )
+"At least one of A, C, and E is a cube",~ ( Cube ( a ) | Cube ( c ) | Cube ( e ) ) $ ( Cube ( a ) & Cube ( b ) & Cube ( e ) )
+"At least one of A, C, and E is a cube",~ ~ ( Cube ( a ) | Cube ( c ) | Cube ( e ) )
+"At least one of A, C, and E is a cube",~ ( Cube ( a ) & Cube ( c ) & Cube ( e ) ) $ ( Cube ( a ) | Cube ( c ) | Cube ( e ) )
+"At least one of A, C, and E is a cube",~ ( Cube ( c ) | Cube ( e ) ) $ Cube ( a )
+"At least one of A, C, and E is a cube",~ ( ~ Cube ( a ) & ~ Cube ( e ) & ~ Cube ( c ) )
+"At least one of A, C, and E is a cube",( ~ Cube ( a ) & ~ Cube ( c ) ) $ Cube ( e )
+"At least one of A, C, and E is a cube",( ~ Cube ( c ) & ~ Cube ( a ) ) $ Cube ( e )
+"At least one of A, C, and E is a cube",Cube ( a ) | Cube ( c ) | Cube ( c ) | Cube ( e )
+"At least one of A, C, and E is a cube",( ~ Cube ( a ) $ Cube ( c ) ) | ( ~ Cube ( c ) $ Cube ( e ) )
+"At least one of A, C, and E is a cube",~ Cube ( e ) $ ( Cube ( a ) | Cube ( c ) )
+"At least one of A, C, and E is a cube",( Cube ( a ) | Cube ( c ) | Cube ( e ) ) & ( Cube ( a ) | Cube ( c ) | Cube ( e ) )
+"At least one of A, C, and E is a cube",( Cube ( a ) | Cube ( e ) | Cube ( c ) ) & ~ ( ~ Cube ( a ) & ~ Cube ( c ) & ~ Cube ( e ) )
+"At least one of A, C, and E is a cube",Cube ( e ) | Cube ( a ) | Cube ( c )
+"At least one of A, C, and E is a cube",~ Cube ( a ) $ ( Cube ( c ) | Cube ( e ) )
+"At least one of A, C, and E is a cube",Cube ( a ) | Cube ( a ) | Cube ( c ) | Cube ( a ) | Cube ( c ) | Cube ( e )
+"At least one of A, C, and E is a cube",( ~ Cube ( a ) $ Cube ( c ) ) | ( ~ Cube ( c ) $ Cube ( e ) ) | ( ~ Cube ( c ) $ Cube ( a ) )
+"At least one of A, C, and E is a cube",~ Cube ( e ) $ ( ~ Cube ( c ) $ Cube ( a ) )
+"At least one of A, C, and E is a cube",~ Cube ( a ) $ ~ ( ~ Cube ( c ) & ~ Cube ( e ) )
+"At least one of A, C, and E is a cube",~ ( Cube ( a ) | Cube ( e ) ) $ Cube ( c )
+"At least one of A, C, and E is a cube",( ~ Cube ( a ) $ Cube ( c ) ) | ( ~ Cube ( c ) $ Cube ( e ) ) | ( ~ Cube ( e ) $ Cube ( a ) )
+"At least one of A, C, and E is a cube",( Cube ( a ) | Cube ( c ) | Cube ( e ) ) & ~ ( ~ Cube ( a ) & ~ Cube ( c ) & ~ Cube ( e ) )
+"At least one of A, C, and E is a cube",Cube ( c ) | Cube ( a ) | Cube ( e )
+"At least one of A, C, and E is a cube",Cube ( e ) | Cube ( c ) | Cube ( a )
+"At least one of A, C, and E is a cube",~ Cube ( a ) $ ( Cube ( e ) | Cube ( c ) )
+"At least one of A, C, and E is a cube",Cube ( a ) | Cube ( c ) | Cube ( e )
+"At least one of A, C, and E is a cube",~ Cube ( a ) $ ( ~ Cube ( c ) $ Cube ( e ) )
+"At least one of A, C, and E is a cube",( ~ Cube ( a ) $ Cube ( c ) ) | ( ~ Cube ( a ) $ Cube ( e ) )
+"At least one of A, C, and E is a cube",~ Cube ( c ) $ ( Cube ( a ) | Cube ( e ) )
+"At least one of A, C, and E is a cube",~ ( Cube ( a ) | Cube ( c ) ) $ Cube ( e )
+"At least one of A, C, and E is a cube",( ( Cube ( a ) $ Cube ( e ) ) $ Cube ( c ) ) | ( ( Cube ( c ) $ Cube ( a ) ) $ Cube ( e ) )
+"At least one of A, C, and E is a cube",Cube ( a ) | Cube ( e ) | Cube ( c )
+"At least one of A, C, and E is a cube",~ ( ~ Cube ( a ) & ~ Cube ( c ) & ~ Cube ( e ) )
+"At least one of A, C, and E is a cube",~ ( ~ Cube ( a ) $ Cube ( e ) ) $ ( ~ Cube ( c ) $ Cube ( e ) )
+"At least one of A, C, and E is a cube",~ ( ~ Cube ( a ) $ Cube ( c ) ) $ Cube ( e )
+B is a cube unless C is a tetrahedron,( Cube ( b ) & ~ Tet ( c ) ) | Tet ( c )
+B is a cube unless C is a tetrahedron,~ Cube ( b ) $ Tet ( c )
+B is a cube unless C is a tetrahedron,Tet ( c ) | Cube ( b )
+B is a cube unless C is a tetrahedron,( Cube ( b ) & Tet ( c ) ) | ( Cube ( b ) & ~ Tet ( c ) ) | ( ~ Cube ( b ) & Tet ( c ) )
+B is a cube unless C is a tetrahedron,( ~ Cube ( b ) $ Tet ( c ) ) & ( ~ Tet ( c ) $ Cube ( b ) )
+B is a cube unless C is a tetrahedron,Cube ( b ) | Tet ( c )
+B is a cube unless C is a tetrahedron,Cube ( b ) | ( Tet ( c ) & ~ Cube ( b ) )
+B is a cube unless C is a tetrahedron,~ Cube ( b ) $ ~ ~ Tet ( c )
+B is a cube unless C is a tetrahedron,~ Tet ( c ) $ ~ ~ Cube ( b )
+B is a cube unless C is a tetrahedron,( ~ Cube ( b ) $ Tet ( c ) ) | ( ~ Tet ( c ) $ Cube ( b ) )
+B is a cube unless C is a tetrahedron,~ ( ~ Tet ( c ) & ~ Cube ( b ) )
+B is a cube unless C is a tetrahedron,~ ~ Tet ( c ) | Cube ( b )
+B is a cube unless C is a tetrahedron,Cube ( b ) | ( ~ Cube ( b ) & Tet ( c ) )
+B is a cube unless C is a tetrahedron,( Cube ( b ) | Tet ( c ) ) & ( ~ Cube ( b ) $ Tet ( c ) )
+B is a cube unless C is a tetrahedron,( ~ Tet ( c ) $ Cube ( b ) ) & ( ~ Cube ( b ) $ Tet ( c ) )
+B is a cube unless C is a tetrahedron,~ Tet ( c ) $ Cube ( b )
+B is a tetrahedron,Tet ( b )
+B is a tetrahedron only if it is small,Small ( b ) | ~ Tet ( b )
+B is a tetrahedron only if it is small,Tet ( b ) $ Small ( b )
+B is a tetrahedron only if it is small,( Tet ( b ) $ Small ( b ) ) | ~ Tet ( b )
+B is a tetrahedron only if it is small,~ Small ( b ) $ ~ Tet ( b )
+B is a tetrahedron only if it is small,~ Tet ( b ) | Small ( b )
+B is a tetrahedron only if it is small,Tet ( b ) $ ( Tet ( b ) & Small ( b ) )
+B is a tetrahedron only if it is small,( Tet ( b ) $ Small ( b ) ) & ( ~ Small ( b ) $ ~ Tet ( b ) )
+"B is a tetrahedron, then C isn't",Tet ( b ) $ ~ Tet ( c )
+"B is a tetrahedron, then C isn't",~ ( Tet ( b ) & Tet ( c ) )
+"B is a tetrahedron, then C isn't",Tet ( b ) $ ( Tet ( b ) & ~ Tet ( c ) )
+"B is a tetrahedron, then C isn't",~ Tet ( b ) | ~ Tet ( c )
+"B is a tetrahedron, then C isn't",( Tet ( b ) & ~ Tet ( c ) ) | ~ Tet ( b )
+"B is a tetrahedron, then C isn't",~ ~ Tet ( c ) $ ~ Tet ( b )
+"B is a tetrahedron, then C isn't",Tet ( c ) $ ~ Tet ( b )
+"B is in the same column as E, which is in the same row as D, which in turn is in the same column as A","SameCol ( b , e ) & SameRow ( d , e ) & SameCol ( a , d )"
+"B is in the same column as E, which is in the same row as D, which in turn is in the same column as A","~ ~ SameCol ( b , e ) & SameRow ( e , d ) & SameCol ( d , a )"
+"B is in the same column as E, which is in the same row as D, which in turn is in the same column as A","SameCol ( e , b ) & SameRow ( e , d ) & SameCol ( d , a )"
+"B is in the same column as E, which is in the same row as D, which in turn is in the same column as A","SameCol ( b , e ) & SameRow ( d , e ) & SameRow ( e , d ) & SameCol ( d , a )"
+"B is in the same column as E, which is in the same row as D, which in turn is in the same column as A","~ ~ ( SameCol ( b , e ) & SameRow ( e , d ) & SameCol ( a , d ) )"
+"B is in the same column as E, which is in the same row as D, which in turn is in the same column as A","SameCol ( a , d ) & SameRow ( d , e ) & SameCol ( b , e )"
+"B is in the same column as E, which is in the same row as D, which in turn is in the same column as A","SameRow ( d , e ) & SameCol ( d , a ) & SameCol ( b , e )"
+"B is in the same column as E, which is in the same row as D, which in turn is in the same column as A","SameCol ( e , b ) & SameRow ( d , e ) & SameCol ( a , d )"
+"B is in the same column as E, which is in the same row as D, which in turn is in the same column as A","SameCol ( a , d ) & SameRow ( e , d ) & SameCol ( b , e )"
+"B is in the same column as E, which is in the same row as D, which in turn is in the same column as A","SameCol ( b , e ) & SameCol ( a , d ) & SameRow ( d , e )"
+"B is in the same column as E, which is in the same row as D, which in turn is in the same column as A","SameRow ( e , d ) & SameCol ( b , e ) & SameCol ( d , a )"
+"B is in the same column as E, which is in the same row as D, which in turn is in the same column as A","SameCol ( e , b ) & SameRow ( e , d ) & SameCol ( a , d )"
+"B is in the same column as E, which is in the same row as D, which in turn is in the same column as A","SameCol ( b , e ) & SameRow ( e , d ) & SameRow ( e , d ) & SameCol ( d , a )"
+"B is in the same column as E, which is in the same row as D, which in turn is in the same column as A","SameCol ( d , a ) & SameRow ( e , d ) & SameCol ( e , b )"
+"B is in the same column as E, which is in the same row as D, which in turn is in the same column as A","SameCol ( e , b ) & SameCol ( d , a ) & SameRow ( d , e )"
+"B is in the same column as E, which is in the same row as D, which in turn is in the same column as A","SameCol ( d , a ) & SameCol ( b , e ) & SameRow ( d , e )"
+"B is in the same column as E, which is in the same row as D, which in turn is in the same column as A","SameCol ( b , e ) & SameCol ( a , d ) & SameRow ( e , d )"
+"B is in the same column as E, which is in the same row as D, which in turn is in the same column as A","SameCol ( d , a ) & SameRow ( d , e ) & SameCol ( e , b )"
+"B is in the same column as E, which is in the same row as D, which in turn is in the same column as A","SameCol ( d , a ) & SameCol ( b , e ) & SameRow ( e , d )"
+"B is in the same column as E, which is in the same row as D, which in turn is in the same column as A","SameRow ( e , d ) & SameCol ( d , a ) & SameCol ( b , e )"
+"B is in the same column as E, which is in the same row as D, which in turn is in the same column as A","SameCol ( a , d ) & SameCol ( b , e ) & SameRow ( e , d )"
+"B is in the same column as E, which is in the same row as D, which in turn is in the same column as A","SameCol ( b , e ) & SameCol ( d , a ) & SameRow ( d , e )"
+"B is in the same column as E, which is in the same row as D, which in turn is in the same column as A","SameCol ( e , b ) & SameRow ( d , e ) & SameCol ( d , a )"
+"B is in the same column as E, which is in the same row as D, which in turn is in the same column as A","SameCol ( d , a ) & SameRow ( d , e ) & SameCol ( b , e )"
+"B is in the same column as E, which is in the same row as D, which in turn is in the same column as A","SameCol ( a , d ) & SameCol ( b , e ) & SameRow ( d , e )"
+"B is in the same column as E, which is in the same row as D, which in turn is in the same column as A","SameCol ( b , e ) & SameRow ( d , e ) & SameCol ( d , a )"
+"B is in the same column as E, which is in the same row as D, which in turn is in the same column as A","SameRow ( e , d ) & SameCol ( e , b ) & SameCol ( d , a )"
+"B is in the same column as E, which is in the same row as D, which in turn is in the same column as A","SameRow ( d , e ) & SameCol ( b , e ) & SameCol ( a , d )"
+"B is in the same column as E, which is in the same row as D, which in turn is in the same column as A","SameCol ( d , a ) & SameRow ( e , d ) & SameCol ( b , e )"
+"B is in the same column as E, which is in the same row as D, which in turn is in the same column as A","SameCol ( b , e ) & SameRow ( e , d ) & SameCol ( a , d )"
+"B is in the same column as E, which is in the same row as D, which in turn is in the same column as A","~ ( ~ SameCol ( b , e ) | ~ SameRow ( e , d ) | ~ SameCol ( d , a ) )"
+"B is in the same column as E, which is in the same row as D, which in turn is in the same column as A","SameRow ( d , e ) & SameCol ( b , e ) & SameCol ( d , a )"
+"B is in the same column as E, which is in the same row as D, which in turn is in the same column as A","SameCol ( a , d ) & SameRow ( d , e ) & SameCol ( e , b )"
+"B is in the same column as E, which is in the same row as D, which in turn is in the same column as A","SameCol ( b , e ) & SameRow ( e , d ) & SameCol ( d , a )"
+"B is in the same column as E, which is in the same row as D, which in turn is in the same column as A","SameCol ( b , e ) & SameCol ( d , a ) & SameRow ( e , d )"
+B is in the same row as A but is not in the same column as F,"~ SameCol ( b , f ) & SameRow ( a , b )"
+B is in the same row as A but is not in the same column as F,"SameRow ( b , a ) & ~ SameCol ( b , f )"
+B is in the same row as A but is not in the same column as F,"SameRow ( a , b ) & ~ SameCol ( b , f ) & SameRow ( b , a )"
+B is in the same row as A but is not in the same column as F,"~ SameCol ( f , b ) & SameRow ( a , b )"
+B is in the same row as A but is not in the same column as F,"~ ( ~ SameRow ( b , a ) | SameCol ( b , f ) )"
+B is in the same row as A but is not in the same column as F,"SameRow ( a , b ) & ~ SameCol ( f , b )"
+B is in the same row as A but is not in the same column as F,"~ ~ SameRow ( b , a ) & ~ SameCol ( b , f )"
+B is in the same row as A but is not in the same column as F,"~ SameCol ( b , f ) & SameRow ( b , a )"
+B is in the same row as A but is not in the same column as F,"SameRow ( b , a ) & ~ SameCol ( f , b )"
+B is in the same row as A but is not in the same column as F,"SameRow ( b , a ) & ~ SameCol ( b , f ) & ~ SameCol ( b , f )"
+B is in the same row as A but is not in the same column as F,"SameRow ( b , a ) & ~ ( SameRow ( b , a ) & SameCol ( b , f ) )"
+B is in the same row as A but is not in the same column as F,"SameRow ( a , b ) & ~ SameCol ( b , f )"
+B is in the same row as A but is not in the same column as F,"~ ~ ( SameRow ( b , a ) & ~ SameCol ( b , f ) )"
+B is in the same row as D,"SameRow ( b , d )"
+B is in the same row as D,"SameRow ( d , b )"
+B is larger than both A and E,"Larger ( b , e ) & Larger ( b , a )"
+B is larger than both A and E,"~ ( Larger ( b , a ) & Larger ( b , e ) ) $ ( Larger ( b , a ) & Larger ( b , e ) )"
+B is larger than both A and E,"Smaller ( a , b ) & Smaller ( e , b ) & Larger ( b , a ) & Larger ( b , e )"
+B is larger than both A and E,"Larger ( b , a ) & ( Larger ( b , a ) $ Larger ( b , e ) )"
+B is larger than both A and E,"Larger ( b , a ) & Larger ( b , e )"
+B is larger than both A and E,"~ ~ Larger ( b , a ) & ~ ~ Larger ( b , e )"
+B is larger than both A and E,"Smaller ( a , b ) & Smaller ( e , b )"
+B is larger than both A and E,"Larger ( b , e ) & Larger ( b , a ) & Larger ( b , e ) & Larger ( b , a )"
+B is larger than both A and E,"~ ( Larger ( b , a ) $ ~ Larger ( b , e ) )"
+B is larger than both A and E,"( Larger ( b , a ) $ Larger ( b , e ) ) & Larger ( b , a )"
+B is smaller than A,"Smaller ( b , a ) | Larger ( a , b )"
+B is smaller than A,"Larger ( a , b )"
+B is smaller than A,"Smaller ( b , a )"
+B is the same size as C,"SameSize ( c , b )"
+B is the same size as C,"SameSize ( b , c )"
+B or D is a cube if either A or C is a tetrahedron,( Tet ( c ) | Tet ( a ) ) $ ( Cube ( b ) | Cube ( d ) )
+B or D is a cube if either A or C is a tetrahedron,( ~ Tet ( c ) $ Tet ( a ) ) $ ( ~ Cube ( d ) $ Cube ( b ) )
+B or D is a cube if either A or C is a tetrahedron,( ( ~ Tet ( a ) $ Tet ( c ) ) | ( ~ Tet ( c ) $ Tet ( a ) ) ) $ ( Cube ( b ) | Cube ( d ) )
+B or D is a cube if either A or C is a tetrahedron,( Tet ( a ) | ( ~ Tet ( a ) & Tet ( c ) ) ) $ ( Cube ( b ) | Cube ( d ) )
+B or D is a cube if either A or C is a tetrahedron,~ ( Cube ( b ) | Cube ( d ) ) $ ~ ( Tet ( a ) | Tet ( c ) )
+B or D is a cube if either A or C is a tetrahedron,( ( Cube ( b ) | Cube ( d ) ) & ( Tet ( a ) | Tet ( c ) ) ) | ~ ( Tet ( a ) | Tet ( c ) )
+B or D is a cube if either A or C is a tetrahedron,( ( Tet ( a ) | Tet ( c ) ) $ Cube ( b ) ) | ( ( Tet ( a ) | Tet ( c ) ) $ Cube ( d ) )
+B or D is a cube if either A or C is a tetrahedron,( ~ Tet ( a ) $ Tet ( c ) ) $ ( ~ Cube ( b ) $ Cube ( d ) )
+B or D is a cube if either A or C is a tetrahedron,Cube ( b ) | Cube ( d ) | ~ ( Tet ( a ) | Tet ( c ) )
+B or D is a cube if either A or C is a tetrahedron,( Tet ( a ) | Tet ( c ) ) $ ( Cube ( d ) | Cube ( b ) )
+B or D is a cube if either A or C is a tetrahedron,~ ( ~ ( ~ Tet ( a ) & ~ Tet ( c ) ) & ~ Cube ( b ) & ~ Cube ( d ) )
+B or D is a cube if either A or C is a tetrahedron,( Tet ( a ) | Tet ( c ) ) $ ( Cube ( b ) | Cube ( d ) )
+B or D is a cube if either A or C is a tetrahedron,~ ( Cube ( b ) | Cube ( d ) ) $ ~ ( Tet ( c ) | Tet ( a ) )
+B or D is a cube if either A or C is a tetrahedron,( Tet ( a ) $ ( Cube ( b ) | Cube ( d ) ) ) & ( Tet ( c ) $ ( Cube ( b ) | Cube ( d ) ) )
+B or D is a cube if either A or C is a tetrahedron,( ~ Tet ( a ) $ Tet ( c ) ) $ ( Cube ( b ) | Cube ( d ) )
+B or D is a cube if either A or C is a tetrahedron,~ ( Tet ( a ) | Tet ( c ) ) | Cube ( b ) | Cube ( d )
+B or D is a cube if either A or C is a tetrahedron,( Tet ( c ) | Tet ( a ) ) $ ( Cube ( d ) | Cube ( b ) )
+B or D is a cube if either A or C is a tetrahedron,~ ( Cube ( d ) | Cube ( b ) ) $ ~ ( Tet ( a ) | Tet ( c ) )
+B or D is a cube if either A or C is a tetrahedron,( ~ Cube ( b ) $ ~ ( Tet ( a ) | Tet ( c ) ) ) | ( ~ Cube ( d ) $ ~ ( Tet ( a ) | Tet ( c ) ) )
+"Both D and C are cubes, however neither of them is small",~ Small ( d ) & ~ Small ( c ) & Cube ( d ) & Cube ( c )
+"Both D and C are cubes, however neither of them is small",~ ( Small ( d ) | Small ( c ) ) & Cube ( c ) & Cube ( d )
+"Both D and C are cubes, however neither of them is small",Cube ( d ) & Cube ( c ) & ~ Small ( d ) & ~ Small ( c ) & ~ ~ Cube ( d ) & ~ ~ ~ Small ( c )
+"Both D and C are cubes, however neither of them is small",Cube ( d ) & ~ Small ( d ) & ~ Small ( c ) & Cube ( c )
+"Both D and C are cubes, however neither of them is small","~ ( Small ( d ) | Small ( c ) ) & Cube ( d ) & SameShape ( d , c )"
+"Both D and C are cubes, however neither of them is small",Cube ( d ) & Cube ( c ) & ~ ( Small ( d ) & Cube ( d ) ) & ~ ( Small ( c ) & Cube ( c ) )
+"Both D and C are cubes, however neither of them is small",~ ( Small ( c ) | Small ( d ) ) & Cube ( d ) & Cube ( c )
+"Both D and C are cubes, however neither of them is small","~ Small ( d ) & ~ Small ( c ) & Cube ( d ) & SameShape ( d , c )"
+"Both D and C are cubes, however neither of them is small",Cube ( d ) & Cube ( c ) & ~ Small ( d ) & ~ Small ( c )
+"Both D and C are cubes, however neither of them is small","Cube ( d ) & SameShape ( d , c ) & ~ ( Small ( d ) | Small ( c ) )"
+"Both D and C are cubes, however neither of them is small",Cube ( c ) & ~ Small ( c ) & ~ Small ( d ) & Cube ( d )
+"Both D and C are cubes, however neither of them is small","Cube ( d ) & SameShape ( c , d ) & ~ ( Small ( c ) | Small ( d ) )"
+"Both D and C are cubes, however neither of them is small",~ ( ~ Cube ( d ) | ~ Cube ( c ) | Small ( d ) | Small ( c ) )
+"Both D and C are cubes, however neither of them is small",~ Small ( c ) & ~ Small ( d ) & Cube ( d ) & Cube ( c )
+"Both D and C are cubes, however neither of them is small","Cube ( c ) & ~ Small ( c ) & ~ Small ( d ) & SameShape ( c , d )"
+"Both D and C are cubes, however neither of them is small",~ Small ( d ) & ~ Small ( c ) & Cube ( c ) & Cube ( d )
+"Both D and C are cubes, however neither of them is small","~ ( Small ( c ) | Small ( d ) ) & Cube ( c ) & SameShape ( c , d )"
+"Both D and C are cubes, however neither of them is small","Cube ( c ) & SameShape ( c , d ) & ~ ( Small ( c ) | Small ( d ) )"
+"Both D and C are cubes, however neither of them is small","Cube ( c ) & SameShape ( d , c ) & ~ Small ( c ) & ~ Small ( d )"
+"Both D and C are cubes, however neither of them is small","Cube ( d ) & SameShape ( d , c ) & ~ Small ( c ) & ~ Small ( d )"
+"Both D and C are cubes, however neither of them is small",~ ( Small ( c ) | Small ( d ) ) & Cube ( c ) & Cube ( d )
+"Both D and C are cubes, however neither of them is small","Cube ( d ) & SameShape ( c , d ) & ~ ( Small ( d ) | Small ( c ) )"
+"Both D and C are cubes, however neither of them is small",Cube ( c ) & ~ Small ( c ) & Cube ( d ) & ~ Small ( d )
+"Both D and C are cubes, however neither of them is small","Cube ( c ) & SameShape ( d , c ) & ~ ( Small ( d ) | Small ( c ) )"
+"Both D and C are cubes, however neither of them is small",Cube ( d ) & Cube ( c ) & ~ ( Small ( d ) | Small ( c ) )
+"Both D and C are cubes, however neither of them is small","Cube ( d ) & ~ Small ( d ) & SameShape ( c , d ) & ~ Small ( c )"
+"Both D and C are cubes, however neither of them is small",Cube ( d ) & ~ Small ( c ) & Cube ( c ) & ~ Small ( d )
+"Both D and C are cubes, however neither of them is small","Cube ( d ) & SameShape ( d , c ) & ~ Small ( d ) & ~ Small ( c )"
+"Both D and C are cubes, however neither of them is small","SameShape ( d , c ) & Cube ( d ) & ~ Small ( d ) & ~ Small ( c )"
+"Both D and C are cubes, however neither of them is small","SameShape ( d , c ) & Cube ( c ) & ~ Small ( d ) & ~ Small ( c )"
+"Both D and C are cubes, however neither of them is small",~ Small ( d ) & Cube ( d ) & Cube ( c ) & ~ Small ( c )
+"Both D and C are cubes, however neither of them is small","Cube ( d ) & SameShape ( c , d ) & ~ Small ( d ) & ~ Small ( c )"
+"Both D and C are cubes, however neither of them is small",~ Small ( c ) & Cube ( d ) & ~ Small ( d ) & Cube ( c )
+"Both D and C are cubes, however neither of them is small","Cube ( d ) & SameShape ( c , d ) & ~ Small ( c ) & ~ Small ( d )"
+"Both D and C are cubes, however neither of them is small",Cube ( c ) & Cube ( d ) & ~ Small ( d ) & ~ Small ( c )
+"Both D and C are cubes, however neither of them is small",Cube ( c ) & Cube ( d ) & ~ ( Small ( c ) | Small ( d ) )
+"Both D and C are cubes, however neither of them is small","SameShape ( d , c ) & Cube ( d ) & ~ ( Small ( d ) | Small ( c ) )"
+"Both D and C are cubes, however neither of them is small","~ Small ( d ) & ~ Small ( c ) & SameShape ( d , c ) & Cube ( d )"
+"Both D and C are cubes, however neither of them is small",Cube ( d ) & ~ Small ( d ) & Cube ( c ) & ~ Small ( c )
+"Both D and C are cubes, however neither of them is small",Cube ( d ) & Cube ( c ) & ~ ( Small ( c ) | Small ( d ) )
+"Both D and C are cubes, however neither of them is small",~ Small ( c ) & ~ Small ( d ) & Cube ( c ) & Cube ( d )
+"Both D and C are cubes, however neither of them is small",Cube ( c ) & Cube ( d ) & ~ Small ( c ) & ~ Small ( d )
+"Both D and C are cubes, however neither of them is small",~ Small ( c ) & Cube ( c ) & ~ Small ( d ) & Cube ( d )
+"Both D and C are cubes, however neither of them is small","SameShape ( d , c ) & Cube ( c ) & ~ Small ( c ) & ~ Small ( d )"
+"Both D and C are cubes, however neither of them is small","SameShape ( d , c ) & Cube ( c ) & ~ ( Small ( d ) | Small ( c ) )"
+"Both D and C are cubes, however neither of them is small",Cube ( c ) & Cube ( d ) & ~ ( Small ( d ) | Small ( c ) )
+"Both D and C are cubes, however neither of them is small",Cube ( d ) & Cube ( c ) & ~ Small ( c ) & ~ Small ( d )
+"Both D and C are cubes, however neither of them is small",~ ( Small ( d ) | Small ( c ) ) & ~ ( ~ Cube ( d ) | ~ Cube ( c ) )
+"Both D and C are cubes, however neither of them is small",~ ( Small ( d ) | Small ( c ) ) & Cube ( d ) & Cube ( c )
+"Both D and C are cubes, however neither of them is small",Cube ( d ) & Cube ( c ) & ~ ( Small ( d ) & Small ( c ) ) & ~ ( Small ( d ) | Small ( c ) )
+"Both D and C are cubes, however neither of them is small",Cube ( d ) & Cube ( c ) & ~ Small ( d ) & ~ Small ( d ) & ~ Small ( c )
+"Both D and C are cubes, however neither of them is small","Cube ( c ) & SameShape ( c , d ) & ~ Small ( c ) & ~ Small ( d )"
+"Both D and C are cubes, however neither of them is small",~ Small ( d ) & Cube ( d ) & ~ Small ( c ) & Cube ( c )
+C is a tetrahedron if B is,( Tet ( c ) & Tet ( b ) ) | ~ Tet ( b )
+C is a tetrahedron if B is,Tet ( b ) $ Tet ( c )
+C is a tetrahedron if B is,~ Tet ( c ) $ ~ Tet ( b )
+C is a tetrahedron if B is,Tet ( c ) | ~ Tet ( b )
+C is a tetrahedron if B is,~ Tet ( b ) | Tet ( c )
+C is in back of A but in front of E,"BackOf ( c , a ) & BackOf ( e , c )"
+C is in back of A but in front of E,"~ ( BackOf ( c , a ) $ ~ FrontOf ( c , e ) ) & FrontOf ( c , e )"
+C is in back of A but in front of E,"BackOf ( c , a ) & FrontOf ( c , e )"
+C is in back of A but in front of E,"~ ( BackOf ( c , a ) $ ~ FrontOf ( c , e ) )"
+C is in back of A but in front of E,"FrontOf ( c , e ) & BackOf ( c , a )"
+C is in back of A but in front of E,"~ ( BackOf ( c , a ) & FrontOf ( c , e ) ) $ ( BackOf ( c , a ) & FrontOf ( c , e ) )"
+C is in back of A but in front of E,"BackOf ( c , a ) & ~ ~ FrontOf ( c , e )"
+C is in back of A but in front of E,"FrontOf ( a , c ) & FrontOf ( c , e )"
+C is in back of A but in front of E,"BackOf ( c , a ) & ( BackOf ( c , a ) $ FrontOf ( c , e ) )"
+C is in back of A but in front of E,"~ ( FrontOf ( c , e ) & BackOf ( c , a ) ) $ ( FrontOf ( c , e ) & BackOf ( c , a ) )"
+C is in back of A but in front of E,"~ ( FrontOf ( c , e ) $ ~ BackOf ( c , a ) )"
+C is in back of A but in front of E,"( BackOf ( c , a ) $ FrontOf ( c , e ) ) & BackOf ( c , a )"
+C is in back of A but in front of E,"~ ( ~ BackOf ( c , a ) | ~ FrontOf ( c , e ) )"
+"C is in front of F; moreover, it is smaller than F","Larger ( f , c ) & FrontOf ( c , f )"
+"C is in front of F; moreover, it is smaller than F","Smaller ( c , f ) & FrontOf ( c , f )"
+"C is in front of F; moreover, it is smaller than F","FrontOf ( c , f ) & Larger ( f , c )"
+"C is in front of F; moreover, it is smaller than F","BackOf ( f , c ) & Larger ( f , c )"
+"C is in front of F; moreover, it is smaller than F","BackOf ( f , c ) & Smaller ( c , f )"
+"C is in front of F; moreover, it is smaller than F","FrontOf ( c , f ) & BackOf ( f , c ) & Smaller ( c , f ) & Larger ( f , c )"
+"C is in front of F; moreover, it is smaller than F","Smaller ( c , f ) & BackOf ( f , c )"
+"C is in front of F; moreover, it is smaller than F","~ ~ FrontOf ( c , f ) & Smaller ( c , f )"
+"C is in front of F; moreover, it is smaller than F","Larger ( f , c ) & BackOf ( f , c )"
+"C is in front of F; moreover, it is smaller than F","~ ~ ( FrontOf ( c , f ) & Smaller ( c , f ) )"
+"C is in front of F; moreover, it is smaller than F","FrontOf ( c , f ) & Smaller ( c , f )"
+C is larger than E only if B is larger than C,"~ Larger ( b , c ) $ ~ Larger ( c , e )"
+C is larger than E only if B is larger than C,"( Larger ( c , e ) $ Larger ( b , c ) ) & ( ~ Larger ( b , c ) $ ~ Larger ( c , e ) )"
+C is larger than E only if B is larger than C,"~ Larger ( c , e ) | Larger ( b , c )"
+C is larger than E only if B is larger than C,"Larger ( b , c ) | ~ Larger ( c , e )"
+C is larger than E only if B is larger than C,"Larger ( c , e ) $ Larger ( b , c )"
+C is larger than E only if B is larger than C,"( Larger ( c , e ) & Larger ( b , c ) ) | ~ Larger ( c , e )"
+C is larger than E only if B is larger than C,"Larger ( c , e ) $ Smaller ( c , b )"
+C is larger than E only if B is larger than C,"( Larger ( b , c ) & Larger ( c , e ) ) | ~ Larger ( c , e )"
+"C is medium only if none of D, E, and F are cubes",Medium ( c ) $ ( ~ Cube ( d ) & ~ Cube ( f ) & ~ Cube ( e ) )
+"C is medium only if none of D, E, and F are cubes",Medium ( c ) $ ~ ( Cube ( d ) | Cube ( e ) | Cube ( f ) )
+"C is medium only if none of D, E, and F are cubes",~ ( ~ Cube ( d ) & ~ Cube ( e ) & ~ Cube ( f ) ) $ ~ Medium ( c )
+"C is medium only if none of D, E, and F are cubes",( ~ Cube ( d ) & ~ Cube ( e ) & ~ Cube ( f ) & Medium ( c ) ) | ~ Medium ( c )
+"C is medium only if none of D, E, and F are cubes",Medium ( c ) $ ~ ( Cube ( e ) | Cube ( d ) | Cube ( f ) )
+"C is medium only if none of D, E, and F are cubes",Medium ( c ) $ ~ ( Cube ( f ) | Cube ( e ) | Cube ( d ) )
+"C is medium only if none of D, E, and F are cubes",( Cube ( e ) | Cube ( d ) | Cube ( f ) ) $ ~ Medium ( c )
+"C is medium only if none of D, E, and F are cubes",Medium ( c ) $ ( ~ Cube ( d ) & ~ Cube ( d ) & ~ Cube ( e ) & ~ Cube ( f ) )
+"C is medium only if none of D, E, and F are cubes",~ Medium ( c ) | ( ~ Cube ( d ) & ~ Cube ( e ) & ~ Cube ( f ) )
+"C is medium only if none of D, E, and F are cubes",( Medium ( c ) & ~ ( Cube ( d ) | Cube ( e ) | Cube ( f ) ) ) | ~ Medium ( c )
+"C is medium only if none of D, E, and F are cubes",Medium ( c ) $ ~ ( Cube ( d ) | Cube ( f ) | Cube ( e ) )
+"C is medium only if none of D, E, and F are cubes",Medium ( c ) $ ( ~ ( Cube ( d ) | Cube ( e ) ) & ~ Cube ( f ) )
+"C is medium only if none of D, E, and F are cubes",( Cube ( d ) | Cube ( e ) | Cube ( f ) ) $ ~ Medium ( c )
+"C is medium only if none of D, E, and F are cubes",~ Medium ( c ) | ~ ( Cube ( d ) | Cube ( e ) | Cube ( f ) )
+"C is medium only if none of D, E, and F are cubes",( Medium ( c ) $ ~ Cube ( d ) ) & ( Medium ( c ) $ ~ Cube ( e ) ) & ( Medium ( c ) $ ~ Cube ( f ) )
+"C is medium only if none of D, E, and F are cubes",Medium ( c ) $ ~ ( Cube ( e ) | Cube ( f ) | Cube ( d ) )
+"C is medium only if none of D, E, and F are cubes",( Cube ( d ) | Cube ( f ) | Cube ( e ) ) $ ~ Medium ( c )
+"C is medium only if none of D, E, and F are cubes",Medium ( c ) $ ( ~ Cube ( f ) & ~ Cube ( e ) & ~ Cube ( d ) )
+"C is medium only if none of D, E, and F are cubes",Medium ( c ) $ ( ~ Cube ( d ) & ~ Cube ( e ) & ~ Cube ( f ) )
+"C is medium only if none of D, E, and F are cubes",Medium ( c ) $ ( ~ Cube ( e ) & ~ Cube ( d ) & ~ Cube ( f ) )
+"C is medium only if none of D, E, and F are cubes",Medium ( c ) $ ~ ( Cube ( d ) | Cube ( e ) | Cube ( f ) | Cube ( e ) )
+"C is medium only if none of D, E, and F are cubes",Medium ( c ) $ ( ~ Cube ( f ) & ~ Cube ( d ) & ~ Cube ( e ) )
+"C is medium only if none of D, E, and F are cubes",~ ~ ( Cube ( d ) | Cube ( e ) | Cube ( f ) ) $ ~ Medium ( c )
+"C is medium only if none of D, E, and F are cubes",Medium ( c ) $ ( ~ Cube ( d ) & ~ ( Cube ( e ) | Cube ( f ) ) )
+"C is medium only if none of D, E, and F are cubes",Medium ( c ) $ ~ ( Cube ( f ) | Cube ( d ) | Cube ( e ) )
+C is smaller than A but larger than E,"Larger ( c , e ) & Smaller ( c , a )"
+C is smaller than A but larger than E,"~ ( ~ Smaller ( c , a ) | ~ Larger ( c , e ) )"
+C is smaller than A but larger than E,"Larger ( c , e ) & Larger ( a , c )"
+C is smaller than A but larger than E,"Smaller ( c , a ) & Larger ( c , e )"
+C is smaller than A but larger than E,"Smaller ( e , c ) & Smaller ( c , a )"
+C is smaller than A but larger than E,"~ ~ ( Smaller ( c , a ) & Larger ( c , e ) )"
+C is smaller than A but larger than E,"Smaller ( c , a ) & Smaller ( e , c )"
+C is smaller than A but larger than E,"Larger ( a , c ) & Larger ( c , e )"
+C is smaller than A but larger than E,"Smaller ( e , c ) & Larger ( a , c )"
+C is smaller than A but larger than E,"Larger ( a , c ) & Smaller ( e , c )"
+C is smaller than A but larger than E,"Larger ( a , c ) & Larger ( c , e ) & Smaller ( c , a )"
+"C is to the right of A, provided it (i.e., C) is small","Small ( c ) $ LeftOf ( a , c )"
+"C is to the right of A, provided it (i.e., C) is small","( RightOf ( c , a ) & Small ( c ) ) | ~ Small ( c )"
+"C is to the right of A, provided it (i.e., C) is small","~ Small ( c ) | RightOf ( c , a )"
+"C is to the right of A, provided it (i.e., C) is small","Small ( c ) $ ( RightOf ( c , a ) & Small ( c ) )"
+"C is to the right of A, provided it (i.e., C) is small","( RightOf ( c , a ) & Small ( c ) ) | ( ~ RightOf ( c , a ) $ ~ Small ( c ) )"
+"C is to the right of A, provided it (i.e., C) is small","Small ( c ) $ RightOf ( c , a )"
+"C is to the right of A, provided it (i.e., C) is small","RightOf ( c , a ) | ~ Small ( c )"
+"C is to the right of A, provided it (i.e., C) is small","~ RightOf ( c , a ) $ ~ Small ( c )"
+"C is to the right of A, provided it (i.e., C) is small","( Small ( c ) & RightOf ( c , a ) ) | ~ Small ( c )"
+C is to the right of D only if B is to the right of C and left of E,"~ RightOf ( c , d ) | ( RightOf ( b , c ) & LeftOf ( b , e ) )"
+C is to the right of D only if B is to the right of C and left of E,"~ ( RightOf ( b , c ) & LeftOf ( b , e ) ) $ ~ RightOf ( c , d )"
+C is to the right of D only if B is to the right of C and left of E,"RightOf ( c , d ) $ ~ ( RightOf ( b , c ) $ ~ LeftOf ( b , e ) )"
+C is to the right of D only if B is to the right of C and left of E,"~ RightOf ( c , d ) | ( RightOf ( c , d ) & RightOf ( b , c ) & LeftOf ( b , e ) )"
+C is to the right of D only if B is to the right of C and left of E,"( ~ RightOf ( b , c ) | ~ LeftOf ( b , e ) ) $ ~ RightOf ( c , d )"
+C is to the right of D only if B is to the right of C and left of E,"~ ( LeftOf ( b , e ) & RightOf ( b , c ) ) $ ~ RightOf ( c , d )"
+C is to the right of D only if B is to the right of C and left of E,"( RightOf ( c , d ) $ RightOf ( b , c ) ) & ( RightOf ( c , d ) $ LeftOf ( b , e ) )"
+C is to the right of D only if B is to the right of C and left of E,"RightOf ( c , d ) $ ( RightOf ( b , c ) & RightOf ( e , b ) )"
+C is to the right of D only if B is to the right of C and left of E,"( RightOf ( c , d ) & RightOf ( b , c ) & LeftOf ( b , e ) ) | ~ RightOf ( c , d )"
+C is to the right of D only if B is to the right of C and left of E,"RightOf ( c , d ) $ ( LeftOf ( b , e ) & RightOf ( b , c ) )"
+C is to the right of D only if B is to the right of C and left of E,"( RightOf ( b , c ) & LeftOf ( b , e ) & RightOf ( c , d ) ) | ~ RightOf ( c , d )"
+C is to the right of D only if B is to the right of C and left of E,"( RightOf ( b , c ) $ ~ LeftOf ( b , e ) ) $ ~ RightOf ( c , d )"
+C is to the right of D only if B is to the right of C and left of E,"RightOf ( c , d ) $ ( RightOf ( b , c ) & LeftOf ( b , e ) )"
+D and E are both in back of B,"BackOf ( d , b ) & FrontOf ( b , e )"
+D and E are both in back of B,"FrontOf ( b , d ) & BackOf ( e , b )"
+D and E are both in back of B,"FrontOf ( b , d ) & FrontOf ( b , e )"
+D and E are both in back of B,"BackOf ( e , b ) & BackOf ( d , b )"
+D and E are both in back of B,"~ ( ~ BackOf ( d , b ) | ~ BackOf ( e , b ) )"
+D and E are both in back of B,"FrontOf ( b , e ) & FrontOf ( b , d )"
+D and E are both in back of B,"BackOf ( d , b ) & BackOf ( e , b ) & BackOf ( d , b ) & BackOf ( e , b )"
+D and E are both in back of B,"BackOf ( d , b ) & BackOf ( e , b )"
+D and E are both in back of B,"BackOf ( d , b ) & BackOf ( e , b ) & BackOf ( d , b )"
+D and E are both in back of B,"BackOf ( e , b ) & BackOf ( d , b ) & BackOf ( e , b ) & BackOf ( d , b )"
+D and E are both in back of B,"~ ~ ( BackOf ( d , b ) & BackOf ( e , b ) )"
+D and E are both in back of B and larger than it,"FrontOf ( b , e ) & FrontOf ( b , d ) & Larger ( d , b ) & Larger ( e , b )"
+D and E are both in back of B and larger than it,"FrontOf ( b , e ) & FrontOf ( b , d ) & Smaller ( b , e ) & Smaller ( b , d )"
+D and E are both in back of B and larger than it,"Larger ( d , b ) & BackOf ( e , b ) & BackOf ( d , b ) & Larger ( e , b )"
+D and E are both in back of B and larger than it,"FrontOf ( b , d ) & BackOf ( e , b ) & Larger ( d , b ) & Larger ( e , b )"
+D and E are both in back of B and larger than it,"BackOf ( d , b ) & Larger ( d , b ) & Larger ( e , b ) & BackOf ( e , b )"
+D and E are both in back of B and larger than it,"BackOf ( d , b ) & FrontOf ( b , e ) & Larger ( d , b ) & Larger ( e , b )"
+D and E are both in back of B and larger than it,"Larger ( e , b ) & Larger ( d , b ) & BackOf ( e , b ) & BackOf ( d , b )"
+D and E are both in back of B and larger than it,"Larger ( e , b ) & Larger ( d , b ) & FrontOf ( b , d ) & FrontOf ( b , e )"
+D and E are both in back of B and larger than it,"BackOf ( d , b ) & BackOf ( e , b ) & Smaller ( b , e ) & Smaller ( b , d )"
+D and E are both in back of B and larger than it,"BackOf ( d , b ) & BackOf ( e , b ) & Larger ( d , b ) & Smaller ( b , e )"
+D and E are both in back of B and larger than it,"BackOf ( e , b ) & Larger ( d , b ) & Larger ( e , b ) & BackOf ( d , b )"
+D and E are both in back of B and larger than it,"BackOf ( d , b ) & BackOf ( e , b ) & Larger ( e , b ) & Larger ( d , b )"
+D and E are both in back of B and larger than it,"FrontOf ( b , d ) & FrontOf ( b , e ) & Larger ( d , b ) & Larger ( e , b )"
+D and E are both in back of B and larger than it,"BackOf ( d , b ) & Larger ( d , b ) & BackOf ( e , b ) & Larger ( e , b )"
+D and E are both in back of B and larger than it,"Larger ( e , b ) & BackOf ( e , b ) & Larger ( d , b ) & BackOf ( d , b )"
+D and E are both in back of B and larger than it,"Larger ( d , b ) & Larger ( e , b ) & BackOf ( e , b ) & BackOf ( d , b )"
+D and E are both in back of B and larger than it,"Larger ( d , b ) & Larger ( e , b ) & BackOf ( d , b ) & BackOf ( e , b )"
+D and E are both in back of B and larger than it,"FrontOf ( b , e ) & FrontOf ( b , d ) & Larger ( e , b ) & Larger ( d , b )"
+D and E are both in back of B and larger than it,"BackOf ( e , b ) & BackOf ( d , b ) & Larger ( e , b ) & Larger ( d , b )"
+D and E are both in back of B and larger than it,"Smaller ( b , d ) & Smaller ( b , e ) & FrontOf ( b , d ) & FrontOf ( b , e )"
+D and E are both in back of B and larger than it,"Larger ( d , b ) & Larger ( e , b ) & FrontOf ( b , d ) & FrontOf ( b , e )"
+D and E are both in back of B and larger than it,"Smaller ( b , e ) & Smaller ( b , d ) & BackOf ( d , b ) & BackOf ( e , b )"
+D and E are both in back of B and larger than it,"BackOf ( d , b ) & FrontOf ( b , e ) & Larger ( d , b ) & Smaller ( b , e )"
+D and E are both in back of B and larger than it,"FrontOf ( b , d ) & Smaller ( b , d ) & FrontOf ( b , e ) & Smaller ( b , e )"
+D and E are both in back of B and larger than it,"FrontOf ( b , d ) & FrontOf ( b , e ) & Smaller ( b , e ) & Smaller ( b , d )"
+D and E are both in back of B and larger than it,"BackOf ( d , b ) & BackOf ( e , b ) & Larger ( d , b ) & Larger ( d , b ) & Larger ( e , b )"
+D and E are both in back of B and larger than it,"BackOf ( e , b ) & Larger ( e , b ) & BackOf ( d , b ) & Larger ( d , b )"
+D and E are both in back of B and larger than it,"Larger ( d , b ) & FrontOf ( b , d ) & Larger ( e , b ) & FrontOf ( b , e )"
+D and E are both in back of B and larger than it,"BackOf ( e , b ) & BackOf ( d , b ) & Smaller ( b , e ) & Smaller ( b , d )"
+D and E are both in back of B and larger than it,"Larger ( e , b ) & Larger ( d , b ) & BackOf ( d , b ) & BackOf ( e , b )"
+D and E are both in back of B and larger than it,"FrontOf ( b , e ) & BackOf ( d , b ) & Larger ( d , b ) & Smaller ( b , e )"
+D and E are both in back of B and larger than it,"BackOf ( d , b ) & Larger ( e , b ) & Larger ( d , b ) & BackOf ( e , b )"
+D and E are both in back of B and larger than it,"FrontOf ( b , d ) & Larger ( d , b ) & FrontOf ( b , e ) & Larger ( e , b )"
+D and E are both in back of B and larger than it,"Smaller ( b , d ) & Smaller ( b , e ) & BackOf ( d , b ) & BackOf ( e , b )"
+D and E are both in back of B and larger than it,"Larger ( d , b ) & BackOf ( d , b ) & BackOf ( e , b ) & Larger ( e , b )"
+D and E are both in back of B and larger than it,"FrontOf ( b , e ) & FrontOf ( b , d ) & Smaller ( b , d ) & Smaller ( b , e )"
+D and E are both in back of B and larger than it,"BackOf ( d , b ) & BackOf ( e , b ) & Smaller ( b , d ) & Larger ( e , b )"
+D and E are both in back of B and larger than it,"FrontOf ( b , d ) & Smaller ( b , d ) & FrontOf ( b , e ) & Larger ( e , b )"
+D and E are both in back of B and larger than it,"BackOf ( e , b ) & BackOf ( d , b ) & Larger ( d , b ) & Larger ( e , b )"
+D and E are both in back of B and larger than it,"FrontOf ( b , d ) & FrontOf ( b , e ) & Larger ( e , b ) & Larger ( d , b )"
+D and E are both in back of B and larger than it,"BackOf ( d , b ) & BackOf ( e , b ) & Larger ( d , b ) & Larger ( e , b )"
+D and E are both in back of B and larger than it,"BackOf ( d , b ) & Smaller ( b , d ) & BackOf ( e , b ) & Larger ( e , b )"
+D and E are both in back of B and larger than it,"BackOf ( d , b ) & BackOf ( e , b ) & Smaller ( b , d ) & Smaller ( b , e )"
+D and E are both in back of B and larger than it,"Larger ( d , b ) & Larger ( e , b ) & FrontOf ( b , e ) & FrontOf ( b , d )"
+D and E are both in back of B and larger than it,"BackOf ( d , b ) & Smaller ( b , d ) & BackOf ( e , b ) & Smaller ( b , e )"
+D and E are both in back of B and larger than it,"FrontOf ( b , d ) & FrontOf ( b , e ) & Smaller ( b , d ) & Smaller ( b , e )"
+D and E are both in back of B and larger than it,"Larger ( d , b ) & BackOf ( d , b ) & Larger ( e , b ) & BackOf ( e , b )"
+D and E are the same shape,"~ SameShape ( d , e ) $ SameShape ( d , e )"
+D and E are the same shape,"SameShape ( e , d )"
+D and E are the same shape,"SameShape ( d , e ) & SameShape ( e , d )"
+D and E are the same shape,"SameShape ( d , e )"
+D and E are the same size,"SameSize ( d , e )"
+D and E are the same size,"SameSize ( e , d )"
+D and E are the same size,"SameSize ( d , e ) & SameSize ( e , d )"
+D and E are the same size,"~ SameSize ( d , e ) $ SameSize ( d , e )"
+D and E are the same size,"SameSize ( d , e ) & SameSize ( d , e )"
+D is a cube if and only if it is either medium or large,( ( Medium ( d ) | Large ( d ) ) $ Cube ( d ) ) & ( Cube ( d ) $ ( Medium ( d ) | Large ( d ) ) )
+D is a cube if and only if it is either medium or large,( Cube ( d ) $ ( Medium ( d ) | Large ( d ) ) ) & ( ( Medium ( d ) | Large ( d ) ) $ Cube ( d ) )
+D is a small dodecahedron unless A is small,( Dodec ( d ) & Small ( d ) ) | ( ( ~ Dodec ( d ) | ~ Small ( d ) ) & Small ( a ) )
+D is a small dodecahedron unless A is small,( ~ Dodec ( d ) $ Small ( a ) ) & ( ~ Small ( d ) $ Small ( a ) )
+D is a small dodecahedron unless A is small,( Small ( d ) & Dodec ( d ) ) | ( Small ( a ) & ~ ( Dodec ( d ) & Small ( d ) ) )
+D is a small dodecahedron unless A is small,~ Small ( a ) $ ( Small ( d ) & Dodec ( d ) )
+D is a small dodecahedron unless A is small,( ~ Small ( a ) $ Dodec ( d ) ) & ( ~ Small ( a ) $ Small ( d ) )
+D is a small dodecahedron unless A is small,( ~ Dodec ( d ) | ~ Small ( d ) ) $ Small ( a )
+D is a small dodecahedron unless A is small,( Small ( d ) & Dodec ( d ) ) | ( ~ ( Small ( d ) & Dodec ( d ) ) & Small ( a ) )
+D is a small dodecahedron unless A is small,( Dodec ( d ) & Small ( d ) & ~ Small ( a ) ) | Small ( a )
+D is a small dodecahedron unless A is small,( Small ( d ) & Dodec ( d ) & ~ Small ( a ) ) | Small ( a )
+D is a small dodecahedron unless A is small,~ Small ( a ) $ ( Dodec ( d ) & Small ( d ) )
+D is a small dodecahedron unless A is small,( Small ( d ) & Dodec ( d ) ) | ( Small ( a ) & ~ ( Small ( d ) & Dodec ( d ) ) )
+D is a small dodecahedron unless A is small,~ ~ Small ( a ) | ( Small ( d ) & Dodec ( d ) )
+D is a small dodecahedron unless A is small,( Dodec ( d ) & Small ( d ) ) | Small ( a )
+D is a small dodecahedron unless A is small,~ ( Dodec ( d ) & Small ( d ) ) $ Small ( a )
+D is a small dodecahedron unless A is small,~ ( Small ( d ) & Dodec ( d ) ) $ Small ( a )
+D is a small dodecahedron unless A is small,( Small ( d ) & Dodec ( d ) ) | Small ( a )
+D is a small dodecahedron unless A is small,Small ( a ) | ( Small ( d ) & Dodec ( d ) )
+D is a small dodecahedron unless A is small,Small ( a ) | ( Dodec ( d ) & Small ( d ) )
+D is a small dodecahedron unless A is small,( ~ Small ( d ) | ~ Dodec ( d ) ) $ Small ( a )
+D is a small dodecahedron unless A is small,~ ( Dodec ( d ) & Small ( d ) ) $ ( Small ( a ) & ~ ( Dodec ( d ) & Small ( d ) ) )
+D is in back of A,"BackOf ( d , a ) | FrontOf ( a , d )"
+D is in back of A,"FrontOf ( a , d )"
+D is in back of A,"BackOf ( d , a )"
+D is large,Large ( d )
+D is large,~ ~ Large ( d )
+D is the same shape as B only if they are the same size,"( SameSize ( d , b ) $ SameShape ( d , b ) ) $ ( ~ SameSize ( d , b ) $ ~ SameShape ( d , b ) )"
+D is the same shape as B only if they are the same size,"SameShape ( d , b ) $ SameSize ( b , d )"
+D is the same shape as B only if they are the same size,"~ SameShape ( d , b ) | SameSize ( d , b )"
+D is the same shape as B only if they are the same size,"~ SameSize ( b , d ) $ ~ SameShape ( b , d )"
+D is the same shape as B only if they are the same size,"~ SameSize ( b , d ) $ ~ SameShape ( d , b )"
+D is the same shape as B only if they are the same size,"SameSize ( d , b ) | ~ SameShape ( d , b )"
+D is the same shape as B only if they are the same size,"~ ( ~ SameSize ( d , b ) & SameShape ( d , b ) )"
+D is the same shape as B only if they are the same size,"( SameShape ( d , b ) & SameShape ( b , d ) ) $ ( SameSize ( d , b ) & SameSize ( b , d ) )"
+D is the same shape as B only if they are the same size,"( SameShape ( b , d ) $ SameSize ( b , d ) ) & ( ~ SameSize ( b , d ) $ ~ SameShape ( b , d ) )"
+D is the same shape as B only if they are the same size,"SameShape ( d , b ) $ ( SameSize ( b , d ) & SameShape ( d , b ) )"
+D is the same shape as B only if they are the same size,"SameShape ( b , d ) $ SameSize ( d , b )"
+D is the same shape as B only if they are the same size,"( SameSize ( d , b ) & SameShape ( d , b ) ) | ~ SameShape ( d , b )"
+D is the same shape as B only if they are the same size,"( SameSize ( d , b ) & SameSize ( b , d ) ) | ~ SameShape ( d , b )"
+D is the same shape as B only if they are the same size,"( SameShape ( d , b ) $ SameSize ( d , b ) ) & ( ~ SameSize ( d , b ) $ ~ SameShape ( d , b ) )"
+D is the same shape as B only if they are the same size,"SameShape ( d , b ) $ ( SameSize ( b , d ) & SameSize ( d , b ) )"
+D is the same shape as B only if they are the same size,"SameShape ( d , b ) $ ( SameSize ( d , b ) & SameSize ( b , d ) )"
+D is the same shape as B only if they are the same size,"~ SameSize ( d , b ) $ ~ SameShape ( b , d )"
+D is the same shape as B only if they are the same size,"( SameShape ( d , b ) & SameSize ( d , b ) ) | ~ SameShape ( d , b )"
+D is the same shape as B only if they are the same size,"SameShape ( d , b ) $ SameSize ( d , b )"
+D is the same shape as B only if they are the same size,"~ SameSize ( d , b ) $ ~ SameShape ( d , b )"
+D is the same shape as B only if they are the same size,"~ SameShape ( d , b ) | SameSize ( b , d )"
+D is the same shape as B only if they are the same size,"SameShape ( b , d ) $ SameSize ( b , d )"
+E is a dodecahedron,Dodec ( e )
+"E is in front of D unless it (i.e., E) is a large tetrahedron","FrontOf ( e , d ) | ( Tet ( e ) & Large ( e ) )"
+"E is in front of D unless it (i.e., E) is a large tetrahedron","~ ( Tet ( e ) & Large ( e ) ) $ FrontOf ( e , d )"
+"E is in front of D unless it (i.e., E) is a large tetrahedron","FrontOf ( e , d ) | ( Large ( e ) & Tet ( e ) )"
+"E is in front of D unless it (i.e., E) is a large tetrahedron","( FrontOf ( e , d ) & ~ ( Large ( e ) & Tet ( e ) ) ) | ( Large ( e ) & Tet ( e ) )"
+"E is in front of D unless it (i.e., E) is a large tetrahedron","~ FrontOf ( e , d ) $ ( Tet ( e ) & Large ( e ) )"
+"E is in front of D unless it (i.e., E) is a large tetrahedron","( ~ Tet ( e ) $ FrontOf ( e , d ) ) & ( ~ Large ( e ) $ FrontOf ( e , d ) )"
+"E is in front of D unless it (i.e., E) is a large tetrahedron","FrontOf ( e , d ) | ( ~ FrontOf ( e , d ) & Large ( e ) & Tet ( e ) )"
+"E is in front of D unless it (i.e., E) is a large tetrahedron","( ~ Large ( e ) | ~ Tet ( e ) ) $ FrontOf ( e , d )"
+"E is in front of D unless it (i.e., E) is a large tetrahedron","FrontOf ( e , d ) | ( ~ FrontOf ( e , d ) & Tet ( e ) & Large ( e ) )"
+"E is in front of D unless it (i.e., E) is a large tetrahedron","~ ( Large ( e ) & Tet ( e ) ) $ ~ ~ FrontOf ( e , d )"
+"E is in front of D unless it (i.e., E) is a large tetrahedron","( ~ Tet ( e ) | ~ Large ( e ) ) $ FrontOf ( e , d )"
+"E is in front of D unless it (i.e., E) is a large tetrahedron","( Large ( e ) & Tet ( e ) ) | FrontOf ( e , d )"
+"E is in front of D unless it (i.e., E) is a large tetrahedron","~ ( Large ( e ) & Tet ( e ) ) $ FrontOf ( e , d )"
+"E is in front of D unless it (i.e., E) is a large tetrahedron","~ FrontOf ( e , d ) $ ( Large ( e ) & Tet ( e ) )"
+"E is in front of D unless it (i.e., E) is a large tetrahedron","( Tet ( e ) & Large ( e ) ) | FrontOf ( e , d )"
+"E is in front of D unless it (i.e., E) is a large tetrahedron","( Large ( e ) $ ~ Tet ( e ) ) $ FrontOf ( e , d )"
+"E is in front of D unless it (i.e., E) is a large tetrahedron","( Large ( e ) & Tet ( e ) & ~ FrontOf ( e , d ) ) | FrontOf ( e , d )"
+"E is in front of D unless it (i.e., E) is a large tetrahedron","FrontOf ( e , d ) | ( Large ( e ) & Tet ( e ) & ~ FrontOf ( e , d ) )"
+"E is in front of D unless it (i.e., E) is a large tetrahedron","( ~ FrontOf ( e , d ) $ Tet ( e ) ) & ( ~ FrontOf ( e , d ) $ Large ( e ) )"
+"E is in front of D unless it (i.e., E) is a large tetrahedron","( ~ Large ( e ) $ FrontOf ( e , d ) ) & ( ~ Tet ( e ) $ FrontOf ( e , d ) )"
+"E is in front of D unless it (i.e., E) is a large tetrahedron","FrontOf ( e , d ) | ( Tet ( e ) & Large ( e ) & ~ FrontOf ( e , d ) )"
+"E is in front of D unless it (i.e., E) is a large tetrahedron","~ ~ ( Large ( e ) & Tet ( e ) ) | FrontOf ( e , d )"
+"E is in front of D unless it (i.e., E) is a large tetrahedron","( FrontOf ( e , d ) & ~ ( Tet ( e ) & Large ( e ) ) ) | ( Tet ( e ) & Large ( e ) )"
+"E is in front of D unless it (i.e., E) is a large tetrahedron","BackOf ( d , e ) | ( Tet ( e ) & Large ( e ) )"
+"E is in front of D unless it (i.e., E) is a large tetrahedron","( Tet ( e ) & Large ( e ) ) | ( ~ ( Tet ( e ) & Large ( e ) ) & FrontOf ( e , d ) )"
+"E is in front of D unless it (i.e., E) is a large tetrahedron","FrontOf ( e , d ) | ( ~ FrontOf ( e , d ) $ ( Large ( e ) & Tet ( e ) ) )"
+"E is in front of D unless it (i.e., E) is a large tetrahedron","( ~ FrontOf ( e , d ) $ ( Tet ( e ) & Large ( e ) ) ) | FrontOf ( e , d )"
+"E is in front of D unless it (i.e., E) is a large tetrahedron","( Tet ( e ) $ ~ Large ( e ) ) $ FrontOf ( e , d )"
+E is larger than A,"Larger ( e , a ) | Smaller ( a , e )"
+E is larger than A,"Smaller ( a , e )"
+E is larger than A,"Larger ( e , a )"
+E is neither larger than nor smaller than D,"~ ( Larger ( e , d ) | Smaller ( e , d ) )"
+E is neither larger than nor smaller than D,"~ Larger ( d , e ) & ~ Larger ( e , d )"
+E is neither larger than nor smaller than D,"~ Smaller ( e , d ) & ~ Larger ( e , d )"
+E is neither larger than nor smaller than D,"~ ( Smaller ( e , d ) | Larger ( e , d ) )"
+E is neither larger than nor smaller than D,"SameSize ( d , e )"
+E is neither larger than nor smaller than D,"SameSize ( e , d ) & SameSize ( d , e )"
+E is neither larger than nor smaller than D,"~ ~ SameSize ( d , e )"
+E is neither larger than nor smaller than D,"~ Larger ( e , d ) & SameSize ( e , d )"
+E is neither larger than nor smaller than D,"~ Smaller ( d , e ) & ~ Larger ( d , e )"
+E is neither larger than nor smaller than D,"~ Larger ( e , d ) & ~ Larger ( d , e ) & ~ Smaller ( e , d ) & ~ Smaller ( d , e )"
+E is neither larger than nor smaller than D,"~ ( Larger ( d , e ) | Larger ( e , d ) )"
+E is neither larger than nor smaller than D,"~ ~ ( ~ Larger ( e , d ) & ~ Smaller ( e , d ) )"
+E is neither larger than nor smaller than D,"~ Larger ( e , d ) & ~ Smaller ( e , d )"
+E is neither larger than nor smaller than D,"SameSize ( e , d )"
+E is neither larger than nor smaller than D,"~ ~ SameSize ( e , d )"
+E is neither larger than nor smaller than D,"~ Larger ( e , d ) & ~ Larger ( d , e )"
+E is neither larger than nor smaller than D,"SameSize ( e , d ) | SameSize ( d , e )"
+E is neither larger than nor smaller than D,"~ ( Larger ( e , d ) | Larger ( d , e ) )"
+E is neither larger than nor smaller than D,"~ ( Smaller ( d , e ) | Smaller ( e , d ) )"
+E is neither larger than nor smaller than D,"~ ( Larger ( d , e ) | Smaller ( d , e ) )"
+E is neither larger than nor smaller than D,"~ Smaller ( e , d ) & ~ Smaller ( d , e )"
+E is neither larger than nor smaller than D,"~ ( Smaller ( d , e ) | Larger ( d , e ) )"
+E is neither larger than nor smaller than D,"~ ( Smaller ( e , d ) | Smaller ( d , e ) )"
+E is neither larger than nor smaller than D,"~ Larger ( d , e ) & ~ Smaller ( d , e )"
+E is not in the same column as either C or D,"~ SameCol ( e , c ) & ~ SameCol ( e , c ) & ~ SameCol ( e , d )"
+E is not in the same column as either C or D,"~ ( SameCol ( c , e ) | SameCol ( e , d ) )"
+E is not in the same column as either C or D,"~ SameCol ( e , d ) & ~ SameCol ( e , c ) & ~ ( SameCol ( e , d ) | SameCol ( e , c ) )"
+E is not in the same column as either C or D,"~ SameCol ( e , d ) & ~ SameCol ( e , c )"
+E is not in the same column as either C or D,"~ ( SameCol ( e , d ) | SameCol ( e , c ) )"
+E is not in the same column as either C or D,"~ SameCol ( e , c ) & ~ SameCol ( d , e )"
+E is not in the same column as either C or D,"~ SameCol ( c , e ) & ~ SameCol ( e , d )"
+E is not in the same column as either C or D,"~ SameCol ( c , e ) & ~ SameCol ( d , e )"
+E is not in the same column as either C or D,"~ ( SameCol ( e , c ) | SameCol ( e , d ) ) & ~ SameCol ( e , c ) & ~ SameCol ( e , d )"
+E is not in the same column as either C or D,"~ ( SameCol ( c , e ) | SameCol ( d , e ) )"
+E is not in the same column as either C or D,"~ ( SameCol ( e , c ) & SameCol ( e , d ) ) & ~ ( SameCol ( e , c ) | SameCol ( e , d ) )"
+E is not in the same column as either C or D,"~ SameCol ( e , d ) & ~ SameCol ( c , e )"
+E is not in the same column as either C or D,"~ SameCol ( e , d ) & ~ SameCol ( e , c ) & ~ SameCol ( e , d )"
+E is not in the same column as either C or D,"~ ( SameCol ( e , c ) | SameCol ( d , e ) )"
+E is not in the same column as either C or D,"~ ( SameCol ( e , c ) | SameCol ( e , d ) ) & ~ ( SameCol ( e , c ) & SameCol ( e , d ) )"
+E is not in the same column as either C or D,"~ ~ ~ SameCol ( e , c ) & ~ SameCol ( e , d )"
+E is not in the same column as either C or D,"~ SameCol ( d , e ) & ~ SameCol ( c , e )"
+E is not in the same column as either C or D,"~ SameCol ( e , c ) & ~ SameCol ( e , d )"
+E is not in the same column as either C or D,"~ ( SameCol ( d , e ) | SameCol ( c , e ) )"
+E is not in the same column as either C or D,"~ ( SameCol ( e , c ) | SameCol ( e , d ) )"
+E is not in the same column as either C or D,"~ ( SameCol ( e , d ) | SameCol ( c , e ) )"
+E is not in the same column as either C or D,"~ ( SameCol ( d , e ) | SameCol ( e , c ) )"
+E is right of B,"LeftOf ( b , e )"
+E is right of B,"RightOf ( e , b )"
+E is right of B,"RightOf ( e , b ) | LeftOf ( b , e )"
+Either A is small or both C and D are large,~ ( ~ Small ( a ) & ~ ( Large ( c ) & Large ( d ) ) )
+Either A is small or both C and D are large,( Large ( d ) & Large ( c ) ) | Small ( a )
+Either A is small or both C and D are large,Small ( a ) | ( Large ( c ) & Large ( d ) )
+Either A is small or both C and D are large,( Small ( a ) | Large ( c ) ) & ( Small ( a ) | Large ( d ) )
+Either A is small or both C and D are large,Small ( a ) | ( Large ( c ) & Large ( d ) & ~ Small ( a ) )
+Either A is small or both C and D are large,Small ( a ) | ( ~ Small ( a ) & Large ( d ) & Large ( c ) )
+Either A is small or both C and D are large,( Large ( c ) & Large ( d ) ) | Small ( a )
+Either A is small or both C and D are large,( Large ( c ) & Large ( d ) & ~ Small ( a ) ) | Small ( a )
+Either A is small or both C and D are large,Small ( a ) | ( Large ( c ) & Large ( d ) & Large ( d ) )
+Either A is small or both C and D are large,Small ( a ) | ( Large ( d ) & Large ( c ) )
+Either A is small or both C and D are large,~ ~ Small ( a ) | ( Large ( c ) & Large ( d ) )
+Either A is small or both C and D are large,Small ( a ) | ( ~ Small ( a ) & Large ( c ) & Large ( d ) )
+Either A is small or both C and D are large,Small ( a ) | ( Large ( c ) & Large ( d ) ) | ( Small ( a ) & ~ ( Large ( c ) & Large ( d ) ) )
+Either A is small or both C and D are large,Small ( a ) | ( Large ( c ) & Large ( d ) & ~ ( Small ( a ) & Large ( d ) & Large ( c ) ) )
+Either E is not large or it is in back of A,"Large ( e ) $ BackOf ( e , a )"
+Either E is not large or it is in back of A,"~ ~ ( ~ Large ( e ) | BackOf ( e , a ) )"
+Either E is not large or it is in back of A,"~ Large ( e ) | FrontOf ( a , e )"
+Either E is not large or it is in back of A,"~ ~ ~ Large ( e ) | BackOf ( e , a )"
+Either E is not large or it is in back of A,"~ Large ( e ) | BackOf ( e , a )"
+Either E is not large or it is in back of A,"~ ( Large ( e ) & ~ BackOf ( e , a ) )"
+Either E is not large or it is in back of A,"( Large ( e ) & BackOf ( e , a ) ) | ~ Large ( e )"
+Either E is not large or it is in back of A,"( BackOf ( e , a ) | ~ Large ( e ) ) & ~ ( ~ BackOf ( e , a ) & Large ( e ) )"
+Either E is not large or it is in back of A,"BackOf ( e , a ) | ~ Large ( e )"
+Either E is not large or it is in back of A,"~ Large ( e ) | BackOf ( e , a ) | ( ~ Large ( e ) & BackOf ( e , a ) )"
+Either E is not large or it is in back of A,"( ~ Large ( e ) | BackOf ( e , a ) ) & ~ ( Large ( e ) & ~ BackOf ( e , a ) )"
+Either E is not large or it is in back of A,"~ Large ( e ) | ( BackOf ( e , a ) & Large ( e ) )"
+Either E is not large or it is in back of A,"~ Large ( e ) | ( Large ( e ) & BackOf ( e , a ) )"
+Either E is not large or it is in back of A,"( ~ Large ( e ) & ~ BackOf ( e , a ) ) | BackOf ( e , a )"
+Either E is not large or it is in back of A,"~ Large ( e ) | ( BackOf ( e , a ) & ~ ( ~ Large ( e ) & BackOf ( e , a ) ) )"
+Either both A and E are tetrahedra or both A and F are,"( SameShape ( a , e ) & Tet ( a ) ) | ( SameShape ( a , f ) & Tet ( a ) )"
+Either both A and E are tetrahedra or both A and F are,~ ( ~ ( Tet ( a ) & Tet ( e ) ) & ~ ( Tet ( a ) & Tet ( f ) ) )
+Either both A and E are tetrahedra or both A and F are,Tet ( a ) & ( Tet ( f ) | Tet ( e ) )
+Either both A and E are tetrahedra or both A and F are,"( Tet ( a ) & SameShape ( a , f ) ) | ( Tet ( a ) & SameShape ( a , e ) )"
+Either both A and E are tetrahedra or both A and F are,"( Tet ( a ) & SameShape ( e , a ) ) | ( Tet ( a ) & SameShape ( f , a ) )"
+Either both A and E are tetrahedra or both A and F are,"( Tet ( a ) & SameShape ( a , e ) ) | ( Tet ( a ) & SameShape ( a , f ) )"
+Either both A and E are tetrahedra or both A and F are,"( SameShape ( a , e ) & Tet ( a ) ) | ( SameShape ( f , a ) & Tet ( a ) )"
+Either both A and E are tetrahedra or both A and F are,( Tet ( e ) & Tet ( a ) ) | ( Tet ( f ) & Tet ( a ) )
+Either both A and E are tetrahedra or both A and F are,( Tet ( a ) & Tet ( e ) ) | ( Tet ( a ) & Tet ( f ) )
+Either both A and E are tetrahedra or both A and F are,"( SameShape ( a , e ) | SameShape ( a , f ) ) & Tet ( a )"
+Either both A and E are tetrahedra or both A and F are,( Tet ( a ) & Tet ( e ) ) | ( ~ ( Tet ( a ) & Tet ( e ) ) & Tet ( f ) & Tet ( a ) )
+Either both A and E are tetrahedra or both A and F are,( Tet ( e ) | Tet ( f ) ) & Tet ( a )
+Either both A and E are tetrahedra or both A and F are,~ ~ ( Tet ( a ) & Tet ( e ) ) | ~ ~ ( Tet ( a ) & Tet ( f ) )
+Either both A and E are tetrahedra or both A and F are,"Tet ( a ) & ( SameShape ( e , a ) | SameShape ( f , a ) )"
+Either both A and E are tetrahedra or both A and F are,( Tet ( a ) & Tet ( e ) ) | ( ~ ( Tet ( a ) & Tet ( e ) ) & Tet ( a ) & Tet ( f ) )
+Either both A and E are tetrahedra or both A and F are,( Tet ( f ) & Tet ( a ) ) | ( Tet ( a ) & Tet ( e ) )
+Either both A and E are tetrahedra or both A and F are,"Tet ( a ) & ( SameShape ( e , a ) | SameShape ( a , f ) )"
+Either both A and E are tetrahedra or both A and F are,( Tet ( a ) & Tet ( f ) ) | ( Tet ( a ) & Tet ( e ) )
+Either both A and E are tetrahedra or both A and F are,"Tet ( a ) & ( SameShape ( a , e ) | SameShape ( a , f ) )"
+Either both A and E are tetrahedra or both A and F are,Tet ( a ) & ( Tet ( e ) | ( ~ Tet ( e ) & Tet ( f ) ) )
+Either both A and E are tetrahedra or both A and F are,"Tet ( a ) & ( SameShape ( a , f ) | SameShape ( a , e ) )"
+Either both A and E are tetrahedra or both A and F are,( Tet ( a ) & Tet ( e ) ) | ( Tet ( a ) & Tet ( f ) & ~ ( Tet ( a ) & Tet ( e ) ) )
+Either both A and E are tetrahedra or both A and F are,( Tet ( a ) & Tet ( e ) ) | ( Tet ( f ) & Tet ( a ) )
+Either both A and E are tetrahedra or both A and F are,( Tet ( a ) & Tet ( e ) ) | ( Tet ( a ) & Tet ( f ) & ~ ( Tet ( e ) & Tet ( f ) ) )
+Either both A and E are tetrahedra or both A and F are,( Tet ( a ) & Tet ( e ) ) | ( Tet ( a ) & Tet ( f ) & ~ Tet ( e ) )
+Either both A and E are tetrahedra or both A and F are,( Tet ( a ) & Tet ( f ) ) | ( Tet ( e ) & Tet ( a ) )
+Either both A and E are tetrahedra or both A and F are,( Tet ( a ) & Tet ( e ) ) | ( Tet ( a ) & Tet ( f ) & ~ ( Tet ( a ) & Tet ( e ) & Tet ( f ) ) )
+Either both A and E are tetrahedra or both A and F are,Tet ( a ) & ( Tet ( e ) | Tet ( f ) )
+Either both A and E are tetrahedra or both A and F are,Tet ( a ) & ( Tet ( e ) | ( Tet ( a ) & Tet ( f ) ) )
+Either both A and E are tetrahedra or both A and F are,( Tet ( a ) & Tet ( e ) ) | ( ~ Tet ( e ) & Tet ( a ) & Tet ( f ) )
+Either both A and E are tetrahedra or both A and F are,( Tet ( a ) & Tet ( e ) ) | ( Tet ( a ) & Tet ( f ) & ~ ( Tet ( f ) & Tet ( e ) ) )
+Either both A and E are tetrahedra or both A and F are,( Tet ( e ) & Tet ( a ) ) | ( Tet ( a ) & Tet ( f ) )
+Either both A and E are tetrahedra or both A and F are,~ ~ ( Tet ( a ) & Tet ( e ) ) | ( Tet ( a ) & Tet ( f ) )
+"F is either a cube or a dodecahedron, if it is large",Large ( f ) $ ( Dodec ( f ) | Cube ( f ) )
+"F is either a cube or a dodecahedron, if it is large",( Large ( f ) $ Cube ( f ) ) | ( Large ( f ) $ Dodec ( f ) )
+"F is either a cube or a dodecahedron, if it is large",~ ( Cube ( f ) | Dodec ( f ) ) $ ~ Large ( f )
+"F is either a cube or a dodecahedron, if it is large",Large ( f ) $ ( ~ Cube ( f ) $ Dodec ( f ) )
+"F is either a cube or a dodecahedron, if it is large",( Large ( f ) & ( Cube ( f ) | Dodec ( f ) ) ) | ~ Large ( f )
+"F is either a cube or a dodecahedron, if it is large",Large ( f ) $ ( Cube ( f ) | Dodec ( f ) )
+"F is either a cube or a dodecahedron, if it is large",( Large ( f ) $ Cube ( f ) ) | Dodec ( f )
+"F is either a cube or a dodecahedron, if it is large",Cube ( f ) | Dodec ( f ) | ~ Large ( f )
+"F is either a cube or a dodecahedron, if it is large",Cube ( f ) | ( Large ( f ) $ Dodec ( f ) )
+"F is either a cube or a dodecahedron, if it is large",~ Large ( f ) | Cube ( f ) | Dodec ( f )
+F is either in back of or smaller than A,"( BackOf ( f , a ) & ~ Smaller ( f , a ) ) | Smaller ( f , a )"
+F is either in back of or smaller than A,"Smaller ( f , a ) | BackOf ( f , a )"
+F is either in back of or smaller than A,"~ ~ BackOf ( f , a ) | Smaller ( f , a )"
+F is either in back of or smaller than A,"( BackOf ( f , a ) | Smaller ( f , a ) ) & ( BackOf ( f , a ) | Smaller ( f , a ) )"
+F is either in back of or smaller than A,"~ ~ ( BackOf ( f , a ) | Smaller ( f , a ) )"
+F is either in back of or smaller than A,"BackOf ( f , a ) | Larger ( a , f )"
+F is either in back of or smaller than A,"FrontOf ( a , f ) | Smaller ( f , a )"
+F is either in back of or smaller than A,"BackOf ( f , a ) | ( ~ BackOf ( f , a ) & Smaller ( f , a ) )"
+F is either in back of or smaller than A,"Smaller ( f , a ) | FrontOf ( a , f )"
+F is either in back of or smaller than A,"BackOf ( f , a ) | Smaller ( f , a )"
+F is either in back of or smaller than A,"~ BackOf ( f , a ) $ Smaller ( f , a )"
+F is either in back of or smaller than A,"~ ( ~ BackOf ( f , a ) & ~ Smaller ( f , a ) )"
+F is either in back of or smaller than A,"FrontOf ( a , f ) | Larger ( a , f )"
+F is not in front of A,"~ ( FrontOf ( f , a ) | FrontOf ( f , a ) )"
+F is not in front of A,"~ BackOf ( a , f )"
+F is not in front of A,"~ FrontOf ( f , a )"
+F is not in front of A,"~ ( FrontOf ( f , a ) & BackOf ( a , f ) )"
+F is not in front of A,"~ FrontOf ( f , a ) & ~ BackOf ( a , f )"
+F is not in front of A,"~ ~ ~ ~ ~ ~ ~ ~ ~ FrontOf ( f , a )"
+F is not in front of A,"SameRow ( f , a ) | BackOf ( f , a )"
+F is not in front of A,"~ ( FrontOf ( f , a ) | BackOf ( a , f ) )"
+F is not in front of A,"~ FrontOf ( f , a ) & ( Dodec ( f ) | ~ Dodec ( f ) )"
+F is not in front of A,"BackOf ( f , a ) | SameRow ( f , a )"
+F is to the right of A and to the left of B,"LeftOf ( f , b ) & LeftOf ( a , f )"
+F is to the right of A and to the left of B,"RightOf ( b , f ) & RightOf ( f , a )"
+F is to the right of A and to the left of B,"~ ~ RightOf ( f , a ) & LeftOf ( f , b )"
+F is to the right of A and to the left of B,"RightOf ( f , a ) & LeftOf ( f , b )"
+F is to the right of A and to the left of B,"RightOf ( b , f ) & LeftOf ( a , f )"
+F is to the right of A and to the left of B,"LeftOf ( a , f ) & RightOf ( b , f )"
+F is to the right of A and to the left of B,"LeftOf ( f , b ) & RightOf ( f , a )"
+F is to the right of A and to the left of B,"LeftOf ( a , f ) & LeftOf ( f , b )"
+F is to the right of A and to the left of B,"RightOf ( f , a ) & RightOf ( b , f )"
+F is to the right of A and to the left of B,"~ ~ ( RightOf ( f , a ) & LeftOf ( f , b ) )"
+"If A and D are both cubes, then one is to the left of the other","( ( Cube ( a ) & Cube ( d ) ) $ LeftOf ( a , d ) ) | LeftOf ( d , a )"
+"If A and D are both cubes, then one is to the left of the other","( Cube ( a ) $ LeftOf ( a , d ) ) | ( Cube ( d ) $ LeftOf ( d , a ) )"
+"If A and D are both cubes, then one is to the left of the other","( Cube ( a ) & Cube ( d ) ) $ ( LeftOf ( d , a ) | RightOf ( d , a ) )"
+"If A and D are both cubes, then one is to the left of the other","( Cube ( a ) & Cube ( d ) ) $ ( LeftOf ( a , d ) | LeftOf ( d , a ) )"
+"If A and D are both cubes, then one is to the left of the other","~ ( Cube ( a ) & Cube ( d ) ) | LeftOf ( a , d ) | LeftOf ( d , a )"
+"If A and D are both cubes, then one is to the left of the other","( Cube ( d ) & Cube ( a ) ) $ ( LeftOf ( a , d ) | LeftOf ( d , a ) )"
+"If A and D are both cubes, then one is to the left of the other","( Cube ( d ) & Cube ( a ) ) $ ( LeftOf ( d , a ) | LeftOf ( a , d ) )"
+"If A and D are both cubes, then one is to the left of the other","( Cube ( a ) & Cube ( d ) ) $ ( RightOf ( a , d ) | LeftOf ( a , d ) )"
+"If A and D are both cubes, then one is to the left of the other","( Cube ( a ) & Cube ( d ) ) $ ( LeftOf ( d , a ) | LeftOf ( a , d ) )"
+"If A and D are both cubes, then one is to the left of the other","( Cube ( a ) & Cube ( d ) ) $ ( RightOf ( a , d ) | RightOf ( d , a ) )"
+"If A and D are both cubes, then one is to the left of the other","( Cube ( a ) & Cube ( d ) ) $ ( LeftOf ( a , d ) | RightOf ( a , d ) )"
+"If A and D are both cubes, then one is to the left of the other","( Cube ( a ) & Cube ( d ) ) $ ( LeftOf ( a , d ) | LeftOf ( d , a ) | LeftOf ( d , a ) )"
+"If A and D are both cubes, then one is to the left of the other","( Cube ( a ) & Cube ( d ) ) $ ( LeftOf ( a , d ) | LeftOf ( a , d ) | LeftOf ( d , a ) )"
+"If A is a cube and B is a dodecahedron, then A is to the left of B","( Dodec ( b ) & Cube ( a ) ) $ LeftOf ( a , b )"
+"If A is a cube and B is a dodecahedron, then A is to the left of B","( Cube ( a ) & Dodec ( b ) ) $ LeftOf ( a , b )"
+"If A is a cube and B is a dodecahedron, then A is to the left of B","Cube ( a ) $ ( Dodec ( b ) $ LeftOf ( a , b ) )"
+"If A is a cube and B is a dodecahedron, then A is to the left of B","( Cube ( a ) & Dodec ( b ) ) $ RightOf ( b , a )"
+"If A is a cube and B is a dodecahedron, then A is to the left of B","( Cube ( a ) & Dodec ( b ) ) $ ( LeftOf ( a , b ) & RightOf ( b , a ) )"
+"If A is a cube and B is a dodecahedron, then A is to the left of B","~ ( Cube ( a ) & Dodec ( b ) ) | LeftOf ( a , b )"
+"If A is a cube and B is a dodecahedron, then A is to the left of B","( Cube ( a ) & Dodec ( b ) & LeftOf ( a , b ) ) | ~ ( Cube ( a ) & Dodec ( b ) )"
+"If A is a cube and B is a dodecahedron, then A is to the left of B","( Cube ( a ) & Dodec ( b ) ) $ ( Cube ( a ) & Dodec ( b ) & LeftOf ( a , b ) )"
+If A is a tetrahedron then it is in front of D,"~ FrontOf ( a , d ) $ ~ Tet ( a )"
+If A is a tetrahedron then it is in front of D,"Tet ( a ) $ FrontOf ( a , d )"
+If A is a tetrahedron then it is in front of D,"( FrontOf ( a , d ) & Tet ( a ) ) | ~ Tet ( a )"
+If A is a tetrahedron then it is in front of D,"~ Tet ( a ) | ( Tet ( a ) & FrontOf ( a , d ) )"
+If A is a tetrahedron then it is in front of D,"Tet ( a ) $ ( Tet ( a ) & FrontOf ( a , d ) )"
+If A is a tetrahedron then it is in front of D,"( Tet ( a ) & ~ FrontOf ( a , d ) ) $ ( ~ Tet ( a ) & FrontOf ( a , d ) )"
+If A is a tetrahedron then it is in front of D,"Tet ( a ) $ BackOf ( d , a )"
+If A is a tetrahedron then it is in front of D,"~ Tet ( a ) | FrontOf ( a , d )"
+If A is a tetrahedron then it is in front of D,"( Tet ( a ) $ FrontOf ( a , d ) ) | ~ Tet ( a )"
+"If A is a tetrahedron, then B is also a tetrahedron",Tet ( a ) $ ( Tet ( a ) & Tet ( b ) )
+"If A is a tetrahedron, then B is also a tetrahedron",~ Tet ( a ) | Tet ( b )
+"If A is a tetrahedron, then B is also a tetrahedron",~ Tet ( b ) $ ~ Tet ( a )
+"If A is a tetrahedron, then B is also a tetrahedron",Tet ( a ) $ Tet ( b )
+"If A is a tetrahedron, then B is also a tetrahedron",( Tet ( a ) & Tet ( b ) ) | ~ Tet ( a )
+"If B and C are both cubes, then they are in the same row but not in the same column","( Cube ( b ) & Cube ( c ) ) $ ( SameRow ( b , c ) & ~ SameCol ( b , c ) & ~ SameCol ( b , c ) )"
+"If B and C are both cubes, then they are in the same row but not in the same column","( Cube ( b ) & Cube ( c ) ) $ ( ~ SameCol ( b , c ) & SameRow ( c , b ) )"
+"If B and C are both cubes, then they are in the same row but not in the same column","( Cube ( c ) & Cube ( b ) ) $ ~ ( SameCol ( b , c ) | ~ SameRow ( b , c ) )"
+"If B and C are both cubes, then they are in the same row but not in the same column","( Cube ( b ) & Cube ( c ) ) $ ( SameRow ( c , b ) & ~ SameCol ( c , b ) )"
+"If B and C are both cubes, then they are in the same row but not in the same column","( Cube ( b ) & Cube ( c ) ) $ ( ~ SameCol ( b , c ) & SameRow ( b , c ) )"
+"If B and C are both cubes, then they are in the same row but not in the same column","( Cube ( b ) & Cube ( c ) ) $ ( ~ SameCol ( c , b ) & SameRow ( c , b ) )"
+"If B and C are both cubes, then they are in the same row but not in the same column","( Cube ( b ) & Cube ( c ) ) $ ~ ( SameRow ( b , c ) $ SameCol ( b , c ) )"
+"If B and C are both cubes, then they are in the same row but not in the same column","( Cube ( b ) & Cube ( c ) ) $ ( SameRow ( b , c ) & ~ SameCol ( b , c ) )"
+"If B and C are both cubes, then they are in the same row but not in the same column","( Cube ( c ) & Cube ( b ) ) $ ( SameRow ( b , c ) & ~ SameCol ( b , c ) )"
+"If B and C are both cubes, then they are in the same row but not in the same column","( Cube ( b ) & Cube ( c ) ) $ ~ ( ~ SameRow ( b , c ) | SameCol ( b , c ) )"
+"If B and C are both cubes, then they are in the same row but not in the same column","( Cube ( c ) & Cube ( b ) ) $ ( SameRow ( b , c ) & ( ~ SameCol ( b , c ) | ~ SameCol ( c , b ) ) )"
+"If B and C are both cubes, then they are in the same row but not in the same column","( Cube ( b ) & Cube ( c ) ) $ ( SameRow ( b , c ) & ~ SameCol ( c , b ) )"
+"If B and C are both cubes, then they are in the same row but not in the same column","( Cube ( c ) & Cube ( b ) ) $ ( SameRow ( c , b ) & ~ SameCol ( c , b ) )"
+"If B and C are both cubes, then they are in the same row but not in the same column","( Cube ( c ) & Cube ( b ) ) $ ( SameRow ( c , b ) & ~ SameCol ( b , c ) )"
+"If B and C are both cubes, then they are in the same row but not in the same column","( Cube ( c ) & Cube ( b ) ) $ ( SameRow ( b , c ) & ~ SameCol ( c , b ) )"
+"If B and C are both cubes, then they are in the same row but not in the same column","~ ( Cube ( b ) & Cube ( c ) ) | ( SameRow ( b , c ) & ~ SameCol ( b , c ) )"
+"If B and C are both cubes, then they are in the same row but not in the same column","( Cube ( b ) & Cube ( c ) ) $ ( Cube ( b ) & Cube ( c ) & SameRow ( b , c ) & ~ SameCol ( b , c ) )"
+"If B and C are both cubes, then they are in the same row but not in the same column","( Cube ( b ) & Cube ( c ) ) $ ( SameRow ( c , b ) & ~ SameCol ( b , c ) )"
+"If B is a dodecahedron, then if it isn't in front of D then it isn't in back of D either","( ~ FrontOf ( b , d ) & Dodec ( b ) ) $ ~ BackOf ( b , d )"
+"If B is a dodecahedron, then if it isn't in front of D then it isn't in back of D either","Dodec ( b ) $ ( ( Dodec ( b ) $ ~ FrontOf ( b , d ) ) $ ~ BackOf ( b , d ) )"
+"If B is a dodecahedron, then if it isn't in front of D then it isn't in back of D either","Dodec ( b ) $ ( ~ FrontOf ( b , d ) $ ( ~ FrontOf ( d , b ) & ~ BackOf ( d , b ) ) )"
+"If B is a dodecahedron, then if it isn't in front of D then it isn't in back of D either","Dodec ( b ) $ ~ ( ~ FrontOf ( b , d ) & BackOf ( b , d ) )"
+"If B is a dodecahedron, then if it isn't in front of D then it isn't in back of D either","( ~ FrontOf ( b , d ) & Dodec ( b ) ) $ ( ~ BackOf ( b , d ) & Dodec ( b ) )"
+"If B is a dodecahedron, then if it isn't in front of D then it isn't in back of D either","Dodec ( b ) $ ( ~ FrontOf ( b , d ) $ ( ~ FrontOf ( b , d ) & ~ BackOf ( b , d ) ) )"
+"If B is a dodecahedron, then if it isn't in front of D then it isn't in back of D either","Dodec ( b ) $ ~ ( FrontOf ( d , b ) & ~ BackOf ( d , b ) )"
+"If B is a dodecahedron, then if it isn't in front of D then it isn't in back of D either","Dodec ( b ) $ ( ~ FrontOf ( b , d ) $ ~ ( FrontOf ( b , d ) | BackOf ( b , d ) ) )"
+"If B is a dodecahedron, then if it isn't in front of D then it isn't in back of D either","~ Dodec ( b ) | FrontOf ( b , d ) | ~ BackOf ( b , d )"
+"If B is a dodecahedron, then if it isn't in front of D then it isn't in back of D either","Dodec ( b ) $ ( FrontOf ( d , b ) $ BackOf ( d , b ) )"
+"If B is a dodecahedron, then if it isn't in front of D then it isn't in back of D either","( Dodec ( b ) $ ~ FrontOf ( b , d ) ) $ ( Dodec ( b ) $ ~ BackOf ( b , d ) )"
+"If B is a dodecahedron, then if it isn't in front of D then it isn't in back of D either","Dodec ( b ) $ ( ~ FrontOf ( b , d ) $ ~ FrontOf ( d , b ) )"
+"If B is a dodecahedron, then if it isn't in front of D then it isn't in back of D either","~ Dodec ( b ) | ( BackOf ( b , d ) $ FrontOf ( b , d ) )"
+"If B is a dodecahedron, then if it isn't in front of D then it isn't in back of D either","BackOf ( b , d ) $ ( Dodec ( b ) $ FrontOf ( b , d ) )"
+"If B is a dodecahedron, then if it isn't in front of D then it isn't in back of D either","FrontOf ( d , b ) $ ( Dodec ( b ) $ BackOf ( d , b ) )"
+"If B is a dodecahedron, then if it isn't in front of D then it isn't in back of D either","~ FrontOf ( b , d ) $ ( Dodec ( b ) $ ~ BackOf ( b , d ) )"
+"If B is a dodecahedron, then if it isn't in front of D then it isn't in back of D either","( Dodec ( b ) & ~ FrontOf ( b , d ) ) $ ( Dodec ( b ) & ~ BackOf ( b , d ) )"
+"If B is a dodecahedron, then if it isn't in front of D then it isn't in back of D either","Dodec ( b ) $ ( ~ FrontOf ( b , d ) $ ~ BackOf ( b , d ) )"
+"If B is a dodecahedron, then if it isn't in front of D then it isn't in back of D either","~ ( Dodec ( b ) $ FrontOf ( b , d ) ) $ ~ BackOf ( b , d )"
+"If B is a dodecahedron, then if it isn't in front of D then it isn't in back of D either","Dodec ( b ) $ ( ( ~ FrontOf ( b , d ) & ~ BackOf ( b , d ) ) | FrontOf ( b , d ) )"
+"If B is a dodecahedron, then if it isn't in front of D then it isn't in back of D either","~ FrontOf ( b , d ) $ ( Dodec ( b ) $ ( ~ BackOf ( b , d ) & ~ FrontOf ( b , d ) ) )"
+"If B is a dodecahedron, then if it isn't in front of D then it isn't in back of D either","Dodec ( b ) $ ( BackOf ( b , d ) $ FrontOf ( b , d ) )"
+"If B is a dodecahedron, then if it isn't in front of D then it isn't in back of D either","Dodec ( b ) $ ( FrontOf ( b , d ) | ~ BackOf ( b , d ) )"
+"If B is a dodecahedron, then if it isn't in front of D then it isn't in back of D either","Dodec ( b ) $ ( ( ~ FrontOf ( b , d ) & Dodec ( b ) ) $ ~ BackOf ( b , d ) )"
+"If B is a dodecahedron, then if it isn't in front of D then it isn't in back of D either","~ ( Dodec ( b ) & FrontOf ( b , d ) ) $ ~ ( Dodec ( b ) & BackOf ( b , d ) )"
+"If B is a dodecahedron, then if it isn't in front of D then it isn't in back of D either","( Dodec ( b ) & ~ FrontOf ( b , d ) ) $ ( ~ BackOf ( b , d ) & ~ FrontOf ( b , d ) )"
+"If B is a dodecahedron, then if it isn't in front of D then it isn't in back of D either","( Dodec ( b ) & ~ FrontOf ( b , d ) ) $ ~ BackOf ( b , d )"
+"If B is a dodecahedron, then if it isn't in front of D then it isn't in back of D either","Dodec ( b ) $ ( ~ BackOf ( d , b ) $ ~ FrontOf ( d , b ) )"
+"If B is a dodecahedron, then if it isn't in front of D then it isn't in back of D either","Dodec ( b ) $ ( FrontOf ( b , d ) | ( ~ FrontOf ( b , d ) & ~ BackOf ( b , d ) ) )"
+"If B is a dodecahedron, then if it isn't in front of D then it isn't in back of D either","~ Dodec ( b ) | ~ ~ FrontOf ( b , d ) | ~ BackOf ( b , d )"
+"If B is a dodecahedron, then if it isn't in front of D then it isn't in back of D either","( Dodec ( b ) & BackOf ( b , d ) ) $ FrontOf ( b , d )"
+"If B is a tetrahedron, then D isn't",( Tet ( b ) $ ~ Tet ( d ) ) | ( Tet ( d ) $ ~ Tet ( b ) )
+"If B is a tetrahedron, then D isn't",( Tet ( b ) $ ~ Tet ( d ) ) & ( Tet ( d ) $ ~ Tet ( b ) )
+"If B is a tetrahedron, then D isn't",Tet ( b ) $ ~ Tet ( d )
+"If B is a tetrahedron, then D isn't",~ ( Tet ( b ) & Tet ( d ) )
+"If B is a tetrahedron, then D isn't",~ Tet ( b ) | ~ Tet ( d )
+"If B is a tetrahedron, then D isn't",Tet ( b ) $ ( Tet ( b ) & ~ Tet ( d ) )
+"If B is a tetrahedron, then D isn't",( Tet ( b ) & ~ Tet ( d ) ) | ~ Tet ( b )
+"If B is a tetrahedron, then D isn't",Tet ( d ) $ ~ Tet ( b )
+"If B is a tetrahedron, then D isn't",~ ( Tet ( d ) & Tet ( b ) )
+"If B is neither to the right nor left of D, then one of them is a tetrahedron","( ~ LeftOf ( b , d ) & ~ RightOf ( b , d ) ) $ ( Tet ( b ) | Tet ( d ) )"
+"If B is neither to the right nor left of D, then one of them is a tetrahedron","( ~ RightOf ( b , d ) & ~ RightOf ( d , b ) ) $ ( Tet ( d ) | Tet ( b ) )"
+"If B is neither to the right nor left of D, then one of them is a tetrahedron","~ ( LeftOf ( b , d ) | LeftOf ( d , b ) ) $ ( Tet ( d ) | Tet ( b ) )"
+"If B is neither to the right nor left of D, then one of them is a tetrahedron","( ~ LeftOf ( d , b ) & ~ RightOf ( d , b ) ) $ ( Tet ( d ) | Tet ( b ) )"
+"If B is neither to the right nor left of D, then one of them is a tetrahedron","~ ( ~ RightOf ( b , d ) & ~ LeftOf ( b , d ) ) | Tet ( b ) | Tet ( d )"
+"If B is neither to the right nor left of D, then one of them is a tetrahedron","RightOf ( b , d ) | LeftOf ( b , d ) | Tet ( b ) | Tet ( d )"
+"If B is neither to the right nor left of D, then one of them is a tetrahedron","( ~ LeftOf ( d , b ) & ~ RightOf ( d , b ) ) $ ( Tet ( b ) | Tet ( d ) )"
+"If B is neither to the right nor left of D, then one of them is a tetrahedron","( ~ RightOf ( d , b ) & ~ LeftOf ( d , b ) ) $ ( Tet ( b ) | Tet ( d ) )"
+"If B is neither to the right nor left of D, then one of them is a tetrahedron","~ ( RightOf ( b , d ) | LeftOf ( b , d ) ) $ ( Tet ( b ) | Tet ( d ) )"
+"If B is neither to the right nor left of D, then one of them is a tetrahedron","~ ( RightOf ( d , b ) | LeftOf ( d , b ) ) $ ( Tet ( b ) | Tet ( d ) )"
+"If B is neither to the right nor left of D, then one of them is a tetrahedron","~ ( RightOf ( b , d ) | RightOf ( d , b ) ) $ ( Tet ( b ) | Tet ( d ) )"
+"If B is neither to the right nor left of D, then one of them is a tetrahedron","~ ( LeftOf ( b , d ) | RightOf ( b , d ) ) $ ( Tet ( b ) | Tet ( d ) )"
+"If B is neither to the right nor left of D, then one of them is a tetrahedron","( ~ RightOf ( b , d ) & ~ RightOf ( d , b ) ) $ ( Tet ( b ) | Tet ( d ) )"
+"If B is neither to the right nor left of D, then one of them is a tetrahedron","( ~ RightOf ( d , b ) & ~ LeftOf ( d , b ) ) $ ( Tet ( d ) | Tet ( b ) )"
+"If B is neither to the right nor left of D, then one of them is a tetrahedron","( ~ LeftOf ( b , d ) & ~ LeftOf ( d , b ) ) $ ( Tet ( d ) | Tet ( b ) )"
+"If B is neither to the right nor left of D, then one of them is a tetrahedron","( ~ LeftOf ( b , d ) & ~ RightOf ( b , d ) ) $ ( Tet ( d ) | Tet ( b ) )"
+"If B is neither to the right nor left of D, then one of them is a tetrahedron","( ~ LeftOf ( b , d ) & ~ LeftOf ( d , b ) ) $ ( Tet ( b ) | Tet ( d ) )"
+"If B is neither to the right nor left of D, then one of them is a tetrahedron","~ ( LeftOf ( b , d ) | LeftOf ( d , b ) ) $ ( Tet ( b ) | Tet ( d ) )"
+"If B is neither to the right nor left of D, then one of them is a tetrahedron","~ ( LeftOf ( b , d ) | RightOf ( b , d ) ) $ ( Tet ( d ) | Tet ( b ) )"
+"If B is neither to the right nor left of D, then one of them is a tetrahedron","~ ~ ( RightOf ( b , d ) | LeftOf ( b , d ) ) | Tet ( b ) | Tet ( d )"
+"If B is neither to the right nor left of D, then one of them is a tetrahedron","( ~ RightOf ( b , d ) & ~ LeftOf ( b , d ) ) $ ( Tet ( d ) | Tet ( b ) )"
+"If B is neither to the right nor left of D, then one of them is a tetrahedron","~ ( Tet ( b ) | Tet ( d ) ) $ ( RightOf ( b , d ) | LeftOf ( b , d ) )"
+"If B is neither to the right nor left of D, then one of them is a tetrahedron","~ ( RightOf ( b , d ) | RightOf ( d , b ) ) $ ( Tet ( d ) | Tet ( b ) )"
+"If B is neither to the right nor left of D, then one of them is a tetrahedron","~ ( LeftOf ( d , b ) | RightOf ( d , b ) ) $ ( Tet ( d ) | Tet ( b ) )"
+"If B is neither to the right nor left of D, then one of them is a tetrahedron","~ ( LeftOf ( d , b ) | LeftOf ( b , d ) ) $ ( Tet ( b ) | Tet ( d ) )"
+"If B is neither to the right nor left of D, then one of them is a tetrahedron","~ ( LeftOf ( d , b ) | RightOf ( d , b ) ) $ ( Tet ( b ) | Tet ( d ) )"
+"If B is neither to the right nor left of D, then one of them is a tetrahedron","~ ( LeftOf ( d , b ) | LeftOf ( b , d ) ) $ ( Tet ( d ) | Tet ( b ) )"
+"If B is neither to the right nor left of D, then one of them is a tetrahedron","~ ( RightOf ( b , d ) | LeftOf ( b , d ) ) $ ( Tet ( d ) | Tet ( b ) )"
+"If B is neither to the right nor left of D, then one of them is a tetrahedron","~ ( RightOf ( d , b ) | LeftOf ( d , b ) ) $ ( Tet ( d ) | Tet ( b ) )"
+"If B is neither to the right nor left of D, then one of them is a tetrahedron","( ~ LeftOf ( b , d ) & ~ RightOf ( b , d ) ) $ ~ ( ~ Tet ( b ) & ~ Tet ( d ) )"
+"If B is neither to the right nor left of D, then one of them is a tetrahedron","( ~ RightOf ( b , d ) & ~ LeftOf ( b , d ) ) $ ( Tet ( b ) | Tet ( d ) )"
+"If B is neither to the right nor left of D, then one of them is a tetrahedron","~ ( Tet ( b ) | Tet ( d ) ) $ ( LeftOf ( d , b ) | LeftOf ( b , d ) )"
+"If C is small and D is a dodecahedron, then D is neither large nor small",Small ( c ) $ ( Dodec ( d ) $ ( ~ Large ( d ) & ~ Small ( d ) ) )
+"If C is small and D is a dodecahedron, then D is neither large nor small",( Dodec ( d ) & Small ( c ) ) $ ( ~ Small ( d ) & ~ Large ( d ) )
+"If C is small and D is a dodecahedron, then D is neither large nor small",( Dodec ( d ) & Small ( c ) ) $ ( ~ Large ( d ) & ~ Small ( d ) )
+"If C is small and D is a dodecahedron, then D is neither large nor small",( Dodec ( d ) & Small ( c ) ) $ ~ ( Small ( d ) | Large ( d ) )
+"If C is small and D is a dodecahedron, then D is neither large nor small",~ ~ ( Small ( c ) & Dodec ( d ) ) $ ~ ( Large ( d ) | Small ( d ) )
+"If C is small and D is a dodecahedron, then D is neither large nor small",( Large ( d ) | Small ( d ) ) $ ~ ( Small ( c ) & Dodec ( d ) )
+"If C is small and D is a dodecahedron, then D is neither large nor small",( Small ( c ) & Dodec ( d ) ) $ ~ ( Small ( d ) | Large ( d ) )
+"If C is small and D is a dodecahedron, then D is neither large nor small",( Small ( c ) & Dodec ( d ) ) $ ( ~ Large ( d ) & ~ Small ( d ) )
+"If C is small and D is a dodecahedron, then D is neither large nor small",~ ( Small ( c ) & Dodec ( d ) ) | ( ~ Small ( d ) & ~ Large ( d ) )
+"If C is small and D is a dodecahedron, then D is neither large nor small",( Small ( c ) & Dodec ( d ) ) $ ~ ( Large ( d ) | Small ( d ) )
+"If C is small and D is a dodecahedron, then D is neither large nor small",~ ( Small ( c ) & Dodec ( d ) ) | ( ~ Large ( d ) & ~ Small ( d ) )
+"If C is small and D is a dodecahedron, then D is neither large nor small",( Small ( c ) & Dodec ( d ) ) $ ( ~ Small ( d ) & ~ Large ( d ) )
+"If C is small and D is a dodecahedron, then D is neither large nor small",( Small ( c ) & Dodec ( d ) & ~ ( Large ( d ) | Small ( d ) ) ) | ~ Small ( c ) | ~ Dodec ( d )
+"If E isn't a cube, either B or D is large.",( ~ Cube ( e ) $ Large ( d ) ) | ( ~ Cube ( e ) $ Large ( b ) )
+"If E isn't a cube, either B or D is large.",( ~ Cube ( e ) | Large ( b ) ) $ ( Large ( b ) | Large ( d ) )
+"If E isn't a cube, either B or D is large.",~ ( Large ( d ) | Large ( b ) ) $ Cube ( e )
+"If E isn't a cube, either B or D is large.",~ Cube ( e ) $ ( Large ( b ) | ( ~ Large ( b ) & Large ( d ) ) )
+"If E isn't a cube, either B or D is large.",~ ~ Cube ( e ) | Large ( b ) | Large ( d )
+"If E isn't a cube, either B or D is large.",~ ( ~ Cube ( e ) & ~ ( Large ( b ) | Large ( d ) ) )
+"If E isn't a cube, either B or D is large.",( ~ Cube ( e ) & ( Large ( b ) | Large ( d ) ) ) | Cube ( e )
+"If E isn't a cube, either B or D is large.",Cube ( e ) | Large ( b ) | Large ( d )
+"If E isn't a cube, either B or D is large.",( ~ Cube ( e ) $ Large ( b ) ) | Large ( d )
+"If E isn't a cube, either B or D is large.",~ Cube ( e ) $ ( Large ( d ) | Large ( b ) )
+"If E isn't a cube, either B or D is large.",~ Cube ( e ) $ ( ~ Large ( b ) $ Large ( d ) )
+"If E isn't a cube, either B or D is large.",~ Cube ( e ) $ ( ~ Large ( d ) $ Large ( b ) )
+"If E isn't a cube, either B or D is large.",~ Cube ( e ) $ ( Large ( b ) | Large ( b ) | Large ( d ) )
+"If E isn't a cube, either B or D is large.",~ ( Large ( b ) | Large ( d ) ) $ Cube ( e )
+"If E isn't a cube, either B or D is large.",( ~ Cube ( e ) $ Large ( b ) ) | ( ~ Cube ( e ) $ Large ( d ) )
+"If E isn't a cube, either B or D is large.",( ~ Large ( b ) & ~ Large ( d ) ) $ Cube ( e )
+"If E isn't a cube, either B or D is large.",~ Cube ( e ) $ ( Large ( b ) | Large ( d ) )
+"If E isn't a cube, either B or D is large.",Large ( b ) | Large ( d ) | Cube ( e )
+It is not the case that B is in the same row as C,"FrontOf ( c , b ) | FrontOf ( b , c )"
+It is not the case that B is in the same row as C,"~ SameRow ( b , c ) & ~ SameRow ( c , b )"
+It is not the case that B is in the same row as C,"BackOf ( c , b ) | BackOf ( b , c )"
+It is not the case that B is in the same row as C,"FrontOf ( b , c ) | FrontOf ( c , b )"
+It is not the case that B is in the same row as C,"FrontOf ( b , c ) | BackOf ( b , c )"
+It is not the case that B is in the same row as C,"~ ~ ~ SameRow ( b , c )"
+It is not the case that B is in the same row as C,"BackOf ( b , c ) | FrontOf ( b , c )"
+It is not the case that B is in the same row as C,"~ SameRow ( b , c )"
+It is not the case that B is in the same row as C,"~ ( SameRow ( b , c ) & SameRow ( b , c ) )"
+It is not the case that B is in the same row as C,"~ ( SameRow ( b , c ) & SameRow ( c , b ) )"
+It is not the case that B is in the same row as C,"( FrontOf ( b , c ) & BackOf ( c , b ) ) | ( FrontOf ( c , b ) & BackOf ( b , c ) )"
+It is not the case that B is in the same row as C,"~ SameRow ( c , b )"
+It is not the case that B is in the same row as C,"BackOf ( b , c ) | BackOf ( c , b )"
+It is not the case that B is in the same row as C,"~ ( SameRow ( b , c ) | SameRow ( c , b ) )"
+Max is a student,Student ( max )
+Max is a student if and only if Claire is not,( Student ( max ) $ ~ Student ( claire ) ) & ( ~ Student ( max ) $ Student ( claire ) )
+Max is a student if and only if Claire is not,( ~ Student ( claire ) $ Student ( max ) ) & ( Student ( claire ) $ ~ Student ( max ) )
+Max is a student if and only if Claire is not,( Student ( max ) $ ~ Student ( claire ) ) & ( ~ Student ( claire ) $ Student ( max ) )
+Max is a student if and only if Claire is not,( Student ( claire ) $ ~ Student ( max ) ) & ( ~ Student ( claire ) $ Student ( max ) )
+Max is a student if and only if Claire is not,( Student ( max ) & ~ Student ( claire ) ) | ( ~ Student ( max ) & Student ( claire ) )
+"Max is a student, not a pet",~ Pet ( max ) & Student ( max )
+"Max is a student, not a pet",~ ( ~ Student ( max ) | Pet ( max ) )
+"Max is a student, not a pet",Student ( max ) & ~ Pet ( max )
+Neither D nor C is in front of either C or B,"~ FrontOf ( d , c ) & ~ FrontOf ( d , b ) & ~ BackOf ( b , c )"
+Neither D nor C is in front of either C or B,"~ ( FrontOf ( d , c ) | FrontOf ( c , b ) ) & ~ FrontOf ( d , b )"
+Neither D nor C is in front of either C or B,"~ ( FrontOf ( d , b ) | FrontOf ( d , c ) ) & ~ ( FrontOf ( c , c ) | FrontOf ( c , b ) )"
+Neither D nor C is in front of either C or B,"~ FrontOf ( d , c ) & ~ FrontOf ( c , b ) & ~ FrontOf ( d , b ) & ~ FrontOf ( d , c )"
+Neither D nor C is in front of either C or B,"~ ( FrontOf ( c , b ) | FrontOf ( c , c ) | FrontOf ( d , c ) | FrontOf ( d , b ) )"
+Neither D nor C is in front of either C or B,"~ FrontOf ( d , b ) & ~ FrontOf ( c , b ) & ~ FrontOf ( d , c )"
+Neither D nor C is in front of either C or B,"~ ( FrontOf ( c , b ) | FrontOf ( d , c ) | FrontOf ( d , b ) | FrontOf ( c , c ) )"
+Neither D nor C is in front of either C or B,"~ ( FrontOf ( d , b ) | FrontOf ( d , c ) | FrontOf ( c , b ) )"
+Neither D nor C is in front of either C or B,"~ FrontOf ( d , b ) & ~ FrontOf ( c , b ) & ~ FrontOf ( d , c ) & ~ FrontOf ( c , c )"
+Neither D nor C is in front of either C or B,"~ ( FrontOf ( d , c ) | FrontOf ( c , c ) ) & ~ ( FrontOf ( c , b ) | FrontOf ( d , b ) )"
+Neither D nor C is in front of either C or B,"~ FrontOf ( c , b ) & ~ ( FrontOf ( d , c ) | FrontOf ( d , b ) )"
+Neither D nor C is in front of either C or B,"~ ( FrontOf ( c , b ) | FrontOf ( d , c ) | FrontOf ( d , b ) )"
+Neither D nor C is in front of either C or B,"~ ( FrontOf ( d , c ) | FrontOf ( c , b ) | FrontOf ( d , b ) | FrontOf ( d , c ) )"
+Neither D nor C is in front of either C or B,"~ FrontOf ( d , b ) & ~ FrontOf ( d , c ) & ~ FrontOf ( c , b ) & ~ FrontOf ( c , c )"
+Neither D nor C is in front of either C or B,"~ ( FrontOf ( d , b ) | FrontOf ( d , c ) | FrontOf ( c , c ) | FrontOf ( c , b ) )"
+Neither D nor C is in front of either C or B,"~ FrontOf ( d , c ) & ~ ( FrontOf ( d , b ) | FrontOf ( c , b ) )"
+Neither D nor C is in front of either C or B,"~ FrontOf ( c , c ) & ~ FrontOf ( d , c ) & ~ FrontOf ( c , b ) & ~ FrontOf ( d , b )"
+Neither D nor C is in front of either C or B,"~ ( FrontOf ( d , c ) | FrontOf ( c , b ) | FrontOf ( d , b ) | FrontOf ( c , c ) )"
+Neither D nor C is in front of either C or B,"~ FrontOf ( d , b ) & ~ FrontOf ( d , c ) & ~ FrontOf ( c , c ) & ~ FrontOf ( c , b )"
+Neither D nor C is in front of either C or B,"~ ( FrontOf ( c , b ) | FrontOf ( c , c ) | FrontOf ( d , b ) | FrontOf ( d , c ) )"
+Neither D nor C is in front of either C or B,"~ FrontOf ( d , c ) & ~ ( FrontOf ( c , b ) | FrontOf ( d , b ) )"
+Neither D nor C is in front of either C or B,"~ ( FrontOf ( d , b ) | FrontOf ( c , b ) ) & ~ ( FrontOf ( d , c ) | FrontOf ( c , c ) )"
+Neither D nor C is in front of either C or B,"~ FrontOf ( c , b ) & ~ FrontOf ( d , b ) & ~ FrontOf ( d , c )"
+Neither D nor C is in front of either C or B,"~ FrontOf ( d , c ) & ~ BackOf ( b , d ) & ~ FrontOf ( c , b )"
+Neither D nor C is in front of either C or B,"~ FrontOf ( d , c ) & ~ FrontOf ( d , b ) & ~ ( FrontOf ( c , b ) | FrontOf ( c , c ) )"
+Neither D nor C is in front of either C or B,"~ ( FrontOf ( d , c ) | FrontOf ( c , b ) | FrontOf ( c , c ) | FrontOf ( d , b ) )"
+Neither D nor C is in front of either C or B,"~ ( FrontOf ( c , c ) | FrontOf ( c , b ) | FrontOf ( d , c ) | FrontOf ( d , b ) )"
+Neither D nor C is in front of either C or B,"~ ( FrontOf ( d , c ) | FrontOf ( d , b ) ) & ~ FrontOf ( c , b ) & ~ FrontOf ( c , c )"
+Neither D nor C is in front of either C or B,"~ ( FrontOf ( c , b ) | FrontOf ( d , b ) | FrontOf ( c , c ) | FrontOf ( d , c ) )"
+Neither D nor C is in front of either C or B,"~ ( FrontOf ( d , c ) | FrontOf ( d , b ) ) & ~ BackOf ( b , c )"
+Neither D nor C is in front of either C or B,"~ FrontOf ( c , b ) & ~ FrontOf ( c , c ) & ~ FrontOf ( d , b ) & ~ FrontOf ( d , c )"
+Neither D nor C is in front of either C or B,"~ FrontOf ( d , c ) & ~ FrontOf ( c , b ) & ~ FrontOf ( d , b ) & ~ FrontOf ( c , c )"
+Neither D nor C is in front of either C or B,"~ FrontOf ( c , b ) & ~ FrontOf ( d , c ) & ~ FrontOf ( d , b )"
+Neither D nor C is in front of either C or B,"~ FrontOf ( c , c ) & ~ FrontOf ( d , c ) & ~ FrontOf ( d , b ) & ~ FrontOf ( c , b )"
+Neither D nor C is in front of either C or B,"~ FrontOf ( d , c ) & ~ FrontOf ( d , b ) & ~ FrontOf ( c , b )"
+Neither D nor C is in front of either C or B,"~ ( FrontOf ( d , c ) | FrontOf ( d , b ) ) & ~ ( FrontOf ( c , c ) | FrontOf ( c , b ) )"
+Neither D nor C is in front of either C or B,"~ FrontOf ( d , c ) & ~ FrontOf ( d , b ) & ~ FrontOf ( c , c ) & ~ FrontOf ( c , b )"
+Neither D nor C is in front of either C or B,"~ ( FrontOf ( d , c ) | FrontOf ( c , b ) ) & ~ ( FrontOf ( c , c ) | FrontOf ( d , b ) )"
+Neither D nor C is in front of either C or B,"~ ( FrontOf ( d , c ) | FrontOf ( d , b ) | FrontOf ( c , c ) | FrontOf ( c , b ) )"
+Neither D nor C is in front of either C or B,"~ ( FrontOf ( d , b ) | FrontOf ( d , c ) | FrontOf ( c , b ) | FrontOf ( c , c ) )"
+Neither D nor C is in front of either C or B,"~ ( FrontOf ( d , c ) | FrontOf ( d , b ) | FrontOf ( c , b ) )"
+Neither D nor C is in front of either C or B,"~ FrontOf ( d , c ) & ~ FrontOf ( c , c ) & ~ FrontOf ( c , b ) & ~ FrontOf ( d , b )"
+Neither D nor C is in front of either C or B,"~ ( FrontOf ( d , c ) | FrontOf ( d , b ) | FrontOf ( c , b ) | FrontOf ( c , c ) )"
+Neither D nor C is in front of either C or B,"~ FrontOf ( d , c ) & ~ FrontOf ( d , b ) & ~ FrontOf ( c , b ) & ~ FrontOf ( c , c )"
+Neither D nor C is in front of either C or B,"~ FrontOf ( d , c ) & ~ FrontOf ( c , c ) & ~ FrontOf ( d , b ) & ~ FrontOf ( c , b )"
+Neither D nor C is in front of either C or B,"~ ( FrontOf ( d , c ) | FrontOf ( c , b ) | FrontOf ( c , b ) | FrontOf ( d , b ) )"
+Neither D nor C is in front of either C or B,"~ ( FrontOf ( d , c ) | FrontOf ( c , c ) ) & ~ ( FrontOf ( d , b ) | FrontOf ( c , b ) )"
+Neither D nor C is in front of either C or B,"~ ( FrontOf ( d , c ) | FrontOf ( c , b ) ) & ~ ( FrontOf ( d , b ) | FrontOf ( c , c ) )"
+Neither D nor C is in front of either C or B,"~ ( FrontOf ( d , b ) | FrontOf ( c , c ) | FrontOf ( c , b ) | FrontOf ( d , c ) )"
+Neither D nor C is in front of either C or B,"~ ( FrontOf ( d , c ) | FrontOf ( d , b ) ) & ~ ( FrontOf ( c , b ) | FrontOf ( c , c ) )"
+Neither D nor C is in front of either C or B,"~ ( FrontOf ( d , b ) | FrontOf ( d , c ) ) & ~ FrontOf ( c , b )"
+Neither D nor C is in front of either C or B,"~ FrontOf ( d , b ) & ~ FrontOf ( d , c ) & ~ FrontOf ( c , b )"
+Neither D nor C is in front of either C or B,"~ ( FrontOf ( c , c ) | FrontOf ( c , b ) ) & ~ ( FrontOf ( d , c ) | FrontOf ( d , b ) )"
+Neither D nor C is in front of either C or B,"~ ( FrontOf ( d , c ) | FrontOf ( c , c ) | FrontOf ( c , b ) | FrontOf ( d , b ) )"
+Neither D nor C is in front of either C or B,"~ FrontOf ( d , c ) & ~ FrontOf ( c , b ) & ~ FrontOf ( d , b )"
+Neither D nor C is in front of either C or B,"~ FrontOf ( d , b ) & ~ FrontOf ( d , c ) & ~ FrontOf ( c , b ) & ~ FrontOf ( c , b )"
+Neither D nor C is in front of either C or B,"~ ( FrontOf ( d , b ) | FrontOf ( c , b ) ) & ~ FrontOf ( d , c )"
+Neither D nor C is in front of either C or B,"~ ( FrontOf ( d , c ) | FrontOf ( c , c ) | FrontOf ( d , b ) | FrontOf ( c , b ) )"
+Neither D nor C is in front of either C or B,"~ FrontOf ( c , c ) & ~ FrontOf ( c , b ) & ~ FrontOf ( d , c ) & ~ FrontOf ( d , b )"
+Neither D nor C is in front of either C or B,"~ FrontOf ( d , c ) & ~ FrontOf ( c , b ) & ~ FrontOf ( c , c ) & ~ FrontOf ( d , b )"
+Neither D nor C is in front of either C or B,"~ ( FrontOf ( d , b ) | FrontOf ( c , b ) | FrontOf ( d , c ) )"
+Neither D nor C is in front of either C or B,"~ ( FrontOf ( d , c ) | FrontOf ( c , b ) | FrontOf ( d , b ) )"
+Neither D nor C is in front of either C or B,"~ ( FrontOf ( d , c ) | FrontOf ( d , b ) ) & ~ FrontOf ( c , b )"
+Neither D nor C is in front of either C or B,"~ FrontOf ( c , b ) & ~ FrontOf ( d , b ) & ~ FrontOf ( d , c ) & ~ FrontOf ( c , c )"
+Neither D nor C is in front of either C or B,"~ ( FrontOf ( d , c ) | FrontOf ( d , c ) | FrontOf ( d , b ) | FrontOf ( c , b ) )"
+Neither D nor C is in front of either C or B,"~ ( FrontOf ( d , b ) | FrontOf ( c , b ) ) & ~ ( FrontOf ( d , c ) | FrontOf ( c , b ) )"
+Neither D nor C is in front of either C or B,"~ ( FrontOf ( c , b ) | FrontOf ( d , b ) ) & ~ ( FrontOf ( c , c ) | FrontOf ( d , c ) )"
+Neither D nor C is in front of either C or B,"~ FrontOf ( d , b ) & ~ FrontOf ( c , c ) & ~ FrontOf ( c , b ) & ~ FrontOf ( d , c )"
+Neither D nor C is in front of either C or B,"~ ( BackOf ( c , d ) | BackOf ( b , d ) ) & ~ ( BackOf ( c , c ) | BackOf ( b , c ) )"
+Neither D nor C is in front of either C or B,"~ FrontOf ( d , c ) & ~ FrontOf ( d , c ) & ~ FrontOf ( d , b ) & ~ FrontOf ( c , b )"
+Neither D nor C is in front of either C or B,"~ ( FrontOf ( d , c ) | BackOf ( b , d ) | FrontOf ( c , c ) | BackOf ( b , c ) )"
+Neither D nor C is in front of either C or B,"~ FrontOf ( c , c ) & ~ FrontOf ( c , b ) & ~ FrontOf ( d , b ) & ~ FrontOf ( d , c )"
+Neither D nor C is in front of either C or B,"~ FrontOf ( c , c ) & ~ FrontOf ( d , b ) & ~ FrontOf ( d , c ) & ~ FrontOf ( c , b )"
+Neither D nor C is in front of either C or B,"~ ~ ~ ( FrontOf ( d , b ) | FrontOf ( d , c ) | FrontOf ( c , b ) | FrontOf ( c , c ) )"
+Neither D nor C is in front of either C or B,"~ ( FrontOf ( d , c ) | FrontOf ( d , b ) ) & ~ FrontOf ( c , c ) & ~ FrontOf ( c , b )"
+Neither D nor C is in front of either C or B,"~ FrontOf ( d , b ) & ~ ( FrontOf ( d , c ) | FrontOf ( c , b ) )"
+Neither D nor C is in front of either C or B,"~ ( FrontOf ( c , c ) | FrontOf ( d , b ) | FrontOf ( c , b ) | FrontOf ( d , c ) )"
+Neither D nor C is in front of either C or B,"~ ( FrontOf ( c , b ) | FrontOf ( c , c ) ) & ~ ( FrontOf ( d , c ) | FrontOf ( d , b ) )"
+Neither D nor C is in front of either C or B,"~ ( FrontOf ( c , c ) | FrontOf ( c , b ) ) & ~ ( FrontOf ( d , b ) | FrontOf ( d , c ) )"
+Neither D nor C is in front of either C or B,"~ ( FrontOf ( c , c ) | FrontOf ( d , c ) | FrontOf ( c , b ) | FrontOf ( d , b ) )"
+Neither D nor C is in front of either C or B,"~ FrontOf ( d , c ) & ~ FrontOf ( c , b ) & ~ FrontOf ( d , b ) & ~ FrontOf ( c , b )"
+Neither D nor C is in front of either C or B,"~ FrontOf ( d , c ) & ~ FrontOf ( d , b ) & ~ FrontOf ( c , b ) & ~ FrontOf ( d , c )"
+Neither D nor C is in front of either C or B,"~ ( FrontOf ( c , c ) | FrontOf ( d , c ) | FrontOf ( d , b ) | FrontOf ( c , b ) )"
+Neither D nor C is in front of either C or B,"~ FrontOf ( d , b ) & ~ FrontOf ( d , b ) & ~ FrontOf ( c , b ) & ~ FrontOf ( d , c )"
+Neither D nor C is in front of either C or B,"~ ( FrontOf ( d , c ) | FrontOf ( d , b ) | FrontOf ( d , b ) | FrontOf ( c , b ) )"
+Neither D nor C is in front of either C or B,"~ ( FrontOf ( d , c ) | FrontOf ( d , b ) | FrontOf ( c , b ) | FrontOf ( c , b ) )"
+Neither D nor C is in front of either C or B,"~ FrontOf ( d , c ) & ~ BackOf ( b , d ) & ~ FrontOf ( c , c ) & ~ BackOf ( b , c )"
+Neither D nor C is in front of either C or B,"~ ( FrontOf ( c , b ) | FrontOf ( d , c ) | FrontOf ( c , c ) | FrontOf ( d , b ) )"
+Neither D nor C is in front of either C or B,"~ ( FrontOf ( d , b ) | FrontOf ( c , b ) | FrontOf ( c , c ) | FrontOf ( d , c ) )"
+Neither D nor C is in front of either C or B,"~ ( FrontOf ( c , c ) | FrontOf ( d , c ) ) & ~ ( FrontOf ( d , b ) | FrontOf ( c , b ) )"
+Neither D nor C is in front of either C or B,"~ ( FrontOf ( d , c ) | FrontOf ( c , b ) ) & ~ ( FrontOf ( d , b ) | FrontOf ( c , b ) )"
+Neither D nor C is in front of either C or B,"~ FrontOf ( d , c ) & ~ FrontOf ( c , b ) & ~ ( FrontOf ( c , c ) | FrontOf ( d , b ) )"
+Neither D nor C is in front of either C or B,"~ FrontOf ( d , c ) & ~ BackOf ( c , c ) & ~ FrontOf ( d , b ) & ~ BackOf ( b , c )"
+Neither D nor C is in front of either C or B,"~ ( FrontOf ( d , b ) | FrontOf ( d , c ) ) & ~ ( FrontOf ( c , b ) | FrontOf ( c , b ) )"
+Neither D nor C is in front of either C or B,"~ ( FrontOf ( d , c ) | FrontOf ( c , b ) | FrontOf ( d , b ) | FrontOf ( c , b ) )"
+Neither D nor C is in front of either C or B,"~ FrontOf ( d , b ) & ~ FrontOf ( c , c ) & ~ FrontOf ( d , c ) & ~ FrontOf ( c , b )"
+Neither D nor C is in front of either C or B,"~ ( FrontOf ( d , c ) | FrontOf ( d , b ) | FrontOf ( d , c ) | FrontOf ( c , b ) )"
+Neither D nor C is in front of either C or B,"~ ( FrontOf ( d , c ) | FrontOf ( c , b ) | FrontOf ( d , c ) | FrontOf ( d , b ) )"
+Neither D nor C is in front of either C or B,"~ FrontOf ( c , b ) & ~ FrontOf ( d , c ) & ~ FrontOf ( d , b ) & ~ FrontOf ( c , c )"
+Neither D nor C is in front of either C or B,"~ FrontOf ( c , c ) & ~ FrontOf ( d , b ) & ~ FrontOf ( c , b ) & ~ FrontOf ( d , c )"
+Neither D nor C is in front of either C or B,"~ ( FrontOf ( c , b ) | FrontOf ( d , b ) | FrontOf ( d , c ) )"
+Neither D nor C is in front of either C or B,"~ ( FrontOf ( d , b ) | FrontOf ( d , c ) ) & ~ ( FrontOf ( c , b ) | FrontOf ( c , c ) )"
+Neither D nor C is in front of either C or B,"~ ( FrontOf ( d , c ) | FrontOf ( d , b ) ) & ~ ( FrontOf ( c , b ) | FrontOf ( c , b ) )"
+Neither D nor C is in front of either C or B,"~ FrontOf ( c , b ) & ~ FrontOf ( d , b ) & ~ FrontOf ( c , c ) & ~ FrontOf ( d , c )"
+Neither D nor C is in front of either C or B,"~ FrontOf ( d , c ) & ~ FrontOf ( d , b ) & ~ FrontOf ( d , b ) & ~ FrontOf ( c , b )"
+Neither D nor C is in front of either C or B,"~ ( FrontOf ( c , b ) | FrontOf ( d , b ) ) & ~ FrontOf ( d , c )"
+Neither D nor C is in front of either C or B,"~ ( FrontOf ( c , b ) | FrontOf ( c , c ) ) & ~ ( FrontOf ( d , b ) | FrontOf ( d , c ) )"
+Neither D nor C is in front of either C or B,"~ ( FrontOf ( d , b ) | FrontOf ( c , b ) ) & ~ ( FrontOf ( c , c ) | FrontOf ( d , c ) )"
+Neither D nor C is in front of either C or B,"~ FrontOf ( d , c ) & ~ FrontOf ( d , b ) & ~ ( FrontOf ( c , c ) | FrontOf ( c , b ) )"
+Neither D nor C is in front of either C or B,"~ FrontOf ( c , b ) & ~ ( FrontOf ( d , b ) | FrontOf ( d , c ) )"
+Neither D nor C is in front of either C or B,"~ FrontOf ( c , b ) & ~ FrontOf ( c , b ) & ~ FrontOf ( d , c ) & ~ FrontOf ( d , b )"
+Neither D nor C is in front of either C or B,"~ FrontOf ( d , c ) & ~ FrontOf ( c , c ) & ~ ( FrontOf ( d , b ) | FrontOf ( c , b ) )"
+Neither D nor C is in front of either C or B,"~ FrontOf ( d , c ) & ~ FrontOf ( d , b ) & ~ FrontOf ( c , b ) & ~ FrontOf ( c , b )"
+Neither D nor C is in front of either C or B,"~ ( FrontOf ( d , c ) | FrontOf ( c , c ) ) & ~ FrontOf ( d , b ) & ~ FrontOf ( c , b )"
+Neither D nor C is in front of either C or B,"~ ( FrontOf ( d , c ) | FrontOf ( d , b ) ) & ~ ( FrontOf ( d , c ) | FrontOf ( c , b ) )"
+Neither D nor C is in front of either C or B,"~ FrontOf ( c , b ) & ~ FrontOf ( c , c ) & ~ FrontOf ( d , c ) & ~ FrontOf ( d , b )"
+Neither D nor C is in front of either C or B,"~ FrontOf ( d , b ) & ~ FrontOf ( c , b ) & ~ FrontOf ( c , c ) & ~ FrontOf ( d , c )"
+Neither D nor C is in front of either C or B,"~ ( FrontOf ( d , c ) | FrontOf ( d , b ) ) & ~ ( FrontOf ( c , b ) | FrontOf ( d , c ) )"
+Neither D nor C is in front of either C or B,"~ ( FrontOf ( d , b ) | FrontOf ( c , b ) | FrontOf ( d , c ) | FrontOf ( c , c ) )"
+Neither D nor C is in front of either C or B,"~ ( FrontOf ( d , b ) | FrontOf ( d , c ) ) & ~ FrontOf ( c , c ) & ~ FrontOf ( c , b )"
+Neither D nor C is in front of either C or B,"~ ( FrontOf ( c , c ) | FrontOf ( d , c ) ) & ~ ( FrontOf ( c , b ) | FrontOf ( d , b ) )"
+Neither D nor C is in front of either C or B,"~ FrontOf ( d , b ) & ~ FrontOf ( c , b ) & ~ FrontOf ( d , c ) & ~ FrontOf ( d , b )"
+Neither D nor C is in front of either C or B,"~ ( FrontOf ( d , c ) | FrontOf ( d , b ) ) & ~ ( FrontOf ( d , b ) | FrontOf ( c , b ) )"
+Neither E nor A is to the right of C and to the left of B,"( ~ RightOf ( a , c ) | ~ LeftOf ( a , b ) ) & ( ~ RightOf ( e , c ) | ~ LeftOf ( e , b ) )"
+Neither E nor A is to the right of C and to the left of B,"( ~ RightOf ( e , c ) | ~ LeftOf ( e , b ) ) & ( ~ RightOf ( a , c ) | ~ LeftOf ( a , b ) )"
+Neither E nor A is to the right of C and to the left of B,"( ~ RightOf ( e , c ) | ~ LeftOf ( e , b ) ) & ( ~ LeftOf ( a , b ) | ~ RightOf ( a , c ) )"
+Neither E nor A is to the right of C and to the left of B,"~ ( RightOf ( a , c ) & LeftOf ( a , b ) ) & ~ ( RightOf ( e , c ) & LeftOf ( e , b ) )"
+Neither E nor A is to the right of C and to the left of B,"( ~ RightOf ( e , c ) | ~ LeftOf ( e , b ) ) & ~ ( RightOf ( a , c ) & LeftOf ( a , b ) )"
+Neither E nor A is to the right of C and to the left of B,"~ ( RightOf ( e , c ) & LeftOf ( e , b ) ) & ~ ( RightOf ( a , c ) & LeftOf ( a , b ) )"
+Neither E nor A is to the right of C and to the left of B,"( ~ LeftOf ( e , b ) | ~ RightOf ( e , c ) ) & ( ~ RightOf ( a , c ) | ~ LeftOf ( a , b ) )"
+Neither E nor A is to the right of C and to the left of B,"~ ( ( LeftOf ( a , b ) & RightOf ( a , c ) ) | ( RightOf ( e , c ) & LeftOf ( e , b ) ) )"
+Neither E nor A is to the right of C and to the left of B,"~ ( ( RightOf ( e , c ) & RightOf ( b , e ) ) | ( LeftOf ( c , a ) & LeftOf ( a , b ) ) )"
+Neither E nor A is to the right of C and to the left of B,"~ ( ( RightOf ( e , c ) & LeftOf ( e , b ) ) | ( RightOf ( a , c ) & LeftOf ( a , b ) ) )"
+Neither E nor A is to the right of C and to the left of B,"( ~ LeftOf ( e , b ) | ~ RightOf ( e , c ) ) & ( ~ LeftOf ( a , b ) | ~ RightOf ( a , c ) )"
+Neither E nor A is to the right of C and to the left of B,"~ ( ( LeftOf ( e , b ) & RightOf ( e , c ) ) | ( RightOf ( a , c ) & LeftOf ( a , b ) ) )"
+Neither E nor A is to the right of C and to the left of B,"~ ( ( LeftOf ( a , b ) & RightOf ( a , c ) ) | ( LeftOf ( e , b ) & RightOf ( e , c ) ) )"
+Neither E nor A is to the right of C and to the left of B,"~ ( RightOf ( a , c ) & LeftOf ( a , b ) ) & ~ ( LeftOf ( e , b ) & RightOf ( e , c ) )"
+Neither E nor A is to the right of C and to the left of B,"~ ( LeftOf ( e , b ) & RightOf ( e , c ) ) & ~ ( RightOf ( a , c ) & LeftOf ( a , b ) )"
+Neither E nor A is to the right of C and to the left of B,"~ ( ( RightOf ( e , c ) & LeftOf ( e , b ) ) | ( LeftOf ( a , b ) & RightOf ( a , c ) ) )"
+Neither E nor A is to the right of C and to the left of B,"( ~ LeftOf ( a , b ) | ~ RightOf ( a , c ) ) & ( ~ LeftOf ( e , b ) | ~ RightOf ( e , c ) )"
+Neither E nor A is to the right of C and to the left of B,"( ~ RightOf ( e , c ) | ~ LeftOf ( e , b ) ) & ~ ( LeftOf ( c , a ) & LeftOf ( a , b ) )"
+Neither E nor A is to the right of C and to the left of B,"( RightOf ( e , c ) $ ~ LeftOf ( e , b ) ) & ( RightOf ( a , c ) $ ~ LeftOf ( a , b ) )"
+Neither E nor A is to the right of C and to the left of B,"~ ( ( RightOf ( b , e ) & LeftOf ( c , e ) ) | ( RightOf ( b , a ) & LeftOf ( c , a ) ) )"
+Neither E nor A is to the right of C and to the left of B,"~ ( LeftOf ( a , b ) & RightOf ( a , c ) ) & ~ ( LeftOf ( e , b ) & RightOf ( e , c ) )"
+Neither E nor A is to the right of C and to the left of B,"~ ( LeftOf ( e , b ) & RightOf ( e , c ) ) & ~ ( LeftOf ( a , b ) & RightOf ( a , c ) )"
+Neither E nor A is to the right of C and to the left of B,"~ ( RightOf ( e , c ) & LeftOf ( e , b ) ) & ( ~ RightOf ( a , c ) | ~ LeftOf ( a , b ) )"
+Neither E nor A is to the right of C and to the left of B,"~ ( ( LeftOf ( e , b ) & RightOf ( e , c ) ) | ( LeftOf ( a , b ) & RightOf ( a , c ) ) )"
+Neither E nor A is to the right of C and to the left of B,"~ ( RightOf ( e , c ) & LeftOf ( e , b ) ) & ~ ( LeftOf ( a , b ) & RightOf ( a , c ) )"
+Neither E nor A is to the right of C and to the left of B,"( ~ RightOf ( a , c ) | ~ LeftOf ( a , b ) ) & ( ~ LeftOf ( e , b ) | ~ RightOf ( e , c ) )"
+Neither E nor A is to the right of C and to the left of B,"~ ( ( RightOf ( a , c ) & LeftOf ( a , b ) ) | ( RightOf ( e , c ) & LeftOf ( e , b ) ) )"
+Neither E nor A is to the right of C and to the left of B,"~ ( ( RightOf ( a , c ) & LeftOf ( a , b ) ) | ( LeftOf ( e , b ) & RightOf ( e , c ) ) )"
+Neither E nor A is to the right of C and to the left of B,"~ ( RightOf ( e , c ) & RightOf ( b , e ) ) & ~ ( RightOf ( a , c ) & RightOf ( b , a ) )"
+Neither E nor D is larger than C,"( Smaller ( d , c ) | SameSize ( d , c ) ) & ( Smaller ( e , c ) | SameSize ( e , c ) )"
+Neither E nor D is larger than C,"~ ( Larger ( e , c ) | Larger ( d , c ) )"
+Neither E nor D is larger than C,"~ Larger ( e , c ) & ~ Larger ( d , c )"
+Neither E nor D is larger than C,"~ Larger ( d , c ) & ~ Larger ( e , c )"
+Neither E nor D is larger than C,"( Larger ( c , e ) | SameSize ( c , e ) ) & ( Larger ( c , d ) | SameSize ( c , d ) )"
+Neither E nor D is larger than C,"~ ( Larger ( d , c ) | Larger ( e , c ) )"
+Neither E nor D is larger than C,"~ ( Larger ( e , c ) & Smaller ( c , e ) ) & ~ ( Larger ( d , c ) & Smaller ( c , d ) )"
+Neither E nor D is larger than C,"( Smaller ( e , c ) | SameSize ( e , c ) ) & ( Smaller ( d , c ) | SameSize ( d , c ) )"
+Neither E nor D is larger than C,"~ Smaller ( c , e ) & ~ Smaller ( c , d )"
+Neither E nor D is larger than C,"~ ( Smaller ( c , e ) | Smaller ( c , d ) )"
+Neither E nor D is larger than C,"( Larger ( c , d ) | SameSize ( c , d ) ) & ( Larger ( c , e ) | SameSize ( c , e ) )"
+Neither E nor D is larger than C,"~ ( ~ Larger ( e , c ) $ Larger ( d , c ) )"
+Neither E nor D is larger than C,"~ ( Smaller ( c , d ) | Smaller ( c , e ) )"
+Neither E nor D is larger than C,"~ ( Larger ( e , c ) | Larger ( d , c ) ) | ( ~ Larger ( e , c ) & ~ Larger ( d , c ) )"
+Neither E nor D is larger than C,"( SameSize ( e , c ) | Smaller ( e , c ) ) & ( SameSize ( d , c ) | Smaller ( d , c ) )"
+Neither E nor D is larger than C,"~ ( Larger ( e , c ) & Larger ( d , c ) ) & ~ ( Larger ( e , c ) | Larger ( d , c ) )"
+"if C is a tetrahedron, then A is not a tetrahedron",Tet ( a ) $ ~ Tet ( c )
+"if C is a tetrahedron, then A is not a tetrahedron",Tet ( c ) $ ~ Tet ( a )
+"if C is a tetrahedron, then A is not a tetrahedron",( Tet ( a ) $ ~ Tet ( c ) ) | ( Tet ( c ) $ ~ Tet ( a ) )
+"if C is a tetrahedron, then A is not a tetrahedron",~ Tet ( c ) | ~ Tet ( a )
+"if C is a tetrahedron, then A is not a tetrahedron",~ ( Tet ( c ) & Tet ( a ) )
+"if C is a tetrahedron, then A is not a tetrahedron",~ ( Tet ( a ) & Tet ( c ) )
+"if C is a tetrahedron, then A is not a tetrahedron",( Tet ( c ) & ~ Tet ( a ) ) | ~ Tet ( c )

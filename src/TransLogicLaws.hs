@@ -10,14 +10,13 @@ import Data.List (isInfixOf)
 import TransPropFunctions
 
 logicLaws = [
-  idempotence1, idempotence2, identity1, identity2, identity3, identity4,
+  idempotence1, idempotence2, 
+  identity1, identity2, identity3, identity4,
   associativity1ltr, associativity1rtl,
   associativity2ltr, associativity2rtl,
   commutativity1, commutativity2,
   distributivity1ltr, distributivity2ltr,
-  complement1, 
-  complement2, 
-  complement3,
+  complement1, complement2, complement3,
   deMorgan1ltr, deMorgan1rtl,
   deMorgan2ltr, deMorgan2rtl,
   conditional1ltr, conditional1rtl,
@@ -40,13 +39,13 @@ logicLaws = [
   -- Additional equivalences
   redundance1, redundance5, redundance6,
   redundance7, redundance8,
-  distributivity1rtl, distributivity2rtl,
+  distributivity1rtl, distributivity2rtl--,
 
-  quantneg1ltr, quantneg1rtl, quantneg2ltr,
-  quantneg2rtl, quantneg3ltr, quantneg3rtl, quantneg4ltr, quantneg4rtl,
-  quantdist1ltr, quantdist1rtl, quantdist2ltr, quantdist2rtl, quantind1,
-  quantind2, quantmov1ltr, quantmov1rtl, quantmov2ltr, quantmov2rtl,
-  quantmov3ltr, quantmov3rtl, quantmov4ltr, quantmov4rtl, vacquant1, vacquant2
+  -- quantneg1ltr, quantneg1rtl, quantneg2ltr,
+  -- quantneg2rtl, quantneg3ltr, quantneg3rtl, quantneg4ltr, quantneg4rtl,
+  -- quantdist1ltr, quantdist1rtl, quantdist2ltr, quantdist2rtl, quantind1,
+  -- quantind2, quantmov1ltr, quantmov1rtl, quantmov2ltr, quantmov2rtl,
+  -- quantmov3ltr, quantmov3rtl, quantmov4ltr, quantmov4rtl, vacquant1, vacquant2
   ]
 
 identityLaws = [identity1, identity2, identity3, identity4, identity5, identity6]
@@ -185,14 +184,14 @@ distributivity3ltr :: GProp -> GProp
 distributivity3ltr = dist3ltr
 dist3ltr :: forall c. Tree c -> Tree c
 dist3ltr p = case p of
-  GPConj GCOr p1 (GPBimpl p2 p3) -> GPBimpl (GPConj GCOr p1 p2) (GPConj GCOr p1 p3)
+  GPBimpl (GPConj GCOr p1 p2) (GPConj GCOr p3 p4) | p1 == p3 -> GPConj GCOr p1 (GPBimpl p2 p4)
   _ -> composOp dist3ltr p
 
 distributivity3rtl :: GProp -> GProp
 distributivity3rtl = dist3rtl
 dist3rtl :: forall c. Tree c -> Tree c
 dist3rtl p = case p of
-  GPBimpl (GPConj GCOr p1 p2) (GPConj GCOr p3 p4) | p1 == p3 -> GPConj GCOr p1 (GPBimpl p2 p4)
+  GPConj GCOr p1 (GPBimpl p2 p3) -> GPBimpl (GPConj GCOr p1 p2) (GPConj GCOr p1 p3)
   _ -> composOp dist3rtl p
 
 -- Identity 1 (only ltr): p \vee F <-> p
