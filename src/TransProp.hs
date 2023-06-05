@@ -12,7 +12,8 @@ import Data.Tree
 
 transfer :: Mode -> PGF -> Language -> PGF.Tree -> String
 transfer m pgf la t = case m of
-  MNone        -> showTreeP pgf la (fg t)                     -- no transformation, Pieter: show tree
+  MNone        -> lin id                                      -- no transformation
+  -- MNone        -> showTreeP pgf la (fg t)                     -- no transformation, Pieter: show tree
   MMinimalize  -> lin (transform (minimalizeP . normalizeP))  -- interpretation functions
   MNormalize   -> lin (transform normalizeP)                  -- interpretation functions
   MOptimize    -> lin (transform optimizeP)                   -- the conversion rules of Ranta (2011) section 5.3
@@ -23,7 +24,12 @@ transfer m pgf la t = case m of
 
    transform :: (GProp -> GProp) -> (PGF.Tree -> PGF.Tree)
    transform f = gf . f . fg
-data Mode = MNone | MOptimize | MMinimalize | MNormalize | MSimplify deriving Show    -- Elze added MSimplify
+data Mode = MNone | MOptimize | MMinimalize | MNormalize | MSimplify | MSimform deriving Show    -- Elze added MSimplify
+
+-- Pieter: for optimizing translation and printing linearisation in source language
+simpleself :: Language -> PGF -> Language -> PGF.Tree -> String
+simpleself ol pgf sl t = simFormP ol pgf sl (fg t)
+
 
 -- the conversion rules of Ranta (2011) section 5.3 (core -> extended syntax)
 optimizeP :: GProp -> GProp
@@ -267,3 +273,22 @@ showTree pgf la p = showExpr [] (gf p) ++ ", " ++ s
    where
      lin = linearize pgf la
      s = head [(lin . gf) p]
+
+-- Pieter: Pieter: function to print the simplfied logical structure of a formula after choosing the optimal translation
+simFormP:: Language -> PGF -> Language -> GProp -> String
+simFormP = simForm
+
+simForm:: Language -> PGF -> Language -> GProp -> String
+simForm ol pgf la p = for f ++ ";" ++ s
+   where
+     f = gf (snd ((flatten t) !! i))
+     lin = linearize pgf la
+     for = linearize pgf ol
+     
+     -- Build tree of possible simplifying operations,
+     -- where each node is a tuple: (depth in tree, (simplified) proposition)
+     buildNode n =
+       if fst n == 5 then (n, [])   -- if max depth of tree is reached, terminate
+         else (n, [((fst n) + 1, law (snd n)) | law <- logicLaws, law (snd n) /= snd n])
+     t = unfoldTree buildNode (0, p)
+     (s, i) = shortestSentence (map (lin . gf . optimizeP . snd) (flatten t))

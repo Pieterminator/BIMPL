@@ -1,4 +1,4 @@
-( Cube ( p ) % Cube ( p ) )
+Cube ( p ) % Cube ( p )
 Cube ( p ) % ~ Cube ( p )
 Cube ( p ) % ( Cube ( q ) % Cube ( q ) )
 Cube ( p ) % ( Cube ( q ) % ~ Cube ( q ) )

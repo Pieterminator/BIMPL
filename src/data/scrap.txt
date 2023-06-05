@@ -3,8 +3,11 @@ stack run trans MNone PropGGC data\test.txt PropEng data\output.txt
 stack run trans MOptimize PropGGC data\test.txt PropEng data\output.txt
 stack run trans MSimplify PropGGC data\test.txt PropEng data\output.txt
 
-stack run trans MNone PropGGC ..\utils\data\ggc-formulas.tmp PropEng data\output.txt
-stack run trans MSimplify PropGGC ..\utils\data\ggc-formulas.tmp PropEng data\output.txt
+stack run trans MNone PropGGC ..\utils\data\rg-formulas.tmp PropEng data\output.txt
+stack run trans MSimplify PropGGC ..\utils\data\rg-formulas.tmp PropEng data\output.txt
+
+stack run trans MSimform PropGGC data\test.txt PropEng data\output.txt
+stack run trans MSimform PropGGC ..\utils\data\rule-formulas.tmp PropEng data\output.txt
 
 ¬ ∨ ∧ → ⇔
 base

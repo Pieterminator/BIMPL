@@ -1,0 +1,10 @@
+\begin{tabular}{ccccc}
+\hline
+  p  &  q  &  (p =\ensuremath{>} q) and (q =\ensuremath{>} p)  &  p = q  &  ((p =\ensuremath{>} q) and (q =\ensuremath{>} p)) = (p = q)  \\
+\hline
+  1  &  1  &            1            &    1    &                  1                  \\
+  1  &  0  &            0            &    0    &                  1                  \\
+  0  &  1  &            0            &    0    &                  1                  \\
+  0  &  0  &            1            &    1    &                  1                  \\
+\hline
+\end{tabular}

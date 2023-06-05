@@ -1,0 +1,8 @@
+\begin{tabular}{cc}
+\hline
+  p  &  p = \textasciitilde{} p  \\
+\hline
+  1  &     0     \\
+  0  &     0     \\
+\hline
+\end{tabular}

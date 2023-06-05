@@ -42,13 +42,14 @@ doTrans pgf s = case parseAllLang pgf (startCat pgf) s of
 doTransFromTo pgf mode source_l target_l s = case parse pgf source_l (startCat pgf) s of 
   ts | length ts > 0 -> unlines [wb t ++ transfers t | t <- ts]    -- this assumes the input sentences are parsable
    where
-     wb t = if (isWellBehaved t) then "WB, " else "NWB, "   -- check well-behavedness
+     wb t = if (isWellBehaved t) then "WB;" else "NWB;"   -- check well-behavedness
      transfers t = case mode of
        "MNone" -> transferss MNone
        "MOptimize" -> transferss MOptimize
        "MNormalize" -> transferss MNormalize
        "MMinimalize" -> transferss MMinimalize
        "MSimplify" -> transferss MSimplify
+       "MSimform" -> simpleself source_l pgf target_l t     -- Pieter: added mode to print simplified GGC formula, as well as its translation
       where
         transferss m = transfer m pgf target_l t
   _  -> "no parse"
