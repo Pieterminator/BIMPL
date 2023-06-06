@@ -85,7 +85,7 @@ ggcLexicon = Lexicon(["Dodec", "Student", "Cube", "Prime", "Person",
 # print(random_formula)
 
 
-# Randomly generate 1000 formulas with a certain maximum depth, that are
+# Randomly generate 50 formulas with a certain maximum depth, that are
 # not too long and not too short
 depth = 3       # maximum depth
 formulas = []

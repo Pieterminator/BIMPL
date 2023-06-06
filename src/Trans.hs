@@ -49,7 +49,9 @@ doTransFromTo pgf mode source_l target_l s = case parse pgf source_l (startCat p
        "MNormalize" -> transferss MNormalize
        "MMinimalize" -> transferss MMinimalize
        "MSimplify" -> transferss MSimplify
-       "MSimform" -> simpleself source_l pgf target_l t     -- Pieter: added mode to print simplified GGC formula, as well as its translation
+       "MOptSen" -> formSens MOptSen     -- Pieter: added mode to print simplified GGC formula, as well as its translation
+       "MOptForm" -> formSens MOptForm
       where
         transferss m = transfer m pgf target_l t
+        formSens m = formSen m pgf source_l target_l t
   _  -> "no parse"

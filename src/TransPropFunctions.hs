@@ -9,6 +9,7 @@ import Prop   -- generated from GF
 import Data.List (minimumBy, maximumBy, elemIndex, isInfixOf)
 import Data.Ord (comparing)
 import Data.Maybe (fromJust)
+import Data.Bool (Bool(False))
 
 -- Useful functions
 -- Ranta 2011 (moved from TransProp.hs)
@@ -71,7 +72,20 @@ longestSentence l = (longest, fromJust (elemIndex longest l))
  where
    longest = (maximumBy (comparing wordCount) l)
 
--- Returns the number of words in a string
+shortestFormula :: [String] -> (String, Int)
+shortestFormula l = (shortest, fromJust (elemIndex shortest l))
+ where
+   shortest = (minimumBy (comparing propCount) l)
+
+propCount :: String -> Int
+propCount f = length (filter ignoreChar (words f))
+ where 
+  ignoreChar :: [Char] -> Bool
+  ignoreChar l = case l of
+    "(" -> False
+    ")" -> False
+    _ -> True
+
 wordCount :: String -> Int
 wordCount s = length (filter (/= ",") (words s))
 

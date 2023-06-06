@@ -1,0 +1,32 @@
+WB;Unnamed: 1;Unnamed: 2
+WB;;
+NWB;Cube ( p );p is a cube
+NWB;~ ( Cube ( p ) );p is not a cube
+WB;( Cube ( p ) ) | ( ( Cube ( q ) ) % Cube ( r ) );at least one of these holds : \item p is a cube \item q is a cube if and only if r is a cube
+WB;( Cube ( s ) ) | ( ( Cube ( p ) ) | ( ( Cube ( q ) ) % Cube ( r ) ) );at least one of these holds : \item s is a cube , p is a cube \item q is a cube if and only if r is a cube
+WB;Cube ( p );p is a cube
+WB;( Cube ( p ) ) $ Cube ( q );if p is a cube , then q is a cube
+WB;( Cube ( q ) ) $ Cube ( p );if q is a cube , then p is a cube
+WB;( Cube ( p ) ) & ( Cube ( q ) );p is a cube and q is a cube
+WB;( Cube ( q ) ) $ Cube ( p );if q is a cube , then p is a cube
+WB;( Cube ( p ) ) % Cube ( q );p is a cube if and only if q is a cube
+WB;( ( Cube ( p ) ) % Cube ( q ) ) & ( ( Cube ( p ) ) % Cube ( r ) );all these hold : \item p is a cube if and only if q is a cube \item p is a cube if and only if r is a cube
+WB;( ( ( Cube ( p ) ) % Cube ( q ) ) & ( ( Cube ( p ) ) % Cube ( r ) ) ) & ( ( Cube ( p ) ) % Cube ( s ) );all these hold : \item p is a cube if and only if q is a cube , p is a cube if and only if r is a cube \item p is a cube if and only if s is a cube
+WB;( Cube ( p ) ) % Cube ( q );p is a cube if and only if q is a cube
+WB;~ ( ( Cube ( p ) ) % Cube ( q ) );it is not the case that p is a cube if and only if q is a cube
+WB;( Cube ( q ) ) % Cube ( p );q is a cube if and only if p is a cube
+WB;( ( Cube ( p ) ) % Cube ( q ) ) & ( ( Cube ( p ) ) % Cube ( r ) );all these hold : \item p is a cube if and only if q is a cube \item p is a cube if and only if r is a cube
+NWB;Cube ( q );q is a cube
+NWB;Cube ( p );p is a cube
+NWB;~ ( Cube ( q ) );q is not a cube
+NWB;~ ( Cube ( p ) );p is not a cube
+WB;Cube ( p );p is a cube
+WB;( Cube ( q ) ) | ( ~ ( Cube ( p ) ) );q is a cube or p is not a cube
+WB;( Cube ( p ) ) | ( Cube ( q ) );p is a cube or q is a cube
+WB;( Cube ( p ) ) & ( Cube ( q ) );p is a cube and q is a cube
+WB;( Cube ( q ) ) & ( ~ ( Cube ( p ) ) );q is a cube and p is not a cube
+WB;( Cube ( q ) ) | ( Cube ( p ) );q is a cube or p is a cube
+WB;( Cube ( q ) ) | ( ~ ( Cube ( p ) ) );q is a cube or p is not a cube
+WB;( Cube ( q ) ) % Cube ( p );q is a cube if and only if p is a cube
+WB;( ( Cube ( p ) ) & ( Cube ( q ) ) ) | ( [PTaut] );at least one of these holds : \item p is a cube and q is a cube \item [PTaut]
+WB;~ ( ( Cube ( q ) ) % Cube ( p ) );it is not the case that q is a cube if and only if p is a cube

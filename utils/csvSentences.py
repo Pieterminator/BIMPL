@@ -31,7 +31,7 @@ def writeOutput(csv=False, replace=True):
 
 def writeCsv():
     file = pd.read_csv(r'src/data/output.txt', error_bad_lines=False, sep=";")
-    file.to_csv(r'utils/data/rule-output.csv', header=True, index=False,sep=";")
+    file.to_csv(r'utils/data/rg-output.csv', header=True, index=False,sep=";")
 
 # writeOutput(csv=False, replace=True)
 writeCsv()
