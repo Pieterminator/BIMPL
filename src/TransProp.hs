@@ -12,8 +12,8 @@ import Data.Tree
 
 transfer :: Mode -> PGF -> Language -> PGF.Tree -> String
 transfer m pgf la t = case m of
-  -- MNone        -> lin id                                      -- no transformation
-  MNone        -> showTreeP pgf la (fg t)                     -- no transformation, Pieter: show tree
+  MNone        -> lin id                                      -- no transformation
+  -- MNone        -> showTreeP pgf la (fg t)                     -- Pieter: no transformation, but shows abstract syntax tree
   MMinimalize  -> lin (transform (minimalizeP . normalizeP))  -- interpretation functions
   MNormalize   -> lin (transform normalizeP)                  -- interpretation functions
   MOptimize    -> lin (transform optimizeP)                   -- the conversion rules of Ranta (2011) section 5.3
@@ -28,11 +28,11 @@ transfer m pgf la t = case m of
 
 -- Pieter: for optimizing translation and printing linearisation in source language
 formSen :: Mode -> PGF -> Language -> Language -> PGF.Tree -> String
-formSen m pgf ol sl t = case m of
-  MOptSen      -> optSenP pgf ol sl (fg t)
-  MOptForm     -> optFormP pgf ol sl (fg t)
+formSen m pgf sl tl t = case m of
+  MOptSen      -> optSenP pgf sl tl (fg t)
+  MOptForm     -> optFormP pgf sl tl (fg t)
 
-data Mode = MNone | MOptimize | MMinimalize | MNormalize | MSimplify | MOptSen | MOptForm deriving Show    -- Elze added MSimplify
+data Mode = MNone | MOptimize | MMinimalize | MNormalize | MSimplify | MOptSen | MOptForm deriving Show    -- Pieter added MOptSen and MOptForm
 
 -- the conversion rules of Ranta (2011) section 5.3 (core -> extended syntax)
 optimizeP :: GProp -> GProp
@@ -266,8 +266,10 @@ simplify pgf la p = (showExpr [] (gf (snd ((flatten t) !! i)))) ++ ", " ++ s
      t = unfoldTree buildNode (0, p)
      (s, i) = shortestSentence (map (lin . gf . optimizeP . snd) (flatten t))
 
+----------------------------------------------------------------------------------------
+-- Pieter's additions
 
--- Pieter: function to print the logical structure of a formula, and its baseline translation
+-- Print the logical structure of a formula, and its baseline translation
 showTreeP :: PGF -> Language -> GProp -> String
 showTreeP = showTree
 
@@ -277,16 +279,18 @@ showTree pgf la p = showExpr [] (gf p) ++ ", " ++ s
      lin = linearize pgf la
      s = head [(lin . gf) p]
 
--- Pieter: Pieter: function to print the simplfied logical structure of a formula after choosing the optimal translation
+-- Simplify a proposition given the target language (the chosen simplification
+-- sequence is based on the length of the output translation) 
+-- The output string contains the linearisation in the source language and in the target language
 optSenP:: PGF -> Language -> Language -> GProp -> String
 optSenP = optSen
 
 optSen:: PGF -> Language -> Language -> GProp -> String
-optSen pgf ol sl p = for f ++ ";" ++ s
+optSen pgf sl tl p = for f ++ ";" ++ s
    where
      f = gf (snd ((flatten t) !! i))
-     lin = linearize pgf sl
-     for = linearize pgf ol
+     lin = linearize pgf tl
+     for = linearize pgf sl
      
      -- Build tree of possible simplifying operations,
      -- where each node is a tuple: (depth in tree, (simplified) proposition)
@@ -297,16 +301,18 @@ optSen pgf ol sl p = for f ++ ";" ++ s
      (s, i) = shortestSentence (map (lin . gf . optimizeP . snd) (flatten t))
 
 
--- Pieter: Pieter: function to print the optimal logical formula, and its translation
+-- Simplify a proposition given the source language (the chosen simplification
+-- sequence is based on the length of the linearisation in the source language) 
+-- The output string contains the linearisation in the source language and in the target language
 optFormP:: PGF -> Language -> Language -> GProp -> String
 optFormP = optForm
 
 optForm:: PGF -> Language -> Language -> GProp -> String
-optForm pgf ol sl p =  f ++ ";" ++ lin s
+optForm pgf sl tl p =  f ++ ";" ++ lin s
    where
      s = gf ((optimizeP . snd) ((flatten t) !! i))
-     lin = linearize pgf sl
-     for = linearize pgf ol
+     lin = linearize pgf tl
+     for = linearize pgf sl
      
      -- Build tree of possible simplifying operations,
      -- where each node is a tuple: (depth in tree, (simplified) proposition)

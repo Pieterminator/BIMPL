@@ -1,0 +1,17 @@
+WB;at least one of these holds : \item a is a cube \item if a is not a cube , then b is a cube
+
+WB;if a is a cube , then b is a cube and c is a cube
+
+WB;if a is a cube , then b is a cube or c is a cube
+
+WB;it is not the case that a is a cube or b is a cube
+
+WB;if a is not a cube , then b is a cube
+
+WB;it is not the case that a is a cube if and only if b is a cube
+
+WB;all these hold : \item a is a cube if and only if b is a cube , a is a cube if and only if c is a cube \item a is a cube if and only if d is a cube
+
+WB;at least one of these holds : \item a is a cube if and only if b is a cube , a is a cube , c is a cube \item a is a cube if and only if d is a cube
+
+

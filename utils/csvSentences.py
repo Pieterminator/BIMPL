@@ -30,8 +30,8 @@ def writeOutput(csv=False, replace=True):
         f.close()
 
 def writeCsv():
-    file = pd.read_csv(r'src/data/output.txt', error_bad_lines=False, sep=";")
-    file.to_csv(r'utils/data/rg-output.csv', header=True, index=False,sep=";")
+    file = pd.read_csv(r'utils/data/original LoLa/rg-output.tmp', error_bad_lines=False, sep=";")
+    file.to_csv(r'utils/data/original LoLa/rg-output.csv', header=True, index=False,sep=";")
 
 # writeOutput(csv=False, replace=True)
 writeCsv()

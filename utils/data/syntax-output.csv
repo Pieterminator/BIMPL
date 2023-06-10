@@ -1,0 +1,8 @@
+WB;a is a cube or if it is not the case that a is a cube , then b is a cube
+WB;if a is a cube , then b is a cube and c is a cube
+WB;if a is a cube , then b is a cube or c is a cube
+WB;it is not the case that a is a cube or b is a cube
+WB;if it is not the case that a is a cube , then b is a cube
+WB;it is not the case that a is a cube if and only if b is a cube
+WB;a is a cube if and only if b is a cube and a is a cube if and only if c is a cube and a is a cube if and only if d is a cube
+WB;a is a cube if and only if b is a cube or a is a cube or c is a cube or a is a cube if and only if d is a cube

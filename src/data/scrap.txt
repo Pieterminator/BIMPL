@@ -6,7 +6,7 @@ stack run trans MSimplify PropGGC data\test.txt PropEng data\output.txt
 stack run trans MNone PropGGC ..\utils\data\rg-formulas.tmp PropEng data\output.txt
 stack run trans MSimplify PropGGC ..\utils\data\rg-formulas.tmp PropEng data\output.txt
 
-stack run trans MOptSen PropGGC data\test.txt PropEng data\output.txt
+stack run trans MOptSen PropGGC data\test.txt PropEng ..\utils\data\rule-output.tmp
 stack run trans MOptSen PropGGC ..\utils\data\rule-formulas.tmp PropEng data\output.txt
 
 stack run trans MOptForm PropGGC data\test.txt PropEng data\output.txt

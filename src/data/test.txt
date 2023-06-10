@@ -1,1 +1,1 @@
-Large ( f ) $ Cube ( f )
+( ~ Large ( a ) | Small ( d ) ) & ( Large ( a ) | ~ Small ( d ) )

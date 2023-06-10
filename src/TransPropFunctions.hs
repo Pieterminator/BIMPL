@@ -6,10 +6,9 @@ module TransPropFunctions where
 
 import qualified "gf" PGF (Tree, showExpr)
 import Prop   -- generated from GF
-import Data.List (minimumBy, maximumBy, elemIndex, isInfixOf)
+import Data.List (minimumBy, elemIndex, isInfixOf)
 import Data.Ord (comparing)
 import Data.Maybe (fromJust)
-import Data.Bool (Bool(False))
 
 -- Useful functions
 -- Ranta 2011 (moved from TransProp.hs)
@@ -66,26 +65,6 @@ shortestSentence l = (shortest, fromJust (elemIndex shortest l))
  where
    shortest = (minimumBy (comparing wordCount) l)
 
--- Pieter: can come in useful when testing non-greedy logic laws
-longestSentence :: [String] -> (String, Int)
-longestSentence l = (longest, fromJust (elemIndex longest l))
- where
-   longest = (maximumBy (comparing wordCount) l)
-
-shortestFormula :: [String] -> (String, Int)
-shortestFormula l = (shortest, fromJust (elemIndex shortest l))
- where
-   shortest = (minimumBy (comparing propCount) l)
-
-propCount :: String -> Int
-propCount f = length (filter ignoreChar (words f))
- where 
-  ignoreChar :: [Char] -> Bool
-  ignoreChar l = case l of
-    "(" -> False
-    ")" -> False
-    _ -> True
-
 wordCount :: String -> Int
 wordCount s = length (filter (/= ",") (words s))
 
@@ -101,6 +80,7 @@ isWellBehaved = isWB . fg
      GPNeg p1 -> if (contains p1 "PNeg") then False 
        else isWB p1
      GPConj c p1 p2 -> isWB p1 && isWB p2
+     -- Pieter: Added nested (bi-)implications to the criteria of well-behavedness
      GPImpl p1 p2 -> if (contains p1 "PImpl" || contains p2 "PImpl" || contains p1 "PBimpl" || contains p2 "PBimpl") then False
        else isWB p1 && isWB p2
      GPBimpl p1 p2 -> if (contains p1 "PImpl" || contains p2 "PImpl" || contains p1 "PBimpl" || contains p2 "PBimpl") then False
@@ -110,3 +90,20 @@ isWellBehaved = isWB . fg
      GPExist v1 p1 -> if v1 `notElem` (freeVars p1) then False
        else isWB p1
      _ -> True   -- possible cases: GPAtom, GPNegAtom
+
+------------------------------------------------------------------------------
+-- Functions added by Pieter
+-- Find the shortest formula in a list of formulas (by word count, brackets excluded)
+shortestFormula :: [String] -> (String, Int)
+shortestFormula l = (shortest, fromJust (elemIndex shortest l))
+ where
+   shortest = (minimumBy (comparing propCount) l)
+
+propCount :: String -> Int
+propCount f = length (filter ignoreChar (words f))
+ where 
+  ignoreChar :: [Char] -> Bool
+  ignoreChar l = case l of
+    "(" -> False
+    ")" -> False
+    _ -> True
