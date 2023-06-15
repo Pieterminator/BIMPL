@@ -1,1 +1,1 @@
-~ ( ( Cube ( q ) | Cube ( s ) ) % Cube ( p ) )
+Cube ( a ) | ( ~ Cube ( a ) $ ~ Cube ( b ) )

@@ -59,6 +59,9 @@ fun
   PNegAtom  : Atom -> Prop ;                -- for verb negation
 
   PExclusiveOr : Prop -> Prop -> Prop ;     -- Pieter: for exclusive or
+  POrElse : Prop -> Prop -> Prop ;
+  POnlyIf : Prop -> Prop -> Prop ;
+  PUnless : Prop -> Prop -> Prop ;
 
   PNegExist : Var -> Prop -> Prop ;         -- Elze : for existNeg
 

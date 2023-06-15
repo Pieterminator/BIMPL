@@ -1,3 +1,3 @@
-WB;~ ( ( ( Cube ( q ) ) | ( Cube ( s ) ) ) % Cube ( p ) );either q is a cube or s is a cube or p is a cube ( but not both )
+WB;at least one of these holds : \item a is a cube \item b is a cube only if a is a cube
 
 

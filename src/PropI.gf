@@ -102,6 +102,18 @@ lin
     s = mkS but_Conj (mkS either7or_DConj p.s q.s) (mkS (mkCl (mkNP not_Predet (mkNP both_N)) null_V)) ;
     c = True
     } ;
+    -- POrElse p ( PUnless a b ) = {
+    -- s = mkS orElse_Conj p.s q.s ;
+    -- c = True
+    -- } ;
+    POnlyIf p q = {
+    s = mkS onlyIf_Conj q.s p.s ;
+    c = True
+    } ;
+    PUnless p q = {
+    s = mkS unless_Conj q.s p.s ;
+    c = True
+    } ;
 
   -- Elze: for existNeg
   PNegExist v p = { 

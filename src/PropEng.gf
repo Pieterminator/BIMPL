@@ -35,6 +35,9 @@ oper
   both_N = P.mkN "both" ;                       -- Pieter
   null_V = P.mkV " )" " )" " )" " )" " )" ;     -- Pieter
   but_Conj = P.mkConj "( but" ;                 -- Pieter
+  orElse_Conj = P.mkConj ", or else" ;          -- Pieter
+  onlyIf_Conj = P.mkConj "only if" ;            -- Pieter
+  unless_Conj = P.mkConj "unless" ;             -- Pieter
   set_N2 = P.mkN2 (P.mkN "set") ;
   hold_V = P.mkV "hold" "held" "held" ; 
   

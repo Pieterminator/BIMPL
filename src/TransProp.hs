@@ -46,6 +46,17 @@ optimize t = case t of
   -- Pieter: Exlusive disjunction
   GPNeg (GPBimpl p q) -> GPExclusiveOr p q
 
+  -- Pieter: Only if
+  GPImpl (GPNeg p) (GPNeg q) -> GPOnlyIf p q
+  GPImpl (GPNegAtom a) (GPNeg q) -> GPOnlyIf (GPAtom a) q
+  GPImpl (GPNeg p) (GPNegAtom a) -> GPOnlyIf p (GPAtom a)
+  GPImpl (GPNegAtom a1) (GPNegAtom a2) -> GPOnlyIf (GPAtom a1) (GPAtom a2)
+
+  -- Pieter: Unless
+  GPImpl (GPNeg p) q -> GPUnless p q
+  GPImpl (GPNegAtom a) q -> GPUnless (GPAtom a) q
+
+
   -- Elze: for existNeg & inSituExistNeg
   -- Existential negation ("it is not the case that there is no element x such that P" -> "there is no element x such that P")
   GPNeg (GPExist x p) | x `notElem` (freeVars p) -> GPNegExist x $ optimize p -- Elze: for existNeg
