@@ -97,6 +97,12 @@ lin
     c = False
     } ;
 
+    -- Pieter: For exclusive disjunction translation
+    PExclusiveOr p q = {
+    s = mkS but_Conj (mkS either7or_DConj p.s q.s) (mkS (mkCl (mkNP not_Predet (mkNP both_N)) null_V)) ;
+    c = True
+    } ;
+
   -- Elze: for existNeg
   PNegExist v p = { 
     s = mkS (mkCl (mkNP no_Quant (mkCN (mkCN element_N (symb v.s)) 

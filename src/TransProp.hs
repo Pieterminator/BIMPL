@@ -43,6 +43,9 @@ optimize t = case t of
   -- Verb negation (e.g., "it is not the case that 1 is even" -> "1 is not even")
   GPNeg (GPAtom a) -> GPNegAtom $ optimize a -- Elze: added optimize (among other things for reflNegPred)
 
+  -- Pieter: Exlusive disjunction
+  GPNeg (GPBimpl p q) -> GPExclusiveOr p q
+
   -- Elze: for existNeg & inSituExistNeg
   -- Existential negation ("it is not the case that there is no element x such that P" -> "there is no element x such that P")
   GPNeg (GPExist x p) | x `notElem` (freeVars p) -> GPNegExist x $ optimize p -- Elze: for existNeg

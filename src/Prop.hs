@@ -140,6 +140,7 @@ data Tree :: * -> * where
   GPConj :: GConj -> GProp -> GProp -> Tree GProp_
   GPConjs :: GConj -> GListProp -> Tree GProp_
   GPContra :: Tree GProp_
+  GPExclusiveOr :: GProp -> GProp -> Tree GProp_
   GPExist :: GVar -> GProp -> Tree GProp_
   GPExists :: GListVar -> GKind -> GProp -> Tree GProp_
   GPImpl :: GProp -> GProp -> Tree GProp_
@@ -222,6 +223,7 @@ instance Eq (Tree a) where
     (GPConj x1 x2 x3,GPConj y1 y2 y3) -> and [ x1 == y1 , x2 == y2 , x3 == y3 ]
     (GPConjs x1 x2,GPConjs y1 y2) -> and [ x1 == y1 , x2 == y2 ]
     (GPContra,GPContra) -> and [ ]
+    (GPExclusiveOr x1 x2,GPExclusiveOr y1 y2) -> and [ x1 == y1 , x2 == y2 ]
     (GPExist x1 x2,GPExist y1 y2) -> and [ x1 == y1 , x2 == y2 ]
     (GPExists x1 x2 x3,GPExists y1 y2 y3) -> and [ x1 == y1 , x2 == y2 , x3 == y3 ]
     (GPImpl x1 x2,GPImpl y1 y2) -> and [ x1 == y1 , x2 == y2 ]
@@ -469,6 +471,7 @@ instance Gf GProp where
   gf (GPConj x1 x2 x3) = mkApp (mkCId "PConj") [gf x1, gf x2, gf x3]
   gf (GPConjs x1 x2) = mkApp (mkCId "PConjs") [gf x1, gf x2]
   gf GPContra = mkApp (mkCId "PContra") []
+  gf (GPExclusiveOr x1 x2) = mkApp (mkCId "PExclusiveOr") [gf x1, gf x2]
   gf (GPExist x1 x2) = mkApp (mkCId "PExist") [gf x1, gf x2]
   gf (GPExists x1 x2 x3) = mkApp (mkCId "PExists") [gf x1, gf x2, gf x3]
   gf (GPImpl x1 x2) = mkApp (mkCId "PImpl") [gf x1, gf x2]
@@ -486,6 +489,7 @@ instance Gf GProp where
       Just (i,[x1,x2,x3]) | i == mkCId "PConj" -> GPConj (fg x1) (fg x2) (fg x3)
       Just (i,[x1,x2]) | i == mkCId "PConjs" -> GPConjs (fg x1) (fg x2)
       Just (i,[]) | i == mkCId "PContra" -> GPContra 
+      Just (i,[x1,x2]) | i == mkCId "PExclusiveOr" -> GPExclusiveOr (fg x1) (fg x2)
       Just (i,[x1,x2]) | i == mkCId "PExist" -> GPExist (fg x1) (fg x2)
       Just (i,[x1,x2,x3]) | i == mkCId "PExists" -> GPExists (fg x1) (fg x2) (fg x3)
       Just (i,[x1,x2]) | i == mkCId "PImpl" -> GPImpl (fg x1) (fg x2)
@@ -533,6 +537,7 @@ instance Compos Tree where
     GPBimpl x1 x2 -> r GPBimpl `a` f x1 `a` f x2
     GPConj x1 x2 x3 -> r GPConj `a` f x1 `a` f x2 `a` f x3
     GPConjs x1 x2 -> r GPConjs `a` f x1 `a` f x2
+    GPExclusiveOr x1 x2 -> r GPExclusiveOr `a` f x1 `a` f x2
     GPExist x1 x2 -> r GPExist `a` f x1 `a` f x2
     GPExists x1 x2 x3 -> r GPExists `a` f x1 `a` f x2 `a` f x3
     GPImpl x1 x2 -> r GPImpl `a` f x1 `a` f x2

@@ -26,11 +26,18 @@ oper
   such_A = P.mkA "such" ;
   then_Adv = P.mkAdv "then" ;
   element_N = P.mkN "element" ;
-  iff_Conj = P.mkConj "if and only if" ;        -- Pieter
-  conditions_N = P.mkN "conditions" ;           -- Pieter
-  same_A = P.mkA "same" ;                       -- Pieter
+  iff_Conj = P.mkConj "precisely when" ;        -- Pieter
+  -- conditions_N = P.mkN "conditions" ;           -- Pieter
+  -- same_A = P.mkA "same" ;                       -- Pieter
+  -- exclusively_Adv = P.mkAdv "exclusively" ;     -- Pieter
+  -- equivalent_A = P.mkA "equivalent" ;           -- Pieter
+  is_VA = P.mkVA (P.mkV "are" "was" "were") ;   -- Pieter
+  both_N = P.mkN "both" ;                       -- Pieter
+  null_V = P.mkV " )" " )" " )" " )" " )" ;     -- Pieter
+  but_Conj = P.mkConj "( but" ;                 -- Pieter
   set_N2 = P.mkN2 (P.mkN "set") ;
-  hold_V = P.mkV "hold" "held" "held" ;
+  hold_V = P.mkV "hold" "held" "held" ; 
+  
 
   singular = P.singular ; ---
 

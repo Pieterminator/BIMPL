@@ -58,6 +58,8 @@ fun
 
   PNegAtom  : Atom -> Prop ;                -- for verb negation
 
+  PExclusiveOr : Prop -> Prop -> Prop ;     -- Pieter: for exclusive or
+
   PNegExist : Var -> Prop -> Prop ;         -- Elze : for existNeg
 
   ConjPred1  : Conj  -> [Pred1] -> Pred1 ;  -- for subject-sharing aggregation
