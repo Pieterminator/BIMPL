@@ -81,9 +81,9 @@ isWellBehaved = isWB . fg
        else isWB p1
      GPConj c p1 p2 -> isWB p1 && isWB p2
      -- Pieter: Added nested (bi-)implications to the criteria of well-behavedness
-     GPImpl p1 p2 -> if (contains p1 "PImpl" || contains p2 "PImpl" || contains p1 "PBimpl" || contains p2 "PBimpl") then False
+     GPImpl p1 p2 -> if (contains p1 "PImpl" || contains p2 "PImpl") then False
        else isWB p1 && isWB p2
-     GPBimpl p1 p2 -> if (contains p1 "PImpl" || contains p2 "PImpl" || contains p1 "PBimpl" || contains p2 "PBimpl") then False
+     GPBimpl p1 p2 -> if (contains p1 "PBimpl" || contains p2 "PBimpl") then False
        else isWB p1 && isWB p2
      GPUniv v1 p1 -> if v1 `notElem` (freeVars p1) then False
        else isWB p1

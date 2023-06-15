@@ -12,6 +12,8 @@ stack run trans MOptSen PropGGC ..\utils\data\rule-formulas.tmp PropEng data\out
 stack run trans MOptForm PropGGC data\test.txt PropEng data\output.txt
 stack run trans MOptForm PropGGC ..\utils\data\rg-formulas.tmp PropEng data\output.txt
 
+stack run trans "~ Cube ( p ) | ( Cube ( q ) & Cube ( p ) )"
+
 ¬ ∨ ∧ → ⇔
 base
 Cube ( p ) % Cube ( q )

@@ -1,1 +1,1 @@
-( ~ Large ( a ) | Small ( d ) ) & ( Large ( a ) | ~ Small ( d ) )
+~ ( Cube ( q ) | Cube ( p ) )
