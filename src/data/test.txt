@@ -1,1 +1,1 @@
-Cube ( a ) | ( ~ Cube ( a ) $ ~ Cube ( b ) )
+( ~ Pet ( a ) % ( Prime ( a ) $ Person ( b ) ) ) | ~ ( Student ( a ) % Prime ( a ) )

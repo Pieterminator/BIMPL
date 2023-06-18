@@ -19,6 +19,15 @@ lin
     c = False
     } ;
 
+  PTaut = {
+    s = mkS (mkCl (taut_N)) ;
+    c = False
+    } ;
+  PContra = {
+    s = mkS (mkCl (contra_N)) ;
+    c = False
+    } ;
+
 -- instance of interface
 
 oper
@@ -38,6 +47,8 @@ oper
   orElse_Conj = P.mkConj ", or else" ;          -- Pieter
   onlyIf_Conj = P.mkConj "only if" ;            -- Pieter
   unless_Conj = P.mkConj "unless" ;             -- Pieter
+  taut_N = P.mkN "tautology" ;                  -- Pieter
+  contra_N = P.mkN "contradiction" ;            -- Pieter
   set_N2 = P.mkN2 (P.mkN "set") ;
   hold_V = P.mkV "hold" "held" "held" ; 
   

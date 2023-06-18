@@ -34,6 +34,9 @@ lin
   CAnd = "&" ;
   COr = "|" ;
 
+  PTaut = mkPrec 4 "T";
+  PContra = mkPrec 4 "F";
+
 -- supplementary
 
 lincat

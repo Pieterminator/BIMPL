@@ -44,7 +44,11 @@ optimize t = case t of
   GPNeg (GPAtom a) -> GPNegAtom $ optimize a -- Elze: added optimize (among other things for reflNegPred)
 
   -- Pieter: Exlusive disjunction
-  GPNeg (GPBimpl p q) -> GPExclusiveOr p q
+  GPNeg (GPBimpl (GPAtom a1) (GPAtom a2)) -> GPExclusiveOr (GPAtom a1) (GPAtom a2)
+
+  -- Pieter: Or else
+  GPConj GCOr p1 (GPImpl (GPNeg p2) q) | p1 == p2 -> GPOrElse p1 q
+  GPConj GCOr (GPAtom a1) (GPImpl (GPNegAtom a2) q) | a1 == a2 -> GPOrElse (GPAtom a1) q
 
   -- Pieter: Only if
   GPImpl (GPNeg p) (GPNeg q) -> GPOnlyIf p q
@@ -268,7 +272,7 @@ simplifyP :: PGF -> Language -> GProp -> String
 simplifyP = simplify
 
 simplify :: PGF -> Language -> GProp -> String
-simplify pgf la p = (showExpr [] (gf (snd ((flatten t) !! i)))) ++ ", " ++ s
+simplify pgf la p = (showExpr [] ((gf . snd) ((flatten t) !! i))) ++ ", " ++ s
    where
      lin = linearize pgf la
 
@@ -294,7 +298,7 @@ showTree pgf la p = showExpr [] (gf p) ++ ", " ++ s
      s = head [(lin . gf) p]
 
 -- Simplify a proposition given the target language (the chosen simplification
--- sequence is based on the length of the output translation) 
+-- sequence is based on the length of the output translation and its well-behavedness) 
 -- The output string contains the linearisation in the source language and in the target language
 optSenP:: PGF -> Language -> Language -> GProp -> String
 optSenP = optSen
@@ -312,7 +316,11 @@ optSen pgf sl tl p = for f ++ ";" ++ s
        if fst n == 5 then (n, [])   -- if max depth of tree is reached, terminate
          else (n, [((fst n) + 1, law (snd n)) | law <- logicLaws, law (snd n) /= snd n])
      t = unfoldTree buildNode (0, p)
-     (s, i) = shortestSentence (map (lin . gf . optimizeP . snd) (flatten t))
+     flatTree = flatten t   --[(Integer, GProp)]
+     wbList = map (isWB . snd) flatTree
+     sentenceList = map (lin . gf . optimizeP . snd) flatTree   --[String]
+     senWB = zip sentenceList wbList
+     (s, i) = shortestWB senWB
 
 
 -- Simplify a proposition given the source language (the chosen simplification

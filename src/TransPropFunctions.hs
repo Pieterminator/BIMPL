@@ -74,22 +74,22 @@ contains p s = isInfixOf s (PGF.showExpr [] (gf p))
 -- Returns whether a given tree is well-behaved
 isWellBehaved :: PGF.Tree -> Bool
 isWellBehaved = isWB . fg
- where 
-   isWB :: GProp -> Bool
-   isWB p = case p of
-     GPNeg p1 -> if (contains p1 "PNeg") then False 
-       else isWB p1
-     GPConj c p1 p2 -> isWB p1 && isWB p2
-     -- Pieter: Added nested (bi-)implications to the criteria of well-behavedness
-     GPImpl p1 p2 -> if (contains p1 "PImpl" || contains p2 "PImpl") then False
-       else isWB p1 && isWB p2
-     GPBimpl p1 p2 -> if (contains p1 "PBimpl" || contains p2 "PBimpl") then False
-       else isWB p1 && isWB p2
-     GPUniv v1 p1 -> if v1 `notElem` (freeVars p1) then False
-       else isWB p1
-     GPExist v1 p1 -> if v1 `notElem` (freeVars p1) then False
-       else isWB p1
-     _ -> True   -- possible cases: GPAtom, GPNegAtom
+
+isWB :: GProp -> Bool
+isWB p = case p of
+  GPNeg p1 -> if (contains p1 "PNeg") then False 
+    else isWB p1
+  GPConj c p1 p2 -> isWB p1 && isWB p2
+  -- Pieter: Added nested (bi-)implications to the criteria of well-behavedness
+  GPImpl p1 p2 -> if (contains p1 "PImpl" || contains p2 "PImpl") then False
+    else isWB p1 && isWB p2
+  GPBimpl p1 p2 -> if (contains p1 "PBimpl" || contains p2 "PBimpl") then False
+    else isWB p1 && isWB p2
+  GPUniv v1 p1 -> if v1 `notElem` (freeVars p1) then False
+    else isWB p1
+  GPExist v1 p1 -> if v1 `notElem` (freeVars p1) then False
+    else isWB p1
+  _ -> True   -- possible cases: GPAtom, GPNegAtom
 
 ------------------------------------------------------------------------------
 -- Functions added by Pieter
@@ -107,3 +107,16 @@ propCount f = length (filter ignoreChar (words f))
     "(" -> False
     ")" -> False
     _ -> True
+
+shortestWB :: [(String,Bool)] -> (String, Int)
+shortestWB l = (fst shortest, fromJust (elemIndex shortest l))
+ where
+   shortest = (minimumBy (comparing wbCount) l)
+
+wbCount :: (String, Bool) -> Int
+wbCount (s,b) = if b then count
+  else comb count 1.3
+  where
+    count = length (filter (/= ",") (words s))
+    comb :: Int -> Float -> Int
+    comb i f = round ( (fromIntegral i) * f)
