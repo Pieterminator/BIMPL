@@ -1,3 +1,0 @@
-WB;PImpl (PBimpl (PAtom (AKind Student (IVar (VString "a")))) (PAtom (AKind Prime (IVar (VString "a"))))) (PBimpl (PNeg (PAtom (AKind Pet (IVar (VString "a"))))) (PConj COr (PNeg (PAtom (AKind Prime (IVar (VString "a"))))) (PAtom (AKind Person (IVar (VString "b")))))), if a is a student precisely when a is a prime , then a is not a pet precisely when a is not a prime or b is a person
-
-

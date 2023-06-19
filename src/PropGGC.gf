@@ -12,15 +12,15 @@ lincat
   Fun1 = TermPrec ;
   Fun2 = TermPrec ;
 
--- Might change the precendence order later. 
+-- Might change the precendence order later.
 lin
   PAtom a = constant (a ! True) ;
-  PNeg = prefix 3 "~" ;                                     -- 4
-  PConj = infixl 1 ;                                        -- 3 for conjunction, 2 for disjunction
-  PImpl = infixr 0 "$" ;                                    -- 1
-  PBimpl = infixr 0 "%" ;                                   -- Pieter: 0
-  PUniv v = prefix 3 ("@" ++ v) ;                           -- 4
-  PExist v = prefix 3 ("/" ++ v) ;                          -- 4
+  PNeg = prefix 4 "~" ;
+  PConj = infixl 1 ; --2
+  PImpl = infixr 0 "$" ;
+  PBimpl = infixr 0 "%" ;                                   -- Pieter
+  PUniv v = prefix 3 ("@" ++ v) ;
+  PExist v = prefix 3 ("/" ++ v) ;
 
   APred1 p x = \\b => appGGC (p ! b) (top x) ;
   APred2 p x y = \\b => appGGC (p ! b) (top x) (top y) ;
@@ -34,8 +34,8 @@ lin
   CAnd = "&" ;
   COr = "|" ;
 
-  PTaut = mkPrec 4 "T";
-  PContra = mkPrec 4 "F";
+  PTaut = constant "T";
+  PContra = constant "F";
 
 -- supplementary
 

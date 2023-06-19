@@ -98,7 +98,7 @@ while len(formulas) < 50:
     rg.new_cons_i = 0   #set again to 0 for generating a new prop
 
 # Write formulas to file with newlines
-with(open(r'utils/data/rg-formulas.tmp', 'w')) as f:
+with(open(r'utils/data/Test BIMPL 1/rg-formulas.tmp', 'w')) as f:
     f.write('\n'.join(formulas))
 f.close()
 

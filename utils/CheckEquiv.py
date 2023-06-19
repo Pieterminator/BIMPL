@@ -29,7 +29,7 @@ def autoEquiv(file_in, forms1, forms2, file_out=None):
 
     #Output result
     if (file_out is None):
-        print(df)
+        print(df["Equivalence"].value_counts())
     else:
         df.to_csv(file_out, header=True, index=False)
 
@@ -45,7 +45,7 @@ def changeNot(form):
     re.sub(r'\[PContra\]', "(T | - T)", notation)
     return notation
 
-f1 = "( - Pet ( a ) <-> ( Prime ( a ) -> Person ( b ) ) ) | - ( Student ( a ) <-> Prime ( a ) )"
-f2 = "( ( Student ( a ) ) <-> Prime ( a ) ) -> ( ( - ( Pet ( a ) ) ) <-> ( ( Prime ( a ) ) -> Person ( b ) ) )"
+f1 = "-(-Pe(a) -> (Te(b) <-> Pr(c)))"
+f2 = "(-Pe(a) -> (Te(b) <-> Pr(c))) -> -(Do(b) <-> Do(b))"
 singleEquiv(f1, f2)
-# autoEquiv(r'utils/data/equivalence eval/RG.csv', "Input", "BIMPL", file_out=None)
+# autoEquiv(r'utils/data/equivalence eval/RG.csv', "Input", "BIMPL", file_out=r'utils/data/equivalence eval/test.csv')
