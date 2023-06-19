@@ -10,7 +10,7 @@ stack run trans MOptSen PropGGC data\test.txt PropEng ..\utils\data\rule-output.
 stack run trans MOptSen PropGGC ..\utils\data\rule-formulas.tmp PropEng data\output.txt
 
 stack run trans MOptForm PropGGC data\test.txt PropEng data\output.txt
-stack run trans MOptForm PropGGC ..\utils\data\rg-formulas.tmp PropEng ..\utils\data\rg-output.csv
+stack run trans MOptForm PropGGC "..\utils\data\Test BIMPL 2\ggc-formulas.tmp" PropEng "..\utils\data\Test BIMPL 2\ggc-output.csv"
 
 stack run trans "~ Cube ( p ) | ( Cube ( q ) & Cube ( p ) )"
 

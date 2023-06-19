@@ -1,0 +1,101 @@
+WB;( Prime ( a ) ) & ( ~ ( ( Dodec ( a ) ) & ( Student ( a ) ) ) );a is a prime and it is not the case that a is a dodecahedron and a is a student
+
+WB;( ( Prime ( a ) ) $ Cube ( a ) ) $ ( ( Prime ( a ) ) | ( Dodec ( b ) ) ) & ( ( Tet ( a ) ) & ( Student ( b ) ) );if if a is a prime , then a is a cube , then all these hold : \item a is a prime or b is a dodecahedron , a is a tetrahedron \item b is a student
+
+WB;( ( ( Dodec ( a ) ) | ( Prime ( a ) ) ) & ( Cube ( a ) ) ) | ( Student ( b ) );all these hold : \item a is a dodecahedron or a is a prime \item a is a cube or b is a student
+
+WB;( ~ ( ( Student ( a ) ) $ Prime ( b ) ) ) & ( ( Student ( b ) ) & ( Tet ( a ) ) );it is not the case that if a is a student , then b is a prime , b is a student and a is a tetrahedron
+
+WB;( ( Student ( b ) ) $ Dodec ( a ) ) & ( ( Tet ( b ) ) $ ( Student ( a ) ) | ( Cube ( a ) ) );all these hold : \item if b is a student , then a is a dodecahedron \item if b is a tetrahedron , then a is a student or a is a cube
+
+NWB;( Cube ( a ) ) | ( ( Student ( a ) ) & ( Dodec ( a ) ) );at least one of these holds : \item a is a cube \item a is a student and a is a dodecahedron
+
+WB;( Student ( a ) ) & ( ( Tet ( b ) ) $ Student ( c ) );all these hold : \item a is a student \item if b is a tetrahedron , then c is a student
+
+WB;~ ( ( Student ( a ) ) $ ( Dodec ( a ) ) & ( Cube ( a ) ) );it is not the case that if a is a student , then a is a dodecahedron and a is a cube
+
+WB;( Student ( a ) ) & ( ( ( Dodec ( b ) ) & ( Cube ( a ) ) ) | ( ( Prime ( a ) ) & ( Dodec ( c ) ) ) );a is a student and at least one of these holds : \item b is a dodecahedron and a is a cube \item a is a prime and c is a dodecahedron
+
+WB;( Student ( a ) ) $ Cube ( c );if a is a student , then c is a cube
+
+WB;~ ( ( Prime ( a ) ) | ( ( Cube ( a ) ) | ( Prime ( b ) ) ) );it is not the case that a is a prime , a is a cube or b is a prime
+
+NWB;~ ( ( Student ( a ) ) $ ( Dodec ( a ) ) | ( Cube ( a ) ) );it is not the case that if a is a student , then a is a dodecahedron or a is a cube
+
+NWB;( Tet ( a ) ) & ( Dodec ( b ) );a is a tetrahedron and b is a dodecahedron
+
+NWB;~ ( ( Dodec ( a ) ) $ ( Tet ( a ) ) & ( Dodec ( b ) ) );it is not the case that if a is a dodecahedron , then a is a tetrahedron and b is a dodecahedron
+
+NWB;( ~ ( ( Tet ( a ) ) & ( Dodec ( a ) ) ) ) & ( ( ( Prime ( a ) ) $ Tet ( b ) ) $ Dodec ( a ) );all these hold : \item it is not the case that a is a tetrahedron and a is a dodecahedron \item if if a is a prime , then b is a tetrahedron , then a is a dodecahedron
+
+WB;( Cube ( a ) ) $ Prime ( a );if a is a cube , then a is a prime
+
+NWB;( Tet ( a ) ) & ( Dodec ( b ) );a is a tetrahedron and b is a dodecahedron
+
+WB;( ( Student ( a ) ) $ Tet ( b ) ) & ( ~ ( ( Prime ( c ) ) | ( ( Tet ( d ) ) & ( Prime ( c ) ) ) ) );all these hold : \item if a is a student , then b is a tetrahedron \item it is not the case that at least one of these holds : \item c is a prime \item d is a tetrahedron and c is a prime
+
+WB;( ( Tet ( a ) ) & ( ( Dodec ( b ) ) & ( Student ( c ) ) ) ) $ ( ( Student ( a ) ) | ( Cube ( d ) ) ) | ( Cube ( a ) );if a is a tetrahedron , b is a dodecahedron and c is a student , then a is a student , d is a cube or a is a cube
+
+NWB;F;there is a contradiction
+
+WB;( ( ( Student ( a ) ) $ Tet ( a ) ) | ( ( Cube ( b ) ) $ Dodec ( b ) ) ) & ( Student ( a ) );at least one of these holds : \item if a is a student , then a is a tetrahedron \item if b is a cube , then b is a dodecahedron and a is a student
+
+NWB;~ ( ( ( Student ( a ) ) $ Dodec ( a ) ) | ( Prime ( a ) ) );it is not the case that at least one of these holds : \item if a is a student , then a is a dodecahedron \item a is a prime
+
+WB;~ ( ( ( Cube ( a ) ) $ Tet ( b ) ) & ( ( Dodec ( c ) ) & ( Student ( b ) ) ) );it is not the case that all these hold : \item if a is a cube , then b is a tetrahedron , c is a dodecahedron \item b is a student
+
+NWB;( ( ( Tet ( a ) ) & ( Dodec ( b ) ) ) $ Prime ( a ) ) $ ( ( Prime ( a ) ) | ( Tet ( b ) ) ) | ( Prime ( c ) );if if a is a tetrahedron and b is a dodecahedron , then a is a prime , then a is a prime , b is a tetrahedron or c is a prime
+
+WB;~ ( ( ( Dodec ( a ) ) | ( Prime ( b ) ) ) & ( Tet ( a ) ) );it is not the case that all these hold : \item a is a dodecahedron or b is a prime \item a is a tetrahedron
+
+WB;( ~ ( Prime ( a ) ) ) | ( ( Cube ( b ) ) & ( Student ( a ) ) );at least one of these holds : \item a is not a prime \item b is a cube and a is a student
+
+WB;( ( ( Tet ( a ) ) | ( Cube ( b ) ) ) & ( ~ ( Student ( a ) ) ) ) & ( Cube ( b ) );all these hold : \item a is a tetrahedron or b is a cube , a is not a student \item b is a cube
+
+WB;( Dodec ( a ) ) $ Dodec ( b );if a is a dodecahedron , then b is a dodecahedron
+
+NWB;( ( Dodec ( a ) ) $ ( Tet ( a ) ) $ Prime ( b ) ) $ Student ( c );if if a is a dodecahedron , then if a is a tetrahedron , then b is a prime , then c is a student
+
+WB;( ( Cube ( a ) ) & ( Dodec ( a ) ) ) | ( Student ( a ) );at least one of these holds : \item a is a cube and a is a dodecahedron \item a is a student
+
+WB;( Tet ( c ) ) | ( ( Tet ( a ) ) | ( ( Student ( b ) ) | ( Prime ( b ) ) ) );c is a tetrahedron , a is a tetrahedron , b is a student or b is a prime
+
+WB;( ( Dodec ( b ) ) & ( Dodec ( c ) ) ) $ ( Dodec ( a ) ) & ( Tet ( a ) );if b is a dodecahedron and c is a dodecahedron , then a is a dodecahedron and a is a tetrahedron
+
+WB;( ( Prime ( b ) ) | ( Student ( a ) ) ) $ ( Tet ( b ) ) $ ( Prime ( b ) ) | ( Student ( a ) );if b is a prime or a is a student , then if b is a tetrahedron , then b is a prime or a is a student
+
+WB;~ ( ( ( Tet ( a ) ) | ( Cube ( a ) ) ) | ( ( Student ( b ) ) | ( Dodec ( a ) ) ) );it is not the case that a is a tetrahedron , a is a cube , b is a student or a is a dodecahedron
+
+WB;( Tet ( a ) ) & ( ~ ( ( Dodec ( b ) ) | ( Dodec ( a ) ) ) );a is a tetrahedron and it is not the case that b is a dodecahedron or a is a dodecahedron
+
+WB;( ( Cube ( b ) ) $ Tet ( a ) ) & ( ( ( Cube ( b ) ) | ( Dodec ( a ) ) ) & ( ~ ( Tet ( b ) ) ) );all these hold : \item if b is a cube , then a is a tetrahedron , b is a cube or a is a dodecahedron \item b is not a tetrahedron
+
+NWB;( Tet ( a ) ) $ ( Student ( a ) ) $ ( Tet ( b ) ) $ Dodec ( c );if a is a tetrahedron , then if a is a student , then if b is a tetrahedron , then c is a dodecahedron
+
+WB;( Cube ( a ) ) | ( ~ ( Prime ( b ) ) );a is a cube or b is not a prime
+
+WB;( Dodec ( a ) ) & ( ~ ( ( Cube ( a ) ) & ( Tet ( a ) ) ) );a is a dodecahedron and it is not the case that a is a cube and a is a tetrahedron
+
+WB;( Prime ( a ) ) $ ( Tet ( b ) ) $ Student ( a );if a is a prime , then if b is a tetrahedron , then a is a student
+
+WB;( Cube ( a ) ) | ( ( ( Dodec ( a ) ) & ( Student ( b ) ) ) & ( ( Tet ( c ) ) & ( Prime ( b ) ) ) );at least one of these holds : \item a is a cube \item a is a dodecahedron , b is a student , c is a tetrahedron and b is a prime
+
+NWB;( Dodec ( a ) ) & ( Tet ( b ) );a is a dodecahedron and b is a tetrahedron
+
+NWB;Dodec ( a );a is a dodecahedron
+
+NWB;( Tet ( a ) ) $ ( ( Dodec ( b ) ) | ( Dodec ( c ) ) ) & ( ( Tet ( c ) ) $ Prime ( d ) );if a is a tetrahedron , then all these hold : \item b is a dodecahedron or c is a dodecahedron \item if c is a tetrahedron , then d is a prime
+
+WB;( ( Cube ( b ) ) $ Cube ( a ) ) | ( ( ( Prime ( a ) ) $ Cube ( c ) ) | ( Tet ( a ) ) );at least one of these holds : \item if b is a cube , then a is a cube , if a is a prime , then c is a cube \item a is a tetrahedron
+
+NWB;( Cube ( a ) ) $ ( ( Prime ( b ) ) & ( Dodec ( c ) ) ) $ Student ( c );if a is a cube , then if b is a prime and c is a dodecahedron , then c is a student
+
+NWB;( Student ( a ) ) & ( ( ( Student ( b ) ) | ( Cube ( a ) ) ) $ ( Cube ( c ) ) & ( Prime ( c ) ) );all these hold : \item a is a student \item if b is a student or a is a cube , then c is a cube and c is a prime
+
+NWB;( ~ ( ( Dodec ( a ) ) | ( ( ~ ( Prime ( a ) ) ) & ( Student ( b ) ) ) ) ) | ( ( Cube ( b ) ) | ( Student ( a ) ) );it is not the case that at least one of these holds : \item a is a dodecahedron \item a is not a prime and b is a student , b is a cube or a is a student
+
+NWB;( ( Tet ( a ) ) & ( Prime ( b ) ) ) | ( ( Cube ( c ) ) | ( ( Student ( a ) ) $ Cube ( a ) ) );at least one of these holds : \item a is a tetrahedron and b is a prime , c is a cube \item if a is a student , then a is a cube
+
+WB;( Tet ( a ) ) | ( ( Student ( a ) ) | ( ( Tet ( a ) ) $ ( Cube ( a ) ) $ Dodec ( a ) ) );at least one of these holds : \item a is a tetrahedron , a is a student \item if a is a tetrahedron , then if a is a cube , then a is a dodecahedron
+
+

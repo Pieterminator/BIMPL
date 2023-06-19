@@ -35,7 +35,7 @@ def sampleData(file_in, file_out, csv=False, csvFile=r'utils/data/sample.csv', r
     f.close()
 
 def writeCsv(file_in, file_out):
-    file = pd.read_csv(file_in, error_bad_lines=False, sep=";")
+    file = pd.read_csv(file_in, on_bad_lines="skip", sep=";")
     file.to_csv(file_out, header=True, index=False,sep=";")
 
 sampleData(r'utils/data/GGC dataset.csv', r'utils/data/Test BIMPL 2/ggc-formulas.tmp', csv=False, replace=False)
