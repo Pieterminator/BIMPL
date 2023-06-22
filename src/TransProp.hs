@@ -12,8 +12,8 @@ import Data.Tree
 
 transfer :: Mode -> PGF -> Language -> PGF.Tree -> String
 transfer m pgf la t = case m of
-  MNone        -> lin id                                      -- no transformation
-  -- MNone        -> showTreeP pgf la (fg t)                     -- Pieter: no transformation, but shows abstract syntax tree
+  -- MNone        -> lin id                                      -- no transformation
+  MNone        -> showTreeP pgf la (fg t)                     -- Pieter: no transformation, but shows abstract syntax tree
   MMinimalize  -> lin (transform (minimalizeP . normalizeP))  -- interpretation functions
   MNormalize   -> lin (transform normalizeP)                  -- interpretation functions
   MOptimize    -> lin (transform optimizeP)                   -- the conversion rules of Ranta (2011) section 5.3
@@ -31,8 +31,9 @@ formSen :: Mode -> PGF -> Language -> Language -> PGF.Tree -> String
 formSen m pgf sl tl t = case m of
   MOptSen      -> optSenP pgf sl tl (fg t)
   MOptForm     -> optFormP pgf sl tl (fg t)
+  MStatistics  -> statisticsP pgf sl tl (fg t)
 
-data Mode = MNone | MOptimize | MMinimalize | MNormalize | MSimplify | MOptSen | MOptForm deriving Show    -- Pieter added MOptSen and MOptForm
+data Mode = MNone | MOptimize | MMinimalize | MNormalize | MSimplify | MOptSen | MOptForm | MStatistics deriving Show    -- Pieter added MOptSen, MOptForm and MStatistics
 
 -- the conversion rules of Ranta (2011) section 5.3 (core -> extended syntax)
 optimizeP :: GProp -> GProp
@@ -316,11 +317,12 @@ optSen pgf sl tl p = for f ++ ";" ++ s
        if fst n == 5 then (n, [])   -- if max depth of tree is reached, terminate
          else (n, [((fst n) + 1, law (snd n)) | law <- logicLaws, law (snd n) /= snd n])
      t = unfoldTree buildNode (0, p)
-     flatTree = flatten t   --[(Integer, GProp)]
+     flatTree = flatten t
      wbList = map (isWB . snd) flatTree
-     sentenceList = map (lin . gf . optimizeP . snd) flatTree   --[String]
+     sentenceList = map (lin . gf . optimizeP . snd) flatTree
      senWB = zip sentenceList wbList
      (s, i) = shortestWB senWB
+    --  (s, i) = shortestSentence (map (lin . gf . optimizeP . snd) (flatten t))
 
 
 -- Simplify a proposition given the source language (the chosen simplification
@@ -343,3 +345,47 @@ optForm pgf sl tl p =  f ++ ";" ++ lin s
          else (n, [((fst n) + 1, law (snd n)) | law <- logicLaws, law (snd n) /= snd n])
      t = unfoldTree buildNode (0, p)
      (f, i) = shortestFormula (map (for . gf . snd) (flatten t))
+
+
+-- Simplify a proposition given the source language (the chosen simplification
+-- sequence is based on the length of the linearisation in the source language) 
+-- The output string contains the well-behavedness, the formula, the number of 
+-- connectives, the number of predicates, and the total length (measured in 
+-- number of connectives and predicates) of both the input and output formula
+statisticsP:: PGF -> Language -> Language -> GProp -> String
+statisticsP = statistics
+
+statistics :: PGF -> Language -> Language -> GProp -> String
+statistics pgf sl tl p = 
+  "input;" ++ input_wb ++ input_formula ++ input_statistics ++ "\n" ++ 
+  "BIMPL;" ++ bimpl_wb ++ bimpl_formula ++ bimpl_statistics
+   where
+     input_formula = (for . gf) p
+     in_wb = isWB p
+     out_wb = wbList !! i
+     input_wb =
+      if in_wb then "WB;"
+      else "NWB;"
+     bimpl_wb =
+      if out_wb then "WB;"
+      else "NWB;"
+
+     for = linearize pgf sl
+     
+     -- Build tree of possible simplifying operations,
+     -- where each node is a tuple: (depth in tree, (simplified) proposition)
+     buildNode n =
+       if fst n == 5 then (n, [])   -- if max depth of tree is reached, terminate
+         else (n, [((fst n) + 1, law (snd n)) | law <- logicLaws, law (snd n) /= snd n])
+     t = unfoldTree buildNode (0, p)
+
+     flatTree = flatten t
+     wbList = map (isWB . snd) flatTree
+     formulaList = map (for . gf . snd) flatTree
+     (bimpl_formula, i, c) = readStats formulaList
+
+     out_connectives = fst c
+     out_predicates = snd c
+     bimpl_statistics = ";" ++ show out_connectives ++ ";" ++ show out_predicates ++ ";" ++ show (out_connectives + out_predicates)
+     (in_connectives, in_predicates) = propCount input_formula
+     input_statistics = ";" ++ show in_connectives ++ ";" ++ show in_predicates ++ ";" ++ show (in_connectives + in_predicates)

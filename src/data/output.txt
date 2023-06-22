@@ -1,0 +1,7 @@
+input;WB;( ( Cube ( a ) ) | ( Cube ( b ) ) ) & ( ( Cube ( b ) ) | ( Cube ( c ) ) );3;4;7;
+output;WB;( Cube ( b ) ) | ( ( Cube ( a ) ) & ( Cube ( c ) ) );2;3;5
+
+input;WB;( ( LeftOf ( a , d ) ) % Cube ( a ) ) & ( ( RightOf ( a , d ) ) % Cube ( a ) );3;4;7;
+output;WB;( ( LeftOf ( a , d ) ) % Cube ( a ) ) & ( ( RightOf ( a , d ) ) % Cube ( a ) );3;4;7
+
+

@@ -38,5 +38,5 @@ def writeCsv(file_in, file_out):
     file = pd.read_csv(file_in, on_bad_lines="skip", sep=";")
     file.to_csv(file_out, header=True, index=False,sep=";")
 
-sampleData(r'utils/data/GGC dataset.csv', r'utils/data/Test BIMPL 2/ggc-formulas.tmp', csv=False, replace=False)
-# writeCsv(r'src/data/output.txt', r'utils/data/original LoLa/rg-output.csv')
+# sampleData(r'utils/data/GGC dataset.csv', r'utils/data/Test BIMPL 2/ggc-formulas.tmp', csv=False, replace=False)
+writeCsv(r'src/data/output.txt', r'utils/data/Test BIMPL 2/original LoLa/rg-output.csv')

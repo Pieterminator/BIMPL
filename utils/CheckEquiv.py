@@ -5,7 +5,7 @@ read_expr = Expression.fromstring
 
 def autoEquiv(file_in, forms1, forms2, file_out=None):
     # Read file with formulas
-    df = pd.read_csv(file_in, error_bad_lines=False)
+    df = pd.read_csv(file_in, on_bad_lines="skip")
 
     # Remove columns that will not be checked for equivalence
     droplist = [c for c in df.columns if not c in [forms1, forms2]]
@@ -47,5 +47,5 @@ def changeNot(form):
 
 f1 = "-(-Pe(a) -> (Te(b) <-> Pr(c)))"
 f2 = "(-Pe(a) -> (Te(b) <-> Pr(c))) -> -(Do(b) <-> Do(b))"
-singleEquiv(f1, f2)
-# autoEquiv(r'utils/data/equivalence eval/RG.csv', "Input", "BIMPL", file_out=r'utils/data/equivalence eval/test.csv')
+# singleEquiv(f1, f2)
+autoEquiv(r'utils/data/Test BIMPL 2/equivalence eval/RG.csv', "Input", "BIMPL", file_out=None)

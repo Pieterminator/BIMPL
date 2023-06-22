@@ -2,6 +2,7 @@
 stack run trans MNone PropGGC data\test.txt PropEng data\output.txt
 stack run trans MOptimize PropGGC data\test.txt PropEng data\output.txt
 stack run trans MSimplify PropGGC data\test.txt PropEng data\output.txt
+stack run trans MStatistics PropGGC data\test.txt PropEng data\output.txt
 
 stack run trans MNone PropGGC ..\utils\data\rg-formulas.tmp PropEng data\output.txt
 stack run trans MSimplify PropGGC ..\utils\data\rg-formulas.tmp PropEng data\output.txt
@@ -10,12 +11,15 @@ stack run trans MOptSen PropGGC data\test.txt PropEng ..\utils\data\rule-output.
 stack run trans MOptSen PropGGC ..\utils\data\rule-formulas.tmp PropEng data\output.txt
 
 stack run trans MOptForm PropGGC data\test.txt PropEng data\output.txt
-stack run trans MOptForm PropGGC "..\utils\data\Test BIMPL 2\ggc-formulas.tmp" PropEng "..\utils\data\Test BIMPL 2\ggc-output.csv"
+stack run trans MOptForm PropGGC "..\utils\data\Test BIMPL 2\rg-formulas.tmp" PropEng "data\output.txt"
 
 stack run trans "~ Cube ( p ) | ( Cube ( q ) & Cube ( p ) )"
 
 Cube ( a ) | ( ~ Cube ( a ) $ ~ Cube ( b ) )
 
+
+PConj COr (PConj CAnd (PAtom (AKind Tet (IVar (VString "a")))) (PAtom (AKind Tet (IVar (VString "e"))))) (PConj CAnd (PAtom (AKind Tet (IVar (VString "a")))) (PConj CAnd (PAtom (AKind Tet (IVar (VString "f")))) (PNeg (PConj CAnd (PAtom (AKind Tet (IVar (VString "a")))) (PConj CAnd (PAtom (AKind Tet (IVar (VString "e")))) (PAtom (AKind Tet (IVar (VString "f")))))))))
+PConj CAnd (PAtom (AKind Tet (IVar (VString "a")))) (PConj CAnd (PConj COr (PAtom (AKind Tet (IVar (VString "f")))) (PAtom (AKind Tet (IVar (VString "e"))))) (PImpl (PConj CAnd (PConj CAnd (PAtom (AKind Tet (IVar (VString "a")))) (PAtom (AKind Tet (IVar (VString "e"))))) (PAtom (AKind Tet (IVar (VString "f"))))) (PAtom (AKind Tet (IVar (VString "e"))))))
 
 ¬ ∨ ∧ → ⇔
 base

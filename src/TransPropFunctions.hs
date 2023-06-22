@@ -80,10 +80,9 @@ isWB p = case p of
   GPNeg p1 -> if (contains p1 "PNeg") then False 
     else isWB p1
   GPConj c p1 p2 -> isWB p1 && isWB p2
-  -- Pieter: Added nested (bi-)implications to the criteria of well-behavedness
   GPImpl p1 p2 -> if (contains p1 "PImpl" || contains p2 "PImpl") then False
     else isWB p1 && isWB p2
-  GPBimpl p1 p2 -> if (contains p1 "PBimpl" || contains p2 "PBimpl") then False
+  GPBimpl p1 p2 -> if (contains p1 "PBimpl" || contains p2 "PBimpl") then False   -- Pieter
     else isWB p1 && isWB p2
   GPUniv v1 p1 -> if v1 `notElem` (freeVars p1) then False
     else isWB p1
@@ -93,20 +92,75 @@ isWB p = case p of
 
 ------------------------------------------------------------------------------
 -- Functions added by Pieter
--- Find the shortest formula in a list of formulas (by word count, brackets excluded)
+-- Find the shortest formula in a list of formulas (count of connectives and predicates)
 shortestFormula :: [String] -> (String, Int)
 shortestFormula l = (shortest, fromJust (elemIndex shortest l))
  where
-   shortest = (minimumBy (comparing propCount) l)
+   shortest = (minimumBy (comparing countProp) l)
 
-propCount :: String -> Int
-propCount f = length (filter ignoreChar (words f))
+readStats :: [String] -> (String, Int, (Int, Int))
+readStats l = (shortest, fromJust (elemIndex shortest l), propCount shortest)
+ where
+   shortest = (minimumBy (comparing countProp) l)
+
+countProp :: String -> Int
+countProp f = c + p
+ where
+  (c,p) = propCount f
+  
+-- Find the shortest formula in a list of formulas (by word count, brackets excluded)
+-- propCount :: String -> Int
+-- propCount f = length (filter ignoreChar (words f))
+--  where 
+--   ignoreChar :: [Char] -> Bool
+--   ignoreChar l = case l of
+--     "(" -> False
+--     ")" -> False
+--     _ -> True
+
+propCount :: String -> (Int, Int)
+propCount f = (countConn f, countPred f)
+
+countConn :: String -> Int
+countConn f = length (filter connectives (words f))
  where 
-  ignoreChar :: [Char] -> Bool
-  ignoreChar l = case l of
-    "(" -> False
-    ")" -> False
-    _ -> True
+  connectives :: [Char] -> Bool
+  connectives l = case l of
+    "~" -> True
+    "&" -> True
+    "|" -> True
+    "$" -> True
+    "%" -> True
+    _ -> False
+
+countPred :: String -> Int
+countPred f = length (filter predicates (words f))
+ where 
+  predicates :: [Char] -> Bool
+  predicates p = p `elem` ps
+  ps= [ -- Hardcoded the predicates. Could also be done with regular expressions
+    "Dodec",
+    "Student",
+    "Cube",
+    "Prime",
+    "Person",
+    "Tet",
+    "Pet",
+    "Small",
+    "Medium",
+    "Large",
+    "Even",
+    "Adjoins",
+    "SameCol",
+    "LeftOf",
+    "RightOf",
+    "Smaller",
+    "FrontOf",
+    "Larger",
+    "SameRow",
+    "SameShape",
+    "SameSize",
+    "BackOf"]
 
 shortestWB :: [(String,Bool)] -> (String, Int)
 shortestWB l = (fst shortest, fromJust (elemIndex shortest l))
