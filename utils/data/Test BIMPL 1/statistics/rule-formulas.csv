@@ -1,0 +1,129 @@
+input,WB,( Cube ( p ) ) % Cube ( p ),1,2,3
+LoLa,WB,( Cube ( p ) ) % Cube ( p ),1,2,3
+BIMPL,WB,T,0,0,0
+
+input,WB,( Cube ( p ) ) % ~ ( Cube ( p ) ),2,2,4
+LoLa,WB,( Cube ( p ) ) % ~ ( Cube ( p ) ),2,2,4
+BIMPL,WB,F,0,0,0
+
+input,NWB,( Cube ( p ) ) % ( Cube ( q ) ) % Cube ( q ),2,3,5
+LoLa,NWB,( Cube ( p ) ) % ( Cube ( q ) ) % Cube ( q ),2,3,5
+BIMPL,WB,Cube ( p ),0,1,1
+
+input,NWB,( Cube ( p ) ) % ( Cube ( q ) ) % ~ ( Cube ( q ) ),3,3,6
+LoLa,NWB,( Cube ( p ) ) % ( Cube ( q ) ) % ~ ( Cube ( q ) ),3,3,6
+BIMPL,WB,( Cube ( p ) ) % F,1,1,2
+
+input,WB,( ( Cube ( p ) ) | ( Cube ( q ) ) ) % ( Cube ( p ) ) | ( Cube ( r ) ),3,4,7
+LoLa,WB,( ( Cube ( p ) ) | ( Cube ( q ) ) ) % ( Cube ( p ) ) | ( Cube ( r ) ),3,4,7
+BIMPL,WB,( Cube ( p ) ) | ( ( Cube ( q ) ) % Cube ( r ) ),2,3,5
+
+input,WB,( Cube ( s ) ) | ( ( ( Cube ( p ) ) | ( Cube ( q ) ) ) % ( Cube ( p ) ) | ( Cube ( r ) ) ),4,5,9
+LoLa,WB,( Cube ( s ) ) | ( ( ( Cube ( p ) ) | ( Cube ( q ) ) ) % ( Cube ( p ) ) | ( Cube ( r ) ) ),4,5,9
+BIMPL,WB,( Cube ( s ) ) | ( ( Cube ( p ) ) | ( ( Cube ( q ) ) % Cube ( r ) ) ),3,4,7
+
+input,WB,( Cube ( p ) ) | ( ( Cube ( p ) ) & ( Cube ( q ) ) ),2,3,5
+LoLa,WB,( Cube ( p ) ) | ( ( Cube ( p ) ) & ( Cube ( q ) ) ),2,3,5
+BIMPL,WB,Cube ( p ),0,1,1
+
+input,WB,( Cube ( p ) ) % ( Cube ( p ) ) & ( Cube ( q ) ),2,3,5
+LoLa,WB,( Cube ( p ) ) % ( Cube ( p ) ) & ( Cube ( q ) ),2,3,5
+BIMPL,WB,( Cube ( p ) ) $ Cube ( q ),1,2,3
+
+input,WB,( Cube ( p ) ) % ( Cube ( p ) ) | ( Cube ( q ) ),2,3,5
+LoLa,WB,( Cube ( p ) ) % ( Cube ( p ) ) | ( Cube ( q ) ),2,3,5
+BIMPL,WB,( Cube ( q ) ) $ Cube ( p ),1,2,3
+
+input,WB,( Cube ( p ) ) & ( ( Cube ( p ) ) % Cube ( q ) ),2,3,5
+LoLa,WB,( Cube ( p ) ) & ( ( Cube ( p ) ) % Cube ( q ) ),2,3,5
+BIMPL,WB,( Cube ( p ) ) & ( Cube ( q ) ),1,2,3
+
+input,WB,( Cube ( p ) ) | ( ( Cube ( p ) ) % Cube ( q ) ),2,3,5
+LoLa,WB,( Cube ( p ) ) | ( ( Cube ( p ) ) % Cube ( q ) ),2,3,5
+BIMPL,WB,( Cube ( q ) ) $ Cube ( p ),1,2,3
+
+input,WB,( ( Cube ( p ) ) $ Cube ( q ) ) & ( ( Cube ( q ) ) $ Cube ( p ) ),3,4,7
+LoLa,WB,( ( Cube ( p ) ) $ Cube ( q ) ) & ( ( Cube ( q ) ) $ Cube ( p ) ),3,4,7
+BIMPL,WB,( Cube ( p ) ) % Cube ( q ),1,2,3
+
+input,WB,( ( ( Cube ( p ) ) $ Cube ( q ) ) & ( ( Cube ( q ) ) $ Cube ( r ) ) ) & ( ( Cube ( r ) ) $ Cube ( p ) ),5,6,11
+LoLa,WB,( ( ( Cube ( p ) ) $ Cube ( q ) ) & ( ( Cube ( q ) ) $ Cube ( r ) ) ) & ( ( Cube ( r ) ) $ Cube ( p ) ),5,6,11
+BIMPL,WB,( ( Cube ( p ) ) % Cube ( q ) ) & ( ( Cube ( p ) ) % Cube ( r ) ),3,4,7
+
+input,WB,( ( ( ( Cube ( p ) ) $ Cube ( q ) ) & ( ( Cube ( q ) ) $ Cube ( r ) ) ) & ( ( Cube ( r ) ) $ Cube ( s ) ) ) & ( ( Cube ( s ) ) $ Cube ( p ) ),7,8,15
+LoLa,WB,( ( ( ( Cube ( p ) ) $ Cube ( q ) ) & ( ( Cube ( q ) ) $ Cube ( r ) ) ) & ( ( Cube ( r ) ) $ Cube ( s ) ) ) & ( ( Cube ( s ) ) $ Cube ( p ) ),7,8,15
+BIMPL,WB,( ( ( Cube ( p ) ) % Cube ( q ) ) & ( ( Cube ( p ) ) % Cube ( r ) ) ) & ( ( Cube ( p ) ) % Cube ( s ) ),5,6,11
+
+input,WB,( ( ~ ( Cube ( p ) ) ) & ( ~ ( Cube ( q ) ) ) ) | ( ( Cube ( p ) ) & ( Cube ( q ) ) ),5,4,9
+LoLa,WB,( ( Cube ( q ) ) | ( Cube ( p ) ) ) $ ( Cube ( q ) ) & ( Cube ( p ) ),3,4,7
+BIMPL,WB,( Cube ( p ) ) % Cube ( q ),1,2,3
+
+input,WB,( ( Cube ( p ) ) | ( Cube ( q ) ) ) & ( ~ ( ( Cube ( p ) ) & ( Cube ( q ) ) ) ),4,4,8
+LoLa,WB,( ( Cube ( p ) ) | ( Cube ( q ) ) ) & ( ~ ( ( Cube ( p ) ) & ( Cube ( q ) ) ) ),4,4,8
+BIMPL,WB,~ ( ( Cube ( p ) ) % Cube ( q ) ),2,2,4
+
+input,WB,( ( Cube ( p ) ) % Cube ( q ) ) & ( ( Cube ( p ) ) $ Cube ( q ) ),3,4,7
+LoLa,WB,( ( Cube ( p ) ) % Cube ( q ) ) & ( ( Cube ( p ) ) $ Cube ( q ) ),3,4,7
+BIMPL,WB,( Cube ( q ) ) % Cube ( p ),1,2,3
+
+input,WB,( ( ( Cube ( p ) ) % Cube ( q ) ) & ( ( Cube ( q ) ) % Cube ( r ) ) ) & ( ( Cube ( r ) ) % Cube ( p ) ),5,6,11
+LoLa,WB,( ( ( Cube ( p ) ) % Cube ( q ) ) & ( ( Cube ( q ) ) % Cube ( r ) ) ) & ( ( Cube ( r ) ) % Cube ( p ) ),5,6,11
+BIMPL,WB,( ( Cube ( p ) ) % Cube ( q ) ) & ( ( Cube ( p ) ) % Cube ( r ) ),3,4,7
+
+input,NWB,( Cube ( p ) ) % ( Cube ( p ) ) % Cube ( q ),2,3,5
+LoLa,NWB,( Cube ( p ) ) % ( Cube ( p ) ) % Cube ( q ),2,3,5
+BIMPL,WB,Cube ( q ),0,1,1
+
+input,NWB,( ( Cube ( p ) ) % Cube ( q ) ) % Cube ( q ),2,3,5
+LoLa,NWB,( ( Cube ( p ) ) % Cube ( q ) ) % Cube ( q ),2,3,5
+BIMPL,WB,Cube ( p ),0,1,1
+
+input,NWB,( Cube ( p ) ) % ( ~ ( Cube ( p ) ) ) % Cube ( q ),3,3,6
+LoLa,NWB,( Cube ( p ) ) % ( ~ ( Cube ( p ) ) ) % Cube ( q ),3,3,6
+BIMPL,WB,( F ) % Cube ( q ),1,1,2
+
+input,NWB,( ( Cube ( p ) ) % Cube ( q ) ) % ~ ( Cube ( q ) ),3,3,6
+LoLa,NWB,( ( Cube ( p ) ) % Cube ( q ) ) % ~ ( Cube ( q ) ),3,3,6
+BIMPL,WB,( Cube ( p ) ) % F,1,1,2
+
+input,WB,( ( Cube ( p ) ) | ( Cube ( q ) ) ) & ( Cube ( p ) ),2,3,5
+LoLa,WB,( ( Cube ( p ) ) | ( Cube ( q ) ) ) & ( Cube ( p ) ),2,3,5
+BIMPL,WB,Cube ( p ),0,1,1
+
+input,WB,( ~ ( Cube ( p ) ) ) | ( ( Cube ( p ) ) & ( Cube ( q ) ) ),3,3,6
+LoLa,WB,( Cube ( p ) ) $ ( Cube ( p ) ) & ( Cube ( q ) ),2,3,5
+BIMPL,WB,( Cube ( q ) ) | ( ~ ( Cube ( p ) ) ),2,2,4
+
+input,WB,( Cube ( p ) ) | ( ( ~ ( Cube ( p ) ) ) & ( Cube ( q ) ) ),3,3,6
+LoLa,WB,( Cube ( p ) ) | ( ( ~ ( Cube ( p ) ) ) & ( Cube ( q ) ) ),3,3,6
+BIMPL,WB,( Cube ( p ) ) | ( Cube ( q ) ),1,2,3
+
+input,WB,( Cube ( p ) ) & ( ( ~ ( Cube ( p ) ) ) | ( Cube ( q ) ) ),3,3,6
+LoLa,WB,( Cube ( p ) ) & ( ( Cube ( p ) ) $ Cube ( q ) ),2,3,5
+BIMPL,WB,( Cube ( p ) ) & ( Cube ( q ) ),1,2,3
+
+input,WB,( ~ ( Cube ( p ) ) ) & ( ( Cube ( p ) ) | ( Cube ( q ) ) ),3,3,6
+LoLa,WB,( ~ ( Cube ( p ) ) ) & ( ( Cube ( p ) ) | ( Cube ( q ) ) ),3,3,6
+BIMPL,WB,( Cube ( q ) ) & ( ~ ( Cube ( p ) ) ),2,2,4
+
+input,WB,( Cube ( p ) ) | ( ( ~ ( Cube ( p ) ) ) % Cube ( q ) ),3,3,6
+LoLa,WB,( Cube ( p ) ) | ( ( ~ ( Cube ( p ) ) ) % Cube ( q ) ),3,3,6
+BIMPL,WB,( Cube ( q ) ) | ( Cube ( p ) ),1,2,3
+
+input,WB,( ~ ( Cube ( p ) ) ) | ( ( Cube ( p ) ) % Cube ( q ) ),3,3,6
+LoLa,WB,( Cube ( p ) ) $ ( Cube ( p ) ) % Cube ( q ),2,3,5
+BIMPL,WB,( T ) % ( Cube ( p ) ) $ Cube ( q ),2,2,4
+
+input,WB,( ( ~ ( Cube ( p ) ) ) & ( ~ ( Cube ( q ) ) ) ) | ( ( Cube ( p ) ) % Cube ( q ) ),5,4,9
+LoLa,WB,( ( Cube ( q ) ) | ( Cube ( p ) ) ) $ ( Cube ( p ) ) % Cube ( q ),3,4,7
+BIMPL,WB,( Cube ( q ) ) % Cube ( p ),1,2,3
+
+input,WB,( ( Cube ( p ) ) | ( Cube ( q ) ) ) | ( ( Cube ( p ) ) % Cube ( q ) ),3,4,7
+LoLa,WB,( ( Cube ( p ) ) | ( Cube ( q ) ) ) | ( ( Cube ( p ) ) % Cube ( q ) ),3,4,7
+BIMPL,WB,( ( Cube ( p ) ) & ( Cube ( q ) ) ) | ( T ),2,2,4
+
+input,WB,( ~ ( ( Cube ( p ) ) % Cube ( q ) ) ) & ( ~ ( ( Cube ( q ) ) & ( Cube ( p ) ) ) ),5,4,9
+LoLa,WB,~ ( ( ( Cube ( p ) ) % Cube ( q ) ) | ( ( Cube ( q ) ) & ( Cube ( p ) ) ) ),4,4,8
+BIMPL,WB,~ ( ( Cube ( q ) ) % Cube ( p ) ),2,2,4
+
+

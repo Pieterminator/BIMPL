@@ -1,2 +1,1 @@
-( Cube ( a ) | Cube ( b ) ) & ( Cube ( b ) | Cube ( c ) )
-( LeftOf ( a , d ) % Cube ( a ) ) & ( RightOf ( a , d ) % Cube ( a ) )
+~ Cube ( a ) $ ~ Cube ( b )

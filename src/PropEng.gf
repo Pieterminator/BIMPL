@@ -44,7 +44,7 @@ oper
   both_N = P.mkN "both" ;                       -- Pieter
   null_V = P.mkV " )" " )" " )" " )" " )" ;     -- Pieter
   but_Conj = P.mkConj "( but" ;                 -- Pieter
-  orElse_Conj = P.mkConj ", or else" ;          -- Pieter
+  orElse_Subj = P.mkSubj "or else" ;            -- Pieter
   onlyIf_Conj = P.mkConj "only if" ;            -- Pieter
   unless_Conj = P.mkConj "unless" ;             -- Pieter
   taut_N = P.mkN "tautology" ;                  -- Pieter

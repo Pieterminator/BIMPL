@@ -31,7 +31,7 @@ formSen :: Mode -> PGF -> Language -> Language -> PGF.Tree -> String
 formSen m pgf sl tl t = case m of
   MOptSen      -> optSenP pgf sl tl (fg t)
   MOptForm     -> optFormP pgf sl tl (fg t)
-  MStatistics  -> statisticsP pgf sl tl (fg t)
+  MStatistics  -> statisticsP pgf sl (fg t)
 
 data Mode = MNone | MOptimize | MMinimalize | MNormalize | MSimplify | MOptSen | MOptForm | MStatistics deriving Show    -- Pieter added MOptSen, MOptForm and MStatistics
 
@@ -281,7 +281,7 @@ simplify pgf la p = (showExpr [] ((gf . snd) ((flatten t) !! i))) ++ ", " ++ s
      -- where each node is a tuple: (depth in tree, (simplified) proposition)
      buildNode n =
        if fst n == 5 then (n, [])   -- if max depth of tree is reached, terminate
-         else (n, [((fst n) + 1, law (snd n)) | law <- logicLaws, law (snd n) /= snd n])
+         else (n, [((fst n) + 1, law (snd n)) | law <- (logicLaws ++ bimplLaws), law (snd n) /= snd n])
      t = unfoldTree buildNode (0, p)
      (s, i) = shortestSentence (map (lin . gf . optimizeP . snd) (flatten t))
 
@@ -315,7 +315,7 @@ optSen pgf sl tl p = for f ++ ";" ++ s
      -- where each node is a tuple: (depth in tree, (simplified) proposition)
      buildNode n =
        if fst n == 5 then (n, [])   -- if max depth of tree is reached, terminate
-         else (n, [((fst n) + 1, law (snd n)) | law <- logicLaws, law (snd n) /= snd n])
+         else (n, [((fst n) + 1, law (snd n)) | law <- (logicLaws ++ bimplLaws), law (snd n) /= snd n])
      t = unfoldTree buildNode (0, p)
      flatTree = flatten t
      wbList = map (isWB . snd) flatTree
@@ -342,7 +342,7 @@ optForm pgf sl tl p =  f ++ ";" ++ lin s
      -- where each node is a tuple: (depth in tree, (simplified) proposition)
      buildNode n =
        if fst n == 5 then (n, [])   -- if max depth of tree is reached, terminate
-         else (n, [((fst n) + 1, law (snd n)) | law <- logicLaws, law (snd n) /= snd n])
+         else (n, [((fst n) + 1, law (snd n)) | law <- (logicLaws ++ bimplLaws), law (snd n) /= snd n])
      t = unfoldTree buildNode (0, p)
      (f, i) = shortestFormula (map (for . gf . snd) (flatten t))
 
@@ -352,40 +352,62 @@ optForm pgf sl tl p =  f ++ ";" ++ lin s
 -- The output string contains the well-behavedness, the formula, the number of 
 -- connectives, the number of predicates, and the total length (measured in 
 -- number of connectives and predicates) of both the input and output formula
-statisticsP:: PGF -> Language -> Language -> GProp -> String
+statisticsP:: PGF -> Language -> GProp -> String
 statisticsP = statistics
 
-statistics :: PGF -> Language -> Language -> GProp -> String
-statistics pgf sl tl p = 
+statistics :: PGF -> Language -> GProp -> String
+statistics pgf sl p = 
   "input;" ++ input_wb ++ input_formula ++ input_statistics ++ "\n" ++ 
+  "LoLa;" ++ lola_wb ++ lola_formula ++ lola_statistics ++ "\n" ++ 
   "BIMPL;" ++ bimpl_wb ++ bimpl_formula ++ bimpl_statistics
    where
-     input_formula = (for . gf) p
-     in_wb = isWB p
-     out_wb = wbList !! i
-     input_wb =
+    for = linearize pgf sl
+
+    --Input formula statistics
+    input_formula = (for . gf) p
+    in_wb = isWB p
+    input_wb =
       if in_wb then "WB;"
       else "NWB;"
-     bimpl_wb =
-      if out_wb then "WB;"
+
+    (in_connectives, in_predicates) = propCount input_formula
+    input_statistics = ";" ++ show in_connectives ++ ";" ++ show in_predicates ++ ";" ++ show (in_connectives + in_predicates)
+    
+    -- LoLa formula statistics
+    lolaNode n =
+      if fst n == 5 then (n, [])
+        else (n, [((fst n) + 1, law (snd n)) | law <- logicLaws, law (snd n) /= snd n])
+    l = unfoldTree lolaNode (0, p)
+
+    lolaTree = flatten l
+    lola_wbList = map (isWB . snd) lolaTree
+    (lola_formula, j, lola_count) = readStats (map (for . gf . snd) lolaTree)
+
+    lo_wb = lola_wbList !! j
+    lola_wb =
+      if lo_wb then "WB;"
       else "NWB;"
 
-     for = linearize pgf sl
-     
-     -- Build tree of possible simplifying operations,
-     -- where each node is a tuple: (depth in tree, (simplified) proposition)
-     buildNode n =
-       if fst n == 5 then (n, [])   -- if max depth of tree is reached, terminate
-         else (n, [((fst n) + 1, law (snd n)) | law <- logicLaws, law (snd n) /= snd n])
-     t = unfoldTree buildNode (0, p)
+    lola_connectives = fst lola_count
+    lola_predicates = snd lola_count
+    lola_statistics = ";" ++ show lola_connectives ++ ";" ++ show lola_predicates ++ ";" ++ show (lola_connectives + lola_predicates)
+    
+    -- BIMPL formula statistics
+    buildNode n =
+      if fst n == 5 then (n, []) 
+        else (n, [((fst n) + 1, law (snd n)) | law <- (logicLaws ++ bimplLaws), law (snd n) /= snd n])
+    b = unfoldTree buildNode (0, p)
 
-     flatTree = flatten t
-     wbList = map (isWB . snd) flatTree
-     formulaList = map (for . gf . snd) flatTree
-     (bimpl_formula, i, c) = readStats formulaList
+    bimplTree = flatten b
+    bimpl_wbList = map (isWB . snd) bimplTree
+    (bimpl_formula, i, bimpl_count) = readStats (map (for . gf . snd) bimplTree)
 
-     out_connectives = fst c
-     out_predicates = snd c
-     bimpl_statistics = ";" ++ show out_connectives ++ ";" ++ show out_predicates ++ ";" ++ show (out_connectives + out_predicates)
-     (in_connectives, in_predicates) = propCount input_formula
-     input_statistics = ";" ++ show in_connectives ++ ";" ++ show in_predicates ++ ";" ++ show (in_connectives + in_predicates)
+    bi_wb = bimpl_wbList !! i
+    bimpl_wb =
+      if bi_wb then "WB;"
+      else "NWB;"
+
+    bimpl_connectives = fst bimpl_count
+    bimpl_predicates = snd bimpl_count
+    bimpl_statistics = ";" ++ show bimpl_connectives ++ ";" ++ show bimpl_predicates ++ ";" ++ show (bimpl_connectives + bimpl_predicates)
+  

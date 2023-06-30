@@ -66,7 +66,14 @@ shortestSentence l = (shortest, fromJust (elemIndex shortest l))
    shortest = (minimumBy (comparing wordCount) l)
 
 wordCount :: String -> Int
-wordCount s = length (filter (/= ",") (words s))
+wordCount s = length (filter ignoreChar (words s))
+ where 
+  ignoreChar :: [Char] -> Bool        -- Pieter: does not count ) or ( for the word count
+  ignoreChar l = case l of
+    "," -> False
+    "(" -> False
+    ")" -> False
+    _ -> True
 
 contains :: GProp -> String -> Bool
 contains p s = isInfixOf s (PGF.showExpr [] (gf p))

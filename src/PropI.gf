@@ -103,7 +103,7 @@ lin
     c = True
     } ;
     POrElse p q = {
-    s = mkS orElse_Conj p.s q.s ;
+    s = SSubjS p.s orElse_Subj q.s ;
     c = True
     } ;
     POnlyIf p q = {

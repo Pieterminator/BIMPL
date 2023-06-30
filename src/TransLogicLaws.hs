@@ -22,6 +22,14 @@ logicLaws = [
   conditional1ltr, conditional1rtl,
   conditional2ltr, conditional2rtl,
 
+  quantneg1ltr, quantneg1rtl, quantneg2ltr,
+  quantneg2rtl, quantneg3ltr, quantneg3rtl, quantneg4ltr, quantneg4rtl,
+  quantdist1ltr, quantdist1rtl, quantdist2ltr, quantdist2rtl, quantind1,
+  quantind2, quantmov1ltr, quantmov1rtl, quantmov2ltr, quantmov2rtl,
+  quantmov3ltr, quantmov3rtl, quantmov4ltr, quantmov4rtl, vacquant1, vacquant2
+  ]
+
+bimplLaws = [
   -- Atomic equivalences
   idempotence3, complement4, 
   identity5, identity6,
@@ -39,13 +47,7 @@ logicLaws = [
   -- Additional equivalences
   redundance1, redundance5, redundance6,
   redundance7, redundance8,
-  distributivity1rtl, distributivity2rtl,
-
-  quantneg1ltr, quantneg1rtl, quantneg2ltr,
-  quantneg2rtl, quantneg3ltr, quantneg3rtl, quantneg4ltr, quantneg4rtl,
-  quantdist1ltr, quantdist1rtl, quantdist2ltr, quantdist2rtl, quantind1,
-  quantind2, quantmov1ltr, quantmov1rtl, quantmov2ltr, quantmov2rtl,
-  quantmov3ltr, quantmov3rtl, quantmov4ltr, quantmov4rtl, vacquant1, vacquant2
+  distributivity1rtl, distributivity2rtl
   ]
 
 identityLaws = [identity1, identity2, identity3, identity4, identity5, identity6]
