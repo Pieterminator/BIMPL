@@ -36,14 +36,9 @@ oper
   then_Adv = P.mkAdv "then" ;
   element_N = P.mkN "element" ;
   iff_Conj = P.mkConj "precisely when" ;        -- Pieter
-  -- conditions_N = P.mkN "conditions" ;           -- Pieter
-  -- same_A = P.mkA "same" ;                       -- Pieter
-  -- exclusively_Adv = P.mkAdv "exclusively" ;     -- Pieter
-  -- equivalent_A = P.mkA "equivalent" ;           -- Pieter
-  is_VA = P.mkVA (P.mkV "are" "was" "were") ;   -- Pieter
   both_N = P.mkN "both" ;                       -- Pieter
-  null_V = P.mkV " )" " )" " )" " )" " )" ;     -- Pieter
-  but_Conj = P.mkConj "( but" ;                 -- Pieter
+  null_V = P.mkV " )" " )" " )" " )" " )" ;     -- Pieter: abuse of the verb constructor
+  but_Conj = P.mkConj "( but" ;                 -- Pieter: for the exclusive disjunction
   orElse_Subj = P.mkSubj "or else" ;            -- Pieter
   onlyIf_Conj = P.mkConj "only if" ;            -- Pieter
   unless_Conj = P.mkConj "unless" ;             -- Pieter

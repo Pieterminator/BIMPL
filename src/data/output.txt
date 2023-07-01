@@ -1,3 +1,3 @@
-( Cube ( b ) ) $ Cube ( a );if b is a cube , then a is a cube
+PImpl (PNeg (PConj CAnd (PAtom (AKind Tet (IVar (VString "a")))) (PAtom (AKind Prime (IVar (VString "b")))))) (PConj COr (PImpl (PAtom (AKind Student (IVar (VString "a")))) (PAtom (AKind Cube (IVar (VString "a"))))) (PAtom (AKind Cube (IVar (VString "c"))))), if a is a student , then a is a cube or c is a cube unless a is a tetrahedron and b is a prime;25
 
 

@@ -1,3 +1,7 @@
+## BIMPL
+
+BIMPL is a [Grammatical Framework](http://www.grammaticalframework.org/) (GF) application grammar for translating between first-order predicate logic (FOL) and natural language.
+
 ## LoLa
 
 LoLa is a [Grammatical Framework](http://www.grammaticalframework.org/) (GF) application grammar for translating between first-order predicate logic (FOL) and natural language.  
@@ -9,8 +13,6 @@ To run all the other files, you need to create a fresh conda environment:
 
 `conda create --name lola --file requirements.txt python=3.9.12`
 
-In `tqa`, you will find the code used for the translation quality assessment.  
-In `evaluation` there are 2 subfolders: `automatic`, where you can find the code used for the automatic comparative evaluation of the 3 systems (with the correlations and IAA calculations), and `human`, where you will find the material and scripts used for the comparative human evaluation (NLI and FR tasks).  
 In `utils`, you can find the Random Generator, and the support script to preprocess the Grade Grinder Corpus (GGC).
 
 NOTE:

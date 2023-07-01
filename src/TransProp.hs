@@ -26,14 +26,15 @@ transfer m pgf la t = case m of
    transform f = gf . f . fg
 
 
--- Pieter: for optimizing translation and printing linearisation in source language
+-- Pieter: for optimising translation and printing linearisation in source language
 formSen :: Mode -> PGF -> Language -> Language -> PGF.Tree -> String
 formSen m pgf sl tl t = case m of
   MOptSen      -> optSenP pgf sl tl (fg t)
   MOptForm     -> optFormP pgf sl tl (fg t)
   MStatistics  -> statisticsP pgf sl (fg t)
 
-data Mode = MNone | MOptimize | MMinimalize | MNormalize | MSimplify | MOptSen | MOptForm | MStatistics deriving Show    -- Pieter added MOptSen, MOptForm and MStatistics
+-- Pieter added MOptSen, MOptForm and MStatistics
+data Mode = MNone | MOptimize | MMinimalize | MNormalize | MSimplify | MOptSen | MOptForm | MStatistics deriving Show    
 
 -- the conversion rules of Ranta (2011) section 5.3 (core -> extended syntax)
 optimizeP :: GProp -> GProp
@@ -252,15 +253,10 @@ iInd q f = case q of
       r :ss -> iInd r (\x -> wind ss (\y z -> GPConj co (GPConj co (f x) (f y)) (f z)))
   GIVar _  -> f q
   GIInt _  -> f q
---  _ -> error $ "ind not covered: " ++ PGF.showExpr [] (gf q)
-
 
 
 type Prop = GProp
 type Ind = GInd
-
---composOpMPlus :: (Compos t, MonadPlus m) => (forall a. t a -> m b) -> t c -> m b
---composOpM :: (Compos t, Monad m) => (forall a. t a -> m (t a)) -> t c -> m (t c)
 
 
 ----------------------------------------------------------------------------------------
@@ -273,7 +269,7 @@ simplifyP :: PGF -> Language -> GProp -> String
 simplifyP = simplify
 
 simplify :: PGF -> Language -> GProp -> String
-simplify pgf la p = (showExpr [] ((gf . snd) ((flatten t) !! i))) ++ ", " ++ s
+simplify pgf la p = (showExpr [] ((gf . snd) ((flatten t) !! i))) ++ ";" ++ s ++ ";" ++ show (wordCount s)
    where
      lin = linearize pgf la
 
@@ -305,7 +301,7 @@ optSenP:: PGF -> Language -> Language -> GProp -> String
 optSenP = optSen
 
 optSen:: PGF -> Language -> Language -> GProp -> String
-optSen pgf sl tl p = for f ++ ";" ++ s
+optSen pgf sl tl p = for f ++ ";" ++ s ++ ";" ++ show (wordCount s)
    where
      f = gf (snd ((flatten t) !! i))
      lin = linearize pgf tl
@@ -332,7 +328,7 @@ optFormP:: PGF -> Language -> Language -> GProp -> String
 optFormP = optForm
 
 optForm:: PGF -> Language -> Language -> GProp -> String
-optForm pgf sl tl p =  f ++ ";" ++ lin s
+optForm pgf sl tl p =  f ++ ";" ++ lin s ++ ";" ++ show (wordCount (lin s))
    where
      s = gf ((optimizeP . snd) ((flatten t) !! i))
      lin = linearize pgf tl
@@ -351,7 +347,8 @@ optForm pgf sl tl p =  f ++ ";" ++ lin s
 -- sequence is based on the length of the linearisation in the source language) 
 -- The output string contains the well-behavedness, the formula, the number of 
 -- connectives, the number of predicates, and the total length (measured in 
--- number of connectives and predicates) of both the input and output formula
+-- number of connectives and predicates) of both the input and output formula.
+-- For both BIMPL and LoLa
 statisticsP:: PGF -> Language -> GProp -> String
 statisticsP = statistics
 

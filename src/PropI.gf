@@ -28,7 +28,6 @@ lin
   PConj c p q = {s = mkS c.s p.s q.s ; c = True} ; -- can be ambiguous; cf. PConjs
   PImpl p q = {s = ExtAdvS (mkAdv if_Subj p.s) (mkS then_Adv q.s) ; c = True} ;
   PBimpl p q = {s = mkS iff_Conj p.s q.s ; c = True} ;   -- Pieter: Bi-implication
-  -- ExtAdvS (mkAdv under_Prep (mkNP the_Det (mkCN (mkAP same_A) (mkCN conditions_N)))) (mkS (mkCl (mkNP all_Predet these_NP) hold_V))
 
   PUniv v p = {
     s = ExtAdvS (mkAdv for_Prep (mkNP all_Predet (symb v.s))) p.s ;
@@ -81,7 +80,7 @@ lin
   AKind k x = mkCl x.s k ;
 
   PConjs c ps = case ps.c of {
-    True  => {s = mkS <colonConj : Conj> c.c (mkS <bulletConj : Conj> ps.s) ; c = False} ; ----
+    True  => {s = mkS <colonConj : Conj> c.c (mkS <bulletConj : Conj> ps.s) ; c = False} ; 
     False => {s = mkS c.s ps.s ; c = True}
     } ;
   PUnivs vs k p = {
@@ -98,18 +97,21 @@ lin
     } ;
 
     -- Pieter: For exclusive disjunction translation
-    PExclusiveOr p q = {
+    PExclusiveOr p q = { -- abuse of the sentence constructor to force parantheses
     s = mkS but_Conj (mkS either7or_DConj p.s q.s) (mkS (mkCl (mkNP not_Predet (mkNP both_N)) null_V)) ;
     c = True
     } ;
+    -- Pieter: For or else translation
     POrElse p q = {
     s = SSubjS p.s orElse_Subj q.s ;
     c = True
     } ;
+    -- Pieter: For only if translation
     POnlyIf p q = {
     s = mkS onlyIf_Conj q.s p.s ;
     c = True
     } ;
+    -- Pieter: For unless translation
     PUnless p q = {
     s = mkS unless_Conj q.s p.s ;
     c = True

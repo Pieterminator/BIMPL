@@ -52,16 +52,15 @@ cat
 
 fun
   PConjs  : Conj  -> [Prop] -> Prop ;       -- for flattening
-  -- PBimpls : [Prop] -> Prop ;                -- Pieter
   PUnivs  : [Var] -> Kind -> Prop -> Prop ; -- for moving the kind predicate out of the body
   PExists : [Var] -> Kind -> Prop -> Prop ; -- for moving the kind predicate out of the body
 
   PNegAtom  : Atom -> Prop ;                -- for verb negation
 
-  PExclusiveOr : Prop -> Prop -> Prop ;     -- Pieter: for exclusive or
-  POrElse : Prop -> Prop -> Prop ;
-  POnlyIf : Prop -> Prop -> Prop ;
-  PUnless : Prop -> Prop -> Prop ;
+  PExclusiveOr : Prop -> Prop -> Prop ;     -- Pieter: for exclusive or syntactic conversion
+  POrElse : Prop -> Prop -> Prop ;          -- Pieter: for or else syntactic conversion
+  POnlyIf : Prop -> Prop -> Prop ;          -- Pieter: for only if syntactic conversion
+  PUnless : Prop -> Prop -> Prop ;          -- Pieter: for unless syntactic conversion
 
   PNegExist : Var -> Prop -> Prop ;         -- Elze : for existNeg
 

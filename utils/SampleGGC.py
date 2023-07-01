@@ -1,25 +1,37 @@
+"""Support Python script to sample data from a GGC dataset. Also
+includes a function to conveniently convert files to .csv format.
+
+In the accompanying thesis "Exploring the bi-implication in 
+logic-to-text translation: An endeavour to improve upon Ranta's 
+rule-based approach", the GGC input formulas that were used for 
+testing BIMPL's performance were sampled with n=50 and seed=5555.
+If one had access to the particular subset of the GGC dataset that 
+was used, one could repoduce the sample.
+"""
+
 import pandas as pd
 import random as r
 
-def sampleData(file_in, file_out, csv=False, csvFile=r'utils/data/sample.csv', replace=False):
-    r.seed(9999)
+def sampleData(file_in, file_out, n=50, seed=None, replace=False):
+    """
+    Randomly samples n formulas from file_in and outputs them in file_out.
+    The size and seed of the sample can be specified. 
+    """
 
     # Open GGC dataset as DataFrame
     ggc_df = pd.read_csv(file_in, 
                         header=0, 
-                        error_bad_lines=False)
+                        on_bad_lines="skip")
     
-    # Sample n formulas from the GGC dataset 
-    sam = ggc_df.sample(n=50, random_state=5555)
-
-    # If "csv" parameter is True, save sample as .csv file
-    if(csv):
-        sam.to_csv(path_or_buf=csvFile, header=True, index=False)
+    # Sample n formulas from the GGC dataset. If a seed has been given as
+    # function argument, use that as seed. Else, use the system default
+    sam = ggc_df.sample(n=n, random_state=seed)
 
     # If "replace" parameter is True, replace 50% of material implication
-    # occurrences with bi-implications and write to .tmp file
+    # occurrences with bi-implications
     formulas = list(sam['formula'])
     if(replace):
+        r.seed(seed)
         newfs = list()
         for f in formulas:
             n = list(f)    
@@ -30,13 +42,18 @@ def sampleData(file_in, file_out, csv=False, csvFile=r'utils/data/sample.csv', r
             newfs.append(f)
         formulas = newfs
 
+    # Return a file with the sampled formulas
     with(open(file_out, 'w')) as f:
         f.write('\n'.join(formulas))
     f.close()
 
+
 def writeCsv(file_in, file_out):
+    """
+    Reads a file as a dataframe, and outputs a semicolon-delimited file.
+    """
     file = pd.read_csv(file_in, on_bad_lines="skip", sep=";")
     file.to_csv(file_out, header=True, index=False,sep=";")
 
-# sampleData(r'utils/data/GGC dataset.csv', r'utils/data/Test BIMPL 2/ggc-formulas.tmp', csv=False, replace=False)
-writeCsv(r'src/data/output.txt', r'utils/data/Test BIMPL 2/original LoLa/rg-output.csv')
+writeCsv(r'src/data/output.txt', r'src/data/output.csv')
+# sampleData(r'utils/data/GGC dataset.csv', r'src/data/output.csv', seed=5555, replace=True)

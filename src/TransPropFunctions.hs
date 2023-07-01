@@ -73,6 +73,8 @@ wordCount s = length (filter ignoreChar (words s))
     "," -> False
     "(" -> False
     ")" -> False
+    ":" -> False
+    "\\item" -> False
     _ -> True
 
 contains :: GProp -> String -> Bool
