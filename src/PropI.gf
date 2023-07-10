@@ -101,21 +101,21 @@ lin
     s = mkS but_Conj (mkS either7or_DConj p.s q.s) (mkS (mkCl (mkNP not_Predet (mkNP both_N)) null_V)) ;
     c = True
     } ;
-    -- Pieter: For or else translation
-    POrElse p q = {
-    s = SSubjS p.s orElse_Subj q.s ;
-    c = True
-    } ;
-    -- Pieter: For only if translation
-    POnlyIf p q = {
-    s = mkS onlyIf_Conj q.s p.s ;
-    c = True
-    } ;
-    -- Pieter: For unless translation
-    PUnless p q = {
-    s = mkS unless_Conj q.s p.s ;
-    c = True
-    } ;
+    -- -- Pieter: For or else translation
+    -- POrElse p q = {
+    -- s = SSubjS p.s orElse_Subj q.s ;
+    -- c = True
+    -- } ;
+    -- -- Pieter: For only if translation
+    -- POnlyIf p q = {
+    -- s = mkS onlyIf_Conj q.s p.s ;
+    -- c = True
+    -- } ;
+    -- -- Pieter: For unless translation
+    -- PUnless p q = {
+    -- s = mkS unless_Conj q.s p.s ;
+    -- c = True
+    -- } ;
 
   -- Elze: for existNeg
   PNegExist v p = { 

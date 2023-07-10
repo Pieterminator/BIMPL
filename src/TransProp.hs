@@ -12,8 +12,8 @@ import Data.Tree
 
 transfer :: Mode -> PGF -> Language -> PGF.Tree -> String
 transfer m pgf la t = case m of
-  -- MNone        -> lin id                                      -- no transformation
-  MNone        -> showTreeP pgf la (fg t)                     -- Pieter: no transformation, but shows abstract syntax tree
+  MNone        -> lin id                                      -- no transformation
+  -- MNone        -> showTreeP pgf la (fg t)                     -- Pieter: no transformation, but shows abstract syntax tree
   MMinimalize  -> lin (transform (minimalizeP . normalizeP))  -- interpretation functions
   MNormalize   -> lin (transform normalizeP)                  -- interpretation functions
   MOptimize    -> lin (transform optimizeP)                   -- the conversion rules of Ranta (2011) section 5.3
@@ -46,21 +46,28 @@ optimize t = case t of
   GPNeg (GPAtom a) -> GPNegAtom $ optimize a -- Elze: added optimize (among other things for reflNegPred)
 
   -- Pieter: Exlusive disjunction
-  GPNeg (GPBimpl (GPAtom a1) (GPAtom a2)) -> GPExclusiveOr (GPAtom a1) (GPAtom a2)
+  -- Since the propositions inside the structure are atomic formulas, 
+  -- there is no need for further optimisation of the inner propositions
+  GPNeg (GPBimpl (GPAtom a1) (GPAtom a2)) -> GPExclusiveOr (GPAtom a1) (GPAtom a2)                      
+  -- GPNeg (GPBimpl (GPNeg (GPAtom a1)) (GPAtom a2)) -> GPExclusiveOr (GPNegAtom a1) (GPAtom a2)           
+  -- GPNeg (GPBimpl (GPAtom a1) (GPNeg (GPAtom a2))) -> GPExclusiveOr (GPAtom a1) (GPNegAtom a2)            
+  -- GPNeg (GPBimpl (GPNeg (GPAtom a1)) (GPNeg (GPAtom a2))) -> GPExclusiveOr (GPNegAtom a1) (GPNegAtom a2)
 
-  -- Pieter: Or else
-  GPConj GCOr p1 (GPImpl (GPNeg p2) q) | p1 == p2 -> GPOrElse p1 q
-  GPConj GCOr (GPAtom a1) (GPImpl (GPNegAtom a2) q) | a1 == a2 -> GPOrElse (GPAtom a1) q
+  -- The optimisations below are commented out, as they are either seldomly used or result in
+  -- more ambiguous sentences.
+  -- -- Pieter: Or else
+  -- GPConj GCOr p1 (GPImpl (GPNeg p2) q) | p1 == p2 -> GPOrElse (optimize p1) (optimize q)
+  -- GPConj GCOr (GPAtom a1) (GPImpl (GPNegAtom a2) q) | a1 == a2 -> GPOrElse (GPAtom $ optimize a1) (optimize q) 
 
-  -- Pieter: Only if
-  GPImpl (GPNeg p) (GPNeg q) -> GPOnlyIf p q
-  GPImpl (GPNegAtom a) (GPNeg q) -> GPOnlyIf (GPAtom a) q
-  GPImpl (GPNeg p) (GPNegAtom a) -> GPOnlyIf p (GPAtom a)
-  GPImpl (GPNegAtom a1) (GPNegAtom a2) -> GPOnlyIf (GPAtom a1) (GPAtom a2)
+  -- -- Pieter: Only if
+  -- GPImpl (GPNeg p) (GPNeg q) -> GPOnlyIf (optimize p) (optimize q)
+  -- GPImpl (GPNegAtom a) (GPNeg q) -> GPOnlyIf (GPAtom $ optimize a) (optimize q)
+  -- GPImpl (GPNeg p) (GPNegAtom a) -> GPOnlyIf (optimize p) (GPAtom $ optimize a)
+  -- GPImpl (GPNegAtom a1) (GPNegAtom a2) -> GPOnlyIf (GPAtom $ optimize a1) (GPAtom $ optimize a2)
 
-  -- Pieter: Unless
-  GPImpl (GPNeg p) q -> GPUnless p q
-  GPImpl (GPNegAtom a) q -> GPUnless (GPAtom a) q
+  -- -- Pieter: Unless
+  -- GPImpl (GPNeg p) q -> GPUnless (optimize p) (optimize q)
+  -- GPImpl (GPNegAtom a) q -> GPUnless (GPAtom $ optimize a) (optimize q)
 
 
   -- Elze: for existNeg & inSituExistNeg
@@ -269,7 +276,8 @@ simplifyP :: PGF -> Language -> GProp -> String
 simplifyP = simplify
 
 simplify :: PGF -> Language -> GProp -> String
-simplify pgf la p = (showExpr [] ((gf . snd) ((flatten t) !! i))) ++ ";" ++ s ++ ";" ++ show (wordCount s)
+simplify pgf la p = (showExpr [] ((gf . snd) ((flatten t) !! i))) ++ ";" ++ 
+  s ++ ";" ++ wb ++ show (wordCount s)
    where
      lin = linearize pgf la
 
@@ -279,7 +287,16 @@ simplify pgf la p = (showExpr [] ((gf . snd) ((flatten t) !! i))) ++ ";" ++ s ++
        if fst n == 5 then (n, [])   -- if max depth of tree is reached, terminate
          else (n, [((fst n) + 1, law (snd n)) | law <- (logicLaws ++ bimplLaws), law (snd n) /= snd n])
      t = unfoldTree buildNode (0, p)
-     (s, i) = shortestSentence (map (lin . gf . optimizeP . snd) (flatten t))
+
+     flatTree = flatten t
+     (s, i) = shortestSentence (map (lin . gf . optimizeP . snd) flatTree)
+
+     wbList = map (isWB . snd) flatTree
+     wb_bool = wbList !! i
+     wb =
+       if wb_bool then "WB;"
+       else "NWB;"
+
 
 ----------------------------------------------------------------------------------------
 -- Pieter's additions
@@ -301,9 +318,9 @@ optSenP:: PGF -> Language -> Language -> GProp -> String
 optSenP = optSen
 
 optSen:: PGF -> Language -> Language -> GProp -> String
-optSen pgf sl tl p = for f ++ ";" ++ s ++ ";" ++ show (wordCount s)
+optSen pgf sl tl p = for f ++ ";" ++ s ++ ";" ++ wb ++ show (wordCount s)
    where
-     f = gf (snd ((flatten t) !! i))
+     f = gf (snd (flatTree !! i))
      lin = linearize pgf tl
      for = linearize pgf sl
      
@@ -314,10 +331,16 @@ optSen pgf sl tl p = for f ++ ";" ++ s ++ ";" ++ show (wordCount s)
          else (n, [((fst n) + 1, law (snd n)) | law <- (logicLaws ++ bimplLaws), law (snd n) /= snd n])
      t = unfoldTree buildNode (0, p)
      flatTree = flatten t
+     --
      wbList = map (isWB . snd) flatTree
+     wb =
+       if wbList !! i then "WB;"
+       else "NWB;"
+    
      sentenceList = map (lin . gf . optimizeP . snd) flatTree
      senWB = zip sentenceList wbList
      (s, i) = shortestWB senWB
+     
     --  (s, i) = shortestSentence (map (lin . gf . optimizeP . snd) (flatten t))
 
 

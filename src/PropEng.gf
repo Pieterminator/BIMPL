@@ -19,6 +19,7 @@ lin
     c = False
     } ;
 
+  -- Pieter: added linearisation for tautologies and contradictions.
   PTaut = {
     s = mkS (mkCl (taut_N)) ;
     c = False
@@ -35,17 +36,17 @@ oper
   such_A = P.mkA "such" ;
   then_Adv = P.mkAdv "then" ;
   element_N = P.mkN "element" ;
-  iff_Conj = P.mkConj "precisely when" ;        -- Pieter
-  both_N = P.mkN "both" ;                       -- Pieter
-  null_V = P.mkV " )" " )" " )" " )" " )" ;     -- Pieter: abuse of the verb constructor
-  but_Conj = P.mkConj "( but" ;                 -- Pieter: for the exclusive disjunction
-  orElse_Subj = P.mkSubj "or else" ;            -- Pieter
-  onlyIf_Conj = P.mkConj "only if" ;            -- Pieter
-  unless_Conj = P.mkConj "unless" ;             -- Pieter
-  taut_N = P.mkN "tautology" ;                  -- Pieter
-  contra_N = P.mkN "contradiction" ;            -- Pieter
   set_N2 = P.mkN2 (P.mkN "set") ;
   hold_V = P.mkV "hold" "held" "held" ; 
+  iff_Conj = P.mkConj "if and only if" ;        -- Pieter
+  null_V = P.mkV " )" " )" " )" " )" " )" ;     -- Pieter: abuse of the verb constructor
+  but_Conj = P.mkConj "( but" ;                 -- Pieter: for the exclusive disjunction
+  both_N = P.mkN "both" ;                       -- Pieter
+  -- orElse_Subj = P.mkSubj "or else" ;            -- Pieter
+  -- onlyIf_Conj = P.mkConj "only if" ;            -- Pieter
+  -- unless_Conj = P.mkConj "unless" ;             -- Pieter
+  taut_N = P.mkN "tautology" ;                  -- Pieter: added linearisation for 
+  contra_N = P.mkN "contradiction" ;            -- Pieter: tautologies and contradictions
   
 
   singular = P.singular ; ---

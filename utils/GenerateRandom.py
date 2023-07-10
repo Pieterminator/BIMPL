@@ -97,7 +97,7 @@ ggcLexicon = Lexicon(["Dodec", "Student", "Cube", "Prime", "Tet"])              
 # not too long and not too short
 depth = 3       # maximum depth
 formulas = []
-seed = 4321
+seed = 9999
 rg = RandomGenerator(ggcLexicon, depth, seed)
 
 while len(formulas) < 50:

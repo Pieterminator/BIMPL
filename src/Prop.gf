@@ -57,10 +57,12 @@ fun
 
   PNegAtom  : Atom -> Prop ;                -- for verb negation
 
+  -- Pieter: the implemented additional syntactic conversions. The latter three 
+  -- have been commented out, as they did not improve translation quality
   PExclusiveOr : Prop -> Prop -> Prop ;     -- Pieter: for exclusive or syntactic conversion
-  POrElse : Prop -> Prop -> Prop ;          -- Pieter: for or else syntactic conversion
-  POnlyIf : Prop -> Prop -> Prop ;          -- Pieter: for only if syntactic conversion
-  PUnless : Prop -> Prop -> Prop ;          -- Pieter: for unless syntactic conversion
+  -- POrElse : Prop -> Prop -> Prop ;          -- Pieter: for or else syntactic conversion
+  -- POnlyIf : Prop -> Prop -> Prop ;          -- Pieter: for only if syntactic conversion
+  -- PUnless : Prop -> Prop -> Prop ;          -- Pieter: for unless syntactic conversion
 
   PNegExist : Var -> Prop -> Prop ;         -- Elze : for existNeg
 

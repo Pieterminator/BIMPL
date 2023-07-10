@@ -1,0 +1,101 @@
+( ( Small ( a ) ) | ( Dodec ( d ) ) ) & ( ( Small ( a ) ) | ( Small ( d ) ) );all these hold : \item a is small or d is a dodecahedron \item a or d is small;WB;16
+
+( RightOf ( c , d ) ) $ ( RightOf ( b , c ) ) & ( LeftOf ( b , e ) );if c is to the right of d , then b is to the right of c and to the left of e;WB;22
+
+SameRow ( b , d );b is in the same row as d;WB;8
+
+( ( ( ~ ( FrontOf ( d , c ) ) ) & ( ~ ( BackOf ( b , d ) ) ) ) & ( ~ ( FrontOf ( c , c ) ) ) ) & ( ~ ( BackOf ( b , c ) ) );d is not in front of c , b is not in back of d , c is not in front of itself and b is not in back of c;WB;29
+
+BackOf ( d , a );d is in back of a;WB;6
+
+( ( ( ~ ( Large ( a ) ) ) & ( ~ ( Large ( e ) ) ) ) & ( Larger ( e , c ) ) ) & ( Larger ( a , c ) );a is not large , e is not large , e is larger than c and a is larger than c;WB;19
+
+( Tet ( a ) ) $ ( Tet ( a ) ) & ( FrontOf ( a , b ) );if a is a tetrahedron , then a is a tetrahedron and a is in front of b;WB;17
+
+( ( Cube ( e ) ) | ( Large ( b ) ) ) | ( ( Cube ( e ) ) | ( Large ( d ) ) );e is a cube , b is large , e is a cube or d is large;WB;15
+
+( Small ( a ) ) | ( ( Large ( c ) ) & ( Large ( d ) ) );a is small or c and d are large;WB;9
+
+( ( Cube ( a ) ) | ( Cube ( c ) ) ) | ( Cube ( e ) );a is a cube , c is a cube or e is a cube;WB;13
+
+( ( ~ ( Dodec ( b ) ) ) | ( FrontOf ( b , d ) ) ) | ( ~ ( BackOf ( b , d ) ) );b is not a dodecahedron , b is in front of d or b is not in back of d;WB;19
+
+( Large ( a ) ) % Large ( e );a is large precisely when e is large;WB;8
+
+( Cube ( a ) ) | ( ( Cube ( c ) ) | ( Cube ( e ) ) );a is a cube , c is a cube or e is a cube;WB;13
+
+( SameRow ( f , a ) ) | ( BackOf ( f , a ) );f is in the same row as a or in back of a;WB;13
+
+( Tet ( b ) ) $ Small ( b );if b is a tetrahedron , then b is small;WB;9
+
+SameRow ( d , b );d is in the same row as b;WB;8
+
+( ( Larger ( a , c ) ) & ( Larger ( e , c ) ) ) & ( ( ~ ( Large ( a ) ) ) & ( ~ ( Large ( e ) ) ) );a is larger than c , e is larger than c , a is not large and e is not large;WB;19
+
+( ( Tet ( c ) ) | ( Cube ( b ) ) ) & ( ( Cube ( b ) ) | ( Tet ( c ) ) );all these hold : \item c is a tetrahedron or b is a cube \item b is a cube or c is a tetrahedron;WB;21
+
+( ( Cube ( d ) ) | ( ( Cube ( e ) ) | ( Cube ( f ) ) ) ) $ ~ ( Medium ( c ) );if d is a cube , e is a cube or f is a cube , then c is not medium;WB;19
+
+( Cube ( d ) ) & ( ( Cube ( c ) ) & ( ( ( ~ ( Small ( d ) ) ) | ( ~ ( Cube ( d ) ) ) ) & ( ( ~ ( Small ( c ) ) ) | ( ~ ( Cube ( c ) ) ) ) ) );all these hold : \item d is a cube , c is a cube , d is not small or d is not a cube \item c is not small or c is not a cube;WB;31
+
+( ( ~ ( BackOf ( b , d ) ) ) | ( FrontOf ( b , d ) ) ) | ( ~ ( Dodec ( b ) ) );b is not in back of d , b is in front of d or b is not a dodecahedron;WB;19
+
+( ~ ( SameRow ( b , c ) ) ) | ( ~ ( SameRow ( c , b ) ) );b is not in the same row as c or c is not in the same row as b;WB;19
+
+( ( ~ ( LeftOf ( c , a ) ) ) | ( ~ ( LeftOf ( a , b ) ) ) ) & ( ( ~ ( RightOf ( e , c ) ) ) | ( ~ ( RightOf ( b , e ) ) ) );all these hold : \item c is not to the left of a or a is not to the left of b \item e is not to the right of c or b is not to the right of e;WB;37
+
+( Cube ( e ) ) | ( ( Cube ( c ) ) | ( Cube ( a ) ) );e is a cube , c is a cube or a is a cube;WB;13
+
+( ~ ( SameCol ( c , e ) ) ) & ( ~ ( SameCol ( e , d ) ) );c is not in the same column as e and e is not in the same column as d;WB;19
+
+( Small ( a ) ) | ( ( Large ( c ) ) & ( Large ( d ) ) );a is small or c and d are large;WB;9
+
+( ~ ( Pet ( max ) ) ) & ( Student ( max ) );max is not a pet and max is a student;WB;10
+
+( FrontOf ( e , d ) ) | ( ( Large ( e ) ) & ( Tet ( e ) ) );at least one of these holds : \item e is in front of d \item e is large and e is a tetrahedron;WB;20
+
+Larger ( a , b );a is larger than b;WB;5
+
+( ( SameCol ( a , d ) ) & ( SameRow ( d , e ) ) ) & ( SameCol ( e , b ) );a is in the same column as d , d is in the same row as e and e is in the same column as b;WB;25
+
+( ( ( Larger ( d , b ) ) & ( FrontOf ( b , d ) ) ) & ( Larger ( e , b ) ) ) & ( FrontOf ( b , e ) );d is larger than b , b is in front of d , e is larger than b and b is in front of e;WB;23
+
+( BackOf ( d , b ) ) & ( BackOf ( e , b ) );d and e are in back of b;WB;8
+
+( ( ( ~ ( FrontOf ( d , c ) ) ) & ( ~ ( FrontOf ( d , b ) ) ) ) & ( ~ ( FrontOf ( c , b ) ) ) ) & ( ~ ( FrontOf ( c , c ) ) );d is not in front of c , d is not in front of b , c is not in front of b and c is not in front of itself;WB;29
+
+( ( ~ ( FrontOf ( c , c ) ) ) & ( ~ ( FrontOf ( c , b ) ) ) ) & ( ( ~ ( FrontOf ( d , c ) ) ) & ( ~ ( FrontOf ( d , b ) ) ) );c is not in front of itself , c is not in front of b , d is not in front of c and d is not in front of b;WB;29
+
+SameShape ( d , e );d is of the same shape as e;WB;8
+
+( ( RightOf ( d , b ) ) | ( LeftOf ( d , b ) ) ) | ( ( Tet ( b ) ) | ( Tet ( d ) ) );d is to the right of b , d is to the left of b , b is a tetrahedron or d is a tetrahedron;WB;23
+
+( ( Cube ( b ) ) & ( Cube ( c ) ) ) $ ( SameRow ( b , c ) ) & ( ~ ( SameCol ( c , b ) ) );if b is a cube and c is a cube , then b is in the same row as c and c is not in the same column as b;WB;29
+
+( Larger ( b , c ) ) | ( ~ ( Larger ( c , e ) ) );b is larger than c or c is not larger than e;WB;12
+
+( ( ~ ( FrontOf ( d , b ) ) ) & ( ~ ( FrontOf ( d , c ) ) ) ) & ( ( ~ ( FrontOf ( c , c ) ) ) & ( ~ ( FrontOf ( c , b ) ) ) );d is not in front of b , d is not in front of c , c is not in front of itself and c is not in front of b;WB;29
+
+( ~ ( Dodec ( b ) ) ) | ( ( ~ ( BackOf ( b , d ) ) ) | ( FrontOf ( b , d ) ) );b is not a dodecahedron , b is not in back of d or b is in front of d;WB;19
+
+( ( LeftOf ( d , a ) ) | ( LeftOf ( a , d ) ) ) $ Cube ( a );if d is to the left of a or a is to the left of d , then a is a cube;WB;21
+
+( ( FrontOf ( b , c ) ) & ( BackOf ( c , b ) ) ) | ( ( FrontOf ( c , b ) ) & ( BackOf ( b , c ) ) );at least one of these holds : \item b is in front of c and c is in back of b \item c is in front of b and b is in back of c;WB;32
+
+( ~ ( Larger ( d , e ) ) ) & ( ~ ( Smaller ( d , e ) ) );d is not larger than e and d is not smaller than e;WB;13
+
+( ( Cube ( c ) ) & ( SameShape ( d , c ) ) ) & ( ( ~ ( Small ( d ) ) ) & ( ~ ( Small ( c ) ) ) );c is a cube , d is of the same shape as c , d is not small and c is not small;WB;21
+
+( Tet ( b ) ) $ ( Tet ( b ) ) & ( ~ ( Tet ( c ) ) );if b is a tetrahedron , then b is a tetrahedron and c is not a tetrahedron;WB;16
+
+( Tet ( c ) ) | ( ~ ( Tet ( b ) ) );c is a tetrahedron or b is not a tetrahedron;WB;10
+
+SameSize ( e , d );e is of the same size as d;WB;8
+
+( Cube ( a ) ) % Large ( a );a is a cube precisely when a is large;WB;9
+
+( Tet ( a ) ) & ( ( Tet ( e ) ) | ( ( F ) | ( ( Tet ( f ) ) & ( ~ ( Tet ( e ) ) ) ) ) );a is a tetrahedron and at least one of these holds : \item e is a tetrahedron , there is a contradiction \item f is a tetrahedron and e is not a tetrahedron;WB;29
+
+( ( Large ( e ) ) & ( Tet ( e ) ) ) | ( FrontOf ( e , d ) );at least one of these holds : \item e is large and e is a tetrahedron \item e is in front of d;WB;20
+
+

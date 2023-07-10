@@ -27,12 +27,12 @@ def checkEq(atoms, formula1, formula2, type, eq=True, latex=False):
              f.write(table.as_tabulate(index=False, table_format='latex'))
         f.close()
 
-a = ['p','q'#,'r'
+a = ['p','q','r'
      ]
-f1 = '( p = q ) = ~ q'
-f2 = '~ p'
+f1 = '( p = q ) = r'
+f2 = 'p = ( q = r )'
 
 # singleEq(a, f1, True)
-checkEq(a, f1, f2, r'RG formulas', eq=True, latex=True)
+checkEq(a, f1, f2, r'RG formulas', eq=True, latex=False)
 # print(ttg.Truths(['p', 'q'], ['(p = q)', '~q', '((p = q) = -q)', '~p']))
 

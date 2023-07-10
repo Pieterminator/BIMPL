@@ -1,0 +1,101 @@
+PConj COr (PConj COr (PNeg (PAtom (APred1 Large (IVar (VString "f"))))) (PAtom (AKind Cube (IVar (VString "f"))))) (PAtom (AKind Dodec (IVar (VString "f"))));f is not large , f is a cube or f is a dodecahedron;WB;13
+
+PConj CAnd (PNeg (PConj COr (PAtom (APred2 FrontOf (IVar (VString "d")) (IVar (VString "b")))) (PAtom (APred2 FrontOf (IVar (VString "c")) (IVar (VString "b")))))) (PNeg (PAtom (APred2 FrontOf (IVar (VString "d")) (IVar (VString "c")))));it is not the case that d or c is in front of b and d is not in front of c;WB;22
+
+PAtom (APred2 SameRow (IVar (VString "b")) (IVar (VString "d")));b is in the same row as d;WB;8
+
+PConj CAnd (PConj CAnd (PConj CAnd (PAtom (APred2 Larger (IVar (VString "d")) (IVar (VString "b")))) (PAtom (APred2 Larger (IVar (VString "e")) (IVar (VString "b"))))) (PAtom (APred2 FrontOf (IVar (VString "b")) (IVar (VString "d"))))) (PAtom (APred2 FrontOf (IVar (VString "b")) (IVar (VString "e"))));d is larger than b , e is larger than b , b is in front of d and b is in front of e;WB;23
+
+PNeg (PConj COr (PConj CAnd (PAtom (APred2 RightOf (IVar (VString "e")) (IVar (VString "c")))) (PAtom (APred2 LeftOf (IVar (VString "e")) (IVar (VString "b"))))) (PConj CAnd (PAtom (APred2 RightOf (IVar (VString "a")) (IVar (VString "c")))) (PAtom (APred2 LeftOf (IVar (VString "a")) (IVar (VString "b"))))));it is not the case that e or a is to the right of c and to the left of b;WB;21
+
+PConj CAnd (PAtom (AKind Tet (IVar (VString "a")))) (PConj COr (PAtom (AKind Tet (IVar (VString "e")))) (PAtom (AKind Tet (IVar (VString "f")))));all these hold : \item a is a tetrahedron \item e is a tetrahedron or f is a tetrahedron;WB;16
+
+PConj CAnd (PAtom (APred2 RightOf (IVar (VString "f")) (IVar (VString "a")))) (PAtom (APred2 LeftOf (IVar (VString "f")) (IVar (VString "b"))));f is to the right of a and to the left of b;WB;13
+
+PImpl (PConj CAnd (PAtom (APred1 Small (IVar (VString "c")))) (PAtom (AKind Dodec (IVar (VString "d"))))) (PConj CAnd (PConj CAnd (PAtom (APred1 Small (IVar (VString "c")))) (PAtom (AKind Dodec (IVar (VString "d"))))) (PConj CAnd (PNeg (PAtom (APred1 Large (IVar (VString "d"))))) (PNeg (PAtom (APred1 Small (IVar (VString "d")))))));if c is small and d is a dodecahedron , then c is small , d is a dodecahedron , d is not large and d is not small;WB;26
+
+PBimpl (PConj CAnd (PNeg (PAtom (AKind Tet (IVar (VString "b"))))) (PNeg (PAtom (AKind Tet (IVar (VString "d")))))) (PConj COr (PAtom (APred2 LeftOf (IVar (VString "d")) (IVar (VString "b")))) (PAtom (APred2 LeftOf (IVar (VString "b")) (IVar (VString "d")))));b is not a tetrahedron and d is not a tetrahedron precisely when d is to the left of b or b is to the left of d;WB;28
+
+PBimpl (PNeg (PAtom (AKind Cube (IVar (VString "b"))))) (PAtom (AKind Tet (IVar (VString "c"))));b is not a cube precisely when c is a tetrahedron;WB;11
+
+PConj CAnd (PAtom (AKind Tet (IVar (VString "a")))) (PConj COr (PAtom (APred2 SameShape (IVar (VString "e")) (IVar (VString "a")))) (PAtom (APred2 SameShape (IVar (VString "f")) (IVar (VString "a")))));a is a tetrahedron and e or f is of the same shape as a;WB;15
+
+PConj CAnd (PConj CAnd (PNeg (PAtom (APred2 FrontOf (IVar (VString "c")) (IVar (VString "b"))))) (PNeg (PAtom (APred2 FrontOf (IVar (VString "d")) (IVar (VString "b")))))) (PConj CAnd (PNeg (PAtom (APred2 FrontOf (IVar (VString "c")) (IVar (VString "c"))))) (PNeg (PAtom (APred2 FrontOf (IVar (VString "d")) (IVar (VString "c"))))));c is not in front of b , d is not in front of b , c is not in front of itself and d is not in front of c;WB;29
+
+PConj CAnd (PConj CAnd (PAtom (AKind Cube (IVar (VString "d")))) (PAtom (AKind Cube (IVar (VString "c"))))) (PConj CAnd (PNeg (PAtom (APred1 Small (IVar (VString "d"))))) (PNeg (PAtom (APred1 Small (IVar (VString "c"))))));d is a cube , c is a cube , d is not small and c is not small;WB;17
+
+PContra;there is a contradiction;WB;4
+
+PConj CAnd (PConj CAnd (PConj CAnd (PAtom (AKind Cube (IVar (VString "c")))) (PNeg (PAtom (APred1 Small (IVar (VString "c")))))) (PNeg (PAtom (APred1 Small (IVar (VString "d")))))) (PAtom (APred2 SameShape (IVar (VString "c")) (IVar (VString "d"))));c is a cube , c is not small , d is not small and c is of the same shape as d;WB;21
+
+PConj CAnd (PConj CAnd (PConj CAnd (PNeg (PAtom (APred1 Large (IVar (VString "a"))))) (PNeg (PAtom (APred1 Large (IVar (VString "e")))))) (PAtom (APred2 Larger (IVar (VString "e")) (IVar (VString "c"))))) (PAtom (APred2 Larger (IVar (VString "a")) (IVar (VString "c"))));a is not large , e is not large , e is larger than c and a is larger than c;WB;19
+
+PConj CAnd (PConj CAnd (PNeg (PAtom (APred2 FrontOf (IVar (VString "c")) (IVar (VString "b"))))) (PNeg (PAtom (APred2 FrontOf (IVar (VString "c")) (IVar (VString "c")))))) (PConj CAnd (PNeg (PAtom (APred2 FrontOf (IVar (VString "d")) (IVar (VString "b"))))) (PNeg (PAtom (APred2 FrontOf (IVar (VString "d")) (IVar (VString "c"))))));c is not in front of b , c is not in front of itself , d is not in front of b and d is not in front of c;WB;29
+
+PConj CAnd (PAtom (APred2 BackOf (IVar (VString "c")) (IVar (VString "a")))) (PAtom (APred2 FrontOf (IVar (VString "c")) (IVar (VString "e"))));c is in back of a and in front of e;WB;11
+
+PBimpl (PConj CAnd (PAtom (AKind Tet (IVar (VString "c")))) (PAtom (AKind Tet (IVar (VString "a"))))) (PConj COr (PAtom (APred1 Large (IVar (VString "a")))) (PAtom (APred1 Large (IVar (VString "c")))));c is a tetrahedron and a is a tetrahedron precisely when a or c is large;WB;16
+
+PConj COr (PNeg (PAtom (APred1 Large (IVar (VString "e"))))) (PAtom (APred2 BackOf (IVar (VString "e")) (IVar (VString "a"))));e is not large or e is in back of a;WB;11
+
+PConj COr (PAtom (APred2 BackOf (IVar (VString "f")) (IVar (VString "a")))) (PAtom (APred2 Smaller (IVar (VString "f")) (IVar (VString "a"))));f is in back of a or smaller than a;WB;10
+
+PConj CAnd (PConj CAnd (PAtom (AKind Tet (IVar (VString "a")))) (PConj COr (PAtom (AKind Tet (IVar (VString "e")))) (PAtom (AKind Tet (IVar (VString "f")))))) (PConj COr PTaut (PNeg (PAtom (AKind Tet (IVar (VString "f"))))));all these hold : \item a is a tetrahedron , e is a tetrahedron or f is a tetrahedron \item there is a tautology or f is not a tetrahedron;WB;26
+
+PConj CAnd (PConj CAnd (PNeg (PAtom (APred2 FrontOf (IVar (VString "d")) (IVar (VString "b"))))) (PNeg (PAtom (APred2 FrontOf (IVar (VString "c")) (IVar (VString "b")))))) (PConj CAnd (PNeg (PAtom (APred2 FrontOf (IVar (VString "d")) (IVar (VString "c"))))) (PNeg (PAtom (APred2 FrontOf (IVar (VString "c")) (IVar (VString "c"))))));d is not in front of b , c is not in front of b , d is not in front of c and c is not in front of itself;WB;29
+
+PBimpl (PNeg (PAtom (AKind Cube (IVar (VString "e"))))) (PConj COr (PAtom (APred1 Large (IVar (VString "d")))) (PAtom (APred1 Large (IVar (VString "b")))));e is not a cube precisely when d or b is large;WB;12
+
+PBimpl (PAtom (APred1 Large (IVar (VString "a")))) (PAtom (APred1 Small (IVar (VString "d"))));a is large precisely when d is small;WB;8
+
+PImpl (PAtom (AKind Tet (IVar (VString "a")))) (PAtom (APred2 FrontOf (IVar (VString "a")) (IVar (VString "d"))));if a is a tetrahedron , then a is in front of d;WB;12
+
+PConj CAnd (PConj CAnd (PConj CAnd (PAtom (APred2 FrontOf (IVar (VString "b")) (IVar (VString "d")))) (PAtom (APred2 FrontOf (IVar (VString "b")) (IVar (VString "e"))))) (PAtom (APred2 Larger (IVar (VString "d")) (IVar (VString "b"))))) (PAtom (APred2 Larger (IVar (VString "e")) (IVar (VString "b"))));b is in front of d , b is in front of e , d is larger than b and e is larger than b;WB;23
+
+PConj CAnd (PAtom (AKind Tet (IVar (VString "a")))) (PConj COr (PAtom (APred2 SameShape (IVar (VString "a")) (IVar (VString "f")))) (PAtom (APred2 SameShape (IVar (VString "a")) (IVar (VString "e")))));a is a tetrahedron and a is of the same shape as f or of the same shape as e;WB;20
+
+PConj CAnd (PBimpl (PAtom (APred2 LeftOf (IVar (VString "a")) (IVar (VString "d")))) (PAtom (AKind Cube (IVar (VString "a"))))) (PBimpl (PAtom (APred2 RightOf (IVar (VString "a")) (IVar (VString "d")))) (PAtom (AKind Cube (IVar (VString "a")))));all these hold : \item a is to the left of d precisely when a is a cube \item a is to the right of d precisely when a is a cube;WB;29
+
+PConj CAnd (PAtom (APred2 SameSize (IVar (VString "d")) (IVar (VString "e")))) (PAtom (APred2 SameSize (IVar (VString "e")) (IVar (VString "d"))));d is of the same size as e and e is of the same size as d;WB;17
+
+PConj CAnd (PConj CAnd (PConj CAnd (PNeg (PAtom (APred2 FrontOf (IVar (VString "c")) (IVar (VString "c"))))) (PNeg (PAtom (APred2 FrontOf (IVar (VString "d")) (IVar (VString "b")))))) (PNeg (PAtom (APred2 FrontOf (IVar (VString "c")) (IVar (VString "b")))))) (PNeg (PAtom (APred2 FrontOf (IVar (VString "d")) (IVar (VString "c")))));c is not in front of itself , d is not in front of b , c is not in front of b and d is not in front of c;WB;29
+
+PConj CAnd (PConj COr (PAtom (APred1 Small (IVar (VString "a")))) (PAtom (APred1 Small (IVar (VString "d"))))) (PConj COr (PAtom (APred1 Small (IVar (VString "a")))) (PAtom (AKind Dodec (IVar (VString "d")))));all these hold : \item a or d is small \item a is small or d is a dodecahedron;WB;16
+
+PConj CAnd (PAtom (AKind Tet (IVar (VString "a")))) (PConj COr (PAtom (AKind Tet (IVar (VString "e")))) (PAtom (AKind Tet (IVar (VString "f")))));all these hold : \item a is a tetrahedron \item e is a tetrahedron or f is a tetrahedron;WB;16
+
+PConj CAnd (PConj CAnd (PConj CAnd (PNeg (PAtom (APred1 Large (IVar (VString "a"))))) (PNeg (PAtom (APred1 Large (IVar (VString "e")))))) (PAtom (APred2 Larger (IVar (VString "e")) (IVar (VString "c"))))) (PAtom (APred2 Larger (IVar (VString "a")) (IVar (VString "c"))));a is not large , e is not large , e is larger than c and a is larger than c;WB;19
+
+PConj CAnd (PConj CAnd (PConj CAnd (PAtom (APred2 Larger (IVar (VString "e")) (IVar (VString "b")))) (PAtom (APred2 BackOf (IVar (VString "e")) (IVar (VString "b"))))) (PAtom (APred2 Larger (IVar (VString "d")) (IVar (VString "b"))))) (PAtom (APred2 BackOf (IVar (VString "d")) (IVar (VString "b"))));e is larger than b , e is in back of b , d is larger than b and d is in back of b;WB;23
+
+PConj CAnd (PAtom (AKind Tet (IVar (VString "a")))) (PNeg (PAtom (APred1 Large (IVar (VString "c")))));a is a tetrahedron and c is not large;WB;9
+
+PBimpl (PConj CAnd (PAtom (AKind Cube (IVar (VString "b")))) (PAtom (AKind Cube (IVar (VString "c"))))) (PConj CAnd (PAtom (APred2 SameRow (IVar (VString "c")) (IVar (VString "b")))) (PNeg (PAtom (APred2 SameCol (IVar (VString "c")) (IVar (VString "b"))))));b is a cube and c is a cube precisely when c is in the same row as b and c is not in the same column as b;WB;29
+
+PBimpl (PConj CAnd (PAtom (AKind Tet (IVar (VString "a")))) (PAtom (AKind Tet (IVar (VString "c"))))) (PConj COr (PAtom (APred1 Large (IVar (VString "a")))) (PAtom (APred1 Large (IVar (VString "c")))));a is a tetrahedron and c is a tetrahedron precisely when a or c is large;WB;16
+
+PConj CAnd (PAtom (AKind Tet (IVar (VString "a")))) (PNeg (PAtom (APred1 Large (IVar (VString "c")))));a is a tetrahedron and c is not large;WB;9
+
+PAtom (APred2 SameSize (IVar (VString "c")) (IVar (VString "b")));c is of the same size as b;WB;8
+
+PConj CAnd (PConj CAnd (PConj CAnd (PNeg (PAtom (APred2 FrontOf (IVar (VString "d")) (IVar (VString "b"))))) (PNeg (PAtom (APred2 FrontOf (IVar (VString "d")) (IVar (VString "c")))))) (PNeg (PAtom (APred2 FrontOf (IVar (VString "c")) (IVar (VString "b")))))) (PNeg (PAtom (APred2 FrontOf (IVar (VString "c")) (IVar (VString "c")))));d is not in front of b , d is not in front of c , c is not in front of b and c is not in front of itself;WB;29
+
+PBimpl (PConj COr (PConj COr (PAtom (AKind Cube (IVar (VString "e")))) (PAtom (AKind Cube (IVar (VString "d"))))) (PAtom (AKind Cube (IVar (VString "f"))))) (PNeg (PAtom (APred1 Medium (IVar (VString "c")))));e is a cube , d is a cube or f is a cube precisely when c is not medium;WB;19
+
+PConj CAnd (PAtom (APred2 FrontOf (IVar (VString "a")) (IVar (VString "c")))) (PAtom (APred2 FrontOf (IVar (VString "c")) (IVar (VString "e"))));a is in front of c and c is in front of e;WB;13
+
+PConj COr (PAtom (AKind Cube (IVar (VString "a")))) (PConj COr (PAtom (AKind Cube (IVar (VString "e")))) (PAtom (AKind Cube (IVar (VString "c")))));a is a cube , e is a cube or c is a cube;WB;13
+
+PConj CAnd (PAtom (AKind Tet (IVar (VString "a")))) (PConj COr (PAtom (AKind Tet (IVar (VString "e")))) (PConj COr (PConj CAnd (PAtom (AKind Tet (IVar (VString "f")))) (PNeg (PAtom (AKind Tet (IVar (VString "e")))))) PContra));a is a tetrahedron and at least one of these holds : \item e is a tetrahedron , f is a tetrahedron and e is not a tetrahedron \item there is a contradiction;WB;29
+
+PNeg (PConj COr (PAtom (APred2 SameCol (IVar (VString "c")) (IVar (VString "e")))) (PAtom (APred2 SameCol (IVar (VString "d")) (IVar (VString "e")))));it is not the case that c or d is in the same column as e;WB;16
+
+PConj CAnd (PConj COr (PAtom (APred1 Small (IVar (VString "a")))) (PAtom (AKind Dodec (IVar (VString "d"))))) (PConj COr (PAtom (APred1 Small (IVar (VString "a")))) (PAtom (APred1 Small (IVar (VString "d")))));all these hold : \item a is small or d is a dodecahedron \item a or d is small;WB;16
+
+PBimpl (PAtom (AKind Cube (IVar (VString "a")))) (PAtom (APred1 Large (IVar (VString "a"))));a is a cube precisely when a is large;WB;9
+
+PConj CAnd (PConj CAnd (PAtom (APred2 SameRow (IVar (VString "d")) (IVar (VString "e")))) (PAtom (APred2 SameCol (IVar (VString "b")) (IVar (VString "e"))))) (PAtom (APred2 SameCol (IVar (VString "a")) (IVar (VString "d"))));d is in the same row as e , b is in the same column as e and a is in the same column as d;WB;25
+
+PBimpl (PAtom (AKind Tet (IVar (VString "b")))) (PNeg (PAtom (AKind Tet (IVar (VString "c")))));b is a tetrahedron precisely when c is not a tetrahedron;WB;11
+
+

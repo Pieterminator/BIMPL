@@ -68,10 +68,10 @@ shortestSentence l = (shortest, fromJust (elemIndex shortest l))
 wordCount :: String -> Int
 wordCount s = length (filter ignoreChar (words s))
  where 
-  ignoreChar :: [Char] -> Bool        -- Pieter: does not count ) or ( for the word count
+  ignoreChar :: [Char] -> Bool
   ignoreChar l = case l of
     "," -> False
-    "(" -> False
+    "(" -> False                  -- Pieter: ignores ), (, : and \item for wordcount
     ")" -> False
     ":" -> False
     "\\item" -> False
@@ -127,9 +127,11 @@ countProp f = c + p
 --     ")" -> False
 --     _ -> True
 
+-- Find the shortest formula in a list of formulas (by number of connectives and predicates)
 propCount :: String -> (Int, Int)
 propCount f = (countConn f, countPred f)
 
+-- Count the number of cnnectives in a formula
 countConn :: String -> Int
 countConn f = length (filter connectives (words f))
  where 
@@ -142,6 +144,7 @@ countConn f = length (filter connectives (words f))
     "%" -> True
     _ -> False
 
+-- Count the number of predicates in a formula
 countPred :: String -> Int
 countPred f = length (filter predicates (words f))
  where 
@@ -174,12 +177,12 @@ countPred f = length (filter predicates (words f))
 shortestWB :: [(String,Bool)] -> (String, Int)
 shortestWB l = (fst shortest, fromJust (elemIndex shortest l))
  where
-   shortest = (minimumBy (comparing wbCount) l)
+   shortest = minimumBy (comparing wbCount) l
 
 wbCount :: (String, Bool) -> Int
 wbCount (s,b) = if b then count
   else comb count 1.3
   where
-    count = length (filter (/= ",") (words s))
+    count = wordCount s
     comb :: Int -> Float -> Int
     comb i f = round ( (fromIntegral i) * f)

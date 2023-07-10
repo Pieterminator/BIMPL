@@ -1,1 +1,1 @@
-~ ( Tet ( a ) & Prime ( b ) ) $ ( ( Student ( a ) $ Cube ( a ) ) | Cube ( c ) )
+~ ( Person ( a ) % Prime ( b ) ) $ ( Prime ( b ) | ~ Prime ( a ) )

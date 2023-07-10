@@ -55,5 +55,5 @@ def writeCsv(file_in, file_out):
     file = pd.read_csv(file_in, on_bad_lines="skip", sep=";")
     file.to_csv(file_out, header=True, index=False,sep=";")
 
-writeCsv(r'src/data/output.txt', r'src/data/output.csv')
-# sampleData(r'utils/data/GGC dataset.csv', r'src/data/output.csv', seed=5555, replace=True)
+# writeCsv(r'src/data/output.txt', r'src/data/output.csv')
+sampleData(r'utils/data/GGC dataset.csv', r'src/data/ggc-formulas.tmp', seed=9999, replace=False)

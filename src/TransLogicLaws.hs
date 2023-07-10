@@ -6,7 +6,6 @@ module TransLogicLaws where
 
 import qualified "gf" PGF (Tree, showExpr, showCId, exprFunctions)
 import Prop   -- generated from GF
-import Data.List (isInfixOf)
 import TransPropFunctions
 
 logicLaws = [

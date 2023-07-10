@@ -77,8 +77,8 @@ def changeNot(form):
 
 
 # Example proof
-f1 = "Cube ( P ) | ( Cube ( P ) & Cube ( Q ) )"
-f2 = "Cube ( P )"
+f1 = "( P % Q ) % R"
+f2 = "( P % Q ) & ( P % R )"
 singleEquiv(f1, f2)
 
 # autoEquiv(r'utils/data/Test BIMPL 2/equivalence eval/RG.csv', "Input", "BIMPL", file_out=None)

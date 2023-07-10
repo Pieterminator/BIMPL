@@ -1,0 +1,101 @@
+all these hold : \item a is a prime \item a is not a dodecahedron or a is not a student;WB;18
+
+all these hold : \item a is a prime or b is a dodecahedron , a is a tetrahedron \item b is a student unless a is not a cube and a is a prime;NWB;31
+
+all these hold : \item a is a dodecahedron or a is a prime \item a is a cube or b is a student;WB;21
+
+a is a student , b is not a prime , b is a student and a is a tetrahedron;WB;18
+
+all these hold : \item b is not a student or a is a dodecahedron \item b is not a tetrahedron , a is a student or a is a cube;WB;27
+
+a is a cube unless a is a dodecahedron and a is a student;WB;14
+
+all these hold : \item a is a student \item b is not a tetrahedron or c is a student;WB;17
+
+all these hold : \item a is a student \item a is not a cube or a is not a dodecahedron;WB;18
+
+a is a student and at least one of these holds : \item b is a dodecahedron and a is a cube \item a is a prime and c is a dodecahedron;WB;29
+
+a is not a student or c is a cube;WB;10
+
+a is not a prime , a is not a cube and b is not a prime;WB;16
+
+a is a student , a is not a dodecahedron and a is not a cube;WB;15
+
+a is a tetrahedron and b is a dodecahedron;WB;9
+
+all these hold : \item a is a dodecahedron \item a is not a tetrahedron or b is not a dodecahedron;WB;18
+
+all these hold : \item if if a is a prime , then b is a tetrahedron , then a is a dodecahedron \item a is not a tetrahedron or a is not a dodecahedron;NWB;30
+
+a is not a cube or a is a prime;WB;10
+
+a is a tetrahedron and b is a dodecahedron;WB;9
+
+all these hold : \item if a is a student , then b is a tetrahedron , c is not a prime \item if d is a tetrahedron , then c is not a prime;WB;29
+
+if a is a tetrahedron , b is a dodecahedron and c is a student , then a is a student , d is a cube or a is a cube;WB;28
+
+there is a contradiction;WB;4
+
+all these hold : \item a is not a student , a is a tetrahedron , b is not a cube or b is a dodecahedron \item a is a student;WB;26
+
+a is not a dodecahedron , a is not a prime and a is a student;WB;15
+
+c is a dodecahedron and b is a student only if b is not a tetrahedron and a is a cube;NWB;21
+
+a is a prime , b is a tetrahedron or c is a prime unless a is not a prime , a is a tetrahedron and b is a dodecahedron;NWB;28
+
+if a is a dodecahedron or b is a prime , then a is not a tetrahedron;WB;16
+
+at least one of these holds : \item a is not a prime \item b is a cube and a is a student;WB;20
+
+all these hold : \item a is a tetrahedron or b is a cube , a is not a student \item b is a cube;WB;21
+
+if a is a dodecahedron , then b is a dodecahedron;WB;10
+
+if a is not a dodecahedron , a is not a tetrahedron or b is a prime , then c is a student;WB;21
+
+a is a student unless a is a dodecahedron and a is a cube;WB;14
+
+c is a tetrahedron , a is a tetrahedron , b is a student or b is a prime;WB;17
+
+b is a dodecahedron and c is a dodecahedron only if a is a dodecahedron and a is a tetrahedron;WB;20
+
+if a is a student or b is a prime , then b is a prime , a is a student or b is not a tetrahedron;WB;25
+
+a is not a tetrahedron , a is not a cube , b is not a student and a is not a dodecahedron;WB;21
+
+a is a tetrahedron , b is not a dodecahedron and a is not a dodecahedron;WB;15
+
+all these hold : \item b is a cube only if a is a tetrahedron , b is a cube or a is a dodecahedron \item b is not a tetrahedron;WB;27
+
+a is not a tetrahedron , b is not a tetrahedron , c is a dodecahedron or a is not a student;WB;20
+
+a is a cube or b is not a prime;WB;10
+
+all these hold : \item a is a dodecahedron \item a is not a cube or a is not a tetrahedron;WB;18
+
+a is a student , b is not a tetrahedron or a is not a prime;WB;15
+
+at least one of these holds : \item a is a cube \item a is a dodecahedron , b is a student , c is a tetrahedron and b is a prime;WB;27
+
+a is a dodecahedron and b is a tetrahedron;WB;9
+
+a is a dodecahedron;WB;4
+
+if a is a tetrahedron , then all these hold : \item b is a dodecahedron or c is a dodecahedron \item if c is a tetrahedron , then d is a prime;NWB;28
+
+a is a cube , b is not a cube , a is not a prime , c is a cube or a is a tetrahedron;WB;23
+
+if a is a cube , b is a prime and c is a dodecahedron , then c is a student;WB;19
+
+all these hold : \item a is a student \item if b is a student or a is a cube , then c is a cube and c is a prime;WB;27
+
+if if a is a prime , then a is a dodecahedron , then if a is a dodecahedron or b is a student , then b is a cube or a is a student;NWB;32
+
+a is not a student , a is a cube or c is a cube unless a is a tetrahedron and b is a prime;WB;24
+
+a is a tetrahedron , a is a student , a is not a tetrahedron , a is not a cube or a is a dodecahedron;WB;23
+
+

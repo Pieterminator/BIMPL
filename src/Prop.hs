@@ -147,12 +147,9 @@ data Tree :: * -> * where
   GPNeg :: GProp -> Tree GProp_
   GPNegAtom :: GAtom -> Tree GProp_
   GPNegExist :: GVar -> GProp -> Tree GProp_
-  GPOnlyIf :: GProp -> GProp -> Tree GProp_
-  GPOrElse :: GProp -> GProp -> Tree GProp_
   GPTaut :: Tree GProp_
   GPUniv :: GVar -> GProp -> Tree GProp_
   GPUnivs :: GListVar -> GKind -> GProp -> Tree GProp_
-  GPUnless :: GProp -> GProp -> Tree GProp_
   GVString :: GString -> Tree GVar_
   GString :: String -> Tree GString_
   GInt :: Int -> Tree GInt_
@@ -233,12 +230,9 @@ instance Eq (Tree a) where
     (GPNeg x1,GPNeg y1) -> and [ x1 == y1 ]
     (GPNegAtom x1,GPNegAtom y1) -> and [ x1 == y1 ]
     (GPNegExist x1 x2,GPNegExist y1 y2) -> and [ x1 == y1 , x2 == y2 ]
-    (GPOnlyIf x1 x2,GPOnlyIf y1 y2) -> and [ x1 == y1 , x2 == y2 ]
-    (GPOrElse x1 x2,GPOrElse y1 y2) -> and [ x1 == y1 , x2 == y2 ]
     (GPTaut,GPTaut) -> and [ ]
     (GPUniv x1 x2,GPUniv y1 y2) -> and [ x1 == y1 , x2 == y2 ]
     (GPUnivs x1 x2 x3,GPUnivs y1 y2 y3) -> and [ x1 == y1 , x2 == y2 , x3 == y3 ]
-    (GPUnless x1 x2,GPUnless y1 y2) -> and [ x1 == y1 , x2 == y2 ]
     (GVString x1,GVString y1) -> and [ x1 == y1 ]
     (GString x, GString y) -> x == y
     (GInt x, GInt y) -> x == y
@@ -484,12 +478,9 @@ instance Gf GProp where
   gf (GPNeg x1) = mkApp (mkCId "PNeg") [gf x1]
   gf (GPNegAtom x1) = mkApp (mkCId "PNegAtom") [gf x1]
   gf (GPNegExist x1 x2) = mkApp (mkCId "PNegExist") [gf x1, gf x2]
-  gf (GPOnlyIf x1 x2) = mkApp (mkCId "POnlyIf") [gf x1, gf x2]
-  gf (GPOrElse x1 x2) = mkApp (mkCId "POrElse") [gf x1, gf x2]
   gf GPTaut = mkApp (mkCId "PTaut") []
   gf (GPUniv x1 x2) = mkApp (mkCId "PUniv") [gf x1, gf x2]
   gf (GPUnivs x1 x2 x3) = mkApp (mkCId "PUnivs") [gf x1, gf x2, gf x3]
-  gf (GPUnless x1 x2) = mkApp (mkCId "PUnless") [gf x1, gf x2]
 
   fg t =
     case unApp t of
@@ -505,12 +496,9 @@ instance Gf GProp where
       Just (i,[x1]) | i == mkCId "PNeg" -> GPNeg (fg x1)
       Just (i,[x1]) | i == mkCId "PNegAtom" -> GPNegAtom (fg x1)
       Just (i,[x1,x2]) | i == mkCId "PNegExist" -> GPNegExist (fg x1) (fg x2)
-      Just (i,[x1,x2]) | i == mkCId "POnlyIf" -> GPOnlyIf (fg x1) (fg x2)
-      Just (i,[x1,x2]) | i == mkCId "POrElse" -> GPOrElse (fg x1) (fg x2)
       Just (i,[]) | i == mkCId "PTaut" -> GPTaut 
       Just (i,[x1,x2]) | i == mkCId "PUniv" -> GPUniv (fg x1) (fg x2)
       Just (i,[x1,x2,x3]) | i == mkCId "PUnivs" -> GPUnivs (fg x1) (fg x2) (fg x3)
-      Just (i,[x1,x2]) | i == mkCId "PUnless" -> GPUnless (fg x1) (fg x2)
 
 
       _ -> error ("no Prop " ++ show t)
@@ -556,11 +544,8 @@ instance Compos Tree where
     GPNeg x1 -> r GPNeg `a` f x1
     GPNegAtom x1 -> r GPNegAtom `a` f x1
     GPNegExist x1 x2 -> r GPNegExist `a` f x1 `a` f x2
-    GPOnlyIf x1 x2 -> r GPOnlyIf `a` f x1 `a` f x2
-    GPOrElse x1 x2 -> r GPOrElse `a` f x1 `a` f x2
     GPUniv x1 x2 -> r GPUniv `a` f x1 `a` f x2
     GPUnivs x1 x2 x3 -> r GPUnivs `a` f x1 `a` f x2 `a` f x3
-    GPUnless x1 x2 -> r GPUnless `a` f x1 `a` f x2
     GVString x1 -> r GVString `a` f x1
     GListInd x1 -> r GListInd `a` foldr (a . a (r (:)) . f) (r []) x1
     GListPred1 x1 -> r GListPred1 `a` foldr (a . a (r (:)) . f) (r []) x1
