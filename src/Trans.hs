@@ -40,15 +40,19 @@ doTrans pgf s = case parseAllLang pgf (startCat pgf) s of
 -- Translation option 2: Parse the input string in the source language and 
 -- translate it with AST simplification into the target language
 doTransFromTo pgf mode source_l target_l s = case parse pgf source_l (startCat pgf) s of 
-  ts | length ts > 0 -> unlines [wb t ++ transfers t | t <- ts]    -- this assumes the input sentences are parsable
+  ts | length ts > 0 -> unlines [ -- wb t ++ 
+    transfers t | t <- ts]    -- this assumes the input sentences are parsable
    where
-     wb t = if (isWellBehaved t) then "WB, " else "NWB, "   -- check well-behavedness
+     wb t = if (isWellBehaved t) then "WB;" else "NWB;"   -- check well-behavedness
      transfers t = case mode of
        "MNone" -> transferss MNone
        "MOptimize" -> transferss MOptimize
        "MNormalize" -> transferss MNormalize
        "MMinimalize" -> transferss MMinimalize
        "MSimplify" -> transferss MSimplify
+       "MOptSen" -> formSens MOptSen          -- Pieter: use well-behavedness and translation length
+       "MOptForm" -> formSens MOptForm        -- Pieter: use formula length as criterion
       where
         transferss m = transfer m pgf target_l t
+        formSens m = formSen m pgf source_l target_l t
   _  -> "no parse"

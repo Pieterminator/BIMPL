@@ -65,9 +65,17 @@ shortestSentence l = (shortest, fromJust (elemIndex shortest l))
  where
    shortest = (minimumBy (comparing wordCount) l)
 
--- Returns the number of words in a string
 wordCount :: String -> Int
-wordCount s = length (filter (/= ",") (words s))
+wordCount s = length (filter ignoreChar (words s))
+ where 
+  ignoreChar :: [Char] -> Bool
+  ignoreChar l = case l of
+    "," -> False
+    "(" -> False                  -- Pieter: ignores ), (, : and \item for wordcount
+    ")" -> False
+    ":" -> False
+    "\\item" -> False
+    _ -> True
 
 contains :: GProp -> String -> Bool
 contains p s = isInfixOf s (PGF.showExpr [] (gf p))
@@ -75,16 +83,91 @@ contains p s = isInfixOf s (PGF.showExpr [] (gf p))
 -- Returns whether a given tree is well-behaved
 isWellBehaved :: PGF.Tree -> Bool
 isWellBehaved = isWB . fg
+
+isWB :: GProp -> Bool
+isWB p = case p of
+  GPNeg p1 -> if (contains p1 "PNeg") then False 
+    else isWB p1
+  GPConj c p1 p2 -> isWB p1 && isWB p2
+  GPImpl p1 p2 -> if (contains p1 "PImpl" || contains p2 "PImpl") then False
+    else isWB p1 && isWB p2
+  GPBimpl p1 p2 -> if (contains p1 "PBimpl" || contains p2 "PBimpl") then False   -- Pieter
+    else isWB p1 && isWB p2
+  GPUniv v1 p1 -> if v1 `notElem` (freeVars p1) then False
+    else isWB p1
+  GPExist v1 p1 -> if v1 `notElem` (freeVars p1) then False
+    else isWB p1
+  _ -> True   -- possible cases: GPAtom, GPNegAtom
+
+------------------------------------------------------------------------------
+-- Functions added by Pieter
+-- Find the shortest formula in a list of formulas (count of connectives and predicates)
+shortestFormula :: [String] -> (String, Int)
+shortestFormula l = (shortest, fromJust (elemIndex shortest l))
+ where
+   shortest = (minimumBy (comparing countProp) l)
+
+countProp :: String -> Int
+countProp f = c + p
+ where
+  (c,p) = propCount f
+
+-- Find the shortest formula in a list of formulas (by number of connectives and predicates)
+propCount :: String -> (Int, Int)
+propCount f = (countConn f, countPred f)
+
+-- Count the number of cnnectives in a formula
+countConn :: String -> Int
+countConn f = length (filter connectives (words f))
  where 
-   isWB :: GProp -> Bool
-   isWB p = case p of
-     GPNeg p1 -> if (contains p1 "PNeg") then False 
-       else isWB p1
-     GPConj c p1 p2 -> isWB p1 && isWB p2
-     GPImpl p1 p2 -> if (contains p1 "PImpl" || contains p2 "PImpl") then False
-       else isWB p1 && isWB p2
-     GPUniv v1 p1 -> if v1 `notElem` (freeVars p1) then False
-       else isWB p1
-     GPExist v1 p1 -> if v1 `notElem` (freeVars p1) then False
-       else isWB p1
-     _ -> True   -- possible cases: GPAtom, GPNegAtom
+  connectives :: [Char] -> Bool
+  connectives l = case l of
+    "~" -> True
+    "&" -> True
+    "|" -> True
+    "$" -> True
+    "%" -> True
+    _ -> False
+
+-- Count the number of predicates in a formula
+countPred :: String -> Int
+countPred f = length (filter predicates (words f))
+ where 
+  predicates :: [Char] -> Bool
+  predicates p = p `elem` ps
+  ps= [ -- Hardcoded the predicates. Could also be done with regular expressions
+    "Dodec",
+    "Student",
+    "Cube",
+    "Prime",
+    "Person",
+    "Tet",
+    "Pet",
+    "Small",
+    "Medium",
+    "Large",
+    "Even",
+    "Adjoins",
+    "SameCol",
+    "LeftOf",
+    "RightOf",
+    "Smaller",
+    "FrontOf",
+    "Larger",
+    "SameRow",
+    "SameShape",
+    "SameSize",
+    "BackOf"]
+
+shortestWB :: [(String,Bool)] -> (String, Int)
+shortestWB l = (fst shortest, fromJust (elemIndex shortest l))
+ where
+   shortest = minimumBy (comparing wbCount) l
+
+wbCount :: (String, Bool) -> Int
+wbCount (s,b) = if b then count
+  else comb count 1.3
+  where
+    count = wordCount s
+    comb :: Int -> Float -> Int
+    comb i f = round ( (fromIntegral i) * f)

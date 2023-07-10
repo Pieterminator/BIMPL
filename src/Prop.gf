@@ -13,11 +13,13 @@ cat
   Fun2 ;	-- binary function
   Conj ;	-- conjunction
 
+
 fun
   PAtom  : Atom  -> Prop ;                  -- turns an atom into a proposition
   PNeg   : Prop  -> Prop ;                  -- negation
   PConj  : Conj  -> Prop -> Prop -> Prop ;  -- conjunction
   PImpl  : Prop  -> Prop -> Prop ;          -- implication
+  PBimpl : Prop  -> Prop -> Prop ;          -- Pieter: bi-implication
 
   PUniv  : Var -> Prop -> Prop ;            -- universal quantification
   PExist : Var -> Prop -> Prop ;            -- existential quantification
@@ -38,6 +40,7 @@ fun
   PContra   : Prop ;                        -- Elze: proposition that is always false (contradiction)
 
 
+
 -- supplementary
 
 cat
@@ -54,9 +57,16 @@ fun
 
   PNegAtom  : Atom -> Prop ;                -- for verb negation
 
+  -- Pieter: the implemented additional syntactic conversions. The latter three 
+  -- have been commented out, as they did not improve translation quality
+  PExclusiveOr : Prop -> Prop -> Prop ;     -- Pieter: for exclusive or syntactic conversion
+  -- POrElse : Prop -> Prop -> Prop ;          -- Pieter: for or else syntactic conversion
+  -- POnlyIf : Prop -> Prop -> Prop ;          -- Pieter: for only if syntactic conversion
+  -- PUnless : Prop -> Prop -> Prop ;          -- Pieter: for unless syntactic conversion
+
   PNegExist : Var -> Prop -> Prop ;         -- Elze : for existNeg
 
-  ConjPred1 : Conj -> [Pred1] -> Pred1 ;    -- for subject-sharing aggregation
+  ConjPred1  : Conj  -> [Pred1] -> Pred1 ;  -- for subject-sharing aggregation
 
   APredColl : Pred2 -> [Ind] -> Atom ;      -- alternative for Apred2
 
@@ -73,7 +83,7 @@ fun
   Something_IExist : Ind ;                  -- Elze: for inSituWithoutKind
   Nothing_IExist : Ind ;                    -- Elze: for inSituWithoutKind
 
-  ConjInd : Conj -> [Ind] -> Ind ;          -- for predicate-sharing aggregation
+  ConjInd : Conj  -> [Ind] -> Ind ;         -- for predicate-sharing aggregation
 
   ModKind : Kind -> Pred1 -> Kind ;         -- for modification
 
