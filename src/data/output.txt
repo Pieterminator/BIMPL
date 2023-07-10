@@ -1,3 +1,0 @@
-PImpl (PNeg (PBimpl (PAtom (AKind Person (IVar (VString "a")))) (PAtom (AKind Prime (IVar (VString "b")))))) (PConj COr (PAtom (AKind Prime (IVar (VString "b")))) (PNeg (PAtom (AKind Prime (IVar (VString "a"))))));b is a prime or a is not a prime unless a is a person if and only if b is a prime;WB;23
-
-

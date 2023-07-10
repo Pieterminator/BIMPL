@@ -31,10 +31,9 @@ formSen :: Mode -> PGF -> Language -> Language -> PGF.Tree -> String
 formSen m pgf sl tl t = case m of
   MOptSen      -> optSenP pgf sl tl (fg t)
   MOptForm     -> optFormP pgf sl tl (fg t)
-  MStatistics  -> statisticsP pgf sl (fg t)
 
 -- Pieter added MOptSen, MOptForm and MStatistics
-data Mode = MNone | MOptimize | MMinimalize | MNormalize | MSimplify | MOptSen | MOptForm | MStatistics deriving Show    
+data Mode = MNone | MOptimize | MMinimalize | MNormalize | MSimplify | MOptSen | MOptForm deriving Show    
 
 -- the conversion rules of Ranta (2011) section 5.3 (core -> extended syntax)
 optimizeP :: GProp -> GProp
@@ -364,70 +363,3 @@ optForm pgf sl tl p =  f ++ ";" ++ lin s ++ ";" ++ show (wordCount (lin s))
          else (n, [((fst n) + 1, law (snd n)) | law <- (logicLaws ++ bimplLaws), law (snd n) /= snd n])
      t = unfoldTree buildNode (0, p)
      (f, i) = shortestFormula (map (for . gf . snd) (flatten t))
-
-
--- Simplify a proposition given the source language (the chosen simplification
--- sequence is based on the length of the linearisation in the source language) 
--- The output string contains the well-behavedness, the formula, the number of 
--- connectives, the number of predicates, and the total length (measured in 
--- number of connectives and predicates) of both the input and output formula.
--- For both BIMPL and LoLa
-statisticsP:: PGF -> Language -> GProp -> String
-statisticsP = statistics
-
-statistics :: PGF -> Language -> GProp -> String
-statistics pgf sl p = 
-  "input;" ++ input_wb ++ input_formula ++ input_statistics ++ "\n" ++ 
-  "LoLa;" ++ lola_wb ++ lola_formula ++ lola_statistics ++ "\n" ++ 
-  "BIMPL;" ++ bimpl_wb ++ bimpl_formula ++ bimpl_statistics
-   where
-    for = linearize pgf sl
-
-    --Input formula statistics
-    input_formula = (for . gf) p
-    in_wb = isWB p
-    input_wb =
-      if in_wb then "WB;"
-      else "NWB;"
-
-    (in_connectives, in_predicates) = propCount input_formula
-    input_statistics = ";" ++ show in_connectives ++ ";" ++ show in_predicates ++ ";" ++ show (in_connectives + in_predicates)
-    
-    -- LoLa formula statistics
-    lolaNode n =
-      if fst n == 5 then (n, [])
-        else (n, [((fst n) + 1, law (snd n)) | law <- logicLaws, law (snd n) /= snd n])
-    l = unfoldTree lolaNode (0, p)
-
-    lolaTree = flatten l
-    lola_wbList = map (isWB . snd) lolaTree
-    (lola_formula, j, lola_count) = readStats (map (for . gf . snd) lolaTree)
-
-    lo_wb = lola_wbList !! j
-    lola_wb =
-      if lo_wb then "WB;"
-      else "NWB;"
-
-    lola_connectives = fst lola_count
-    lola_predicates = snd lola_count
-    lola_statistics = ";" ++ show lola_connectives ++ ";" ++ show lola_predicates ++ ";" ++ show (lola_connectives + lola_predicates)
-    
-    -- BIMPL formula statistics
-    buildNode n =
-      if fst n == 5 then (n, []) 
-        else (n, [((fst n) + 1, law (snd n)) | law <- (logicLaws ++ bimplLaws), law (snd n) /= snd n])
-    b = unfoldTree buildNode (0, p)
-
-    bimplTree = flatten b
-    bimpl_wbList = map (isWB . snd) bimplTree
-    (bimpl_formula, i, bimpl_count) = readStats (map (for . gf . snd) bimplTree)
-
-    bi_wb = bimpl_wbList !! i
-    bimpl_wb =
-      if bi_wb then "WB;"
-      else "NWB;"
-
-    bimpl_connectives = fst bimpl_count
-    bimpl_predicates = snd bimpl_count
-    bimpl_statistics = ";" ++ show bimpl_connectives ++ ";" ++ show bimpl_predicates ++ ";" ++ show (bimpl_connectives + bimpl_predicates)
-  

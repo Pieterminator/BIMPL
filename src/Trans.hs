@@ -52,7 +52,6 @@ doTransFromTo pgf mode source_l target_l s = case parse pgf source_l (startCat p
        "MSimplify" -> transferss MSimplify
        "MOptSen" -> formSens MOptSen          -- Pieter: use well-behavedness and translation length
        "MOptForm" -> formSens MOptForm        -- Pieter: use formula length as criterion
-       "MStatistics" -> formSens MStatistics  -- Pieter: use formula length, compare with LoLa's stats
       where
         transferss m = transfer m pgf target_l t
         formSens m = formSen m pgf source_l target_l t

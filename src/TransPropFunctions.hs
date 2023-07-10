@@ -107,25 +107,10 @@ shortestFormula l = (shortest, fromJust (elemIndex shortest l))
  where
    shortest = (minimumBy (comparing countProp) l)
 
-readStats :: [String] -> (String, Int, (Int, Int))
-readStats l = (shortest, fromJust (elemIndex shortest l), propCount shortest)
- where
-   shortest = (minimumBy (comparing countProp) l)
-
 countProp :: String -> Int
 countProp f = c + p
  where
   (c,p) = propCount f
-  
--- Find the shortest formula in a list of formulas (by word count, brackets excluded)
--- propCount :: String -> Int
--- propCount f = length (filter ignoreChar (words f))
---  where 
---   ignoreChar :: [Char] -> Bool
---   ignoreChar l = case l of
---     "(" -> False
---     ")" -> False
---     _ -> True
 
 -- Find the shortest formula in a list of formulas (by number of connectives and predicates)
 propCount :: String -> (Int, Int)

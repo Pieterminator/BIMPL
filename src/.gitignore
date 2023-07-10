@@ -1,8 +1,6 @@
 #files and file types
 *.gfo
 Prop.pgf
-test.txt
-output.txt
 
 #folders
 .stack-work/*

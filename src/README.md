@@ -1,7 +1,9 @@
 ## Grammatical Framework application grammar for translating between predicate logic and language
+BIMPL is an extension of [LoLa](https://aclanthology.org/2022.gem-1.13/).
+The source code for LoLa can be found at [LoLa](https://gitlab.nl4xai.eu/eduardo.calo/LoLa).
 
-LoLa is an extension of [Ranta's (2011)](http://www.cse.chalmers.se/~aarne/articles/cade2011.pdf) GF application.
-The original version of Ranta's code is taken from [cade-2011](https://github.com/GrammaticalFramework/gf-contrib/tree/master/cade-2011). The file `Changes.md` lists all bug fixes and changes to the original code.
+LoLa, in turn, is an extension of [Ranta's (2011)](http://www.cse.chalmers.se/~aarne/articles/cade2011.pdf) GF application.
+The original version of Ranta's code is taken from [cade-2011](https://github.com/GrammaticalFramework/gf-contrib/tree/master/cade-2011).
 
 
 ### Prerequisites

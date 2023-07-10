@@ -3,8 +3,9 @@ includes a function to conveniently convert files to .csv format.
 
 In the accompanying thesis "Exploring the bi-implication in 
 logic-to-text translation: An endeavour to improve upon Ranta's 
-rule-based approach", the GGC input formulas that were used for 
-testing BIMPL's performance were sampled with n=50 and seed=5555.
+rule-based approach", the GGC input formulas that were used in 
+subsection 4.1 were sampled with n=50 and seed=5555. In subsection 4.3,
+the formulas were sampled with n=50 and seed=9999.
 If one had access to the particular subset of the GGC dataset that 
 was used, one could repoduce the sample.
 """

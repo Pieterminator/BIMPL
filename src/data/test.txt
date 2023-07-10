@@ -1,1 +1,0 @@
-~ ( Person ( a ) % Prime ( b ) ) $ ( Prime ( b ) | ~ Prime ( a ) )

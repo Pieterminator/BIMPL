@@ -8,14 +8,16 @@ initialisation of the random generator.
 In the accompanying thesis "Exploring the bi-implication in 
 logic-to-text translation: An endeavour to improve upon Ranta's 
 rule-based approach", the RG input formulas that were used in the
-second round of testing the performance of BIMPL's logical optimisation
+paragraph "Testing for minimisation - LoLa's domain" of subsection 4.1
 were sampled with seed=4321. 
-For the first round of testing, some minor modifications were made to 
-the program. The makeProp function was defined to generate a random 
-number between 0 and 8, and the material implication was generated 
-if the random number was 4 or 5. Also, the bi-implication was generated
-if the random number was 6,7, or 8 (as seen in the part that was commented
-out). The set was then sampled with seed=1234."""
+For subsection 4.3, the formulas were sampled with seed=9999.
+For the paragraph "Testing for minimisation - BIMPL's domain" of subsection 4.1, 
+some minor modifications were made to the program. The makeProp function 
+was defined to generate a random number between 0 and 8, and the material 
+implication was generated if the random number was 4 or 5. Also, the 
+bi-implication was generatedif the random number was 6,7, or 8 (as seen 
+in the part that was commentedout). The set was then sampled with 
+seed=1234."""
 
 import string
 import random as r
